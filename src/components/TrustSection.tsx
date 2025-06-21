@@ -10,25 +10,25 @@ const TrustSection: React.FC = () => {
       icon: <Award className="w-8 h-8" />,
       number: '15+',
       label: t('yearsExperience'),
-      color: 'text-blue-600'
+      color: 'text-gray-700'
     },
     {
       icon: <Package className="w-8 h-8" />,
       number: '50K+',
       label: t('shipmentsPerYear'),
-      color: 'text-orange-500'
+      color: 'text-yellow-500'
     },
     {
       icon: <Shield className="w-8 h-8" />,
       number: '12',
       label: t('certifications'),
-      color: 'text-green-600'
+      color: 'text-gray-600'
     },
     {
       icon: <Users className="w-8 h-8" />,
       number: '500+',
       label: t('happyClients'),
-      color: 'text-purple-600'
+      color: 'text-gray-500'
     }
   ];
 
