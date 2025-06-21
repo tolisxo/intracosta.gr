@@ -10,29 +10,29 @@ const Services: React.FC = () => {
       icon: <Truck className="w-12 h-12" />,
       title: t('roadTransport'),
       description: t('roadTransportDesc'),
-      color: 'bg-blue-500',
-      hoverColor: 'hover:bg-blue-600'
+      color: 'bg-gray-700',
+      hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Package className="w-12 h-12" />,
       title: t('groupage'),
       description: t('groupageDesc'),
-      color: 'bg-orange-500',
-      hoverColor: 'hover:bg-orange-600'
+      color: 'bg-yellow-500',
+      hoverColor: 'hover:bg-yellow-600'
     },
     {
       icon: <FileText className="w-12 h-12" />,
       title: t('customs'),
       description: t('customsDesc'),
-      color: 'bg-green-500',
-      hoverColor: 'hover:bg-green-600'
+      color: 'bg-gray-600',
+      hoverColor: 'hover:bg-gray-700'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
       title: t('warehousing'),
       description: t('warehousingDesc'),
-      color: 'bg-purple-500',
-      hoverColor: 'hover:bg-purple-600'
+      color: 'bg-gray-500',
+      hoverColor: 'hover:bg-gray-600'
     }
   ];
 
@@ -43,7 +43,7 @@ const Services: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             {t('servicesTitle')}
           </h2>
-          <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -62,7 +62,7 @@ const Services: React.FC = () => {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <button className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                <button className="inline-flex items-center text-gray-700 hover:text-gray-900 font-semibold transition-colors">
                   {t('learnMore')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>

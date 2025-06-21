@@ -35,11 +35,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg">
+            <div className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-lg">
               <Truck className="w-6 h-6 text-white" />
             </div>
             <div className="text-xl font-bold text-gray-900">
-              EuroLogistics
+              Intracosta
             </div>
           </div>
 
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
               >
                 {t(item.key)}
               </button>
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors"
+                className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors"
               >
                 <Globe className="w-4 h-4" />
                 <span className="text-sm font-medium">
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                         setIsLanguageOpen(false);
                       }}
                       className={`w-full px-4 py-2 text-left text-sm flex items-center space-x-2 hover:bg-gray-50 ${
-                        language === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                        language === lang.code ? 'bg-yellow-50 text-yellow-600' : 'text-gray-700'
                       }`}
                     >
                       <span>{lang.flag}</span>
@@ -94,7 +94,7 @@ const Header: React.FC = () => {
             {/* CTA Button */}
             <button
               onClick={() => scrollToSection('#quote')}
-              className="hidden sm:block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+              className="hidden sm:block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
             >
               {t('getQuote')}
             </button>
@@ -117,14 +117,14 @@ const Header: React.FC = () => {
                 <button
                   key={item.key}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  className="text-left text-gray-700 hover:text-gray-900 font-medium transition-colors"
                 >
                   {t(item.key)}
                 </button>
               ))}
               <button
                 onClick={() => scrollToSection('#quote')}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors text-left"
+                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium transition-colors text-left"
               >
                 {t('getQuote')}
               </button>

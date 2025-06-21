@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           backgroundImage: 'url("https://images.pexels.com/photos/1118446/pexels-photo-1118446.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")'
         }}
       >
-        <div className="absolute inset-0 bg-blue-900/70"></div>
+        <div className="absolute inset-0 bg-gray-800/70"></div>
       </div>
 
       {/* Content */}
@@ -30,13 +30,13 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             {t('heroTitle')}
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed">
             {t('heroSubtitle')}
           </p>
           
           <button
             onClick={scrollToQuote}
-            className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+            className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
           >
             {t('heroCtaText')}
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -46,26 +46,26 @@ const Hero: React.FC = () => {
         {/* Trust Indicators */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="flex items-center justify-center space-x-3 text-white">
-            <Shield className="w-8 h-8 text-orange-400" />
+            <Shield className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
               <div className="text-2xl font-bold">ISO 9001</div>
-              <div className="text-blue-200">Certified Quality</div>
+              <div className="text-gray-200">Certified Quality</div>
             </div>
           </div>
           
           <div className="flex items-center justify-center space-x-3 text-white">
-            <Clock className="w-8 h-8 text-orange-400" />
+            <Clock className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
               <div className="text-2xl font-bold">24/7</div>
-              <div className="text-blue-200">Support Available</div>
+              <div className="text-gray-200">Support Available</div>
             </div>
           </div>
           
           <div className="flex items-center justify-center space-x-3 text-white">
-            <Award className="w-8 h-8 text-orange-400" />
+            <Award className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
               <div className="text-2xl font-bold">15+</div>
-              <div className="text-blue-200">Years Experience</div>
+              <div className="text-gray-200">Years Experience</div>
             </div>
           </div>
         </div>

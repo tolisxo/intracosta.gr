@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      details: ['info@eurologistics.gr', 'quotes@eurologistics.gr']
+      details: ['info@intracosta.gr', 'quotes@intracosta.gr']
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             {t('contactTitle')}
           </h2>
-          <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">
                     {info.icon}
                   </div>
                   <div>
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder={t('name')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       required
                     />
                     <input
@@ -151,7 +151,7 @@ const Contact: React.FC = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder={t('phone')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     />
                   </div>
 
@@ -161,7 +161,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder={t('email')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
 
@@ -171,14 +171,14 @@ const Contact: React.FC = () => {
                     onChange={handleInputChange}
                     placeholder={t('message')}
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent resize-none"
                     required
                   ></textarea>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center"
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>

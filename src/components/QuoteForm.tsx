@@ -57,7 +57,7 @@ const QuoteForm: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <section id="quote" className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+      <section id="quote" className="py-20 bg-gradient-to-br from-gray-700 to-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-xl shadow-2xl p-12">
             <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -74,13 +74,13 @@ const QuoteForm: React.FC = () => {
   }
 
   return (
-    <section id="quote" className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+    <section id="quote" className="py-20 bg-gradient-to-br from-gray-700 to-gray-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">
             {t('quoteFormTitle')}
           </h2>
-          <p className="text-xl text-blue-100">
+          <p className="text-xl text-gray-100">
             Get a personalized quote for your transport needs
           </p>
         </div>
@@ -91,7 +91,7 @@ const QuoteForm: React.FC = () => {
               {/* Left Column - Shipment Details */}
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <Package className="w-6 h-6 mr-3 text-blue-600" />
+                  <Package className="w-6 h-6 mr-3 text-gray-700" />
                   Shipment Details
                 </h3>
 
@@ -103,7 +103,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.pickupLocation}
                     onChange={handleInputChange}
                     placeholder={t('pickupLocation')}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -116,7 +116,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.deliveryLocation}
                     onChange={handleInputChange}
                     placeholder={t('deliveryLocation')}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -126,7 +126,7 @@ const QuoteForm: React.FC = () => {
                     name="cargoType"
                     value={formData.cargoType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   >
                     <option value="">{t('cargoType')}</option>
@@ -142,7 +142,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.weight}
                     onChange={handleInputChange}
                     placeholder={t('weight')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -154,7 +154,7 @@ const QuoteForm: React.FC = () => {
                     name="desiredDate"
                     value={formData.desiredDate}
                     onChange={handleInputChange}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -163,7 +163,7 @@ const QuoteForm: React.FC = () => {
               {/* Right Column - Contact Details */}
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <User className="w-6 h-6 mr-3 text-blue-600" />
+                  <User className="w-6 h-6 mr-3 text-gray-700" />
                   Contact Information
                 </h3>
 
@@ -175,7 +175,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.companyName}
                     onChange={handleInputChange}
                     placeholder={t('companyName')}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -188,7 +188,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.contactPerson}
                     onChange={handleInputChange}
                     placeholder={t('contactPerson')}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -201,7 +201,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder={t('email')}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -214,7 +214,7 @@ const QuoteForm: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder={t('phone')}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -222,7 +222,7 @@ const QuoteForm: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center"
+                  className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>

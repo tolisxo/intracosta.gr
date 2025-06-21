@@ -34,22 +34,22 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg">
+              <div className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-lg">
                 <Truck className="w-6 h-6 text-white" />
               </div>
-              <div className="text-xl font-bold">EuroLogistics</div>
+              <div className="text-xl font-bold">Intracosta</div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Your trusted partner for reliable international transport and logistics solutions across Europe.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors">
+              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -89,19 +89,19 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6">{t('contactInfo')}</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />
                 <div className="text-gray-300">
                   <div>123 Logistics Street</div>
                   <div>Athens 10431, Greece</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                 <span className="text-gray-300">+30 210 123 4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <span className="text-gray-300">info@eurologistics.gr</span>
+                <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                <span className="text-gray-300">info@intracosta.gr</span>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-300 mb-4 md:mb-0">
-              © 2024 EuroLogistics. {t('allRightsReserved')}.
+              © 2024 Intracosta. {t('allRightsReserved')}.
             </div>
             <div className="flex space-x-6">
               <button className="text-gray-300 hover:text-white transition-colors text-sm">

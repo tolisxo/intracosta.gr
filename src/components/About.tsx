@@ -39,7 +39,7 @@ const About: React.FC = () => {
               alt="Logistics team"
               className="rounded-xl shadow-2xl"
             />
-            <div className="absolute -bottom-6 -right-6 bg-orange-500 text-white p-6 rounded-xl shadow-lg">
+            <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-6 rounded-xl shadow-lg">
               <div className="text-3xl font-bold">15+</div>
               <div className="text-sm font-medium">Years of Excellence</div>
             </div>
@@ -50,7 +50,7 @@ const About: React.FC = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               {t('aboutTitle')}
             </h2>
-            <div className="w-24 h-1 bg-orange-500 mb-8"></div>
+            <div className="w-24 h-1 bg-yellow-500 mb-8"></div>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               {t('aboutText')}
@@ -64,7 +64,7 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {values.map((value, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-700">
                     {value.icon}
                   </div>
                   <div>
