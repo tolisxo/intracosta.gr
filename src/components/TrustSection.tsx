@@ -72,11 +72,20 @@ const TrustSection: React.FC = () => {
           <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
             {t('certifications')}
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center space-x-3 bg-gray-50 px-6 py-3 rounded-lg">
-                <span className="text-2xl">{cert.logo}</span>
-                <span className="font-semibold text-gray-800">{cert.name}</span>
+              <div
+                key={index}
+                className="flex flex-col items-center bg-gray-50 p-4 rounded-lg shadow hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <div className="text-3xl mb-2">{cert.logo}</div>
+                <div className="font-semibold text-gray-800">{cert.name}</div>
+                <div className="text-xs text-gray-500 mt-1 text-center">
+                  {cert.name === 'ISO 9001' && 'Διαχείριση Ποιότητας'}
+                  {cert.name === 'TIR' && 'Διεθνής Μεταφορά Εμπορευμάτων'}
+                  {cert.name === 'FIATA' && 'Παγκόσμια Ομοσπονδία Μεταφορών'}
+                  {cert.name === 'AEO' && 'Εγκεκριμένος Οικονομικός Φορέας'}
+                </div>
               </div>
             ))}
           </div>
