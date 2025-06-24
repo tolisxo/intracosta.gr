@@ -1,9 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight, Shield, Clock, Award } from 'lucide-react';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
@@ -44,7 +47,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div ref={ref} className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="flex items-center justify-center space-x-3 text-white">
             <Shield className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
@@ -64,7 +67,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center justify-center space-x-3 text-white">
             <Award className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
-              <div className="text-2xl font-bold">15+</div>
+              <div className="text-2xl font-bold">{inView ? <CountUp start={0} end={15} duration={2} /> : 0}+</div>
               <div className="text-gray-200">Years Experience</div>
             </div>
           </div>
