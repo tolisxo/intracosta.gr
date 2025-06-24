@@ -35,8 +35,8 @@ const About: React.FC = () => {
           {/* Image Section */}
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Logistics team"
+              src="https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Truck transporting goods"
               className="rounded-xl shadow-2xl"
             />
             <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-6 rounded-xl shadow-lg">
@@ -57,7 +57,7 @@ const About: React.FC = () => {
             </p>
 
             <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-              Our experienced team of logistics professionals ensures that your cargo reaches its destination safely and on time. We pride ourselves on building long-term partnerships with our clients based on trust, reliability, and exceptional service.
+              {t('aboutDetailedText')}
             </p>
 
             {/* Values Grid */}

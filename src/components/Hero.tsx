@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-32 pb-24">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-40 sm:pt-32 pb-24">
       {/* Background Video */}
       <div className="absolute inset-0 overflow-hidden">
         <video
@@ -35,21 +35,16 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-        <img
-  src="/intracosta.png"
-  alt="Intracosta Logo"
-  className="mx-auto w-40 h-auto mb-6 animate-fade-in-up"
-/>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
             Μεταφορές που φτάνουν πιο μακριά – με ταχύτητα, ασφάλεια και αξιοπιστία.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up delay-150">
+          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up delay-150">
             Διεθνείς & Εθνικές Οδικές Μεταφορές με 15+ χρόνια εμπειρίας, ISO 9001, 24/7 υποστήριξη και 500+ ευχαριστημένους πελάτες.
           </p>
           
           <button
             onClick={scrollToQuote}
-            className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up delay-300"
+            className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-2xl animate-fade-in-up delay-300"
           >
             Ζητήστε Προσφορά
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -57,7 +52,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div ref={ref} className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto backdrop-blur-md bg-white/10 p-6 rounded-xl shadow-xl">
+        <div ref={ref} className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto backdrop-blur-md bg-white/10 p-6 rounded-xl shadow-xl">
           {/* ISO 9001 */}
           <div className="flex items-center justify-center space-x-3 text-white transition-transform duration-300 hover:scale-105 animate-fade-in-up">
             <Shield className="w-8 h-8 text-yellow-400" />
