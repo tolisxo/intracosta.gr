@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Truck, Package, FileText, Warehouse, ArrowRight } from 'lucide-react';
+import { Truck, Warehouse, ArrowRight } from 'lucide-react';
 
 const Services: React.FC = () => {
   const { t } = useLanguage();
@@ -8,24 +8,17 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('roadTransport'),
-      description: t('roadTransportDesc'),
+      title: t('internationalTransport'),
+      description: t('internationalTransportDesc'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
-      icon: <Package className="w-12 h-12" />,
-      title: t('groupage'),
-      description: t('groupageDesc'),
-      color: 'bg-yellow-500',
-      hoverColor: 'hover:bg-yellow-600'
-    },
-    {
-      icon: <FileText className="w-12 h-12" />,
-      title: t('customs'),
-      description: t('customsDesc'),
-      color: 'bg-gray-600',
-      hoverColor: 'hover:bg-gray-700'
+      icon: <Truck className="w-12 h-12" />,
+      title: t('domesticTransport'),
+      description: t('domesticTransportDesc'),
+      color: 'bg-gray-700',
+      hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
