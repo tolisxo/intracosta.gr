@@ -6,6 +6,7 @@ const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isServicesHovered, setIsServicesHovered] = useState(false);
 
   const languages = [
     { code: 'el' as const, name: 'ΕΛ', flag: '🇬🇷' },
@@ -32,28 +33,62 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center py-1 md:py-2 lg:py-2.5">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-lg">
-              <Truck className="w-6 h-6 text-white" />
-            </div>
-            <div className="text-xl font-bold text-gray-900">
-              Intracosta
+            <div className="flex items-center space-x-2">
+              <img
+                src="/logocorrectversion.svg"
+                alt="Intracosta Logo"
+                className="w-20 h-20 object-contain transition-transform duration-500 hover:scale-125"
+              />
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
-              >
-                {t(item.key)}
-              </button>
-            ))}
+            {menuItems.map((item) =>
+              item.key === 'services' ? (
+                <div
+                  key={item.key}
+                  className="relative"
+                  onMouseEnter={() => setIsServicesHovered(true)}
+                  onMouseLeave={() => setIsServicesHovered(false)}
+                >
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+                  >
+                    {t(item.key)}
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-md shadow-xl transition-all duration-200 z-50 before:content-[''] before:absolute before:top-[-8px] before:left-6 before:w-4 before:h-4 before:bg-white before:rotate-45 before:border-l before:border-t before:border-gray-200 before:z-[-1] ${
+                      isServicesHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                    }`}
+                  >
+                    <ul className="py-2">
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6" onClick={() => scrollToSection('#international')}>
+                        Διεθνείς Μεταφορές
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6" onClick={() => scrollToSection('#national')}>
+                        Εθνικές Μεταφορές
+                      </li>
+                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6" onClick={() => scrollToSection('#storage')}>
+                        Αποθήκευση / Logistics
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  key={item.key}
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
+                >
+                  {t(item.key)}
+                </button>
+              )
+            )}
           </nav>
 
           {/* Language Switcher & CTA */}
