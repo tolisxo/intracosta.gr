@@ -47,7 +47,8 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div ref={ref} className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div ref={ref} className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          {/* ISO 9001 */}
           <div className="flex items-center justify-center space-x-3 text-white">
             <Shield className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
@@ -55,20 +56,41 @@ const Hero: React.FC = () => {
               <div className="text-gray-200">Certified Quality</div>
             </div>
           </div>
-          
+
+          {/* 24/7 Support */}
           <div className="flex items-center justify-center space-x-3 text-white">
             <Clock className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
-              <div className="text-2xl font-bold">24/7</div>
+              <div className="text-2xl font-bold">
+                {inView ? (
+                  <CountUp start={0} end={24} duration={1.2} suffix="/7" />
+                ) : (
+                  <>0/7</>
+                )}
+              </div>
               <div className="text-gray-200">Support Available</div>
             </div>
           </div>
-          
+
+          {/* Years Experience */}
           <div className="flex items-center justify-center space-x-3 text-white">
             <Award className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
-              <div className="text-2xl font-bold">{inView ? <CountUp start={0} end={15} duration={2} /> : 0}+</div>
+              <div className="text-2xl font-bold">
+                {inView ? <CountUp start={0} end={15} duration={2} suffix="+" /> : <>0+</>}
+              </div>
               <div className="text-gray-200">Years Experience</div>
+            </div>
+          </div>
+
+          {/* 500+ Clients */}
+          <div className="flex items-center justify-center space-x-3 text-white">
+            <span className="w-8 h-8 flex items-center justify-center text-yellow-400 font-bold text-2xl">🏆</span>
+            <div className="text-left">
+              <div className="text-2xl font-bold">
+                {inView ? <CountUp start={0} end={500} duration={2} suffix="+" /> : <>0+</>}
+              </div>
+              <div className="text-gray-200">Clients</div>
             </div>
           </div>
         </div>
