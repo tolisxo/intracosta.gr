@@ -8,15 +8,15 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('internationalTransport'),
-      description: t('internationalTransportDesc'),
+      title: "Διεθνείς Μεταφορές",
+      description: "Ασφαλείς και αξιόπιστες μεταφορές φορτίων προς και από την Ευρώπη",
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('domesticTransport'),
-      description: t('domesticTransportDesc'),
+      title: "Εθνικές Μεταφορές",
+      description: "Άμεσες και αποδοτικές μεταφορές εντός Ελλάδας με πλήρη κάλυψη",
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
@@ -39,7 +39,7 @@ const Services: React.FC = () => {
           <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {services.map((service, index) => (
             <div
               key={index}
