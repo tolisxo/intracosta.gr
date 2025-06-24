@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Shield, Clock, Award } from 'lucide-react';
+import { ArrowRight, Shield, Clock, Award, Users } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
@@ -16,30 +16,35 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url("https://images.pexels.com/photos/1118446/pexels-photo-1118446.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")'
-        }}
-      >
-        <div className="absolute inset-0 bg-gray-800/70"></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-32 pb-24">
+      {/* Background Video */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          poster="https://images.pexels.com/photos/1118446/pexels-photo-1118446.jpeg"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gray-900/60"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
             {t('heroTitle')}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up delay-150">
             {t('heroSubtitle')}
           </p>
           
           <button
             onClick={scrollToQuote}
-            className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+            className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl animate-fade-in-up delay-300"
           >
             {t('heroCtaText')}
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -47,7 +52,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div ref={ref} className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div ref={ref} className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto backdrop-blur-md bg-white/10 p-6 rounded-xl shadow-xl">
           {/* ISO 9001 */}
           <div className="flex items-center justify-center space-x-3 text-white">
             <Shield className="w-8 h-8 text-yellow-400" />
@@ -85,7 +90,7 @@ const Hero: React.FC = () => {
 
           {/* 500+ Clients */}
           <div className="flex items-center justify-center space-x-3 text-white">
-            <span className="w-8 h-8 flex items-center justify-center text-yellow-400 font-bold text-2xl">🏆</span>
+            <Users className="w-8 h-8 text-yellow-400" />
             <div className="text-left">
               <div className="text-2xl font-bold">
                 {inView ? <CountUp start={0} end={500} duration={2} suffix="+" /> : <>0+</>}
