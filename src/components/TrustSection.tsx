@@ -1,9 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Award, Users, Package, Shield } from 'lucide-react';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 
 const TrustSection: React.FC = () => {
   const { t } = useLanguage();
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const stats = [
     {
@@ -43,13 +46,35 @@ const TrustSection: React.FC = () => {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg mb-4 ${stat.color}`}>
                 {stat.icon}
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">
+                {stat.number === '15+' && (
+                  <CountUp start={0} end={15} suffix="+" duration={2} redraw={false} delay={0} preserveValue={true} />
+                )}
+                {stat.number === '50K+' && (
+                  <CountUp start={0} end={50000} separator="," suffix="+" duration={2} redraw={false} delay={0} preserveValue={true} />
+                )}
+                {stat.number === '12' && (
+                  <CountUp start={0} end={12} duration={2} redraw={false} delay={0} preserveValue={true} />
+                )}
+                {stat.number === '500+' && (
+                  <CountUp start={0} end={500} suffix="+" duration={2} redraw={false} delay={0} preserveValue={true} />
+                )}
+                {!inView && stat.number}
+                {inView && (
+                  <>
+                    {stat.number === '15+' && <CountUp start={0} end={15} suffix="+" duration={2} />}
+                    {stat.number === '50K+' && <CountUp start={0} end={50000} separator="," suffix="+" duration={2} />}
+                    {stat.number === '12' && <CountUp start={0} end={12} duration={2} />}
+                    {stat.number === '500+' && <CountUp start={0} end={500} suffix="+" duration={2} />}
+                  </>
+                )}
+              </div>
               <div className="text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
