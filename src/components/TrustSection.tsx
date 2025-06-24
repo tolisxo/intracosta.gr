@@ -53,19 +53,6 @@ const TrustSection: React.FC = () => {
                 {stat.icon}
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">
-                {stat.number === '15+' && (
-                  <CountUp start={0} end={15} suffix="+" duration={2} redraw={false} delay={0} preserveValue={true} />
-                )}
-                {stat.number === '50K+' && (
-                  <CountUp start={0} end={50000} separator="," suffix="+" duration={2} redraw={false} delay={0} preserveValue={true} />
-                )}
-                {stat.number === '12' && (
-                  <CountUp start={0} end={12} duration={2} redraw={false} delay={0} preserveValue={true} />
-                )}
-                {stat.number === '500+' && (
-                  <CountUp start={0} end={500} suffix="+" duration={2} redraw={false} delay={0} preserveValue={true} />
-                )}
-                {!inView && stat.number}
                 {inView && (
                   <>
                     {stat.number === '15+' && <CountUp start={0} end={15} suffix="+" duration={2} />}
