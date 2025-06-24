@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Award, Users, Package, Shield } from 'lucide-react';
+import { Award, Users, Package, Shield, ShieldCheck, Truck, Globe, CheckCircle } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
@@ -36,10 +36,10 @@ const TrustSection: React.FC = () => {
   ];
 
   const certifications = [
-    { name: 'ISO 9001', logo: '🏆' },
-    { name: 'TIR', logo: '🚛' },
-    { name: 'FIATA', logo: '🌍' },
-    { name: 'AEO', logo: '✅' }
+    { name: 'ISO 9001', logo: <ShieldCheck className="w-8 h-8 text-blue-600" /> },
+    { name: 'TIR', logo: <Truck className="w-8 h-8 text-yellow-500" /> },
+    { name: 'FIATA', logo: <Globe className="w-8 h-8 text-green-500" /> },
+    { name: 'AEO', logo: <CheckCircle className="w-8 h-8 text-emerald-500" /> }
   ];
 
   return (
