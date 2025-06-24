@@ -35,11 +35,11 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <img
-            src="/intracosta.png"
-            alt="Intracosta Logo"
-            className="mx-auto w-40 h-auto mb-6 animate-fade-in-up"
-          />
+        <img
+  src="/intracosta.png"
+  alt="Intracosta Logo"
+  className="mx-auto w-40 h-auto mb-6 animate-fade-in-up"
+/>
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
             Μεταφορές που φτάνουν πιο μακριά – με ταχύτητα, ασφάλεια και αξιοπιστία.
           </h1>
