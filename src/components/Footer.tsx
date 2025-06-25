@@ -33,11 +33,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-lg">
-                <Truck className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-xl font-bold">Intracosta</div>
+            <div className="mb-6">
+              <img src="/logo.svg" alt="Intracosta Logo" className="h-12" />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Your trusted partner for reliable international transport and logistics solutions across Europe.
