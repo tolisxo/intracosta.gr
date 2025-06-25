@@ -35,11 +35,11 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
-            Μεταφορές που φτάνουν πιο μακριά – με ταχύτητα, ασφάλεια και αξιοπιστία.
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up">
+            Η ασφάλεια της μεταφοράς σας, προσωπική μας υπόθεση.
           </h1>
-          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up delay-150">
-            Διεθνείς & Εθνικές Οδικές Μεταφορές με 15+ χρόνια εμπειρίας, ISO 9001, 24/7 υποστήριξη και 500+ ευχαριστημένους πελάτες.
+          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up delay-150">
+            Αξιόπιστες οδικές μεταφορές στην Ελλάδα και την Ευρώπη — με εμπειρία, οργανωμένο δίκτυο και τεχνολογία αιχμής.
           </p>
           
           <button
