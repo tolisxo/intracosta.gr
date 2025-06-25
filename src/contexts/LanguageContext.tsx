@@ -64,6 +64,26 @@ const translations: Translations = {
     en: 'Secure storage and inventory management', 
     de: 'Sichere Lagerung und Lagerverwaltung' 
   },
+  internationalTransport: {
+    el: 'Διεθνείς Μεταφορές',
+    en: 'International Transport',
+    de: 'Internationale Transporte'
+  },
+  domesticTransport: {
+    el: 'Εθνικές Μεταφορές',
+    en: 'Domestic Transport',
+    de: 'Inlandtransporte'
+  },
+  specializedTransport: {
+    el: 'Ειδικές Μεταφορές',
+    en: 'Specialized Transport',
+    de: 'Spezialtransporte'
+  },
+  warehousingDistribution: {
+    el: 'Αποθήκευση',
+    en: 'Warehousing',
+    de: 'Lagerung'
+  },
   learnMore: { el: 'Μάθετε Περισσότερα', en: 'Learn More', de: 'Mehr erfahren' },
   
   // Coverage
