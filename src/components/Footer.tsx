@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-300 mb-4 md:mb-0">
-              © 2024 Intracosta. {t('allRightsReserved')}.
+              © 2024 Intracosta. All rights reserved. Website: Stolos.
             </div>
             <div className="flex space-x-6">
               <button className="text-gray-300 hover:text-white transition-colors text-sm">
