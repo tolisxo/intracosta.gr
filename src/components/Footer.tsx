@@ -21,13 +21,10 @@ const Footer: React.FC = () => {
   ];
 
   const services = [
-    { key: 'domesticTransport' },
     { key: 'internationalTransport' },
-    { key: 'groupageTransport' },
-    { key: 'freightForwarding' },
-    { key: 'customsClearance' },
-    { key: 'warehousingDistribution' },
-    { key: 'specializedTransport' }
+    { key: 'domesticTransport' },
+    { key: 'specializedTransport' },
+    { key: 'warehousingDistribution' }
   ];
 
   return (
