@@ -21,10 +21,10 @@ const Footer: React.FC = () => {
   ];
 
   const services = [
-    { key: 'internationalTransport' },
-    { key: 'domesticTransport' },
-    { key: 'specializedTransport' },
-    { key: 'warehousingDistribution' }
+    { key: 'internationalTransport', label: t('internationalTransport') },
+    { key: 'domesticTransport', label: t('domesticTransport') },
+    { key: 'specializedTransport', label: t('specializedTransport') },
+    { key: 'warehousingDistribution', label: t('warehousingDistribution') }
   ];
 
   return (
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.key}>
-                  <span className="text-gray-300">{t(service.key)}</span>
+                  <span className="text-gray-300">{service.label}</span>
                 </li>
               ))}
             </ul>
