@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <img src="/logocorrectversion.jpeg" alt="Intracosta Logo" className="h-12" />
+              <img src="/logocorrectversion.svg" alt="Intracosta Logo" className="h-12" />
             </div>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
