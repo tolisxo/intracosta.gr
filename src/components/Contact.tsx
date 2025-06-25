@@ -54,12 +54,18 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
-      details: ['+30 23820 22090', '+30 23820 83100']
+      details: [
+        <a href="tel:+302382022090" className="text-gray-600 hover:underline">+30 23820 22090</a>,
+        <a href="tel:+302382083100" className="text-gray-600 hover:underline">+30 23820 83100</a>
+      ]
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      details: ['export@intracosta.com', 'import@intracosta.com']
+      details: [
+        <a href="mailto:export@intracosta.com" className="text-gray-600 hover:underline">export@intracosta.com</a>,
+        <a href="mailto:import@intracosta.com" className="text-gray-600 hover:underline">import@intracosta.com</a>
+      ]
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -92,7 +98,9 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">{info.title}</h4>
                     {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-gray-600">{detail}</p>
+                      typeof detail === 'string'
+                        ? <p key={detailIndex} className="text-gray-600">{detail}</p>
+                        : <p key={detailIndex} className="text-gray-600">{detail}</p>
                     ))}
                   </div>
                 </div>
