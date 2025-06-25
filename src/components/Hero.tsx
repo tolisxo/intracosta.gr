@@ -38,8 +38,8 @@ const Hero: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up">
             Η ασφάλεια της μεταφοράς σας, προσωπική μας υπόθεση.
           </h1>
-          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up delay-150">
-            Αξιόπιστες οδικές μεταφορές στην Ελλάδα και την Ευρώπη — με εμπειρία, οργανωμένο δίκτυο και τεχνολογία αιχμής.
+          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-bounce-in delay-150">
+            Αξιόπιστες οδικές μεταφορές στην Ελλάδα και την Ευρώπη, με εμπειρία, οργανωμένο δίκτυο και τεχνολογία αιχμής.
           </p>
           
           <button
