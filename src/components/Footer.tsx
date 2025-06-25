@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.key}>
-                  <span className="text-gray-300">{service.label}</span>
+                  <span className="text-gray-300">{t(service.key)}</span>
                 </li>
               ))}
             </ul>
