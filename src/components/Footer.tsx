@@ -97,13 +97,14 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-gray-300">+30 210 123 4567</span>
+                <a href="tel:+302101234567" className="text-gray-300 hover:text-white transition-colors">+30 210 123 4567</a>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-gray-300">export@intracosta.com</span>
-                <br />
-                <span className="text-gray-300">import@intracosta.com</span>
+              <div className="flex items-start space-x-3">
+                <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
+                <div className="flex flex-col space-y-1">
+                  <a href="mailto:export@intracosta.com" className="text-gray-300 hover:text-white transition-colors">export@intracosta.com</a>
+                  <a href="mailto:import@intracosta.com" className="text-gray-300 hover:text-white transition-colors">import@intracosta.com</a>
+                </div>
               </div>
             </div>
           </div>
