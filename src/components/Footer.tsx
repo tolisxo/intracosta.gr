@@ -21,10 +21,9 @@ const Footer: React.FC = () => {
   ];
 
   const services = [
-    { key: 'internationalTransport', label: t('internationalTransport') },
-    { key: 'domesticTransport', label: t('domesticTransport') },
-    { key: 'specializedTransport', label: t('specializedTransport') },
-    { key: 'warehousingDistribution', label: t('warehousingDistribution') }
+    { key: 'internationalTransport', label: 'Διεθνείς Μεταφορές' },
+    { key: 'domesticTransport', label: 'Εθνικές Μεταφορές' },
+    { key: 'warehousingDistribution', label: 'Αποθήκευση' }
   ];
 
   return (
