@@ -34,11 +34,8 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <img src="/logo.svg" alt="Intracosta Logo" className="h-12" />
+              <img src="/logocorrectversion.jpeg" alt="Intracosta Logo" className="h-12" />
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner for reliable international transport and logistics solutions across Europe.
-            </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
                 <Facebook className="w-5 h-5" />
