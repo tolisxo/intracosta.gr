@@ -49,17 +49,17 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Address',
-      details: ['123 Logistics Street', 'Athens 10431, Greece']
+      details: ['3ο χλμ Γιαννιτσών Θεσσαλονίκης', 'GR58100 Γιαννιτσά']
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
-      details: ['+30 210 123 4567', '+30 210 123 4568']
+      details: ['+30 23820 22090', '+30 23820 83100']
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      details: ['info@intracosta.gr', 'quotes@intracosta.gr']
+      details: ['export@intracosta.com', 'import@intracosta.com']
     },
     {
       icon: <Clock className="w-6 h-6" />,
