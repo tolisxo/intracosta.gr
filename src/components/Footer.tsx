@@ -91,8 +91,8 @@ const Footer: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />
                 <div className="text-gray-300">
-                  <div>123 Logistics Street</div>
-                  <div>Athens 10431, Greece</div>
+                  <div>3ο χλμ Γιαννιτσών Θεσσαλονίκης</div>
+                  <div>GR58100 Γιαννιτσά</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -101,7 +101,9 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-gray-300">info@intracosta.gr</span>
+                <span className="text-gray-300">export@intracosta.com</span>
+                <br />
+                <span className="text-gray-300">import@intracosta.com</span>
               </div>
             </div>
           </div>
