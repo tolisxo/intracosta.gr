@@ -67,21 +67,6 @@ const TrustSection: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Client Logos Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-lg font-semibold text-gray-600 mb-8">
-            Trusted by leading companies across Europe
-          </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {/* Placeholder for client logos */}
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-xs">Logo {i}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
