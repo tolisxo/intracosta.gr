@@ -158,6 +158,16 @@ const translations: Translations = {
     el: 'Οχήματα προδιαγραφών Euro 6',
     en: 'Euro 6 compliant vehicles',
     de: 'Fahrzeuge gemäß Euro 6 Norm'
+  },
+  strategicLocationsDescription: {
+    el: 'Αποθήκες σε βασικούς ευρωπαϊκούς κόμβους',
+    en: 'Warehouses in key European hubs',
+    de: 'Lagerhäuser in wichtigen europäischen Knotenpunkten'
+  },
+  modernFleetDescription: {
+    el: 'Οχήματα προδιαγραφών Euro 6',
+    en: 'Euro 6 compliant vehicles',
+    de: 'Fahrzeuge gemäß Euro 6 Norm'
   }
 };
 
