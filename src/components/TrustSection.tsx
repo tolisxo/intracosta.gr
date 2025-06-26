@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Award, Users, Package, Shield, Truck } from 'lucide-react';
+import { Award, Users, Package, Truck } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
@@ -22,12 +22,6 @@ const TrustSection: React.FC = () => {
       color: 'text-yellow-500'
     },
     {
-      icon: <Shield className="w-8 h-8" />,
-      number: '12',
-      label: t('certifications'),
-      color: 'text-gray-600'
-    },
-    {
       icon: <Users className="w-8 h-8" />,
       number: '500+',
       label: t('happyClients'),
@@ -36,7 +30,7 @@ const TrustSection: React.FC = () => {
     {
       icon: <Truck className="w-8 h-8" />,
       number: '50+',
-      label: t('fleetVehicles'),
+      label: t('vehicles'),
       color: 'text-blue-600'
     }
   ];
@@ -56,7 +50,6 @@ const TrustSection: React.FC = () => {
                   <>
                     {stat.number === '25+' && <CountUp start={0} end={25} suffix="+" duration={2} />}
                     {stat.number === '50K+' && <CountUp start={0} end={50000} separator="," suffix="+" duration={2} />}
-                    {stat.number === '12' && <CountUp start={0} end={12} duration={2} />}
                     {stat.number === '500+' && <CountUp start={0} end={500} suffix="+" duration={2} />}
                     {stat.number === '50+' && <CountUp start={0} end={50} suffix="+" duration={2} />}
                   </>
