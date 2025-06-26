@@ -173,6 +173,11 @@ const translations: Translations = {
     el: 'Στείλτε μας ένα Μήνυμα',
     en: 'Send us a Message',
     de: 'Senden Sie uns eine Nachricht'
+  },
+  sendUsMessage: {
+    el: 'Στείλτε μας ένα Μήνυμα',
+    en: 'Send us a Message',
+    de: 'Senden Sie uns eine Nachricht'
   }
 };
 

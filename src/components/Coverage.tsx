@@ -33,6 +33,21 @@ const Coverage: React.FC = () => {
     }
   ];
 
+  const services = [
+    {
+      title: t('services.internationalTitle'),
+      description: t('services.internationalDescription')
+    },
+    {
+      title: t('services.nationalTitle'),
+      description: t('services.nationalDescription')
+    },
+    {
+      title: t('services.warehousingTitle'),
+      description: t('services.warehousingDescription')
+    }
+  ];
+
   return (
     <section id="coverage" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,6 +70,19 @@ const Coverage: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Services Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {services.map((service, index) => (
+            <div key={index} className="p-6 bg-white rounded-lg shadow-md text-center">
+              <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+              <p className="text-gray-700 mb-6">{service.description}</p>
+              <button className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">
+                {t('learnMore')}
+              </button>
             </div>
           ))}
         </div>
