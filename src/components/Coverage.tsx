@@ -35,16 +35,16 @@ const Coverage: React.FC = () => {
 
   const services = [
     {
-      title: t('services.internationalTitle'),
-      description: t('services.internationalDescription')
+      title: t('internationalTitle'),
+      description: t('internationalDescription')
     },
     {
-      title: t('services.nationalTitle'),
-      description: t('services.nationalDescription')
+      title: t('nationalTitle'),
+      description: t('nationalDescription')
     },
     {
-      title: t('services.warehousingTitle'),
-      description: t('services.warehousingDescription')
+      title: t('warehousingTitle'),
+      description: t('warehousingDescription')
     }
   ];
 
