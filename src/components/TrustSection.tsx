@@ -63,7 +63,7 @@ const TrustSection: React.FC = () => {
                   </>
                 )}
               </div>
-              <div className="text-white font-medium">{stat.label}</div>
+              <div className="font-medium text-white group-hover:text-[#f5bd00] transition-colors duration-300">{stat.label}</div>
             </div>
           ))}
         </div>
