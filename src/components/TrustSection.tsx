@@ -10,28 +10,28 @@ const TrustSection: React.FC = () => {
 
   const stats = [
     {
-      icon: <Award className="w-8 h-8 text-orange-500" />,
+      icon: <Award className="w-8 h-8 text-[#f5bd00]" />,
       number: '25+',
       label: t('yearsExperience'),
-      color: 'text-orange-500'
+      color: 'text-[#f5bd00]'
     },
     {
-      icon: <Package className="w-8 h-8 text-orange-500" />,
+      icon: <Package className="w-8 h-8 text-[#f5bd00]" />,
       number: '15K+',
       label: t('shipmentsPerYear'),
-      color: 'text-orange-500'
+      color: 'text-[#f5bd00]'
     },
     {
-      icon: <Users className="w-8 h-8 text-orange-500" />,
+      icon: <Users className="w-8 h-8 text-[#f5bd00]" />,
       number: '500+',
       label: t('happyClients'),
-      color: 'text-orange-500'
+      color: 'text-[#f5bd00]'
     },
     {
-      icon: <Truck className="w-8 h-8 text-orange-500" />,
+      icon: <Truck className="w-8 h-8 text-[#f5bd00]" />,
       number: '50+',
       label: t('fleetVehicles'),
-      color: 'text-orange-500'
+      color: 'text-[#f5bd00]'
     }
   ];
 
