@@ -168,6 +168,11 @@ const translations: Translations = {
     el: 'Οχήματα προδιαγραφών Euro 6',
     en: 'Euro 6 compliant vehicles',
     de: 'Fahrzeuge gemäß Euro 6 Norm'
+  },
+  contactFormTitle: {
+    el: 'Στείλτε μας ένα Μήνυμα',
+    en: 'Send us a Message',
+    de: 'Senden Sie uns eine Nachricht'
   }
 };
 
