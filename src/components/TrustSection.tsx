@@ -36,12 +36,20 @@ const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Statistics */}
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div
+          ref={ref}
+          className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 transition-opacity duration-700 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {stats.map((stat, index) => (
-            <div key={index} className="bg-[#7C7D82] rounded-xl p-6 shadow-md text-white text-center">
+            <div
+              key={index}
+              className="bg-[#7C7D82] rounded-xl p-6 shadow-md text-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg mb-4 ${stat.color}`}>
                 {stat.icon}
               </div>
