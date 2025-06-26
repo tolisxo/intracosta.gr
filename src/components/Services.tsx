@@ -43,19 +43,15 @@ const Services: React.FC = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+              className={`group rounded-xl ${service.color} hover:${service.hoverColor} transition-all duration-300 hover:-translate-y-2 overflow-hidden w-full max-w-xs shadow-lg hover:shadow-2xl`}
             >
-              <div className="p-8">
-                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-xl ${service.color} text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div className="p-8 text-center">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white text-yellow-500 mb-6 group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                <button className="inline-flex items-center text-gray-700 hover:text-gray-900 font-semibold transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
+                <p className="text-white mb-6 leading-relaxed">{service.description}</p>
+                <button className="inline-flex items-center text-white hover:text-yellow-400 font-semibold transition-colors">
                   {t('learnMore')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
