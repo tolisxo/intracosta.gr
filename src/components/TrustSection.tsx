@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Award, Users, Package, Shield, ShieldCheck, Truck, Globe, CheckCircle } from 'lucide-react';
+import { Award, Users, Package, Shield, Truck } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
@@ -11,7 +11,7 @@ const TrustSection: React.FC = () => {
   const stats = [
     {
       icon: <Award className="w-8 h-8" />,
-      number: '15+',
+      number: '25+',
       label: t('yearsExperience'),
       color: 'text-gray-700'
     },
@@ -32,14 +32,13 @@ const TrustSection: React.FC = () => {
       number: '500+',
       label: t('happyClients'),
       color: 'text-gray-500'
+    },
+    {
+      icon: <Truck className="w-8 h-8" />,
+      number: '50+',
+      label: t('fleetVehicles'),
+      color: 'text-blue-600'
     }
-  ];
-
-  const certifications = [
-    { name: 'ISO 9001', logo: <ShieldCheck className="w-8 h-8 text-blue-600" /> },
-    { name: 'TIR', logo: <Truck className="w-8 h-8 text-yellow-500" /> },
-    { name: 'FIATA', logo: <Globe className="w-8 h-8 text-green-500" /> },
-    { name: 'AEO', logo: <CheckCircle className="w-8 h-8 text-emerald-500" /> }
   ];
 
   return (
@@ -55,40 +54,17 @@ const TrustSection: React.FC = () => {
               <div className="text-3xl font-bold text-gray-900 mb-2">
                 {inView && (
                   <>
-                    {stat.number === '15+' && <CountUp start={0} end={15} suffix="+" duration={2} />}
+                    {stat.number === '25+' && <CountUp start={0} end={25} suffix="+" duration={2} />}
                     {stat.number === '50K+' && <CountUp start={0} end={50000} separator="," suffix="+" duration={2} />}
                     {stat.number === '12' && <CountUp start={0} end={12} duration={2} />}
                     {stat.number === '500+' && <CountUp start={0} end={500} suffix="+" duration={2} />}
+                    {stat.number === '50+' && <CountUp start={0} end={50} suffix="+" duration={2} />}
                   </>
                 )}
               </div>
               <div className="text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
-        </div>
-
-        {/* Certifications */}
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            {t('certifications')}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {certifications.map((cert, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center bg-gray-50 p-4 rounded-lg shadow hover:scale-105 transition-transform duration-300 ease-in-out"
-              >
-                <div className="text-3xl mb-2">{cert.logo}</div>
-                <div className="font-semibold text-gray-800">{cert.name}</div>
-                <div className="text-xs text-gray-500 mt-1 text-center">
-                  {cert.name === 'ISO 9001' && 'Διαχείριση Ποιότητας'}
-                  {cert.name === 'TIR' && 'Διεθνής Μεταφορά Εμπορευμάτων'}
-                  {cert.name === 'FIATA' && 'Παγκόσμια Ομοσπονδία Μεταφορών'}
-                  {cert.name === 'AEO' && 'Εγκεκριμένος Οικονομικός Φορέας'}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Client Logos Section */}
