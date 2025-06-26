@@ -10,28 +10,28 @@ const TrustSection: React.FC = () => {
 
   const stats = [
     {
-      icon: <Award className="w-8 h-8" />,
+      icon: <Award className="w-8 h-8 text-orange-500" />,
       number: '25+',
       label: t('yearsExperience'),
-      color: 'text-gray-700'
+      color: 'text-orange-500'
     },
     {
-      icon: <Package className="w-8 h-8" />,
+      icon: <Package className="w-8 h-8 text-orange-500" />,
       number: '15K+',
       label: t('shipmentsPerYear'),
-      color: 'text-yellow-500'
+      color: 'text-orange-500'
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="w-8 h-8 text-orange-500" />,
       number: '500+',
       label: t('happyClients'),
-      color: 'text-gray-500'
+      color: 'text-orange-500'
     },
     {
-      icon: <Truck className="w-8 h-8" />,
+      icon: <Truck className="w-8 h-8 text-orange-500" />,
       number: '50+',
       label: t('fleetVehicles'),
-      color: 'text-blue-600'
+      color: 'text-orange-500'
     }
   ];
 
@@ -41,11 +41,11 @@ const TrustSection: React.FC = () => {
         {/* Statistics */}
         <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="bg-[#7C7D82] rounded-xl p-6 shadow-md text-white text-center">
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg mb-4 ${stat.color}`}>
                 {stat.icon}
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">
+              <div className="text-3xl font-bold text-white mb-2">
                 {inView && (
                   <>
                     {stat.number === '25+' && <CountUp start={0} end={25} suffix="+" duration={2} />}
@@ -55,7 +55,7 @@ const TrustSection: React.FC = () => {
                   </>
                 )}
               </div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-white font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
