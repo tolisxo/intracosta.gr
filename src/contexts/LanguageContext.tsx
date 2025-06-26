@@ -86,37 +86,6 @@ const translations: Translations = {
     de: 'Lagerung'
   },
   learnMore: { el: 'Μάθετε Περισσότερα', en: 'Learn More', de: 'Mehr erfahren' },
-
-  internationalTransportTitle: {
-    el: 'Διεθνείς Μεταφορές',
-    en: 'International Transport',
-    de: 'Internationale Transporte'
-  },
-  internationalTransportDesc: {
-    el: 'Ασφαλείς και αξιόπιστες μεταφορές φορτίων προς και από την Ευρώπη',
-    en: 'Safe and reliable freight transport to and from Europe',
-    de: 'Sichere und zuverlässige Frachttransporte von und nach Europa'
-  },
-  domesticTransportTitle: {
-    el: 'Εθνικές Μεταφορές',
-    en: 'Domestic Transport',
-    de: 'Inlandtransporte'
-  },
-  domesticTransportDesc: {
-    el: 'Άμεσες και αποδοτικές μεταφορές εντός Ελλάδας με πλήρη κάλυψη',
-    en: 'Fast and efficient transport within Greece with full coverage',
-    de: 'Schnelle und effiziente Transporte innerhalb Griechenlands mit vollständiger Abdeckung'
-  },
-  warehousingTitle: {
-    el: 'Αποθήκευση',
-    en: 'Warehousing',
-    de: 'Lagerung'
-  },
-  warehousingDesc: {
-    el: 'Ασφαλής αποθήκευση και διαχείριση αποθεμάτων',
-    en: 'Secure storage and inventory management',
-    de: 'Sichere Lagerung und Bestandsverwaltung'
-  },
   
   // Coverage
   coverageTitle: { el: 'Περιοχές Κάλυψης', en: 'Coverage Areas', de: 'Abdeckungsgebiete' },
