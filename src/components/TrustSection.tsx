@@ -17,7 +17,7 @@ const TrustSection: React.FC = () => {
     },
     {
       icon: <Package className="w-8 h-8" />,
-      number: '50K+',
+      number: '15K+',
       label: t('shipmentsPerYear'),
       color: 'text-yellow-500'
     },
@@ -49,7 +49,7 @@ const TrustSection: React.FC = () => {
                 {inView && (
                   <>
                     {stat.number === '25+' && <CountUp start={0} end={25} suffix="+" duration={2} />}
-                    {stat.number === '50K+' && <CountUp start={0} end={50000} separator="," suffix="+" duration={2} />}
+                    {stat.number === '15K+' && <CountUp start={0} end={15000} separator="," suffix="+" duration={2} />}
                     {stat.number === '500+' && <CountUp start={0} end={500} suffix="+" duration={2} />}
                     {stat.number === '50+' && <CountUp start={0} end={50} suffix="+" duration={2} />}
                   </>
