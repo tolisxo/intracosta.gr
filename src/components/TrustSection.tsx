@@ -53,7 +53,7 @@ const TrustSection: React.FC = () => {
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg mb-4 transition-colors duration-300 group-hover:bg-[#7C7D82] group-hover:text-white`}>
                 {stat.icon}
               </div>
-              <div className="text-3xl font-bold text-white mb-2">
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-[#f5bd00] transition-colors duration-300">
                 {inView && (
                   <>
                     {stat.number === '25+' && <CountUp start={0} end={25} suffix="+" duration={2} />}
