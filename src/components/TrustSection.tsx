@@ -10,25 +10,25 @@ const TrustSection: React.FC = () => {
 
   const stats = [
     {
-      icon: <Award className="w-8 h-8 text-[#f5bd00]" />,
+      icon: <Award className="w-8 h-8 group-hover:text-white text-[#f5bd00]" />,
       number: '25+',
       label: t('yearsExperience'),
       color: 'text-[#f5bd00]'
     },
     {
-      icon: <Package className="w-8 h-8 text-[#f5bd00]" />,
+      icon: <Package className="w-8 h-8 group-hover:text-white text-[#f5bd00]" />,
       number: '15K+',
       label: t('shipmentsPerYear'),
       color: 'text-[#f5bd00]'
     },
     {
-      icon: <Users className="w-8 h-8 text-[#f5bd00]" />,
+      icon: <Users className="w-8 h-8 group-hover:text-white text-[#f5bd00]" />,
       number: '500+',
       label: t('happyClients'),
       color: 'text-[#f5bd00]'
     },
     {
-      icon: <Truck className="w-8 h-8 text-[#f5bd00]" />,
+      icon: <Truck className="w-8 h-8 group-hover:text-white text-[#f5bd00]" />,
       number: '50+',
       label: t('fleetVehicles'),
       color: 'text-[#f5bd00]'
@@ -48,9 +48,9 @@ const TrustSection: React.FC = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-[#7C7D82] rounded-xl p-6 shadow-md text-white text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="bg-[#7C7D82] rounded-xl p-6 shadow-md text-white text-center transform transition-all duration-300 hover:bg-white hover:text-[#7C7D82] hover:shadow-xl group"
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg mb-4 ${stat.color}`}>
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg mb-4 transition-colors duration-300 group-hover:bg-[#7C7D82] group-hover:text-white`}>
                 {stat.icon}
               </div>
               <div className="text-3xl font-bold text-white mb-2">
