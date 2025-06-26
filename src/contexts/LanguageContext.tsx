@@ -137,7 +137,28 @@ const translations: Translations = {
   followUs: { el: 'Ακολουθήστε μας', en: 'Follow Us', de: 'Folgen Sie uns' },
   privacyPolicy: { el: 'Πολιτική Απορρήτου', en: 'Privacy Policy', de: 'Datenschutzrichtlinie' },
   termsOfService: { el: 'Όροι Χρήσης', en: 'Terms of Service', de: 'Nutzungsbedingungen' },
-  allRightsReserved: { el: 'Όλα τα δικαιώματα διατηρούνται', en: 'All rights reserved', de: 'Alle Rechte vorbehalten' }
+  allRightsReserved: { el: 'Όλα τα δικαιώματα διατηρούνται', en: 'All rights reserved', de: 'Alle Rechte vorbehalten' },
+
+  strategicLocationsTitle: {
+    el: 'Στρατηγικές Τοποθεσίες',
+    en: 'Strategic Locations',
+    de: 'Strategische Standorte'
+  },
+  strategicLocationsDesc: {
+    el: 'Αποθήκες σε βασικούς ευρωπαϊκούς κόμβους',
+    en: 'Warehouses in key European hubs',
+    de: 'Lagerhäuser in wichtigen europäischen Knotenpunkten'
+  },
+  modernFleetTitle: {
+    el: 'Σύγχρονος Στόλος',
+    en: 'Modern Fleet',
+    de: 'Moderne Flotte'
+  },
+  modernFleetDesc: {
+    el: 'Οχήματα προδιαγραφών Euro 6',
+    en: 'Euro 6 compliant vehicles',
+    de: 'Fahrzeuge gemäß Euro 6 Norm'
+  }
 };
 
 interface LanguageContextType {
