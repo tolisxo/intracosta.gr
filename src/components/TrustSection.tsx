@@ -30,7 +30,7 @@ const TrustSection: React.FC = () => {
     {
       icon: <Truck className="w-8 h-8" />,
       number: '50+',
-      label: t('vehicles'),
+      label: t('fleetVehicles'),
       color: 'text-blue-600'
     }
   ];
