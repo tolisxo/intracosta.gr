@@ -23,18 +23,13 @@ const Coverage: React.FC = () => {
   const features = [
     {
       icon: <MapPin className="w-8 h-8" />,
-      title: 'Strategic Locations',
-      description: 'Warehouses in key European hubs'
+      title: t('strategicLocationsTitle'),
+      description: t('strategicLocationsDescription')
     },
     {
       icon: <Truck className="w-8 h-8" />,
-      title: 'Modern Fleet',
-      description: 'Euro 6 compliant vehicles'
-    },
-    {
-      icon: <Clock className="w-8 h-8" />,
-      title: 'Express Service',
-      description: '24-48h delivery options'
+      title: t('modernFleetTitle'),
+      description: t('modernFleetDescription')
     }
   ];
 
