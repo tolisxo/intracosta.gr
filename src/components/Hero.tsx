@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Shield, Clock, Award, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 
@@ -49,55 +49,6 @@ const Hero: React.FC = () => {
             Ζητήστε Προσφορά
             <ArrowRight className="ml-2 w-5 h-5" />
           </button>
-        </div>
-
-        {/* Trust Indicators */}
-        <div ref={ref} className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto backdrop-blur-md bg-white/10 p-6 rounded-xl shadow-xl">
-          {/* ISO 9001 */}
-          <div className="flex items-center justify-center space-x-3 text-white transition-transform duration-300 hover:scale-105 animate-fade-in-up">
-            <Shield className="w-8 h-8 text-yellow-400" />
-            <div className="text-left">
-              <div className="text-2xl font-bold">ISO 9001</div>
-              <div className="text-gray-200">Certified Quality</div>
-            </div>
-          </div>
-
-          {/* 24/7 Support */}
-          <div className="flex items-center justify-center space-x-3 text-white transition-transform duration-300 hover:scale-105 animate-fade-in-up">
-            <Clock className="w-8 h-8 text-yellow-400" />
-            <div className="text-left">
-              <div className="text-2xl font-bold">
-                {inView ? (
-                  <CountUp start={0} end={24} duration={1.2} suffix="/7" />
-                ) : (
-                  <>0/7</>
-                )}
-              </div>
-              <div className="text-gray-200">Support Available</div>
-            </div>
-          </div>
-
-          {/* Years Experience */}
-          <div className="flex items-center justify-center space-x-3 text-white transition-transform duration-300 hover:scale-105 animate-fade-in-up">
-            <Award className="w-8 h-8 text-yellow-400" />
-            <div className="text-left">
-              <div className="text-2xl font-bold">
-                {inView ? <CountUp start={0} end={15} duration={2} suffix="+" /> : <>0+</>}
-              </div>
-              <div className="text-gray-200">Years Experience</div>
-            </div>
-          </div>
-
-          {/* 500+ Clients */}
-          <div className="flex items-center justify-center space-x-3 text-white transition-transform duration-300 hover:scale-105 animate-fade-in-up">
-            <Users className="w-8 h-8 text-yellow-400" />
-            <div className="text-left">
-              <div className="text-2xl font-bold">
-                {inView ? <CountUp start={0} end={500} duration={2} suffix="+" /> : <>0+</>}
-              </div>
-              <div className="text-gray-200">Clients</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
