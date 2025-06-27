@@ -8,22 +8,22 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('transportCardInternationalTitle'),
-      description: t('transportCardInternationalDesc'),
+      title: t('services.internationalTitle'),
+      description: t('services.internationalDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('transportCardNationalTitle'),
-      description: t('transportCardNationalDesc'),
+      title: t('services.nationalTitle'),
+      description: t('services.nationalDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
-      title: t('transportCardWarehousingTitle'),
-      description: t('transportCardWarehousingDesc'),
+      title: t('services.warehousingTitle'),
+      description: t('services.warehousingDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     }
