@@ -112,11 +112,6 @@ const translations: Translations = {
     en: 'Warehousing',
     de: 'Lagerung'
   },
-  warehousingDesc: {
-    el: 'Ασφαλής αποθήκευση και διαχείριση αποθεμάτων',
-    en: 'Secure storage and inventory management',
-    de: 'Sichere Lagerung und Bestandsverwaltung'
-  },
   
   // Coverage
   coverageTitle: { el: 'Περιοχές Κάλυψης', en: 'Coverage Areas', de: 'Abdeckungsgebiete' },
