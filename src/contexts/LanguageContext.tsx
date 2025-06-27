@@ -231,6 +231,42 @@ const translations: Translations = {
     el: 'Αποθήκευση',
     en: 'Warehousing',
     de: 'Lagerung'
+  },
+  // --- Added services section translations ---
+  'services.sectionTitle': {
+    el: 'Οι Υπηρεσίες μας',
+    en: 'Our Services',
+    de: 'Unsere Dienstleistungen'
+  },
+  'services.internationalTitle': {
+    el: 'Διεθνείς Μεταφορές',
+    en: 'International Transport',
+    de: 'Internationale Transporte'
+  },
+  'services.internationalDescription': {
+    el: 'Ασφαλείς και αξιόπιστες μεταφορές φορτίων προς και από την Ευρώπη',
+    en: 'Secure and reliable freight transport to and from Europe',
+    de: 'Sichere und zuverlässige Frachten nach und aus Europa'
+  },
+  'services.nationalTitle': {
+    el: 'Εθνικές Μεταφορές',
+    en: 'Domestic Transport',
+    de: 'Inlandtransporte'
+  },
+  'services.nationalDescription': {
+    el: 'Άμεσες και αποδοτικές μεταφορές εντός Ελλάδας με πλήρη κάλυψη',
+    en: 'Efficient and direct transport within Greece with full coverage',
+    de: 'Effiziente und direkte Transporte innerhalb Griechenlands mit vollständiger Abdeckung'
+  },
+  'services.warehousingTitle': {
+    el: 'Αποθήκευση',
+    en: 'Warehousing',
+    de: 'Lagerung'
+  },
+  'services.warehousingDescription': {
+    el: 'Ασφαλής αποθήκευση και διαχείριση αποθεμάτων',
+    en: 'Secure storage and inventory management',
+    de: 'Sichere Lagerung und Lagerverwaltung'
   }
 };
 
