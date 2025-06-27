@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
@@ -35,16 +35,16 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up-fast">
             Η ασφάλεια της μεταφοράς σας, προσωπική μας υπόθεση.
           </h1>
-          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-bounce-in delay-150">
+          <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up-fast">
             Αξιόπιστες οδικές μεταφορές στην Ελλάδα και την Ευρώπη, με εμπειρία, οργανωμένο δίκτυο και τεχνολογία αιχμής.
           </p>
           
           <button
             onClick={scrollToQuote}
-            className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-2xl animate-fade-in-up delay-300"
+            className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-xl animate-fade-in-up-fast"
           >
             Ζητήστε Προσφορά
             <ArrowRight className="ml-2 w-5 h-5" />
