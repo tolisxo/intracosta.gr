@@ -277,6 +277,48 @@ const translations: Translations = {
     el: 'Πανευρωπαϊκή κάλυψη με σύγχρονα κέντρα διανομής',
     en: 'Pan-European coverage with modern distribution hubs',
     de: 'Paneuropäische Abdeckung mit modernen Verteilzentren'
+  },
+
+  // About Values Block
+  aboutReliabilityTitle: {
+    el: 'Αξιοπιστία',
+    en: 'Reliability',
+    de: 'Zuverlässigkeit'
+  },
+  aboutReliabilityDesc: {
+    el: 'Εγγυημένη έγκαιρη παράδοση με πλήρη ασφάλιση φορτίου',
+    en: 'Guaranteed on-time delivery with full cargo insurance',
+    de: 'Garantierte pünktliche Lieferung mit vollständiger Frachtversicherung'
+  },
+  aboutQualityTitle: {
+    el: 'Ποιότητα',
+    en: 'Quality',
+    de: 'Qualität'
+  },
+  aboutQualityDesc: {
+    el: 'Πιστοποιημένες διαδικασίες ISO και υψηλά πρότυπα εξυπηρέτησης',
+    en: 'ISO certified processes and premium service standards',
+    de: 'ISO-zertifizierte Prozesse und erstklassige Servicestandards'
+  },
+  aboutPartnershipTitle: {
+    el: 'Συνεργασία',
+    en: 'Partnership',
+    de: 'Partnerschaft'
+  },
+  aboutPartnershipDesc: {
+    el: 'Μακροχρόνιες σχέσεις βασισμένες στην εμπιστοσύνη και διαφάνεια',
+    en: 'Long-term relationships built on trust and transparency',
+    de: 'Langfristige Beziehungen basierend auf Vertrauen und Transparenz'
+  },
+  aboutInnovationTitle: {
+    el: 'Καινοτομία',
+    en: 'Innovation',
+    de: 'Innovation'
+  },
+  aboutInnovationDesc: {
+    el: 'Σύγχρονη τεχνολογία για παρακολούθηση και βελτιστοποίηση logistics',
+    en: 'Modern technology for tracking and logistics optimization',
+    de: 'Moderne Technologie zur Verfolgung und Optimierung der Logistik'
   }
 };
 

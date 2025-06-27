@@ -8,23 +8,23 @@ const About: React.FC = () => {
   const values = [
     {
       icon: <Shield className="w-8 h-8" />,
-      title: 'Reliability',
-      description: 'Guaranteed on-time delivery with full cargo insurance'
+      title: t('aboutReliabilityTitle'),
+      description: t('aboutReliabilityDesc')
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: 'Quality',
-      description: 'ISO certified processes and premium service standards'
+      title: t('aboutQualityTitle'),
+      description: t('aboutQualityDesc')
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: 'Partnership',
-      description: 'Long-term relationships built on trust and transparency'
+      title: t('aboutPartnershipTitle'),
+      description: t('aboutPartnershipDesc')
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: 'Innovation',
-      description: 'Modern technology for tracking and logistics optimization'
+      title: t('aboutInnovationTitle'),
+      description: t('aboutInnovationDesc')
     }
   ];
 
