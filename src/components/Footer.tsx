@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                 <li key={link.key}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
+                    className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
                   >
                     {t(link.key)}
                   </button>
@@ -91,13 +91,13 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <a href="tel:+302101234567" className="relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">+30 210 123 4567</a>
+                <a href="tel:+302101234567" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">+30 210 123 4567</a>
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
                 <div className="flex flex-col space-y-1">
-                  <a href="mailto:export@intracosta.com" className="relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">export@intracosta.com</a>
-                  <a href="mailto:import@intracosta.com" className="relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">import@intracosta.com</a>
+                  <a href="mailto:export@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">export@intracosta.com</a>
+                  <a href="mailto:import@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">import@intracosta.com</a>
                 </div>
               </div>
             </div>
@@ -111,10 +111,10 @@ const Footer: React.FC = () => {
               © 2024 Intracosta. All rights reserved. Stolos Official
             </div>
             <div className="flex space-x-6">
-              <button className="relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
+              <button className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
                 {t('privacyPolicy')}
               </button>
-              <button className="relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
+              <button className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
                 {t('termsOfService')}
               </button>
             </div>
