@@ -204,6 +204,33 @@ const translations: Translations = {
     el: 'Στείλτε μας ένα Μήνυμα',
     en: 'Send us a Message',
     de: 'Senden Sie uns eine Nachricht'
+  },
+
+  // Transport Cards
+  transportCardInternationalTitle: {
+    el: 'Διεθνείς Μεταφορές',
+    en: 'International Transport',
+    de: 'Internationale Transporte'
+  },
+  transportCardInternationalDesc: {
+    el: 'Ασφαλείς και αξιόπιστες μεταφορές φορτίων προς και από την Ευρώπη',
+    en: 'Secure and reliable freight transport to and from Europe',
+    de: 'Sichere und zuverlässige Frachten nach und aus Europa'
+  },
+  transportCardNationalTitle: {
+    el: 'Εθνικές Μεταφορές',
+    en: 'Domestic Transport',
+    de: 'Inlandtransporte'
+  },
+  transportCardNationalDesc: {
+    el: 'Άμεσες και αποδοτικές μεταφορές εντός Ελλάδας με πλήρη κάλυψη',
+    en: 'Efficient and direct transport within Greece with full coverage',
+    de: 'Effiziente und direkte Transporte innerhalb Griechenlands mit vollständiger Abdeckung'
+  },
+  transportCardWarehousingTitle: {
+    el: 'Αποθήκευση',
+    en: 'Warehousing',
+    de: 'Lagerung'
   }
 };
 
@@ -236,34 +263,3 @@ export const useLanguage = () => {
   }
   return context;
 };
-  // Transport Cards
-  transportCardInternationalTitle: {
-    el: 'Διεθνείς Μεταφορές',
-    en: 'International Transport',
-    de: 'Internationale Transporte'
-  },
-  transportCardInternationalDesc: {
-    el: 'Ασφαλείς και αξιόπιστες μεταφορές φορτίων προς και από την Ευρώπη',
-    en: 'Secure and reliable freight transport to and from Europe',
-    de: 'Sichere und zuverlässige Frachten nach und aus Europa'
-  },
-  transportCardNationalTitle: {
-    el: 'Εθνικές Μεταφορές',
-    en: 'Domestic Transport',
-    de: 'Inlandtransporte'
-  },
-  transportCardNationalDesc: {
-    el: 'Άμεσες και αποδοτικές μεταφορές εντός Ελλάδας με πλήρη κάλυψη',
-    en: 'Efficient and direct transport within Greece with full coverage',
-    de: 'Effiziente und direkte Transporte innerhalb Griechenlands mit vollständiger Abdeckung'
-  },
-  transportCardWarehousingTitle: {
-    el: 'Αποθήκευση',
-    en: 'Warehousing',
-    de: 'Lagerung'
-  },
-  transportCardWarehousingDesc: {
-    el: 'Ασφαλής αποθήκευση και διαχείριση αποθεμάτων',
-    en: 'Secure storage and inventory management',
-    de: 'Sichere Lagerung und Bestandsverwaltung'
-  },
