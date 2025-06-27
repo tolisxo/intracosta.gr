@@ -8,22 +8,22 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('internationalTransport'),
-      description: t('internationalTransportDesc'),
+      title: t('services.internationalTitle'),
+      description: t('services.internationalDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('nationalTransport'),
-      description: t('nationalTransportDesc'),
+      title: t('services.nationalTitle'),
+      description: t('services.nationalDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
-      title: t('warehousing'),
-      description: t('warehousingDesc'),
+      title: t('services.warehousingTitle'),
+      description: t('services.warehousingDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     }
@@ -34,7 +34,7 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {t('servicesTitle')}
+            {t('services.sectionTitle')}
           </h2>
           <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
         </div>
