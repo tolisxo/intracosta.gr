@@ -64,39 +64,45 @@ const Coverage: React.FC = () => {
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             {/* Map */}
-            <div className="relative p-8 flex items-center justify-center min-h-96">
-              <ComposableMap projection="geoAzimuthalEqualArea" projectionConfig={{ center: [15, 52], scale: 600 }}>
-                <Geographies geography="https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json">
-                  {({ geographies }) =>
-                    geographies
-                      .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Bulgaria'].includes(geo.properties.NAME))
-                      .map((geo) => (
-                        <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
-                      ))
-                  }
-                </Geographies>
-                {countries.map((country, idx) => (
-                  <Marker key={idx} coordinates={country.coordinates}>
-                    <circle
-                      r={6}
-                      fill="#facc15"
-                      stroke="#000"
-                      strokeWidth={0.5}
-                      className="transition-transform duration-200 ease-in-out cursor-pointer"
-                      onMouseEnter={e => {
-                        const target = e.currentTarget;
-                        target.style.transform = 'scale(1.3)';
-                      }}
-                      onMouseLeave={e => {
-                        const target = e.currentTarget;
-                        target.style.transform = 'scale(1)';
-                      }}
-                    >
-                      <title>{`${country.name}: ${country.routes}`}</title>
-                    </circle>
-                  </Marker>
-                ))}
-              </ComposableMap>
+            <div className="relative p-8 flex items-center justify-center min-h-[500px]">
+              <div className="w-full h-[500px] bg-white">
+                <ComposableMap
+                  projection="geoAzimuthalEqualArea"
+                  projectionConfig={{ center: [15, 52], scale: 600 }}
+                  style={{ width: '100%', height: '100%' }}
+                >
+                  <Geographies geography="https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json">
+                    {({ geographies }) =>
+                      geographies
+                        .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Bulgaria'].includes(geo.properties.NAME))
+                        .map((geo) => (
+                          <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
+                        ))
+                    }
+                  </Geographies>
+                  {countries.map((country, idx) => (
+                    <Marker key={idx} coordinates={country.coordinates}>
+                      <circle
+                        r={6}
+                        fill="#facc15"
+                        stroke="#000"
+                        strokeWidth={0.5}
+                        className="transition-transform duration-200 ease-in-out cursor-pointer"
+                        onMouseEnter={e => {
+                          const target = e.currentTarget;
+                          target.style.transform = 'scale(1.3)';
+                        }}
+                        onMouseLeave={e => {
+                          const target = e.currentTarget;
+                          target.style.transform = 'scale(1)';
+                        }}
+                      >
+                        <title>{`${country.name}: ${country.routes}`}</title>
+                      </circle>
+                    </Marker>
+                  ))}
+                </ComposableMap>
+              </div>
             </div>
 
             {/* Countries List */}
