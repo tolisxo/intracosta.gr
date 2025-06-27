@@ -8,36 +8,40 @@ const FAQ: React.FC = () => {
 
   const faqs = [
     {
-      question: 'What are your delivery timeframes?',
-      answer: 'Delivery times vary by destination: Germany/Netherlands (24-48h), France/Belgium (48-72h), Italy/Eastern Europe (72-96h). Express options available for urgent shipments.'
+      question: t('faq1Question'),
+      answer: t('faq1Answer')
     },
     {
-      question: 'Do you provide cargo insurance?',
-      answer: 'Yes, all shipments are covered by comprehensive cargo insurance up to €100,000. Additional coverage available for high-value goods.'
+      question: t('faq2Question'),
+      answer: t('faq2Answer')
     },
     {
-      question: 'What documents do I need for customs clearance?',
-      answer: 'Typically required: commercial invoice, packing list, origin certificate. Our team will guide you through specific requirements for your destination.'
+      question: t('faq3Question'),
+      answer: t('faq3Answer')
     },
     {
-      question: 'Can I track my shipment in real-time?',
-      answer: 'Absolutely! You receive a tracking number and can monitor your shipment 24/7 through our online portal or mobile app.'
+      question: t('faq4Question'),
+      answer: t('faq4Answer')
     },
     {
-      question: 'What types of cargo do you handle?',
-      answer: 'We transport general cargo, fragile items, hazardous materials (ADR certified), and temperature-controlled goods. Weight limits up to 24 tons per truck.'
+      question: t('faq5Question'),
+      answer: t('faq5Answer')
     },
     {
-      question: 'How do you calculate shipping costs?',
-      answer: 'Pricing is based on weight, dimensions, destination, and service type. Contact us for a personalized quote - we offer competitive rates for regular customers.'
+      question: t('faq6Question'),
+      answer: t('faq6Answer')
     },
     {
-      question: 'Do you offer warehousing services?',
-      answer: 'Yes, we provide secure warehousing in strategic locations across Europe with inventory management and distribution services.'
+      question: t('faq7Question'),
+      answer: t('faq7Answer')
     },
     {
-      question: 'What happens if there are delays?',
-      answer: 'We proactively communicate any delays and work to minimize impact. Our customer service team provides regular updates and alternative solutions.'
+      question: t('faq8Question'),
+      answer: t('faq8Answer')
+    },
+    {
+      question: t('faq9Question'),
+      answer: t('faq9Answer')
     }
   ];
 

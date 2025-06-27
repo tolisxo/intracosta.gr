@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { MapPin, Truck, X } from 'lucide-react';
+import { MapPin, Truck, X, Warehouse } from 'lucide-react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
 const Coverage: React.FC = () => {
@@ -35,7 +35,7 @@ const Coverage: React.FC = () => {
       description: t('modernFleetDescription')
     },
     {
-      icon: <span className="text-yellow-500 text-3xl">🏪</span>,
+      icon: <Warehouse className="text-yellow-500 w-8 h-8" />,
       title: '6 Κεντρικές Αποθήκες',
       description: 'Πανευρωπαϊκή κάλυψη με σύγχρονα κέντρα διανομής'
     }
