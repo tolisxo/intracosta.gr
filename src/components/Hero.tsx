@@ -19,16 +19,11 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-40 sm:pt-32 pb-24">
       {/* Background Video */}
       <div className="absolute inset-0 overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          src="https://images.pexels.com/photos/20263273/pexels-photo-20263273.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1920&w=3840"
+          alt="Truck on a European highway"
           className="w-full h-full object-cover"
-          poster="https://images.pexels.com/photos/1118446/pexels-photo-1118446.jpeg"
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-gray-900/60"></div>
       </div>
 
