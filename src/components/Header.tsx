@@ -129,7 +129,7 @@ const Header: React.FC = () => {
             {/* CTA Button */}
             <button
               onClick={() => scrollToSection('#quote')}
-              className="hidden sm:block bg-yellow-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:scale-105 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out"
+              className="hidden sm:block bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 hover:scale-105 px-6 py-2 rounded-lg font-medium transition-all duration-300 ease-in-out"
             >
               {t('getQuote')}
             </button>
@@ -159,7 +159,7 @@ const Header: React.FC = () => {
               ))}
               <button
                 onClick={() => scrollToSection('#quote')}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium transition-colors text-left"
+                className="bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-6 py-2 rounded-lg font-medium transition-all text-left"
               >
                 {t('getQuote')}
               </button>
