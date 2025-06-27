@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MapPin, Truck } from 'lucide-react';
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
 const Coverage: React.FC = () => {
   const { t } = useLanguage();
@@ -33,13 +34,6 @@ const Coverage: React.FC = () => {
     }
   ];
 
-  const [filter, setFilter] = useState('All');
-
-  const filteredCountries = countries.filter(country => {
-    if (filter === 'All') return true;
-    return country.routes.toLowerCase().includes(filter.toLowerCase());
-  });
-
   return (
     <section id="coverage" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,76 +60,67 @@ const Coverage: React.FC = () => {
           ))}
         </div>
 
-        {/* Map and Routes Section replaced with filterable table */}
+        {/* Map Section */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-            <div className="p-8 w-full">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Routes</h3>
-
-              <div className="mb-4 flex gap-3 flex-wrap">
-                <button
-                  onClick={() => setFilter('All')}
-                  className={`px-4 py-2 rounded-full border ${
-                    filter === 'All' ? 'bg-yellow-500 text-white' : 'bg-white text-gray-700'
-                  }`}
+            {/* Map */}
+            <div className="relative p-8 flex items-center justify-center min-h-[500px]">
+              <div className="w-full h-[500px] bg-white">
+                <ComposableMap
+                  projection="geoAzimuthalEqualArea"
+                  projectionConfig={{ center: [15, 52], scale: 600 }}
+                  style={{ width: '100%', height: '100%' }}
                 >
-                  All
-                </button>
-                <button
-                  onClick={() => setFilter('Daily')}
-                  className={`px-4 py-2 rounded-full border ${
-                    filter === 'Daily' ? 'bg-yellow-500 text-white' : 'bg-white text-gray-700'
-                  }`}
-                >
-                  Daily Routes
-                </button>
-                <button
-                  onClick={() => setFilter('3x')}
-                  className={`px-4 py-2 rounded-full border ${
-                    filter === '3x' ? 'bg-yellow-500 text-white' : 'bg-white text-gray-700'
-                  }`}
-                >
-                  3x/Week
-                </button>
-                <button
-                  onClick={() => setFilter('2x')}
-                  className={`px-4 py-2 rounded-full border ${
-                    filter === '2x' ? 'bg-yellow-500 text-white' : 'bg-white text-gray-700'
-                  }`}
-                >
-                  2x/Week
-                </button>
-                <button
-                  onClick={() => setFilter('Weekly')}
-                  className={`px-4 py-2 rounded-full border ${
-                    filter === 'Weekly' ? 'bg-yellow-500 text-white' : 'bg-white text-gray-700'
-                  }`}
-                >
-                  Weekly
-                </button>
+                  <Geographies geography="/maps/world-countries.json">
+                    {({ geographies }) =>
+                      geographies
+                        .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Bulgaria'].includes(geo.properties.NAME))
+                        .map((geo) => (
+                          <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
+                        ))
+                    }
+                  </Geographies>
+                  {countries.map((country, idx) => (
+                    <Marker key={idx} coordinates={country.coordinates}>
+                      <circle
+                        r={6}
+                        fill="#facc15"
+                        stroke="#000"
+                        strokeWidth={0.5}
+                        className="transition-transform duration-200 ease-in-out cursor-pointer"
+                        onMouseEnter={e => {
+                          const target = e.currentTarget;
+                          target.style.transform = 'scale(1.3)';
+                        }}
+                        onMouseLeave={e => {
+                          const target = e.currentTarget;
+                          target.style.transform = 'scale(1)';
+                        }}
+                      >
+                        <title>{`${country.name}: ${country.routes}`}</title>
+                      </circle>
+                    </Marker>
+                  ))}
+                </ComposableMap>
               </div>
+            </div>
 
-              <div className="overflow-x-auto">
-                <table className="min-w-full bg-white shadow rounded-lg">
-                  <thead>
-                    <tr className="bg-gray-100 text-gray-700 text-left text-sm">
-                      <th className="p-3">Country</th>
-                      <th className="p-3">Frequency</th>
-                      <th className="p-3">Departure</th>
-                      <th className="p-3">ETA</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredCountries.map((country, index) => (
-                      <tr key={index} className="border-t">
-                        <td className="p-3">{country.flag} {country.name}</td>
-                        <td className="p-3 text-yellow-600 font-semibold">{country.routes}</td>
-                        <td className="p-3">Greece</td>
-                        <td className="p-3">2-4 days</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {/* Countries List */}
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Routes</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {countries.map((country, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">{country.flag}</span>
+                      <span className="font-medium text-gray-900">{country.name}</span>
+                    </div>
+                    <span className="text-sm text-yellow-600 font-medium">{country.routes}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
