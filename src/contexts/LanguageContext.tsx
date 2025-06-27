@@ -267,6 +267,16 @@ const translations: Translations = {
     el: 'Ασφαλής αποθήκευση και διαχείριση αποθεμάτων',
     en: 'Secure storage and inventory management',
     de: 'Sichere Lagerung und Lagerverwaltung'
+  },
+  centralWarehousesTitle: {
+    el: '6 Κεντρικές Αποθήκες',
+    en: '6 Central Warehouses',
+    de: '6 Zentrale Lagerhäuser'
+  },
+  centralWarehousesDescription: {
+    el: 'Πανευρωπαϊκή κάλυψη με σύγχρονα κέντρα διανομής',
+    en: 'Pan-European coverage with modern distribution hubs',
+    de: 'Paneuropäische Abdeckung mit modernen Verteilzentren'
   }
 };
 

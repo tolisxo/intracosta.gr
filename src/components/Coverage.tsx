@@ -36,8 +36,8 @@ const Coverage: React.FC = () => {
     },
     {
       icon: <Warehouse className="text-yellow-500 w-8 h-8" />,
-      title: '6 Κεντρικές Αποθήκες',
-      description: 'Πανευρωπαϊκή κάλυψη με σύγχρονα κέντρα διανομής'
+      title: t('centralWarehousesTitle'),
+      description: t('centralWarehousesDescription')
     }
   ];
 
