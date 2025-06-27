@@ -20,8 +20,8 @@ const Hero: React.FC = () => {
       {/* Background Video */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/20263273/pexels-photo-20263273.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1920&w=3840"
-          alt="Truck on a European highway"
+          src="https://www.volvotrucks.com/content/dam/volvo/volvo-trucks/markets/master/home/volvo-trucks-homepage-hero-image-2023.jpg"
+          alt="Volvo truck on European road"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gray-900/60"></div>
