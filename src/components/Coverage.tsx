@@ -33,6 +33,11 @@ const Coverage: React.FC = () => {
       icon: <Truck className="text-yellow-500 w-8 h-8" />,
       title: t('modernFleetTitle'),
       description: t('modernFleetDescription')
+    },
+    {
+      icon: <span className="text-yellow-500 text-3xl">🏪</span>,
+      title: '6 Κεντρικές Αποθήκες',
+      description: 'Πανευρωπαϊκή κάλυψη με σύγχρονα κέντρα διανομής'
     }
   ];
 
