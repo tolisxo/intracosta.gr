@@ -8,15 +8,15 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: "Διεθνείς Μεταφορές",
-      description: "Ασφαλείς και αξιόπιστες μεταφορές φορτίων προς και από την Ευρώπη",
+      title: t('internationalTransport'),
+      description: t('internationalTransportDesc'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Truck className="w-12 h-12" />,
-      title: "Εθνικές Μεταφορές",
-      description: "Άμεσες και αποδοτικές μεταφορές εντός Ελλάδας με πλήρη κάλυψη",
+      title: t('nationalTransport'),
+      description: t('nationalTransportDesc'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
@@ -24,8 +24,8 @@ const Services: React.FC = () => {
       icon: <Warehouse className="w-12 h-12" />,
       title: t('warehousing'),
       description: t('warehousingDesc'),
-      color: 'bg-gray-500',
-      hoverColor: 'hover:bg-gray-600'
+      color: 'bg-gray-700',
+      hoverColor: 'hover:bg-gray-800'
     }
   ];
 
