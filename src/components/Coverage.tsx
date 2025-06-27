@@ -1,23 +1,24 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { MapPin, Truck, Clock } from 'lucide-react';
+import { MapPin, Truck } from 'lucide-react';
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
 const Coverage: React.FC = () => {
   const { t } = useLanguage();
 
   const countries = [
-    { name: 'Germany', flag: '🇩🇪', routes: 'Daily Routes' },
-    { name: 'Netherlands', flag: '🇳🇱', routes: 'Daily Routes' },
-    { name: 'Belgium', flag: '🇧🇪', routes: '3x/Week' },
-    { name: 'France', flag: '🇫🇷', routes: '2x/Week' },
-    { name: 'Italy', flag: '🇮🇹', routes: '2x/Week' },
-    { name: 'Austria', flag: '🇦🇹', routes: '3x/Week' },
-    { name: 'Switzerland', flag: '🇨🇭', routes: '2x/Week' },
-    { name: 'Poland', flag: '🇵🇱', routes: '3x/Week' },
-    { name: 'Czech Republic', flag: '🇨🇿', routes: '2x/Week' },
-    { name: 'Hungary', flag: '🇭🇺', routes: '2x/Week' },
-    { name: 'Slovakia', flag: '🇸🇰', routes: '2x/Week' },
-    { name: 'Bulgaria', flag: '🇧🇬', routes: 'Weekly' }
+    { name: 'Germany', flag: '🇩🇪', routes: 'Daily Routes', coordinates: [10.4515, 51.1657] },
+    { name: 'Netherlands', flag: '🇳🇱', routes: 'Daily Routes', coordinates: [5.2913, 52.1326] },
+    { name: 'Belgium', flag: '🇧🇪', routes: '3x/Week', coordinates: [4.4699, 50.5039] },
+    { name: 'France', flag: '🇫🇷', routes: '2x/Week', coordinates: [2.2137, 46.2276] },
+    { name: 'Italy', flag: '🇮🇹', routes: '2x/Week', coordinates: [12.5674, 41.8719] },
+    { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162] },
+    { name: 'Switzerland', flag: '🇨🇭', routes: '2x/Week', coordinates: [8.2275, 46.8182] },
+    { name: 'Poland', flag: '🇵🇱', routes: '3x/Week', coordinates: [19.1451, 51.9194] },
+    { name: 'Czech Republic', flag: '🇨🇿', routes: '2x/Week', coordinates: [15.4729, 49.8175] },
+    { name: 'Hungary', flag: '🇭🇺', routes: '2x/Week', coordinates: [19.5033, 47.1625] },
+    { name: 'Slovakia', flag: '🇸🇰', routes: '2x/Week', coordinates: [19.699, 48.669] },
+    { name: 'Bulgaria', flag: '🇧🇬', routes: 'Weekly', coordinates: [25.4858, 42.7339] }
   ];
 
   const features = [
@@ -62,14 +63,40 @@ const Coverage: React.FC = () => {
         {/* Map Section */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-            {/* Map Placeholder */}
-            <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 p-8 flex items-center justify-center min-h-96">
-              <div className="text-center">
-                <div className="w-64 h-48 bg-gray-300 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-gray-700 font-semibold">Interactive Map</span>
-                </div>
-                <p className="text-gray-700 font-medium">European Coverage Map</p>
-              </div>
+            {/* Map */}
+            <div className="relative p-8 flex items-center justify-center min-h-96">
+              <ComposableMap projection="geoAzimuthalEqualArea" projectionConfig={{ center: [15, 52], scale: 600 }}>
+                <Geographies geography="https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json">
+                  {({ geographies }) =>
+                    geographies
+                      .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Bulgaria'].includes(geo.properties.NAME))
+                      .map((geo) => (
+                        <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
+                      ))
+                  }
+                </Geographies>
+                {countries.map((country, idx) => (
+                  <Marker key={idx} coordinates={country.coordinates}>
+                    <circle
+                      r={6}
+                      fill="#facc15"
+                      stroke="#000"
+                      strokeWidth={0.5}
+                      className="transition-transform duration-200 ease-in-out cursor-pointer"
+                      onMouseEnter={e => {
+                        const target = e.currentTarget;
+                        target.style.transform = 'scale(1.3)';
+                      }}
+                      onMouseLeave={e => {
+                        const target = e.currentTarget;
+                        target.style.transform = 'scale(1)';
+                      }}
+                    >
+                      <title>{`${country.name}: ${country.routes}`}</title>
+                    </circle>
+                  </Marker>
+                ))}
+              </ComposableMap>
             </div>
 
             {/* Countries List */}
