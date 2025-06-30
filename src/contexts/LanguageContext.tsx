@@ -161,7 +161,7 @@ const translations: Translations = {
     de: 'Adresse'
   },
   addressText: {
-    el: '3ο χλμ Γιαννιτσών Θεσσαλονίκης, GR58100 Γιαννιτσά',
+    el: '3ο χλμ Γιαννιτσών – Θεσσαλονίκης, GR58100 Γιαννιτσά',
     en: '3rd km Giannitsa – Thessaloniki, GR58100 Giannitsa',
     de: '3. km Giannitsa – Thessaloniki, GR58100 Giannitsa'
   },
@@ -186,7 +186,7 @@ const translations: Translations = {
     de: 'Öffnungszeiten'
   },
   businessHoursText: {
-    el: 'Δευτέρα - Παρασκευή: 09:00 - 17:00',
+    el: 'Monday - Friday: 09:00 - 17:00',
     en: 'Monday - Friday: 09:00 - 17:00',
     de: 'Montag - Freitag: 09:00 - 17:00'
   },
