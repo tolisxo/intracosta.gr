@@ -152,6 +152,27 @@ const translations: Translations = {
   
   // Contact
   contactTitle: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact Us', de: 'Kontaktieren Sie uns' },
+  // --- Added contact translation keys for section titles ---
+  'contact.addressTitle': {
+    el: 'Διεύθυνση',
+    en: 'Address',
+    de: 'Adresse'
+  },
+  'contact.phoneTitle': {
+    el: 'Τηλέφωνο',
+    en: 'Phone',
+    de: 'Telefon'
+  },
+  'contact.emailTitle': {
+    el: 'Email',
+    en: 'Email',
+    de: 'E-Mail'
+  },
+  'contact.businessHoursTitle': {
+    el: 'Ώρες Λειτουργίας',
+    en: 'Business Hours',
+    de: 'Öffnungszeiten'
+  },
   name: { el: 'Όνομα', en: 'Name', de: 'Name' },
   message: { el: 'Μήνυμα', en: 'Message', de: 'Nachricht' },
   sendMessage: { el: 'Αποστολή Μηνύματος', en: 'Send Message', de: 'Nachricht senden' },
