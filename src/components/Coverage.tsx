@@ -72,11 +72,11 @@ const Coverage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             {/* Map */}
             <div className="lg:col-span-2 relative p-8 flex items-center justify-center min-h-[500px]">
-              <div className="w-full h-[500px] bg-white relative">
+              <div className="w-full aspect-[3/2] bg-white relative">
                 <ComposableMap
                   projection="geoAzimuthalEqualArea"
                   projectionConfig={{ center: [15, 52], scale: 600 }}
-                  style={{ width: '100%', height: '100%' }}
+                  style={{ width: '100%' }}
                 >
                   <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
