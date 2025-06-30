@@ -15,6 +15,11 @@ const translations: Translations = {
   home: { el: 'Αρχική', en: 'Home', de: 'Startseite' },
   services: { el: 'Υπηρεσίες', en: 'Services', de: 'Dienstleistungen' },
   coverage: { el: 'Περιοχές', en: 'Coverage', de: 'Abdeckung' },
+  covered: {
+    el: 'Καλύπτεται',
+    en: 'Covered',
+    de: 'Abgedeckt'
+  },
   about: { el: 'Σχετικά', en: 'About', de: 'Über uns' },
   contact: { el: 'Επικοινωνία', en: 'Contact', de: 'Kontakt' },
   getQuote: { el: 'Ζητήστε Προσφορά', en: 'Get Quote', de: 'Angebot erhalten' },
