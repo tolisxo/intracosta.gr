@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: t('contactAddressTitle'),
+      title: t('contact.addressTitle'),
       details: [
         <div>
           <p className="text-gray-600">3ο χλμ Γιαννιτσών Θεσσαλονίκης</p>
@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: t('contactPhoneTitle'),
+      title: t('contact.phoneTitle'),
       details: [
         <a href="tel:+302382022090" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 22090</a>,
         <a href="tel:+302382083100" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 83100</a>
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      title: t('contactEmailTitle'),
+      title: t('contact.emailTitle'),
       details: [
         <a href="mailto:export@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">export@intracosta.com</a>,
         <a href="mailto:import@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">import@intracosta.com</a>
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: t('contactBusinessHoursTitle'),
+      title: t('contact.businessHoursTitle'),
       details: [
         (() => {
           const now = new Date();
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">{t('contact.getInTouch')}</h3>
             
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
