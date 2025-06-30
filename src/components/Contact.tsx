@@ -110,7 +110,9 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">{t('contact.getInTouch')}</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+              {t('contact.getInTouch')}
+            </h3>
             
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
