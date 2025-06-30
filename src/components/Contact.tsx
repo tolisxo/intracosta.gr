@@ -83,7 +83,10 @@ const Contact: React.FC = () => {
     {
       icon: <Clock className="w-6 h-6" />,
       title: 'Business Hours',
-      details: ['Mon-Fri: 8:00 - 18:00', 'Sat: 9:00 - 15:00']
+      details: [
+        'Δευτέρα - Παρασκευή: 09:00 - 17:00 (Ώρα Αθήνας)',
+        'Σαββατοκύριακο: Κλειστά'
+      ]
     }
   ];
 
