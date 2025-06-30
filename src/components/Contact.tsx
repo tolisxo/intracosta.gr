@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
             href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 inline-block text-sm text-blue-600 hover:underline transition-transform transform hover:scale-105 duration-300"
+            className="mt-1 inline-block text-sm text-yellow-500 hover:text-yellow-600 hover:scale-105 transition-transform duration-300 font-semibold"
           >
             Άνοιγμα στον χάρτη
           </a>
@@ -68,16 +68,16 @@ const Contact: React.FC = () => {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone',
       details: [
-        <a href="tel:+302382022090" className="text-gray-600 hover:underline">+30 23820 22090</a>,
-        <a href="tel:+302382083100" className="text-gray-600 hover:underline">+30 23820 83100</a>
+        <a href="tel:+302382022090" className="text-yellow-500 hover:text-yellow-600 transition-transform transform hover:scale-105 font-semibold">+30 23820 22090</a>,
+        <a href="tel:+302382083100" className="text-yellow-500 hover:text-yellow-600 transition-transform transform hover:scale-105 font-semibold">+30 23820 83100</a>
       ]
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
       details: [
-        <a href="mailto:export@intracosta.com" className="text-gray-600 hover:underline">export@intracosta.com</a>,
-        <a href="mailto:import@intracosta.com" className="text-gray-600 hover:underline">import@intracosta.com</a>
+        <a href="mailto:export@intracosta.com" className="text-yellow-500 hover:text-yellow-600 transition-transform transform hover:scale-105 font-semibold">export@intracosta.com</a>,
+        <a href="mailto:import@intracosta.com" className="text-yellow-500 hover:text-yellow-600 transition-transform transform hover:scale-105 font-semibold">import@intracosta.com</a>
       ]
     },
     {
