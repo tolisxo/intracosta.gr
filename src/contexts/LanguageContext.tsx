@@ -319,6 +319,18 @@ const translations: Translations = {
     el: 'Σύγχρονη τεχνολογία για παρακολούθηση και βελτιστοποίηση logistics',
     en: 'Modern technology for tracking and logistics optimization',
     de: 'Moderne Technologie zur Verfolgung und Optimierung der Logistik'
+  },
+
+  // Our Routes Section
+  ourRoutesTitle: {
+    el: 'Οι Διαδρομές μας',
+    en: 'Our Routes',
+    de: 'Unsere Routen'
+  },
+  ourRoutesDescription: {
+    el: 'Εξυπηρετούμε {{count}} ευρωπαϊκές χώρες με τακτικές δρομολογήσεις. Το δίκτυό μας καλύπτει σημαντικά βιομηχανικά και εμπορικά κέντρα σε όλη την Ευρώπη.',
+    en: 'We serve {{count}} European countries with regular scheduled routes. Our network covers major industrial and commercial centers across Europe.',
+    de: 'Wir bedienen {{count}} europäische Länder mit regelmäßigen Fahrplänen. Unser Netzwerk deckt wichtige Industrie- und Handelszentren in ganz Europa ab.'
   }
 };
 
