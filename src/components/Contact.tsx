@@ -48,25 +48,25 @@ const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Address',
+      title: t('contactAddressTitle'),
       details: [
         <div>
-          <p className="text-gray-600">3ο χλμ Γιαννιτσών Θεσσαλονίκης</p>
-          <p className="text-gray-600">GR58100 Γιαννιτσά</p>
+          <p className="text-gray-600">{t('contactAddressLine1')}</p>
+          <p className="text-gray-600">{t('contactAddressLine2')}</p>
           <a
             href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold"
           >
-            Άνοιγμα στον χάρτη
+            {t('openMap')}
           </a>
         </div>
       ]
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: 'Phone',
+      title: t('contactPhoneTitle'),
       details: [
         <a href="tel:+302382022090" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 22090</a>,
         <a href="tel:+302382083100" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 83100</a>
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
+      title: t('contactEmailTitle'),
       details: [
         <a href="mailto:export@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">export@intracosta.com</a>,
         <a href="mailto:import@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">import@intracosta.com</a>
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: 'Business Hours',
+      title: t('contactBusinessHoursTitle'),
       details: [
         (() => {
           const now = new Date();
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
             hour: '2-digit',
             minute: '2-digit'
           });
-          return `Δευτέρα - Παρασκευή: 09:00 - 17:00 (Ώρα Αθήνας τώρα: ${athensTime})`;
+          return `${t('businessDays')}: 09:00 - 17:00 (${t('athensTimeNow')}: ${athensTime})`;
         })()
       ]
     }
