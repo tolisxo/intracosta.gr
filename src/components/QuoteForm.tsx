@@ -110,7 +110,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('pickupHint')}</p>
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -128,7 +127,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('deliveryHint')}</p>
                 </div>
 
                 <hr className="my-6 border-gray-300" />
@@ -152,7 +150,6 @@ const QuoteForm: React.FC = () => {
                     <option value="refrigerated">Refrigerated</option>
                   </select>
                   <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                  <p className="text-xs text-gray-500 mt-1">{t('cargoHint')}</p>
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -169,7 +166,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('weightHint')}</p>
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -211,7 +207,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('companyHint')}</p>
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -229,7 +224,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('contactHint')}</p>
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -247,7 +241,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('emailHint')}</p>
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -265,7 +258,6 @@ const QuoteForm: React.FC = () => {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">{t('phoneHint')}</p>
                 </div>
 
                 <button
