@@ -185,6 +185,26 @@ const translations: Translations = {
     en: 'Business Hours',
     de: 'Öffnungszeiten'
   },
+  contactTitleAddress: {
+    el: 'Διεύθυνση',
+    en: 'Address',
+    de: 'Adresse'
+  },
+  contactTitlePhone: {
+    el: 'Τηλέφωνο',
+    en: 'Phone',
+    de: 'Telefon'
+  },
+  contactTitleEmail: {
+    el: 'Email',
+    en: 'Email',
+    de: 'E-Mail'
+  },
+  contactTitleHours: {
+    el: 'Ώρες Λειτουργίας',
+    en: 'Business Hours',
+    de: 'Öffnungszeiten'
+  },
   businessHoursText: {
     el: 'Δευτέρα - Παρασκευή: 09:00 - 17:00',
     en: 'Monday - Friday: 09:00 - 17:00',
@@ -403,23 +423,3 @@ export const useLanguage = () => {
   }
   return context;
 };
-  contactTitleHours: {
-    el: 'Ώρες Επικοινωνίας',
-    en: 'Contact Hours',
-    de: 'Kontaktzeiten'
-  },
-  contactTitleAddress: {
-    el: 'Διεύθυνση',
-    en: 'Address',
-    de: 'Adresse'
-  },
-  contactTitlePhone: {
-    el: 'Τηλέφωνο',
-    en: 'Phone',
-    de: 'Telefon'
-  },
-  contactTitleEmail: {
-    el: 'Email',
-    en: 'Email',
-    de: 'E-Mail'
-  },
