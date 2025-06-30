@@ -87,14 +87,17 @@ const QuoteForm: React.FC = () => {
 
         <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
           <form onSubmit={handleSubmit} className="p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               {/* Left Column - Shipment Details */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Package className="w-6 h-6 mr-3 text-gray-700" />
                   Shipment Details
                 </h3>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('pickupLocation')}
+                </label>
                 <div className="relative">
                   <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -103,11 +106,16 @@ const QuoteForm: React.FC = () => {
                     value={formData.pickupLocation}
                     onChange={handleInputChange}
                     placeholder={t('pickupLocation')}
+                    title="π.χ. Θεσσαλονίκη"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('pickupHint')}</p>
                 </div>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('deliveryLocation')}
+                </label>
                 <div className="relative">
                   <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -116,17 +124,25 @@ const QuoteForm: React.FC = () => {
                     value={formData.deliveryLocation}
                     onChange={handleInputChange}
                     placeholder={t('deliveryLocation')}
+                    title="π.χ. Αθήνα"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('deliveryHint')}</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <hr className="my-6 border-gray-300" />
+
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('cargoType')}
+                </label>
+                <div className="relative">
                   <select
                     name="cargoType"
                     value={formData.cargoType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    title="Επιλέξτε τον τύπο φορτίου"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
                     required
                   >
                     <option value="">{t('cargoType')}</option>
@@ -135,25 +151,38 @@ const QuoteForm: React.FC = () => {
                     <option value="hazardous">Hazardous Materials</option>
                     <option value="refrigerated">Refrigerated</option>
                   </select>
+                  <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                  <p className="text-xs text-gray-500 mt-1">{t('cargoHint')}</p>
+                </div>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('weight')}
+                </label>
+                <div className="relative">
                   <input
                     type="number"
                     name="weight"
                     value={formData.weight}
                     onChange={handleInputChange}
                     placeholder={t('weight')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    title="Βάρος σε κιλά (π.χ. 1000)"
+                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('weightHint')}</p>
                 </div>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('desiredDate')}
+                </label>
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                   <input
                     type="date"
                     name="desiredDate"
                     value={formData.desiredDate}
                     onChange={handleInputChange}
+                    title="Επιλέξτε την επιθυμητή ημερομηνία"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
@@ -161,12 +190,15 @@ const QuoteForm: React.FC = () => {
               </div>
 
               {/* Right Column - Contact Details */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <User className="w-6 h-6 mr-3 text-gray-700" />
                   Contact Information
                 </h3>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('companyName')}
+                </label>
                 <div className="relative">
                   <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -175,11 +207,16 @@ const QuoteForm: React.FC = () => {
                     value={formData.companyName}
                     onChange={handleInputChange}
                     placeholder={t('companyName')}
+                    title="Όνομα εταιρείας"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('companyHint')}</p>
                 </div>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('contactPerson')}
+                </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -188,11 +225,16 @@ const QuoteForm: React.FC = () => {
                     value={formData.contactPerson}
                     onChange={handleInputChange}
                     placeholder={t('contactPerson')}
+                    title="Όνομα υπεύθυνου επικοινωνίας"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('contactHint')}</p>
                 </div>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('email')}
+                </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -201,11 +243,16 @@ const QuoteForm: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder={t('email')}
+                    title="π.χ. example@mail.com"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('emailHint')}</p>
                 </div>
 
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('phone')}
+                </label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <input
@@ -214,9 +261,11 @@ const QuoteForm: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder={t('phone')}
+                    title="π.χ. +30 2101234567"
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     required
                   />
+                  <p className="text-xs text-gray-500 mt-1">{t('phoneHint')}</p>
                 </div>
 
                 <button
