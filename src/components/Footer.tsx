@@ -89,10 +89,15 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />
-                <div className="text-gray-700">
-                  <div>3ο χλμ Γιαννιτσών Θεσσαλονίκης</div>
-                  <div>GR58100 Γιαννιτσά</div>
-                </div>
+                <a
+                  href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
+                >
+                  3ο χλμ Γιαννιτσών Θεσσαλονίκης<br />
+                  GR58100 Γιαννιτσά
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
