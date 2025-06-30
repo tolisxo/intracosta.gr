@@ -186,7 +186,7 @@ const translations: Translations = {
     de: 'Öffnungszeiten'
   },
   businessHoursText: {
-    el: 'Monday - Friday: 09:00 - 17:00',
+    el: 'Δευτέρα - Παρασκευή: 09:00 - 17:00',
     en: 'Monday - Friday: 09:00 - 17:00',
     de: 'Montag - Freitag: 09:00 - 17:00'
   },
