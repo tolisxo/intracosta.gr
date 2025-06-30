@@ -16,6 +16,7 @@ const Coverage: React.FC = () => {
     { name: 'Italy', flag: '🇮🇹', routes: '2x/Week', coordinates: [12.5674, 41.8719] },
     { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162] },
     { name: 'Switzerland', flag: '🇨🇭', routes: '2x/Week', coordinates: [8.2275, 46.8182] },
+    { name: 'Poland', flag: '🇵🇱', routes: '3x/Week', coordinates: [19.1451, 51.9194] },
     { name: 'Czech Republic', flag: '🇨🇿', routes: '2x/Week', coordinates: [15.4729, 49.8175] },
     { name: 'Hungary', flag: '🇭🇺', routes: '2x/Week', coordinates: [19.5033, 47.1625] },
     { name: 'Slovakia', flag: '🇸🇰', routes: '2x/Week', coordinates: [19.699, 48.669] },
@@ -82,7 +83,7 @@ const Coverage: React.FC = () => {
                   <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
                       geographies
-                        .filter((geo) => ['Germany', 'France', 'Italy', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Denmark', 'Luxembourg', 'Greece'].includes(geo.properties.NAME))
+                        .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Denmark', 'Luxembourg', 'Greece'].includes(geo.properties.NAME))
                         .map((geo) => (
                           <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
                         ))
