@@ -116,10 +116,9 @@ const Coverage: React.FC = () => {
 
             {/* Routes Info & Button */}
             <div className="p-8 flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Routes</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('ourRoutesTitle')}</h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                We serve {countries.length} European countries with regular scheduled routes. 
-                Our network covers major industrial and commercial centers across Europe.
+                {t('ourRoutesDescription', { count: countries.length })}
               </p>
               
               <button
