@@ -84,7 +84,15 @@ const Contact: React.FC = () => {
       icon: <Clock className="w-6 h-6" />,
       title: 'Business Hours',
       details: [
-        'Δευτέρα - Παρασκευή: 09:00 - 17:00 (Ώρα Αθήνας)'
+        (() => {
+          const now = new Date();
+          const athensTime = now.toLocaleTimeString('el-GR', {
+            timeZone: 'Europe/Athens',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+          return `Δευτέρα - Παρασκευή: 09:00 - 17:00 (Ώρα Αθήνας τώρα: ${athensTime})`;
+        })()
       ]
     }
   ];
