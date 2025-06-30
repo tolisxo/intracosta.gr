@@ -105,7 +105,7 @@ const Contact: React.FC = () => {
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#2c3441] text-[#f7c948] rounded-full flex items-center justify-center">
                     {info.icon}
                   </div>
                   <div>
