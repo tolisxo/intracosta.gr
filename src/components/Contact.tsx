@@ -49,7 +49,20 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Address',
-      details: ['3ο χλμ Γιαννιτσών Θεσσαλονίκης', 'GR58100 Γιαννιτσά']
+      details: [
+        <div>
+          <p className="text-gray-600">3ο χλμ Γιαννιτσών Θεσσαλονίκης</p>
+          <p className="text-gray-600">GR58100 Γιαννιτσά</p>
+          <a
+            href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 inline-block text-sm text-blue-600 hover:underline"
+          >
+            Άνοιγμα στον χάρτη
+          </a>
+        </div>
+      ]
     },
     {
       icon: <Phone className="w-6 h-6" />,
