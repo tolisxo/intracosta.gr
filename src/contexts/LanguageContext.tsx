@@ -155,6 +155,46 @@ const translations: Translations = {
   name: { el: 'Όνομα', en: 'Name', de: 'Name' },
   message: { el: 'Μήνυμα', en: 'Message', de: 'Nachricht' },
   sendMessage: { el: 'Αποστολή Μηνύματος', en: 'Send Message', de: 'Nachricht senden' },
+  addressLabel: {
+    el: 'Διεύθυνση',
+    en: 'Address',
+    de: 'Adresse'
+  },
+  addressText: {
+    el: '3ο χλμ Γιαννιτσών Θεσσαλονίκης, GR58100 Γιαννιτσά',
+    en: '3rd km Giannitsa – Thessaloniki, GR58100 Giannitsa',
+    de: '3. km Giannitsa – Thessaloniki, GR58100 Giannitsa'
+  },
+  openMap: {
+    el: 'Άνοιγμα στον χάρτη',
+    en: 'Open in map',
+    de: 'In Karte öffnen'
+  },
+  phoneLabel: {
+    el: 'Τηλέφωνο',
+    en: 'Phone',
+    de: 'Telefon'
+  },
+  emailLabel: {
+    el: 'Email',
+    en: 'Email',
+    de: 'E-Mail'
+  },
+  businessHoursLabel: {
+    el: 'Ώρες Λειτουργίας',
+    en: 'Business Hours',
+    de: 'Öffnungszeiten'
+  },
+  businessHoursText: {
+    el: 'Δευτέρα - Παρασκευή: 09:00 - 17:00',
+    en: 'Monday - Friday: 09:00 - 17:00',
+    de: 'Montag - Freitag: 09:00 - 17:00'
+  },
+  athensTimeNow: {
+    el: 'Ώρα Αθήνας τώρα:',
+    en: 'Athens time now:',
+    de: 'Athener Zeit jetzt:'
+  },
   
   // Footer
   quickLinks: { el: 'Γρήγοροι Σύνδεσμοι', en: 'Quick Links', de: 'Schnelle Links' },
