@@ -51,8 +51,8 @@ const Contact: React.FC = () => {
       title: t('contactAddressTitle'),
       details: [
         <div>
-          <p className="text-gray-600">{t('contactAddressLine1')}</p>
-          <p className="text-gray-600">{t('contactAddressLine2')}</p>
+          <p className="text-gray-600">3ο χλμ Γιαννιτσών Θεσσαλονίκης</p>
+          <p className="text-gray-600">GR58100 Γιαννιτσά</p>
           <a
             href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
             target="_blank"
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
             hour: '2-digit',
             minute: '2-digit'
           });
-          return `${t('businessDays')}: 09:00 - 17:00 (${t('athensTimeNow')}: ${athensTime})`;
+          return `Δευτέρα - Παρασκευή: 09:00 - 17:00 (${t('athensTimeNow')}: ${athensTime})`;
         })()
       ]
     }
