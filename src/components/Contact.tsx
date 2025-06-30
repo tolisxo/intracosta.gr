@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
-  
-  const [userTimeZone, setUserTimeZone] = useState<string | null>(null);
-
-  useEffect(() => {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    setUserTimeZone(tz);
-  }, []);
   
   const [formData, setFormData] = useState({
     name: '',
@@ -87,14 +80,14 @@ const Contact: React.FC = () => {
         <a href="mailto:import@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">import@intracosta.com</a>
       ]
     },
-    userTimeZone === 'Europe/Athens' && {
+    {
       icon: <Clock className="w-6 h-6" />,
       title: 'Business Hours',
       details: [
         'Δευτέρα - Παρασκευή: 09:00 - 17:00 (Ώρα Αθήνας)'
       ]
     }
-  ].filter(Boolean);
+  ];
 
   return (
     <section id="contact" className="py-20 bg-gray-50">
