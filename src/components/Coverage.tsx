@@ -20,7 +20,9 @@ const Coverage: React.FC = () => {
     { name: 'Czech Republic', flag: '🇨🇿', routes: '2x/Week', coordinates: [15.4729, 49.8175] },
     { name: 'Hungary', flag: '🇭🇺', routes: '2x/Week', coordinates: [19.5033, 47.1625] },
     { name: 'Slovakia', flag: '🇸🇰', routes: '2x/Week', coordinates: [19.699, 48.669] },
-    { name: 'Bulgaria', flag: '🇧🇬', routes: 'Weekly', coordinates: [25.4858, 42.7339] }
+    { name: 'Denmark', flag: '🇩🇰', routes: '2x/Week', coordinates: [9.5018, 56.2639] },
+    { name: 'Luxembourg', flag: '🇱🇺', routes: '3x/Week', coordinates: [6.1296, 49.8153] },
+    { name: 'Greece', flag: '🇬🇷', routes: 'Daily Routes', coordinates: [21.8243, 39.0742] }
   ];
 
   const features = [
@@ -81,7 +83,7 @@ const Coverage: React.FC = () => {
                   <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
                       geographies
-                        .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Bulgaria'].includes(geo.properties.NAME))
+                        .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Denmark', 'Luxembourg', 'Greece'].includes(geo.properties.NAME))
                         .map((geo) => (
                           <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
                         ))
@@ -95,10 +97,10 @@ const Coverage: React.FC = () => {
                         stroke="#000"
                         strokeWidth={1}
                         className="transition-transform duration-200 ease-in-out cursor-pointer"
-                        onMouseEnter={() => setHoveredCountry(`${country.flag} ${country.name}: ${country.routes}`)}
+                        onMouseEnter={() => setHoveredCountry(`${country.flag} ${country.name}: ${t('covered')}`)}
                         onMouseLeave={() => setHoveredCountry(null)}
                         style={{
-                          transform: hoveredCountry === `${country.flag} ${country.name}: ${country.routes}` ? 'scale(1.5)' : 'scale(1)'
+                          transform: hoveredCountry === `${country.flag} ${country.name}: ${t('covered')}` ? 'scale(1.5)' : 'scale(1)'
                         }}
                       />
                     </Marker>
@@ -157,14 +159,8 @@ const Coverage: React.FC = () => {
                         <span className="text-2xl">{country.flag}</span>
                         <span className="font-medium text-gray-900">{country.name}</span>
                       </div>
-                      <span className={`text-sm font-medium px-3 py-1 rounded-full ${
-                        country.routes === 'Daily Routes' 
-                          ? 'bg-green-100 text-green-800' 
-                          : country.routes === 'Weekly'
-                          ? 'bg-blue-100 text-blue-800'
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {country.routes}
+                      <span className="text-sm font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">
+                        {t('covered')}
                       </span>
                     </div>
                   ))}
