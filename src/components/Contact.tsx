@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
             href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 inline-block text-sm text-blue-600 hover:underline"
+            className="mt-1 inline-block text-sm text-blue-600 hover:underline transition-transform transform hover:scale-105 duration-300"
           >
             Άνοιγμα στον χάρτη
           </a>
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
               href="https://wa.me/302101234567"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors transition-transform transform hover:scale-105 duration-300"
             >
               <MessageSquare className="w-5 h-5 mr-2" />
               WhatsApp Support
