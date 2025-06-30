@@ -78,7 +78,7 @@ const Coverage: React.FC = () => {
                   projectionConfig={{ center: [15, 52], scale: 600 }}
                   style={{ width: '100%', height: '100%' }}
                 >
-                  <Geographies geography="/maps/world-countries.json">
+                  <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
                       geographies
                         .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Bulgaria'].includes(geo.properties.NAME))
