@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
             {/* Google Maps Embed */}
             <div className="mt-8 rounded-lg overflow-hidden shadow-md">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12284.688112164147!2d22.4038!3d40.7993!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a91f6c7c07d3c5%3A0x9a4f3be5b9c8b7cc!2sIntracosta%20E.E.!5e0!3m2!1sel!2sgr!4v1719777900000!5m2!1sel!2sgr"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12284.688112164147!2d22.455266765277468!3d40.764939957148385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzU0LjAiTiAyMsKwMjcnMTkuMCJF!5e0!3m2!1sel!2sgr!4v1719777900000!5m2!1sel!2sgr"
                 width="100%"
                 height="300"
                 loading="lazy"
