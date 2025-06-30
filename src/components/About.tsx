@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Shield, Award, Users, Target } from 'lucide-react';
 
@@ -33,17 +34,23 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image Section */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <img
               src="https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt="Truck transporting goods"
               className="rounded-xl shadow-2xl"
             />
             <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-6 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold">15+</div>
+              <div className="text-3xl font-bold">25+</div>
               <div className="text-sm font-medium">Years of Excellence</div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content Section */}
           <div>
