@@ -72,7 +72,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.key}>
-                  <span className="text-gray-700">{t(service.key)}</span>
+                  <button
+                    onClick={() => scrollToSection(`#${service.key}`)}
+                    className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
+                  >
+                    {t(service.key)}
+                  </button>
                 </li>
               ))}
             </ul>
