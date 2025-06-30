@@ -403,3 +403,23 @@ export const useLanguage = () => {
   }
   return context;
 };
+  contactTitleHours: {
+    el: 'Ώρες Επικοινωνίας',
+    en: 'Contact Hours',
+    de: 'Kontaktzeiten'
+  },
+  contactTitleAddress: {
+    el: 'Διεύθυνση',
+    en: 'Address',
+    de: 'Adresse'
+  },
+  contactTitlePhone: {
+    el: 'Τηλέφωνο',
+    en: 'Phone',
+    de: 'Telefon'
+  },
+  contactTitleEmail: {
+    el: 'Email',
+    en: 'Email',
+    de: 'E-Mail'
+  },
