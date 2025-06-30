@@ -118,13 +118,16 @@ const Contact: React.FC = () => {
               WhatsApp Support
             </a>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                <p className="text-gray-500 font-medium">Interactive Map</p>
-                <p className="text-gray-400 text-sm">Google Maps Integration</p>
-              </div>
+            {/* Google Maps Embed */}
+            <div className="mt-8 rounded-lg overflow-hidden shadow-md">
+              <iframe
+                src="https://maps.google.com/maps?q=3ο%20χλμ%20Γιαννιτσών%20Θεσσαλονίκης&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="300"
+                loading="lazy"
+                allowFullScreen
+                className="w-full h-64 rounded-lg border-none"
+              ></iframe>
             </div>
           </div>
 
