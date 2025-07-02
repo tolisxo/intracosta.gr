@@ -157,7 +157,7 @@ const translations: Translations = {
   
   // Contact
   contactTitle: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact Us', de: 'Kontaktieren Sie uns' },
-  contact.getInTouch: {
+  'contact.getInTouch': {
     el: 'Επικοινωνία',
     en: 'Get in Touch',
     de: 'Kontakt aufnehmen'
