@@ -14,7 +14,7 @@ const Services: React.FC = () => {
       hoverColor: 'hover:bg-gray-800'
     },
     {
-      icon: <Truck className="w-12 h-12" />,
+      icon: <ArrowRight className="w-12 h-12" />, // Changed from Truck to ArrowRight
       title: t('services.nationalTitle'),
       description: t('services.nationalDescription'),
       color: 'bg-gray-700',
