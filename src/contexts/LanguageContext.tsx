@@ -178,6 +178,11 @@ const translations: Translations = {
     en: 'Get a personalized quote for your transport needs',
     de: 'Holen Sie sich ein persönliches Angebot für Ihre Transportbedürfnisse'
   },
+  shipmentDetails: {
+    el: 'Λεπτομέρειες Αποστολής',
+    en: 'Shipment Details',
+    de: 'Versanddetails'
+  },
   pickupLocation: { el: 'Τοποθεσία Παραλαβής', en: 'Pickup Location', de: 'Abholort' },
   deliveryLocation: { el: 'Τοποθεσία Παράδοσης', en: 'Delivery Location', de: 'Lieferort' },
   cargoType: { el: 'Τύπος Φορτίου', en: 'Cargo Type', de: 'Frachtart' },

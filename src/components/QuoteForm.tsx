@@ -22,6 +22,8 @@ const QuoteForm: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  // Accordion state: 0 = Shipment Details, 1 = Cargo Type, 2 = Contact Information
+  const [openPanel, setOpenPanel] = useState(0);
   const [showCargoDetails, setShowCargoDetails] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -81,8 +83,8 @@ const QuoteForm: React.FC = () => {
   }
 
   return (
-    <section id="quote" className="py-20 bg-gradient-to-br from-gray-700 to-gray-800">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="quote" className="py-20 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">
             {t('quoteFormTitle')}
@@ -91,254 +93,317 @@ const QuoteForm: React.FC = () => {
             {t('quoteFormSubtitle')}
           </p>
         </div>
-
-        <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
-          <form onSubmit={handleSubmit} className="p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              {/* Left Column - Shipment Details */}
-              <div className="space-y-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <Package className="w-6 h-6 mr-3 text-gray-700" />
-                  Shipment Details
-                </h3>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('pickupLocation')}
-                </label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    name="pickupLocation"
-                    value={formData.pickupLocation}
-                    onChange={handleInputChange}
-                    placeholder={t('pickupLocation')}
-                    title="π.χ. Θεσσαλονίκη"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('deliveryLocation')}
-                </label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    name="deliveryLocation"
-                    value={formData.deliveryLocation}
-                    onChange={handleInputChange}
-                    placeholder={t('deliveryLocation')}
-                    title="π.χ. Αθήνα"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <hr className="my-6 border-gray-300" />
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('cargoType')}
-                </label>
-                <div className="relative">
-                  <select
-                    name="cargoType"
-                    value={formData.cargoType}
-                    onChange={handleInputChange}
-                    title="Επιλέξτε τον τύπο φορτίου"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
-                    required
-                  >
-                    <option value="">{t('cargoType')}</option>
-                    <option value="dry">Ξηρό φορτίο</option>
-                    <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
-                    <option value="adr">ADR</option>
-                    <option value="special">Ειδική μεταφορά</option>
-                  </select>
-                  <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                </div>
-
-                {/* Toggle for Cargo Quantity & Type */}
-                <button
-                  type="button"
-                  onClick={() => setShowCargoDetails(!showCargoDetails)}
-                  className="flex items-center justify-between w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition"
-                >
-                  <span>{t('cargoQuantityType')}</span>
-                  {showCargoDetails ? (
-                    <ChevronUp className="w-5 h-5" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5" />
-                  )}
-                </button>
-
-                {showCargoDetails && (
-                  <div className="mt-4 space-y-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Παλέτες (Αριθμός)
-                    </label>
-                    <input
-                      type="number"
-                      name="pallets"
-                      value={formData.pallets}
-                      onChange={handleInputChange}
-                      placeholder="π.χ. 10"
-                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    />
-
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Κιβώτια (Αριθμός)
-                    </label>
-                    <input
-                      type="number"
-                      name="boxes"
-                      value={formData.boxes}
-                      onChange={handleInputChange}
-                      placeholder="π.χ. 50"
-                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    />
-
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Διαστάσεις (Μήκος x Πλάτος x Ύψος)
-                    </label>
+        <form onSubmit={handleSubmit}>
+          {/* Accordion Panels */}
+          <div className="rounded-xl shadow-lg bg-gradient-to-br from-white/95 via-white/90 to-yellow-50 transition-all duration-300 overflow-hidden">
+            {/* Panel 1: Shipment Details */}
+            <div>
+              <button
+                type="button"
+                className={`w-full flex items-center justify-between px-6 py-5 bg-gradient-to-br from-yellow-100 via-white to-yellow-50 border-b border-gray-200 focus:outline-none transition-all duration-300 ${openPanel === 0 ? 'rounded-t-xl' : ''}`}
+                aria-expanded={openPanel === 0}
+                onClick={() => setOpenPanel(openPanel === 0 ? -1 : 0)}
+              >
+                <span className="flex items-center text-lg font-semibold text-gray-900">
+                  <Package className="w-6 h-6 mr-3 text-yellow-600" />
+                  {t('shipmentDetails')}
+                </span>
+                {openPanel === 0 ? (
+                  <ChevronUp className="w-6 h-6 text-yellow-600 transition-all duration-300" />
+                ) : (
+                  <ChevronDown className="w-6 h-6 text-yellow-600 transition-all duration-300" />
+                )}
+              </button>
+              <div
+                className={`transition-all duration-300 overflow-hidden ${openPanel === 0 ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'} bg-white`}
+              >
+                <div className="px-6 py-8 space-y-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('pickupLocation')}
+                  </label>
+                  <div className="relative">
+                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input
                       type="text"
-                      name="dimensions"
-                      value={formData.dimensions}
+                      name="pickupLocation"
+                      value={formData.pickupLocation}
                       onChange={handleInputChange}
-                      placeholder="π.χ. 1.2m x 0.8m x 1.5m"
-                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      placeholder={t('pickupLocation')}
+                      title="π.χ. Θεσσαλονίκη"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
                     />
                   </div>
-                )}
 
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('weight')}
-                </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    name="weight"
-                    value={formData.weight}
-                    onChange={handleInputChange}
-                    placeholder={t('weight')}
-                    title="Βάρος σε κιλά (π.χ. 1000)"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('deliveryLocation')}
+                  </label>
+                  <div className="relative">
+                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="deliveryLocation"
+                      value={formData.deliveryLocation}
+                      onChange={handleInputChange}
+                      placeholder={t('deliveryLocation')}
+                      title="π.χ. Αθήνα"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('desiredDate')}
+                  </label>
+                  <div className="relative">
+                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                    <input
+                      type="date"
+                      name="desiredDate"
+                      value={formData.desiredDate}
+                      onChange={handleInputChange}
+                      title="Επιλέξτε την επιθυμητή ημερομηνία"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
                 </div>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('desiredDate')}
-                </label>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                  <input
-                    type="date"
-                    name="desiredDate"
-                    value={formData.desiredDate}
-                    onChange={handleInputChange}
-                    title="Επιλέξτε την επιθυμητή ημερομηνία"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Right Column - Contact Details */}
-              <div className="space-y-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <User className="w-6 h-6 mr-3 text-gray-700" />
-                  Contact Information
-                </h3>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('companyName')}
-                </label>
-                <div className="relative">
-                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    placeholder={t('companyName')}
-                    title="Όνομα εταιρείας"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('contactPerson')}
-                </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    name="contactPerson"
-                    value={formData.contactPerson}
-                    onChange={handleInputChange}
-                    placeholder={t('contactPerson')}
-                    title="Όνομα υπεύθυνου επικοινωνίας"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('email')}
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder={t('email')}
-                    title="π.χ. example@mail.com"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('phone')}
-                </label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder={t('phone')}
-                    title="π.χ. +30 2101234567"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 text-white py-4 px-6 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center"
-                >
-                  {isSubmitting ? (
-                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      {t('submitQuote')}
-                    </>
-                  )}
-                </button>
               </div>
             </div>
-          </form>
-        </div>
+            {/* Panel 2: Cargo Type */}
+            <div>
+              <button
+                type="button"
+                className={`w-full flex items-center justify-between px-6 py-5 bg-gradient-to-br from-yellow-50 via-white to-yellow-100 border-b border-gray-200 focus:outline-none transition-all duration-300`}
+                aria-expanded={openPanel === 1}
+                onClick={() => setOpenPanel(openPanel === 1 ? -1 : 1)}
+              >
+                <span className="flex items-center text-lg font-semibold text-gray-900">
+                  <Package className="w-6 h-6 mr-3 text-yellow-600" />
+                  {t('cargoType')}
+                </span>
+                {openPanel === 1 ? (
+                  <ChevronUp className="w-6 h-6 text-yellow-600 transition-all duration-300" />
+                ) : (
+                  <ChevronDown className="w-6 h-6 text-yellow-600 transition-all duration-300" />
+                )}
+              </button>
+              <div
+                className={`transition-all duration-300 overflow-hidden ${openPanel === 1 ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'} bg-white`}
+              >
+                <div className="px-6 py-8 space-y-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('cargoType')}
+                  </label>
+                  <div className="relative">
+                    <select
+                      name="cargoType"
+                      value={formData.cargoType}
+                      onChange={handleInputChange}
+                      title="Επιλέξτε τον τύπο φορτίου"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
+                      required
+                    >
+                      <option value="">{t('cargoType')}</option>
+                      <option value="dry">Ξηρό φορτίο</option>
+                      <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
+                      <option value="adr">ADR</option>
+                      <option value="special">Ειδική μεταφορά</option>
+                    </select>
+                    <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                  </div>
+
+                  {/* Toggle for Cargo Quantity & Type */}
+                  <button
+                    type="button"
+                    onClick={() => setShowCargoDetails(!showCargoDetails)}
+                    className="flex items-center justify-between w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 transition"
+                  >
+                    <span>
+                      {/* Use a fallback if translation doesn't exist */}
+                      {t('cargoQuantityType') !== 'cargoQuantityType'
+                        ? t('cargoQuantityType')
+                        : 'Λεπτομέρειες Ποσότητας & Τύπου'}
+                    </span>
+                    {showCargoDetails ? (
+                      <ChevronUp className="w-5 h-5" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5" />
+                    )}
+                  </button>
+                  <div
+                    className={`transition-all duration-300 ${showCargoDetails ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'} overflow-hidden`}
+                  >
+                    {showCargoDetails && (
+                      <div className="space-y-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Παλέτες (Αριθμός)
+                        </label>
+                        <input
+                          type="number"
+                          name="pallets"
+                          value={formData.pallets}
+                          onChange={handleInputChange}
+                          placeholder="π.χ. 10"
+                          className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        />
+
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Κιβώτια (Αριθμός)
+                        </label>
+                        <input
+                          type="number"
+                          name="boxes"
+                          value={formData.boxes}
+                          onChange={handleInputChange}
+                          placeholder="π.χ. 50"
+                          className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        />
+
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Διαστάσεις (Μήκος x Πλάτος x Ύψος)
+                        </label>
+                        <input
+                          type="text"
+                          name="dimensions"
+                          value={formData.dimensions}
+                          onChange={handleInputChange}
+                          placeholder="π.χ. 1.2m x 0.8m x 1.5m"
+                          className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('weight')}
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="number"
+                      name="weight"
+                      value={formData.weight}
+                      onChange={handleInputChange}
+                      placeholder={t('weight')}
+                      title="Βάρος σε κιλά (π.χ. 1000)"
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Panel 3: Contact Information */}
+            <div>
+              <button
+                type="button"
+                className={`w-full flex items-center justify-between px-6 py-5 bg-gradient-to-br from-yellow-100 via-white to-yellow-50 focus:outline-none transition-all duration-300 ${openPanel === 2 ? 'rounded-b-xl' : ''}`}
+                aria-expanded={openPanel === 2}
+                onClick={() => setOpenPanel(openPanel === 2 ? -1 : 2)}
+              >
+                <span className="flex items-center text-lg font-semibold text-gray-900">
+                  <User className="w-6 h-6 mr-3 text-yellow-600" />
+                  {t('contactInfo')}
+                </span>
+                {openPanel === 2 ? (
+                  <ChevronUp className="w-6 h-6 text-yellow-600 transition-all duration-300" />
+                ) : (
+                  <ChevronDown className="w-6 h-6 text-yellow-600 transition-all duration-300" />
+                )}
+              </button>
+              <div
+                className={`transition-all duration-300 overflow-hidden ${openPanel === 2 ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'} bg-white`}
+              >
+                <div className="px-6 py-8 space-y-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('companyName')}
+                  </label>
+                  <div className="relative">
+                    <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleInputChange}
+                      placeholder={t('companyName')}
+                      title="Όνομα εταιρείας"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('contactPerson')}
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="contactPerson"
+                      value={formData.contactPerson}
+                      onChange={handleInputChange}
+                      placeholder={t('contactPerson')}
+                      title="Όνομα υπεύθυνου επικοινωνίας"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('email')}
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder={t('email')}
+                      title="π.χ. example@mail.com"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('phone')}
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder={t('phone')}
+                      title="π.χ. +30 2101234567"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Submit Button outside accordions */}
+          <div className="mt-8 flex justify-center">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full max-w-xs bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 disabled:bg-gray-400 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg transition-all duration-300 flex items-center justify-center"
+            >
+              {isSubmitting ? (
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+              ) : (
+                <>
+                  <Send className="w-5 h-5 mr-2" />
+                  {t('submitQuote')}
+                </>
+              )}
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );
