@@ -60,11 +60,11 @@ const About: React.FC = () => {
             <div className="w-24 h-1 bg-yellow-500 mb-8"></div>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              {t('aboutText')}
+              {t('aboutIntracostaSummary')}
             </p>
 
             <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-              {t('aboutDetailedText')}
+              {t('aboutIntracostaDetails')}
             </p>
 
             {/* Values Grid */}
