@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Shield, Award, Users, Target } from 'lucide-react';
+import { Shield, Award, Users, Target, Truck, Warehouse, ShieldCheck } from 'lucide-react';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
@@ -72,22 +72,22 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
                 {
-                  icon: '🚚',
+                  icon: <Truck className="w-8 h-8 text-yellow-500" />,
                   title: t('aboutHighlight1Title'),
                   description: t('aboutHighlight1Desc')
                 },
                 {
-                  icon: '🏢',
+                  icon: <Warehouse className="w-8 h-8 text-yellow-500" />,
                   title: t('aboutHighlight2Title'),
                   description: t('aboutHighlight2Desc')
                 },
                 {
-                  icon: '🔒',
+                  icon: <ShieldCheck className="w-8 h-8 text-yellow-500" />,
                   title: t('aboutHighlight3Title'),
                   description: t('aboutHighlight3Desc')
                 },
                 {
-                  icon: '👥',
+                  icon: <Users className="w-8 h-8 text-yellow-500" />,
                   title: t('aboutHighlight4Title'),
                   description: t('aboutHighlight4Desc')
                 }
@@ -100,7 +100,7 @@ const About: React.FC = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="p-4 bg-gray-50 rounded-xl shadow hover:shadow-md transition"
                 >
-                  <div className="text-3xl mb-2">{item.icon}</div>
+                  <div className="mb-2">{item.icon}</div>
                   <h3 className="font-bold text-lg mb-1">{item.title}</h3>
                   <p className="text-gray-600">{item.description}</p>
                 </motion.div>
