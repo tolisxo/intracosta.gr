@@ -52,6 +52,8 @@ const Contact: React.FC = () => {
       details: [
         <div>
           <p className="text-gray-600">3ο χλμ Γιαννιτσών Θεσσαλονίκης</p>
+          <p className="text-gray-600">Λάκκα, Πέλλας</p>
+          <p className="text-gray-600">Am Kanal 2-4</p>
           <p className="text-gray-600">GR58100 Γιαννιτσά</p>
           <a
             href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
@@ -68,8 +70,7 @@ const Contact: React.FC = () => {
       icon: <Phone className="w-6 h-6" />,
       title: t('contact.phoneTitle'),
       details: [
-        <a href="tel:+302382022090" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 22090</a>,
-        <a href="tel:+302382083100" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 83100</a>
+        <a href="tel:+302382027111" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">+30 23820 27111</a>
       ]
     },
     {
@@ -77,7 +78,10 @@ const Contact: React.FC = () => {
       title: t('contact.emailTitle'),
       details: [
         <a href="mailto:export@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">export@intracosta.com</a>,
-        <a href="mailto:import@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">import@intracosta.com</a>
+        <a href="mailto:import@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">import@intracosta.com</a>,
+        <a href="mailto:dispo.greece@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">dispo.greece@intracosta.com</a>,
+        <a href="mailto:account@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">account@intracosta.com</a>,
+        <a href="mailto:info@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">info@intracosta.com</a>
       ]
     },
     {
