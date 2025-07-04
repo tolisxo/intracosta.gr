@@ -81,7 +81,7 @@ const QuoteForm: React.FC = () => {
             {t('quoteFormTitle')}
           </h2>
           <p className="text-xl text-gray-100">
-            Get a personalized quote for your transport needs
+            {t('quoteFormSubtitle')}
           </p>
         </div>
 
