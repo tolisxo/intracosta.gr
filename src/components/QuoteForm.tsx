@@ -6,14 +6,20 @@ const QuoteForm: React.FC = () => {
   const { t } = useLanguage();
   
   const [formData, setFormData] = useState({
-    pickupLocation: '',
-    deliveryLocation: '',
+    pickupCountry: '',
+    pickupCity: '',
+    pickupPostalCode: '',
+    pickupCompany: '',
+    deliveryCountry: '',
+    deliveryCity: '',
+    deliveryPostalCode: '',
+    deliveryCompany: '',
+    loadingDate: '',
     cargoType: '',
     pallets: '',
     boxes: '',
     dimensions: '',
     weight: '',
-    desiredDate: '',
     companyName: '',
     contactPerson: '',
     email: '',
@@ -47,14 +53,20 @@ const QuoteForm: React.FC = () => {
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        pickupLocation: '',
-        deliveryLocation: '',
+        pickupCountry: '',
+        pickupCity: '',
+        pickupPostalCode: '',
+        pickupCompany: '',
+        deliveryCountry: '',
+        deliveryCity: '',
+        deliveryPostalCode: '',
+        deliveryCompany: '',
+        loadingDate: '',
         cargoType: '',
         pallets: '',
         boxes: '',
         dimensions: '',
         weight: '',
-        desiredDate: '',
         companyName: '',
         contactPerson: '',
         email: '',
@@ -95,56 +107,98 @@ const QuoteForm: React.FC = () => {
         <form onSubmit={handleSubmit}>
           {/* All form fields, sequentially displayed, no accordion except for cargo details toggle */}
           <div className="rounded-xl shadow-lg bg-gradient-to-br from-white/95 via-white/90 to-yellow-50 transition-all duration-300 overflow-visible px-6 py-8 space-y-6">
-            {/* Shipment Details */}
+            {/* Pickup Details */}
             <label className="block text-sm font-medium text-gray-700 mb-1">
               {t('pickupLocation')}
             </label>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                name="pickupLocation"
-                value={formData.pickupLocation}
-                onChange={handleInputChange}
-                placeholder={t('pickupLocation')}
-                title="π.χ. Θεσσαλονίκη"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              name="pickupCountry"
+              value={formData.pickupCountry}
+              onChange={handleInputChange}
+              placeholder={t('pickupCountry')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              required
+            />
+            <input
+              type="text"
+              name="pickupCity"
+              value={formData.pickupCity}
+              onChange={handleInputChange}
+              placeholder={t('pickupCity')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+              required
+            />
+            <input
+              type="text"
+              name="pickupPostalCode"
+              value={formData.pickupPostalCode}
+              onChange={handleInputChange}
+              placeholder={t('pickupPostalCode')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+              required
+            />
+            <input
+              type="text"
+              name="pickupCompany"
+              value={formData.pickupCompany}
+              onChange={handleInputChange}
+              placeholder={t('pickupCompany')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+            />
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            {/* Delivery Details */}
+            <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
               {t('deliveryLocation')}
             </label>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                name="deliveryLocation"
-                value={formData.deliveryLocation}
-                onChange={handleInputChange}
-                placeholder={t('deliveryLocation')}
-                title="π.χ. Αθήνα"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              name="deliveryCountry"
+              value={formData.deliveryCountry}
+              onChange={handleInputChange}
+              placeholder={t('deliveryCountry')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              required
+            />
+            <input
+              type="text"
+              name="deliveryCity"
+              value={formData.deliveryCity}
+              onChange={handleInputChange}
+              placeholder={t('deliveryCity')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+              required
+            />
+            <input
+              type="text"
+              name="deliveryPostalCode"
+              value={formData.deliveryPostalCode}
+              onChange={handleInputChange}
+              placeholder={t('deliveryPostalCode')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+              required
+            />
+            <input
+              type="text"
+              name="deliveryCompany"
+              value={formData.deliveryCompany}
+              onChange={handleInputChange}
+              placeholder={t('deliveryCompany')}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+            />
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('desiredDate')}
+            {/* Loading Date */}
+            <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+              {t('loadingDate')}
             </label>
-            <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-              <input
-                type="date"
-                name="desiredDate"
-                value={formData.desiredDate}
-                onChange={handleInputChange}
-                title="Επιλέξτε την επιθυμητή ημερομηνία"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
+            <input
+              type="date"
+              name="loadingDate"
+              value={formData.loadingDate}
+              onChange={handleInputChange}
+              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              required
+            />
 
             {/* Cargo Type */}
             <label className="block text-sm font-medium text-gray-700 mb-1">
