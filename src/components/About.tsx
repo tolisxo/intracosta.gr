@@ -63,9 +63,10 @@ const About: React.FC = () => {
               {t('aboutIntracostaSummary')}
             </p>
 
-            <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-              {t('aboutIntracostaDetails')}
-            </p>
+            {/* Highlights Title */}
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              {t('aboutHighlightsTitle')}
+            </h3>
 
             {/* Values Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -91,11 +92,18 @@ const About: React.FC = () => {
                   description: t('aboutHighlight4Desc')
                 }
               ].map((item, index) => (
-                <div key={index} className="p-4 bg-gray-50 rounded-xl shadow hover:shadow-md transition">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="p-4 bg-gray-50 rounded-xl shadow hover:shadow-md transition"
+                >
                   <div className="text-3xl mb-2">{item.icon}</div>
                   <h3 className="font-bold text-lg mb-1">{item.title}</h3>
                   <p className="text-gray-600">{item.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
