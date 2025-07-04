@@ -44,7 +44,7 @@ const Coverage: React.FC = () => {
   ];
 
   return (
-    <section id="coverage" className="py-20 bg-gray-50">
+    <section id="coverage" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -80,6 +80,12 @@ const Coverage: React.FC = () => {
                   projectionConfig={{ center: [15, 52], scale: 800 }}
                   style={{ width: '100%' }}
                 >
+                  <defs>
+                    <linearGradient id="yellowGradient" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#facc15" />
+                      <stop offset="100%" stopColor="#fbbf24" />
+                    </linearGradient>
+                  </defs>
                   <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
                       geographies
@@ -122,7 +128,7 @@ const Coverage: React.FC = () => {
                                 'Luxembourg',
                                 'Greece'
                               ].includes(geo.properties.NAME)
-                                ? '#facc15'
+                                ? 'url(#yellowGradient)'
                                 : '#e5e7eb'
                             }
                             stroke="#FFF"
@@ -174,7 +180,7 @@ const Coverage: React.FC = () => {
               
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center"
+                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center shadow-lg hover:shadow-xl"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 {t('viewCountries')}
@@ -188,7 +194,7 @@ const Coverage: React.FC = () => {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
               <div className="flex justify-between items-center p-6 border-b border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900">Route Frequencies</h3>
+                <h3 className="text-2xl font-bold text-gray-900">{t('viewCountries')}</h3>
                 <button
                   onClick={() => setIsModalOpen(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
