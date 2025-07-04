@@ -117,11 +117,9 @@ const About: React.FC = () => {
           className="mt-12 p-6 bg-gray-50 rounded-xl shadow hover:shadow-md transition grid grid-cols-1 sm:grid-cols-[80px_1fr] gap-4"
         >
           <div className="flex-shrink-0">
-            <img
-              src="https://images.pexels.com/photos/616905/pexels-photo-616905.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Mission visual"
-              className="w-48 h-48 rounded-full object-cover shadow-lg"
-            />
+            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-gray-100 shadow-inner">
+              <Target className="w-10 h-10 text-yellow-500" />
+            </div>
           </div>
           <div>
             <div className="flex items-center mb-4">
