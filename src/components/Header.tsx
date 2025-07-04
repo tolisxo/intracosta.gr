@@ -17,7 +17,9 @@ const Header: React.FC = () => {
   const menuItems = [
     { key: 'home', href: '#home' },
     { key: 'services', href: '#services' },
-    { key: 'coverage', href: '#coverage' },
+    { key: 'coverage', href: '#coverage', countries: [
+      'Germany', 'Austria', 'Netherlands', 'Belgium', 'Poland', 'Luxembourg', 'Denmark', 'Greece'
+    ] },
     { key: 'about', href: '#about' },
     { key: 'contact', href: '#contact' }
   ];
@@ -48,7 +50,7 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) =>
-              item.key === 'services' ? (
+              item.key === 'coverage' ? (
                 <div
                   key={item.key}
                   className="relative"
@@ -62,20 +64,19 @@ const Header: React.FC = () => {
                     {t(item.key)}
                   </button>
                   <div
-                    className={`absolute top-full left-0 mt-1 w-64 bg-white border border-gray-200 rounded-md shadow-xl transition-all duration-200 z-50 before:content-[''] before:absolute before:top-[-8px] before:left-6 before:w-4 before:h-4 before:bg-white before:rotate-45 before:border-l before:border-t before:border-gray-200 before:z-[-1] ${
+                    className={`absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-xl transition-all duration-200 z-50 before:content-[''] before:absolute before:top-[-8px] before:left-6 before:w-4 before:h-4 before:bg-white before:rotate-45 before:border-l before:border-t before:border-gray-200 before:z-[-1] ${
                       isServicesHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                     }`}
                   >
                     <ul className="py-2">
-                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6" onClick={() => scrollToSection('#international')}>
-                        Διεθνείς Μεταφορές
-                      </li>
-                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6" onClick={() => scrollToSection('#national')}>
-                        Εθνικές Μεταφορές
-                      </li>
-                      <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6" onClick={() => scrollToSection('#storage')}>
-                        Αποθήκευση / Logistics
-                      </li>
+                      {item.countries.map((country) => (
+                        <li
+                          key={country}
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6"
+                        >
+                          {country}
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
