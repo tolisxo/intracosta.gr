@@ -69,15 +69,32 @@ const About: React.FC = () => {
 
             {/* Values Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {values.map((value, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-700">
-                    {value.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2">{value.title}</h3>
-                    <p className="text-gray-600 text-sm">{value.description}</p>
-                  </div>
+              {[
+                {
+                  icon: '🚚',
+                  title: t('aboutHighlight1Title'),
+                  description: t('aboutHighlight1Desc')
+                },
+                {
+                  icon: '🏢',
+                  title: t('aboutHighlight2Title'),
+                  description: t('aboutHighlight2Desc')
+                },
+                {
+                  icon: '🔒',
+                  title: t('aboutHighlight3Title'),
+                  description: t('aboutHighlight3Desc')
+                },
+                {
+                  icon: '👥',
+                  title: t('aboutHighlight4Title'),
+                  description: t('aboutHighlight4Desc')
+                }
+              ].map((item, index) => (
+                <div key={index} className="p-4 bg-gray-50 rounded-xl shadow hover:shadow-md transition">
+                  <div className="text-3xl mb-2">{item.icon}</div>
+                  <h3 className="font-bold text-lg mb-1">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
                 </div>
               ))}
             </div>
