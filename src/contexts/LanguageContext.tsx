@@ -11,6 +11,46 @@ interface Translations {
 }
 
 const translations: Translations = {
+  aboutHighlight1Title: {
+    el: 'Σχεδόν καθημερινά δρομολόγια',
+    en: 'Almost Daily Routes',
+    de: 'Nahezu tägliche Routen'
+  },
+  aboutHighlight1Desc: {
+    el: 'Από/προς Ελλάδα και κεντρική Ευρώπη με τακτικές μετακινήσεις.',
+    en: 'To/from Greece and central Europe with regular movements.',
+    de: 'Von/nach Griechenland und Mitteleuropa mit regelmäßigen Fahrten.'
+  },
+  aboutHighlight2Title: {
+    el: 'Δίκτυο Αποθηκών',
+    en: 'Warehouse Network',
+    de: 'Lagernetzwerk'
+  },
+  aboutHighlight2Desc: {
+    el: 'Δύο ιδιόκτητες αποθήκες και συνεργάτες σε όλη την Ευρώπη.',
+    en: 'Two owned warehouses and partners across Europe.',
+    de: 'Zwei eigene Lager und Partner in ganz Europa.'
+  },
+  aboutHighlight3Title: {
+    el: 'Ασφάλεια CMR',
+    en: 'CMR Insurance',
+    de: 'CMR-Versicherung'
+  },
+  aboutHighlight3Desc: {
+    el: 'Ασφάλιση φορτίων για εγγυημένη ασφάλεια και διαφάνεια.',
+    en: 'Cargo insurance for guaranteed safety and transparency.',
+    de: 'Frachtversicherung für garantierte Sicherheit und Transparenz.'
+  },
+  aboutHighlight4Title: {
+    el: 'Ομάδα Εμπιστοσύνης',
+    en: 'Trusted Team',
+    de: 'Vertrauenswürdiges Team'
+  },
+  aboutHighlight4Desc: {
+    el: 'Οδηγοί και προσωπικό που φροντίζουν κάθε αποστολή σαν δική τους.',
+    en: 'Drivers and staff who treat each shipment as their own.',
+    de: 'Fahrer und Personal, die jede Sendung wie ihre eigene behandeln.'
+  },
   // Navigation
   home: { el: 'Αρχική', en: 'Home', de: 'Startseite' },
   services: { el: 'Υπηρεσίες', en: 'Services', de: 'Dienstleistungen' },
