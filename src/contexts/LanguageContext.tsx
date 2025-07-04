@@ -165,6 +165,11 @@ const translations: Translations = {
     en: 'We cover all major European markets with regular routes', 
     de: 'Wir decken alle wichtigen europäischen Märkte mit regelmäßigen Routen ab' 
   },
+  viewCountries: {
+    el: 'Δείτε τις Χώρες',
+    en: 'View Countries',
+    de: 'Länder anzeigen'
+  },
   
   // Quote Form
   quoteFormTitle: { el: 'Ζητήστε Προσφορά', en: 'Request Quote', de: 'Angebot anfordern' },

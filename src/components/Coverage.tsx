@@ -177,7 +177,7 @@ const Coverage: React.FC = () => {
                 className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center"
               >
                 <MapPin className="w-5 h-5 mr-2" />
-                Δείτε τις συχνότητες
+                {t('viewCountries')}
               </button>
             </div>
           </div>
