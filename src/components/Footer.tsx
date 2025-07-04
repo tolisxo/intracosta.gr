@@ -101,13 +101,16 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <a href="tel:+302101234567" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">+30 210 123 4567</a>
+                <a href="tel:+302382027111" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">+30 23820 27111</a>
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
                 <div className="flex flex-col space-y-1">
                   <a href="mailto:export@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">export@intracosta.com</a>
                   <a href="mailto:import@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">import@intracosta.com</a>
+                  <a href="mailto:dispo.greece@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">dispo.greece@intracosta.com</a>
+                  <a href="mailto:account@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">account@intracosta.com</a>
+                  <a href="mailto:info@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">info@intracosta.com</a>
                 </div>
               </div>
             </div>
