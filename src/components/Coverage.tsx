@@ -83,9 +83,58 @@ const Coverage: React.FC = () => {
                   <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
                       geographies
-                        .filter((geo) => ['Germany', 'France', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Austria', 'Switzerland', 'Czech Republic', 'Hungary', 'Slovakia', 'Denmark', 'Luxembourg', 'Greece'].includes(geo.properties.NAME))
+                        .filter((geo) =>
+                          [
+                            'Germany',
+                            'France',
+                            'Italy',
+                            'Poland',
+                            'Netherlands',
+                            'Belgium',
+                            'Austria',
+                            'Switzerland',
+                            'Czech Republic',
+                            'Hungary',
+                            'Slovakia',
+                            'Denmark',
+                            'Luxembourg',
+                            'Greece'
+                          ].includes(geo.properties.NAME)
+                        )
                         .map((geo) => (
-                          <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
+                          <Geography
+                            key={geo.rsmKey}
+                            geography={geo}
+                            fill={
+                              [
+                                'Germany',
+                                'France',
+                                'Italy',
+                                'Poland',
+                                'Netherlands',
+                                'Belgium',
+                                'Austria',
+                                'Switzerland',
+                                'Czech Republic',
+                                'Hungary',
+                                'Slovakia',
+                                'Denmark',
+                                'Luxembourg',
+                                'Greece'
+                              ].includes(geo.properties.NAME)
+                                ? '#facc15'
+                                : '#e5e7eb'
+                            }
+                            stroke="#FFF"
+                            style={{
+                              default: { outline: 'none' },
+                              hover: {
+                                fill: '#fbbf24',
+                                outline: 'none',
+                              },
+                              pressed: { outline: 'none' },
+                            }}
+                          />
                         ))
                     }
                   </Geographies>
