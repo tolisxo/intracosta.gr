@@ -3,7 +3,6 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import { HyperText } from '@/components/ui/hyper-text';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -31,10 +30,9 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <HyperText
-            text="INTRACOSTA"
-            className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up-fast"
-          />
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up-fast">
+            Η ασφάλεια της μεταφοράς σας, προσωπική μας υπόθεση.
+          </h1>
           <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up-fast">
             Αξιόπιστες οδικές μεταφορές στην Ελλάδα και την Ευρώπη, με εμπειρία, οργανωμένο δίκτυο και τεχνολογία αιχμής.
           </p>
