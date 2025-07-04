@@ -612,6 +612,40 @@ const translations: Translations = {
     el: 'Η αποστολή μας είναι να κρατάμε την εφοδιαστική αλυσίδα των πελατών μας σε κίνηση—γρήγορα, με ασφάλεια και απόλυτη διαφάνεια κόστους. Από μια παλέτα μέχρι πλήρες φορτίο, σχεδιάζουμε τη βέλτιστη διαδρομή, αξιοποιούμε το διεθνές μας δίκτυο και παραδίδουμε ακριβώς όταν το χρειάζεστε, ώστε εσείς να εστιάζετε στην ανάπτυξη της επιχείρησής σας.',
     en: 'Our mission is to keep our customers’ supply chains moving—quickly, safely, and with complete cost transparency. From a single pallet to full truckloads, we design the optimal route, leverage our international network, and deliver exactly when you need it so you can focus on growing your business.',
     de: 'Unsere Mission ist es, die Lieferketten unserer Kunden in Bewegung zu halten – schnell, sicher und mit voller Kostentransparenz. Von einer Palette bis hin zu Komplettladungen entwerfen wir die optimale Route, nutzen unser internationales Netzwerk und liefern genau dann, wenn Sie es brauchen, damit Sie sich auf das Wachstum Ihres Unternehmens konzentrieren können.'
+  },
+
+  // Added supported countries for dropdown
+  supportedCountries: {
+    el: [
+      'Γερμανία',
+      'Αυστρία',
+      'Ολλανδία',
+      'Βέλγιο',
+      'Πολωνία',
+      'Λουξεμβούργο',
+      'Δανία',
+      'Ελλάδα'
+    ],
+    en: [
+      'Germany',
+      'Austria',
+      'Netherlands',
+      'Belgium',
+      'Poland',
+      'Luxembourg',
+      'Denmark',
+      'Greece'
+    ],
+    de: [
+      'Deutschland',
+      'Österreich',
+      'Niederlande',
+      'Belgien',
+      'Polen',
+      'Luxemburg',
+      'Dänemark',
+      'Griechenland'
+    ]
   }
 };
 
