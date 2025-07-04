@@ -62,7 +62,7 @@ const translations: Translations = {
   },
   about: { el: 'Σχετικά', en: 'About', de: 'Über uns' },
   contact: { el: 'Επικοινωνία', en: 'Contact', de: 'Kontakt' },
-  getQuote: { el: 'Ζητήστε Προσφορά', en: 'Get Quote', de: 'Angebot erhalten' },
+  getQuote: { el: 'Ας Συνεργαστούμε', en: "Let's Work Together", de: 'Lassen Sie uns zusammenarbeiten' },
   
   // Hero Section
   heroTitle: { 
