@@ -108,6 +108,29 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
+        {/* Mission Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 p-8 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-6"
+        >
+          <div className="flex-shrink-0">
+            <img
+              src="https://images.pexels.com/photos/616905/pexels-photo-616905.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Mission visual"
+              className="w-48 h-48 rounded-full object-cover shadow-lg"
+            />
+          </div>
+          <div>
+            <div className="flex items-center mb-4">
+              <span className="text-4xl mr-3">🌟</span>
+              <h3 className="text-3xl font-extrabold text-gray-900">{t('missionTitle')}</h3>
+            </div>
+            <p className="text-gray-700 text-lg leading-relaxed">{t('missionText')}</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
