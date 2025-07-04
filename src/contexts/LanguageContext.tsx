@@ -224,6 +224,106 @@ const translations: Translations = {
   
   // FAQ
   faqTitle: { el: 'Συχνές Ερωτήσεις', en: 'Frequently Asked Questions', de: 'Häufig gestellte Fragen' },
+  faq1Question: {
+    el: 'Ποιες χώρες καλύπτει η Intracosta με τις υπηρεσίες της;',
+    en: 'Which countries does Intracosta serve?',
+    de: 'Welche Länder bedient Intracosta?'
+  },
+  faq1Answer: {
+    el: 'Η Intracosta εξυπηρετεί τις μεγαλύτερες αγορές της Ευρώπης, συμπεριλαμβανομένων Γερμανίας, Αυστρίας, Ολλανδίας, Βελγίου, Πολωνίας, Λουξεμβούργου, Δανίας και φυσικά της Ελλάδας, με τακτικές αναχωρήσεις και παραδόσεις.',
+    en: 'Intracosta serves the major markets of Europe, including Germany, Austria, Netherlands, Belgium, Poland, Luxembourg, Denmark, and of course Greece, with regular departures and deliveries.',
+    de: 'Intracosta bedient die wichtigsten Märkte Europas, darunter Deutschland, Österreich, Niederlande, Belgien, Polen, Luxemburg, Dänemark und natürlich Griechenland, mit regelmäßigen Abfahrten und Lieferungen.'
+  },
+  faq2Question: {
+    el: 'Ποια είδη φορτίου μεταφέρει η εταιρεία;',
+    en: 'What types of cargo does the company transport?',
+    de: 'Welche Arten von Fracht transportiert das Unternehmen?'
+  },
+  faq2Answer: {
+    el: 'Διαχειριζόμαστε ξηρό φορτίο, φορτίο με ελεγχόμενη θερμοκρασία, ADR (επικίνδυνα υλικά) καθώς και ειδικές μεταφορές μεγάλων ή ασυνήθιστων διαστάσεων.',
+    en: 'We handle dry cargo, temperature-controlled cargo, ADR (dangerous goods), as well as special transport of large or unusual dimensions.',
+    de: 'Wir transportieren Trockenfracht, temperaturgeführte Fracht, ADR (Gefahrgut) sowie Spezialtransporte von großen oder ungewöhnlichen Abmessungen.'
+  },
+  faq3Question: {
+    el: 'Διαθέτει η Intracosta υπηρεσίες αποθήκευσης;',
+    en: 'Does Intracosta provide warehousing services?',
+    de: 'Bietet Intracosta Lagerdienstleistungen an?'
+  },
+  faq3Answer: {
+    el: 'Ναι, παρέχουμε υπηρεσίες αποθήκευσης σε ιδιόκτητες αποθήκες στην Ελλάδα (Γιαννιτσά) και Γερμανία (Όσναμπουργκ), καθώς και μέσω συνεργατών σε στρατηγικά σημεία της Ευρώπης.',
+    en: 'Yes, we provide warehousing services in our owned warehouses in Greece (Giannitsa) and Germany (Osnabrück), as well as through partners in strategic locations across Europe.',
+    de: 'Ja, wir bieten Lagerdienstleistungen in unseren eigenen Lagern in Griechenland (Giannitsa) und Deutschland (Osnabrück) sowie über Partner an strategischen Standorten in ganz Europa an.'
+  },
+  faq4Question: {
+    el: 'Πόσο συχνά πραγματοποιούνται τα δρομολόγια;',
+    en: 'How often are the routes operated?',
+    de: 'Wie häufig werden die Routen betrieben?'
+  },
+  faq4Answer: {
+    el: 'Διαθέτουμε σχεδόν καθημερινά δρομολόγια από/προς την Ελλάδα και τις κύριες ευρωπαϊκές χώρες, εξασφαλίζοντας άμεση εξυπηρέτηση.',
+    en: 'We operate almost daily routes to/from Greece and major European countries, ensuring prompt service.',
+    de: 'Wir betreiben nahezu tägliche Routen von/nach Griechenland und den wichtigsten europäischen Ländern, um einen schnellen Service zu gewährleisten.'
+  },
+  faq5Question: {
+    el: 'Η εταιρεία παρέχει ασφάλιση για τα φορτία;',
+    en: 'Does the company provide cargo insurance?',
+    de: 'Bietet das Unternehmen eine Frachtversicherung an?'
+  },
+  faq5Answer: {
+    el: 'Ναι, όλα τα φορτία καλύπτονται από ασφάλεια CMR για πλήρη προστασία και διαφάνεια κατά τη μεταφορά.',
+    en: 'Yes, all cargo is covered by CMR insurance for full protection and transparency during transport.',
+    de: 'Ja, alle Frachten sind durch eine CMR-Versicherung für vollständigen Schutz und Transparenz während des Transports abgedeckt.'
+  },
+  faq6Question: {
+    el: 'Μπορεί η Intracosta να διαχειριστεί πλήρη και μερικά φορτία (FTL & LTL);',
+    en: 'Can Intracosta handle full and partial loads (FTL & LTL)?',
+    de: 'Kann Intracosta Komplett- und Teilladungen (FTL & LTL) abwickeln?'
+  },
+  faq6Answer: {
+    el: 'Βεβαίως. Εξυπηρετούμε τόσο πλήρεις φορτώσεις (FTL) όσο και μερικά φορτία (LTL), προσαρμόζοντας τις λύσεις στις ανάγκες σας.',
+    en: 'Certainly. We handle both full truckloads (FTL) and less-than-truckload shipments (LTL), tailoring solutions to your needs.',
+    de: 'Selbstverständlich. Wir wickeln sowohl Komplettladungen (FTL) als auch Teilladungen (LTL) ab und passen die Lösungen an Ihre Bedürfnisse an.'
+  },
+  faq7Question: {
+    el: 'Ποιος είναι ο χρόνος παράδοσης των μεταφορών;',
+    en: 'What is the delivery time for transports?',
+    de: 'Wie lange dauert die Lieferung der Transporte?'
+  },
+  faq7Answer: {
+    el: 'Ο χρόνος παράδοσης εξαρτάται από τη χώρα προορισμού, αλλά συνήθως οι παραδόσεις εντός Ε.Ε. ολοκληρώνονται μέσα σε 2-5 εργάσιμες ημέρες.',
+    en: 'Delivery time depends on the destination country, but deliveries within the EU are usually completed within 2-5 business days.',
+    de: 'Die Lieferzeit hängt vom Bestimmungsland ab, aber Lieferungen innerhalb der EU werden in der Regel innerhalb von 2-5 Werktagen abgeschlossen.'
+  },
+  faq8Question: {
+    el: 'Πώς μπορώ να ζητήσω προσφορά;',
+    en: 'How can I request a quote?',
+    de: 'Wie kann ich ein Angebot anfordern?'
+  },
+  faq8Answer: {
+    el: 'Μπορείτε να χρησιμοποιήσετε τη φόρμα "Λεπτομέρειες Μεταφοράς" στον ιστότοπό μας ή να επικοινωνήσετε με το τμήμα πωλήσεων στο export@intracosta.com.',
+    en: 'You can use the "Transport Details" form on our website or contact our sales department at export@intracosta.com.',
+    de: 'Sie können das Formular „Transportdetails“ auf unserer Website nutzen oder sich an unsere Verkaufsabteilung unter export@intracosta.com wenden.'
+  },
+  faq9Question: {
+    el: 'Διαθέτει η εταιρεία στόλο ιδιόκτητων οχημάτων;',
+    en: 'Does the company have a fleet of owned vehicles?',
+    de: 'Verfügt das Unternehmen über eine eigene Fahrzeugflotte?'
+  },
+  faq9Answer: {
+    el: 'Διαθέτουμε πάνω από 50 ιδιόκτητα φορτηγά τελευταίας τεχνολογίας (Euro 6) για τη διασφάλιση υψηλής ποιότητας υπηρεσιών.',
+    en: 'We have over 50 state-of-the-art trucks (Euro 6) to ensure high-quality services.',
+    de: 'Wir verfügen über mehr als 50 hochmoderne Lkw (Euro 6), um einen qualitativ hochwertigen Service zu gewährleisten.'
+  },
+  faq10Question: {
+    el: 'Γιατί να επιλέξω την Intracosta;',
+    en: 'Why should I choose Intracosta?',
+    de: 'Warum sollte ich Intracosta wählen?'
+  },
+  faq10Answer: {
+    el: 'Για την εμπειρία 25 ετών, την αξιοπιστία στις παραδόσεις, το εκτεταμένο δίκτυο στην Ευρώπη και την ομάδα επαγγελματιών που αντιμετωπίζουν κάθε αποστολή σαν δική τους.',
+    en: 'For 25 years of experience, reliability in deliveries, an extensive network across Europe, and a team of professionals who treat every shipment as their own.',
+    de: 'Für 25 Jahre Erfahrung, Zuverlässigkeit bei Lieferungen, ein umfangreiches Netzwerk in Europa und ein Team von Fachleuten, die jede Sendung wie ihre eigene behandeln.'
+  },
   
   // Contact
   contactTitle: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact Us', de: 'Kontaktieren Sie uns' },
