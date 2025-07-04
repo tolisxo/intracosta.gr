@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Send, MapPin, Package, Calendar, User, Mail, Phone, Building } from 'lucide-react';
+import { Send, MapPin, Package, Calendar, User, Mail, Phone, Building, ChevronDown, ChevronUp } from 'lucide-react';
 
 const QuoteForm: React.FC = () => {
   const { t } = useLanguage();
@@ -22,6 +22,7 @@ const QuoteForm: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showCargoDetails, setShowCargoDetails] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -158,53 +159,59 @@ const QuoteForm: React.FC = () => {
                   <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                 </div>
 
-                {/* Ποσότητα και είδος φορτίου */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <Package className="w-6 h-6 mr-3 text-gray-700" />
-                  {t('cargoQuantityType')}
-                </h3>
+                {/* Toggle for Cargo Quantity & Type */}
+                <button
+                  type="button"
+                  onClick={() => setShowCargoDetails(!showCargoDetails)}
+                  className="flex items-center justify-between w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition"
+                >
+                  <span>{t('cargoQuantityType')}</span>
+                  {showCargoDetails ? (
+                    <ChevronUp className="w-5 h-5" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5" />
+                  )}
+                </button>
 
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Παλέτες (Αριθμός)
-                </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    name="pallets"
-                    value={formData.pallets}
-                    onChange={handleInputChange}
-                    placeholder="π.χ. 10"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  />
-                </div>
+                {showCargoDetails && (
+                  <div className="mt-4 space-y-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Παλέτες (Αριθμός)
+                    </label>
+                    <input
+                      type="number"
+                      name="pallets"
+                      value={formData.pallets}
+                      onChange={handleInputChange}
+                      placeholder="π.χ. 10"
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    />
 
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Κιβώτια (Αριθμός)
-                </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    name="boxes"
-                    value={formData.boxes}
-                    onChange={handleInputChange}
-                    placeholder="π.χ. 50"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  />
-                </div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Κιβώτια (Αριθμός)
+                    </label>
+                    <input
+                      type="number"
+                      name="boxes"
+                      value={formData.boxes}
+                      onChange={handleInputChange}
+                      placeholder="π.χ. 50"
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    />
 
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Διαστάσεις (Μήκος x Πλάτος x Ύψος)
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="dimensions"
-                    value={formData.dimensions}
-                    onChange={handleInputChange}
-                    placeholder="π.χ. 1.2m x 0.8m x 1.5m"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  />
-                </div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Διαστάσεις (Μήκος x Πλάτος x Ύψος)
+                    </label>
+                    <input
+                      type="text"
+                      name="dimensions"
+                      value={formData.dimensions}
+                      onChange={handleInputChange}
+                      placeholder="π.χ. 1.2m x 0.8m x 1.5m"
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    />
+                  </div>
+                )}
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {t('weight')}
