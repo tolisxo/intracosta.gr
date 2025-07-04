@@ -77,11 +77,46 @@ const Contact: React.FC = () => {
       icon: <Mail className="w-6 h-6" />,
       title: t('contact.emailTitle'),
       details: [
-        <a href="mailto:export@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">export@intracosta.com</a>,
-        <a href="mailto:import@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">import@intracosta.com</a>,
-        <a href="mailto:dispo.greece@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">dispo.greece@intracosta.com</a>,
-        <a href="mailto:account@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">account@intracosta.com</a>,
-        <a href="mailto:info@intracosta.com" className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold">info@intracosta.com</a>
+        <a
+          href="mailto:export@intracosta.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold"
+        >
+          export@intracosta.com
+        </a>,
+        <a
+          href="mailto:import@intracosta.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold"
+        >
+          import@intracosta.com
+        </a>,
+        <a
+          href="mailto:dispo.greece@intracosta.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold"
+        >
+          dispo.greece@intracosta.com
+        </a>,
+        <a
+          href="mailto:account@intracosta.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold"
+        >
+          account@intracosta.com
+        </a>,
+        <a
+          href="mailto:info@intracosta.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-yellow-500 hover:scale-105 transition-transform duration-300 font-semibold"
+        >
+          info@intracosta.com
+        </a>
       ]
     },
     {
