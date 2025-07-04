@@ -479,9 +479,9 @@ const translations: Translations = {
     de: 'Unsere Routen'
   },
   ourRoutesDescription: {
-    el: 'Εξυπηρετούμε {{count}} ευρωπαϊκές χώρες με τακτικές δρομολογήσεις. Το δίκτυό μας καλύπτει σημαντικά βιομηχανικά και εμπορικά κέντρα σε όλη την Ευρώπη.',
-    en: 'We serve {{count}} European countries with regular scheduled routes. Our network covers major industrial and commercial centers across Europe.',
-    de: 'Wir bedienen {{count}} europäische Länder mit regelmäßigen Fahrplänen. Unser Netzwerk deckt wichtige Industrie- und Handelszentren in ganz Europa ab.'
+    el: 'Εξυπηρετούμε {{count}} ευρωπαϊκές χώρες με τακτικές δρομολογήσεις.',
+    en: 'We serve {{count}} European countries with regular scheduled routes.',
+    de: 'Wir bedienen {{count}} europäische Länder mit regelmäßigen Fahrplänen.'
   },
   // Mission Section
   missionTitle: {
