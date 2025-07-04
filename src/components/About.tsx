@@ -114,7 +114,7 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mt-12 p-8 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-6"
+          className="mt-12 p-6 bg-gray-50 rounded-xl shadow hover:shadow-md transition grid grid-cols-1 sm:grid-cols-[80px_1fr] gap-4"
         >
           <div className="flex-shrink-0">
             <img
@@ -125,7 +125,7 @@ const About: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-4xl mr-3">🌟</span>
+              <Target className="w-8 h-8 text-yellow-500 mr-3" />
               <h3 className="text-3xl font-extrabold text-gray-900">{t('missionTitle')}</h3>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed">{t('missionText')}</p>
