@@ -105,10 +105,11 @@ const QuoteForm: React.FC = () => {
           </p>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="rounded-xl shadow-lg bg-white p-8 transition-all duration-300 overflow-visible">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="rounded-2xl shadow-xl bg-white p-10 lg:p-12 transition-all duration-300 overflow-visible">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               {/* Left Column: Cargo Details */}
               <div>
+                <div className="flex flex-col gap-4">
                 {/* Pickup Details */}
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {t('pickupLocation')}
@@ -300,81 +301,84 @@ const QuoteForm: React.FC = () => {
                     required
                   />
                 </div>
+                </div>
               </div>
               {/* Right Column: Contact Details */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('companyName')}
-                </label>
-                <div className="relative">
-                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    placeholder={t('companyName')}
-                    title="Όνομα εταιρείας"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
+                <div className="flex flex-col gap-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('companyName')}
+                  </label>
+                  <div className="relative">
+                    <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleInputChange}
+                      placeholder={t('companyName')}
+                      title="Όνομα εταιρείας"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
 
-                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-                  {t('contactPerson')}
-                </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    name="contactPerson"
-                    value={formData.contactPerson}
-                    onChange={handleInputChange}
-                    placeholder={t('contactPerson')}
-                    title="Όνομα υπεύθυνου επικοινωνίας"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                    {t('contactPerson')}
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      name="contactPerson"
+                      value={formData.contactPerson}
+                      onChange={handleInputChange}
+                      placeholder={t('contactPerson')}
+                      title="Όνομα υπεύθυνου επικοινωνίας"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
 
-                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-                  {t('email')}
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder={t('email')}
-                    title="π.χ. example@mail.com"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                    {t('email')}
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder={t('email')}
+                      title="π.χ. example@mail.com"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
 
-                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-                  {t('phone')}
-                </label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder={t('phone')}
-                    title="π.χ. +30 2101234567"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
+                  <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                    {t('phone')}
+                  </label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder={t('phone')}
+                      title="π.χ. +30 2101234567"
+                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           {/* Submit Button centered below the grid, outside the two columns */}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex justify-center lg:col-span-2">
             <button
               type="submit"
               disabled={isSubmitting}
