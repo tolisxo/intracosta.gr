@@ -71,9 +71,9 @@ const translations: Translations = {
     de: 'Zuverlässiger internationaler Transport in ganz Europa' 
   },
   heroSubtitle: { 
-    el: 'Οδικές, Groupage και Υπηρεσίες Εκτελωνισμού για B2B', 
-    en: 'Road Transport, Groupage and Customs Services for B2B', 
-    de: 'Straßentransport, Groupage und Zolldienstleistungen für B2B' 
+    el: 'Από μία παλέτα έως πλήρες φορτίο, συνδέουμε την Ελλάδα με κάθε γωνιά της Ευρώπης με ταχύτητα, ασφάλεια και πλήρη εκτελωνιστική υποστήριξη. Εσείς επικεντρώνεστε στην ανάπτυξη – εμείς φροντίζουμε τα υπόλοιπα.', 
+    en: 'From a single pallet to a full truckload, we connect Greece with every corner of Europe, providing speed, safety, and full customs support. You focus on growth – we take care of the rest.', 
+    de: 'Von einer Palette bis zur kompletten LKW-Ladung verbinden wir Griechenland mit jeder Ecke Europas, bieten Geschwindigkeit, Sicherheit und vollständige Zollabfertigung. Sie konzentrieren sich auf das Wachstum – wir kümmern uns um den Rest.' 
   },
   heroCtaText: { el: 'Ζητήστε Δωρεάν Προσφορά', en: 'Get Free Quote', de: 'Kostenloses Angebot' },
   
