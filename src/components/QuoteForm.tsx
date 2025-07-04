@@ -9,6 +9,9 @@ const QuoteForm: React.FC = () => {
     pickupLocation: '',
     deliveryLocation: '',
     cargoType: '',
+    pallets: '',
+    boxes: '',
+    dimensions: '',
     weight: '',
     desiredDate: '',
     companyName: '',
@@ -45,6 +48,9 @@ const QuoteForm: React.FC = () => {
         pickupLocation: '',
         deliveryLocation: '',
         cargoType: '',
+        pallets: '',
+        boxes: '',
+        dimensions: '',
         weight: '',
         desiredDate: '',
         companyName: '',
@@ -150,6 +156,54 @@ const QuoteForm: React.FC = () => {
                     <option value="special">Ειδική μεταφορά</option>
                   </select>
                   <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                </div>
+
+                {/* Ποσότητα και είδος φορτίου */}
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Package className="w-6 h-6 mr-3 text-gray-700" />
+                  {t('cargoQuantityType')}
+                </h3>
+
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Παλέτες (Αριθμός)
+                </label>
+                <div className="relative">
+                  <input
+                    type="number"
+                    name="pallets"
+                    value={formData.pallets}
+                    onChange={handleInputChange}
+                    placeholder="π.χ. 10"
+                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  />
+                </div>
+
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Κιβώτια (Αριθμός)
+                </label>
+                <div className="relative">
+                  <input
+                    type="number"
+                    name="boxes"
+                    value={formData.boxes}
+                    onChange={handleInputChange}
+                    placeholder="π.χ. 50"
+                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  />
+                </div>
+
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Διαστάσεις (Μήκος x Πλάτος x Ύψος)
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="dimensions"
+                    value={formData.dimensions}
+                    onChange={handleInputChange}
+                    placeholder="π.χ. 1.2m x 0.8m x 1.5m"
+                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  />
                 </div>
 
                 <label className="block text-sm font-medium text-gray-700 mb-1">
