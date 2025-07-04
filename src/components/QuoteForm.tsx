@@ -105,7 +105,7 @@ const QuoteForm: React.FC = () => {
           </p>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="rounded-2xl shadow-xl bg-white p-10 lg:p-12 transition-all duration-300 overflow-visible">
+          <div className="rounded-2xl shadow-xl bg-gradient-to-br from-white via-gray-50 to-gray-100 p-10 lg:p-12 transition-all duration-300 overflow-visible">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
               {/* Left Column: Cargo Details */}
               <div>
