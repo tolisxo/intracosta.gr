@@ -192,7 +192,7 @@ const Coverage: React.FC = () => {
               </div>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 focus:outline-none group"
+                className="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 hover:brightness-110 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 focus:outline-none group"
                 style={{ position: 'relative', overflow: 'hidden' }}
                 onMouseEnter={e => {
                   // For premium effect, we could add more here if needed
@@ -202,7 +202,7 @@ const Coverage: React.FC = () => {
                 }}
               >
                 <MapPin className="w-5 h-5 mr-2 transition-transform duration-200 group-hover:scale-110" />
-                <span className="relative z-10">{t('viewCountries')}</span>
+                <span className="relative z-10">{t('coverageTitle')}</span>
                 <span
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{
