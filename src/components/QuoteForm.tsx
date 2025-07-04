@@ -105,271 +105,275 @@ const QuoteForm: React.FC = () => {
           </p>
         </div>
         <form onSubmit={handleSubmit}>
-          {/* All form fields, sequentially displayed, no accordion except for cargo details toggle */}
-          <div className="rounded-xl shadow-lg bg-gradient-to-br from-white/95 via-white/90 to-yellow-50 transition-all duration-300 overflow-visible px-6 py-8 space-y-6">
-            {/* Pickup Details */}
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('pickupLocation')}
-            </label>
-            <input
-              type="text"
-              name="pickupCountry"
-              value={formData.pickupCountry}
-              onChange={handleInputChange}
-              placeholder={t('pickupCountry')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              required
-            />
-            <input
-              type="text"
-              name="pickupCity"
-              value={formData.pickupCity}
-              onChange={handleInputChange}
-              placeholder={t('pickupCity')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-              required
-            />
-            <input
-              type="text"
-              name="pickupPostalCode"
-              value={formData.pickupPostalCode}
-              onChange={handleInputChange}
-              placeholder={t('pickupPostalCode')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-              required
-            />
-            <input
-              type="text"
-              name="pickupCompany"
-              value={formData.pickupCompany}
-              onChange={handleInputChange}
-              placeholder={t('pickupCompany')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-            />
+          <div className="rounded-xl shadow-lg bg-white p-8 transition-all duration-300 overflow-visible">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Left Column: Cargo Details */}
+              <div>
+                {/* Pickup Details */}
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('pickupLocation')}
+                </label>
+                <input
+                  type="text"
+                  name="pickupCountry"
+                  value={formData.pickupCountry}
+                  onChange={handleInputChange}
+                  placeholder={t('pickupCountry')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  required
+                />
+                <input
+                  type="text"
+                  name="pickupCity"
+                  value={formData.pickupCity}
+                  onChange={handleInputChange}
+                  placeholder={t('pickupCity')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                  required
+                />
+                <input
+                  type="text"
+                  name="pickupPostalCode"
+                  value={formData.pickupPostalCode}
+                  onChange={handleInputChange}
+                  placeholder={t('pickupPostalCode')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                  required
+                />
+                <input
+                  type="text"
+                  name="pickupCompany"
+                  value={formData.pickupCompany}
+                  onChange={handleInputChange}
+                  placeholder={t('pickupCompany')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                />
 
-            {/* Delivery Details */}
-            <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-              {t('deliveryLocation')}
-            </label>
-            <input
-              type="text"
-              name="deliveryCountry"
-              value={formData.deliveryCountry}
-              onChange={handleInputChange}
-              placeholder={t('deliveryCountry')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              required
-            />
-            <input
-              type="text"
-              name="deliveryCity"
-              value={formData.deliveryCity}
-              onChange={handleInputChange}
-              placeholder={t('deliveryCity')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-              required
-            />
-            <input
-              type="text"
-              name="deliveryPostalCode"
-              value={formData.deliveryPostalCode}
-              onChange={handleInputChange}
-              placeholder={t('deliveryPostalCode')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-              required
-            />
-            <input
-              type="text"
-              name="deliveryCompany"
-              value={formData.deliveryCompany}
-              onChange={handleInputChange}
-              placeholder={t('deliveryCompany')}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-            />
+                {/* Delivery Details */}
+                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                  {t('deliveryLocation')}
+                </label>
+                <input
+                  type="text"
+                  name="deliveryCountry"
+                  value={formData.deliveryCountry}
+                  onChange={handleInputChange}
+                  placeholder={t('deliveryCountry')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  required
+                />
+                <input
+                  type="text"
+                  name="deliveryCity"
+                  value={formData.deliveryCity}
+                  onChange={handleInputChange}
+                  placeholder={t('deliveryCity')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                  required
+                />
+                <input
+                  type="text"
+                  name="deliveryPostalCode"
+                  value={formData.deliveryPostalCode}
+                  onChange={handleInputChange}
+                  placeholder={t('deliveryPostalCode')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                  required
+                />
+                <input
+                  type="text"
+                  name="deliveryCompany"
+                  value={formData.deliveryCompany}
+                  onChange={handleInputChange}
+                  placeholder={t('deliveryCompany')}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                />
 
-            {/* Loading Date */}
-            <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-              {t('loadingDate')}
-            </label>
-            <input
-              type="date"
-              name="loadingDate"
-              value={formData.loadingDate}
-              onChange={handleInputChange}
-              className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-              required
-            />
+                {/* Loading Date */}
+                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                  {t('loadingDate')}
+                </label>
+                <input
+                  type="date"
+                  name="loadingDate"
+                  value={formData.loadingDate}
+                  onChange={handleInputChange}
+                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  required
+                />
 
-            {/* Cargo Type */}
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('cargoType')}
-            </label>
-            <div className="relative">
-              <select
-                name="cargoType"
-                value={formData.cargoType}
-                onChange={handleInputChange}
-                title="Επιλέξτε τον τύπο φορτίου"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
-                required
-              >
-                <option value="">{t('cargoType')}</option>
-                <option value="dry">Ξηρό φορτίο</option>
-                <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
-                <option value="adr">ADR</option>
-                <option value="special">Ειδική μεταφορά</option>
-              </select>
-              <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-            </div>
+                {/* Cargo Type */}
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('cargoType')}
+                </label>
+                <div className="relative">
+                  <select
+                    name="cargoType"
+                    value={formData.cargoType}
+                    onChange={handleInputChange}
+                    title="Επιλέξτε τον τύπο φορτίου"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
+                    required
+                  >
+                    <option value="">{t('cargoType')}</option>
+                    <option value="dry">Ξηρό φορτίο</option>
+                    <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
+                    <option value="adr">ADR</option>
+                    <option value="special">Ειδική μεταφορά</option>
+                  </select>
+                  <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                </div>
 
-            {/* Λεπτομέρειες Ποσότητας & Τύπου */}
-            <button
-              type="button"
-              onClick={() => setShowCargoDetails(!showCargoDetails)}
-              className="flex items-center justify-between w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 transition"
-            >
-              <span>
-                {/* Use a fallback if translation doesn't exist */}
-                {t('cargoQuantityType') !== 'cargoQuantityType'
-                  ? t('cargoQuantityType')
-                  : 'Λεπτομέρειες Ποσότητας & Τύπου'}
-              </span>
-              {showCargoDetails ? (
-                <ChevronUp className="w-5 h-5" />
-              ) : (
-                <ChevronDown className="w-5 h-5" />
-              )}
-            </button>
-            <div
-              className={`transition-all duration-300 ${showCargoDetails ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'} overflow-hidden`}
-            >
-              {showCargoDetails && (
-                <div className="space-y-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Παλέτες (Αριθμός)
-                  </label>
+                {/* Λεπτομέρειες Ποσότητας & Τύπου */}
+                <button
+                  type="button"
+                  onClick={() => setShowCargoDetails(!showCargoDetails)}
+                  className="flex items-center justify-between w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 transition mt-4"
+                >
+                  <span>
+                    {t('cargoQuantityType') !== 'cargoQuantityType'
+                      ? t('cargoQuantityType')
+                      : 'Λεπτομέρειες Ποσότητας & Τύπου'}
+                  </span>
+                  {showCargoDetails ? (
+                    <ChevronUp className="w-5 h-5" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5" />
+                  )}
+                </button>
+                <div
+                  className={`transition-all duration-300 ${showCargoDetails ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'} overflow-hidden`}
+                >
+                  {showCargoDetails && (
+                    <div className="space-y-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Παλέτες (Αριθμός)
+                      </label>
+                      <input
+                        type="number"
+                        name="pallets"
+                        value={formData.pallets}
+                        onChange={handleInputChange}
+                        placeholder="π.χ. 10"
+                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      />
+
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Κιβώτια (Αριθμός)
+                      </label>
+                      <input
+                        type="number"
+                        name="boxes"
+                        value={formData.boxes}
+                        onChange={handleInputChange}
+                        placeholder="π.χ. 50"
+                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      />
+
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Διαστάσεις (Μήκος x Πλάτος x Ύψος)
+                      </label>
+                      <input
+                        type="text"
+                        name="dimensions"
+                        value={formData.dimensions}
+                        onChange={handleInputChange}
+                        placeholder="π.χ. 1.2m x 0.8m x 1.5m"
+                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <label className="block text-sm font-medium text-gray-700 mb-1 mt-4">
+                  {t('weight')}
+                </label>
+                <div className="relative">
                   <input
                     type="number"
-                    name="pallets"
-                    value={formData.pallets}
+                    name="weight"
+                    value={formData.weight}
                     onChange={handleInputChange}
-                    placeholder="π.χ. 10"
+                    placeholder={t('weight')}
+                    title="Βάρος σε κιλά (π.χ. 1000)"
                     className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  />
-
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Κιβώτια (Αριθμός)
-                  </label>
-                  <input
-                    type="number"
-                    name="boxes"
-                    value={formData.boxes}
-                    onChange={handleInputChange}
-                    placeholder="π.χ. 50"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  />
-
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Διαστάσεις (Μήκος x Πλάτος x Ύψος)
-                  </label>
-                  <input
-                    type="text"
-                    name="dimensions"
-                    value={formData.dimensions}
-                    onChange={handleInputChange}
-                    placeholder="π.χ. 1.2m x 0.8m x 1.5m"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
                   />
                 </div>
-              )}
-            </div>
+              </div>
+              {/* Right Column: Contact Details */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('companyName')}
+                </label>
+                <div className="relative">
+                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder={t('companyName')}
+                    title="Όνομα εταιρείας"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
+                  />
+                </div>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('weight')}
-            </label>
-            <div className="relative">
-              <input
-                type="number"
-                name="weight"
-                value={formData.weight}
-                onChange={handleInputChange}
-                placeholder={t('weight')}
-                title="Βάρος σε κιλά (π.χ. 1000)"
-                className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
+                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                  {t('contactPerson')}
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="text"
+                    name="contactPerson"
+                    value={formData.contactPerson}
+                    onChange={handleInputChange}
+                    placeholder={t('contactPerson')}
+                    title="Όνομα υπεύθυνου επικοινωνίας"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
+                  />
+                </div>
 
-            {/* Contact Information */}
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('companyName')}
-            </label>
-            <div className="relative">
-              <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleInputChange}
-                placeholder={t('companyName')}
-                title="Όνομα εταιρείας"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
+                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                  {t('email')}
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder={t('email')}
+                    title="π.χ. example@mail.com"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
+                  />
+                </div>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('contactPerson')}
-            </label>
-            <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                name="contactPerson"
-                value={formData.contactPerson}
-                onChange={handleInputChange}
-                placeholder={t('contactPerson')}
-                title="Όνομα υπεύθυνου επικοινωνίας"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
-
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('email')}
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder={t('email')}
-                title="π.χ. example@mail.com"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
-            </div>
-
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              {t('phone')}
-            </label>
-            <div className="relative">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                placeholder={t('phone')}
-                title="π.χ. +30 2101234567"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                required
-              />
+                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                  {t('phone')}
+                </label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder={t('phone')}
+                    title="π.χ. +30 2101234567"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          {/* Submit Button outside accordions */}
+          {/* Submit Button centered below the grid, outside the two columns */}
           <div className="mt-8 flex justify-center">
             <button
               type="submit"
