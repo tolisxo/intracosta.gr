@@ -4,15 +4,6 @@ import { Menu, X, Globe, Truck } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
-  // Import translations directly to access supportedCountries
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  // @ts-ignore
-  import('../contexts/LanguageContext').then();
-  // Actually, let's import translations statically for access:
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const translations = require('../contexts/LanguageContext').default?.translations
-    || require('../contexts/LanguageContext').translations
-    || {};
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
@@ -23,11 +14,12 @@ const Header: React.FC = () => {
     { code: 'de' as const, name: 'DE', flag: '🇩🇪' }
   ];
 
-  // Remove static countries and use dynamic supportedCountries for 'coverage'
   const menuItems = [
     { key: 'home', href: '#home' },
     { key: 'services', href: '#services' },
-    { key: 'coverage', href: '#coverage' }, // countries will be handled in JSX
+    { key: 'coverage', href: '#coverage', countries: [
+      'Germany', 'Austria', 'Netherlands', 'Belgium', 'Poland', 'Luxembourg', 'Denmark', 'Greece'
+    ] },
     { key: 'about', href: '#about' },
     { key: 'contact', href: '#contact' }
   ];
@@ -77,8 +69,7 @@ const Header: React.FC = () => {
                     }`}
                   >
                     <ul className="py-2">
-                      {/* Dynamically render countries based on current language */}
-                      {require('../contexts/LanguageContext').translations.supportedCountries[language].map((country: string) => (
+                      {item.countries.map((country) => (
                         <li
                           key={country}
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6"
