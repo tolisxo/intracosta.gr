@@ -31,10 +31,10 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight sm:leading-tight animate-fade-in-up-fast">
-            Μεταφέρουμε το φορτίο σας με σιγουριά. Παντού.
+            {t('heroTitle')}
           </h1>
           <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up-fast">
-            Από μία παλέτα έως πλήρες φορτίο, συνδέουμε την Ελλάδα με κάθε γωνιά της Ευρώπης με ταχύτητα, ασφάλεια και πλήρη εκτελωνιστική υποστήριξη. Εσείς επικεντρώνεστε στην ανάπτυξη – εμείς φροντίζουμε τα υπόλοιπα.
+            {t('heroSubtitle')}
           </p>
           
           <button
