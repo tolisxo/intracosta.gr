@@ -172,7 +172,7 @@ const translations: Translations = {
   },
   
   // Quote Form
-  quoteFormTitle: { el: 'Ζητήστε Προσφορά', en: 'Request Quote', de: 'Angebot anfordern' },
+  quoteFormTitle: { el: 'Λεπτομέρειες Μεταφοράς', en: 'Transport Details', de: 'Transportdetails' },
   pickupLocation: { el: 'Τοποθεσία Παραλαβής', en: 'Pickup Location', de: 'Abholort' },
   deliveryLocation: { el: 'Τοποθεσία Παράδοσης', en: 'Delivery Location', de: 'Lieferort' },
   cargoType: { el: 'Τύπος Φορτίου', en: 'Cargo Type', de: 'Frachtart' },
