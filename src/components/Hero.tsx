@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
             onClick={scrollToQuote}
             className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-xl animate-fade-in-up-fast"
           >
-            Ζητήστε Προσφορά
+            {t('heroCtaText')}
             <ArrowRight className="ml-2 w-5 h-5" />
           </button>
         </div>
