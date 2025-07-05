@@ -195,6 +195,11 @@ const translations: Translations = {
   deliveryCompany: { el: 'Επωνυμία Παράδοσης (Προαιρετικά)', en: 'Delivery Company (Optional)', de: 'Firma Lieferung (optional)' },
   loadingDate: { el: 'Επιθυμητή Ημερομηνία Φόρτωσης', en: 'Desired Loading Date', de: 'Gewünschtes Ladungsdatum' },
   cargoType: { el: 'Τύπος Φορτίου', en: 'Cargo Type', de: 'Frachtart' },
+  cargoQuantityType: {
+    el: 'Λεπτομέρειες Ποσότητας & Τύπου',
+    en: 'Quantity & Type Details',
+    de: 'Mengen- & Typangaben'
+  },
   weight: { el: 'Βάρος (kg)', en: 'Weight (kg)', de: 'Gewicht (kg)' },
   desiredDate: { el: 'Επιθυμητή Ημερομηνία', en: 'Desired Date', de: 'Gewünschtes Datum' },
   companyName: { el: 'Επωνυμία Εταιρείας', en: 'Company Name', de: 'Firmenname' },
