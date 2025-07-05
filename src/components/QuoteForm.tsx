@@ -28,7 +28,7 @@ const QuoteForm: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // Remove accordion openPanel state
+  // Controls whether cargo detail fields are visible
   const [showCargoDetails, setShowCargoDetails] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
