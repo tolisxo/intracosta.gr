@@ -221,7 +221,7 @@ const translations: Translations = {
     de: 'Mit über 60 Jahren Erfahrung im Transportwesen bietet In.Tra.Costa EPE zuverlässige und flexible Lösungen in Griechenland und Europa. Mit einer modernen privaten Flotte und einem Partnernetzwerk gewährleisten wir Sicherheit, Schnelligkeit und Zuverlässigkeit für Ihre Frachten.'
   },
   aboutIntracostaSummary: {
-    el: 'Η Intracosta είναι μια αμιγώς ελληνική εταιρία διεθνών οδικών μεταφορών και logistics. Με 25 χρόνια εμπειρίας στον κλάδο, με έναν στόλο άνω των 50 ιδιόκτητων φορτήγων τελευταίας τεχνολογίας και ευρύ δίκτυο συνεργατών σε όλη την κεντρική Ευρώπη, μετατρέπουμε τις μετακινήσεις εμπορευμάτων σε απλή, προβλέψιμη διαδικασία.',
+    el: 'Η Intracosta είναι μια αμιγώς ελληνική εταιρία διεθνών οδικών μεταφορών και logistics. Με 25 χρόνια εμπειρίας στον κλάδο, με έναν στόλο άνω των 50 ιδιόκτητων φορτηγών τελευταίας τεχνολογίας και ευρύ δίκτυο συνεργατών σε όλη την κεντρική Ευρώπη, μετατρέπουμε τις μετακινήσεις εμπορευμάτων σε απλή, προβλέψιμη διαδικασία.',
     en: 'Intracosta is a purely Greek company specializing in international road transport and logistics. With 25 years of experience in the field, a fleet of over 50 state-of-the-art trucks, and an extensive partner network across central Europe, we make freight transport a simple, predictable process.',
     de: 'Intracosta ist ein rein griechisches Unternehmen für internationale Straßentransporte und Logistik. Mit 25 Jahren Erfahrung in der Branche, über 50 firmeneigenen modernen Lkw und einem umfangreichen Partnernetzwerk in ganz Mitteleuropa machen wir den Warentransport zu einem einfachen, planbaren Prozess.'
   },
