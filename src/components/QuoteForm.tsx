@@ -31,21 +31,37 @@ const QuoteForm: React.FC = () => {
   // Controls whether cargo detail fields are visible
   const [showCargoDetails, setShowCargoDetails] = useState(false);
 
+  const sanitizeInput = (val: string) => val.replace(/<[^>]*>?/gm, '');
+  const getCsrfToken = () => {
+    const match = document.cookie.match(/XSRF-TOKEN=([^;]+)/);
+    return match ? match[1] : '';
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: sanitizeInput(value)
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
+    try {
+      await fetch('/api/quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'CSRF-Token': getCsrfToken(),
+        },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
     setIsSubmitting(false);
     setIsSubmitted(true);
     
