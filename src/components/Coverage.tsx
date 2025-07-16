@@ -231,7 +231,8 @@ const Coverage: React.FC = () => {
                       </div>
                       <span className="text-sm font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 flex items-center">
                         <span className="inline-block w-5 h-5 mr-1 bg-yellow-300 rounded-full text-xs font-bold flex items-center justify-center">{country.count}</span>
-                        {t('covered')}
+ <MapPin className="w-4 h-4 mr-1" /> {/* Add MapPin icon */}
+ {t('covered')}
                       </span>
                     </div>
                   ))}
