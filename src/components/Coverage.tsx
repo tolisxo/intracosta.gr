@@ -10,21 +10,21 @@ const Coverage: React.FC = () => {
   const [hoveredMarkerIdx, setHoveredMarkerIdx] = useState<number | null>(null);
 
   const countries = [
+    { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162], count: 3 },
     { name: 'Germany', flag: '🇩🇪', routes: 'Daily Routes', coordinates: [10.4515, 51.1657], count: 7 },
     { name: 'Netherlands', flag: '🇳🇱', routes: 'Daily Routes', coordinates: [5.2913, 52.1326], count: 5 },
     { name: 'Belgium', flag: '🇧🇪', routes: '3x/Week', coordinates: [4.4699, 50.5039], count: 3 },
     { name: 'France', flag: '🇫🇷', routes: '2x/Week', coordinates: [2.2137, 46.2276], count: 2 },
     { name: 'Italy', flag: '🇮🇹', routes: '2x/Week', coordinates: [12.5674, 41.8719], count: 2 },
-    { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162], count: 3 },
     { name: 'Switzerland', flag: '🇨🇭', routes: '2x/Week', coordinates: [8.2275, 46.8182], count: 2 },
     { name: 'Poland', flag: '🇵🇱', routes: '3x/Week', coordinates: [19.1451, 51.9194], count: 3 },
     { name: 'Czech Republic', flag: '🇨🇿', routes: '2x/Week', coordinates: [15.4729, 49.8175], count: 2 },
     { name: 'Hungary', flag: '🇭🇺', routes: '2x/Week', coordinates: [19.5033, 47.1625], count: 2 },
     { name: 'Slovakia', flag: '🇸🇰', routes: '2x/Week', coordinates: [19.699, 48.669], count: 2 },
     { name: 'Denmark', flag: '🇩🇰', routes: '2x/Week', coordinates: [9.5018, 56.2639], count: 2 },
+    { name: 'Greece', flag: '🇬🇷', routes: 'Daily Routes', coordinates: [21.8243, 39.0742], count: 7 },
     { name: 'Luxembourg', flag: '🇱🇺', routes: '3x/Week', coordinates: [6.1296, 49.8153], count: 3 },
-    { name: 'Greece', flag: '🇬🇷', routes: 'Daily Routes', coordinates: [21.8243, 39.0742], count: 7 }
-  ];
+  ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   const features = [
     {
