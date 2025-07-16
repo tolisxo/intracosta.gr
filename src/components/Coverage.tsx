@@ -174,7 +174,7 @@ const Coverage: React.FC = () => {
             {/* Routes Info & Button */}
             <div className="p-8 flex flex-col justify-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('ourRoutesTitle')}</h3>
-              <div className="flex items-center mb-4">
+              <div className="flex items-center mb-4">Number of countries covered:
                 <span className="text-gray-600 mr-3">{t('ourRoutesDescription', { count: countries.length })}</span>
                 <span className="ml-2 inline-flex items-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 font-bold text-lg shadow-sm">
                   {countries.length}
