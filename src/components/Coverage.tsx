@@ -89,29 +89,9 @@ const Coverage: React.FC = () => {
                   </defs>
                   <Geographies geography="/maps/europe.geojson">
                     {({ geographies }) =>
-                      geographies
-                        .filter((geo) =>
-                          [
-                            'Germany',
-                            'France',
-                            'Italy',
-                            'Poland',
-                            'Netherlands',
-                            'Belgium',
-                            'Austria',
-                            'Switzerland',
-                            'Czech Republic',
-                            'Hungary',
-                            'Slovakia',
-                            'Denmark',
-                            'Luxembourg',
-                            'Greece'
-                          ].includes(geo.properties.NAME)
-                        )
-                        .map((geo) => (
+                      geographies.map((geo) => (
                           <Geography
                             key={geo.rsmKey}
-                            geography={geo}
                             fill={
                               [
                                 'Germany',
@@ -132,16 +112,26 @@ const Coverage: React.FC = () => {
                                 ? 'url(#yellowGradient)'
                                 : '#e5e7eb'
                             }
+                            geography={geo}
                             stroke="#FFF"
                             style={{
                               default: { outline: 'none', transition: 'fill 0.3s' },
                               hover: {
                                 fill: 'url(#yellowGradient)', // keep gradient on hover
-                                filter: 'brightness(1.13)',
-                                outline: 'none',
+                                filter: [
+                                  'Germany',
+                                  'France',
+                                  'Italy',
+                                  'Poland',
+                                  'Netherlands',
+                                  'Belgium',
+                                  'Austria',
+                                  'Switzerland',
+                                ].includes(geo.properties.NAME) ? 'brightness(1.13)' : 'brightness(0.9)', // Slightly brighter on hover for served countries
                                 transition: 'fill 0.3s'
                               },
-                              pressed: { outline: 'none' },
+                              pressed: { outline: 'none'
+                              },
                             }}
                           />
                         ))
