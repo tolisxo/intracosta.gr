@@ -139,20 +139,23 @@ const Coverage: React.FC = () => {
                   </Geographies>
                   {countries.map((country, idx) => (
                     <Marker key={idx} coordinates={country.coordinates}>
-                      <circle
-                        r={8}
-                        fill="#facc15"
-                        stroke="#000"
-                        strokeWidth={1}
+                      <MapPin
                         className="transition-transform duration-200 ease-in-out cursor-pointer"
                         onMouseEnter={() => {
                           setHoveredCountry(`${country.flag} ${country.name}: ${t('covered')}`);
                           setHoveredMarkerIdx(idx);
                         }}
                         onMouseLeave={() => {
+
                           setHoveredCountry(null);
                           setHoveredMarkerIdx(null);
                         }}
+                        size={24} // Adjust size as needed
+                        color="#facc15" // Pin color
+                        strokeWidth={1.5}
+                        fill="#facc15"
+                        // Adjust the position of the pin if necessary
+                        // style={{ transform: 'translate(-50%, -100%)' }}
                         style={{
                           transform: hoveredMarkerIdx === idx ? 'scale(1.25)' : 'scale(1)',
                           transition: 'transform 0.2s cubic-bezier(0.4,0,0.2,1)'
