@@ -9,6 +9,23 @@ const Coverage: React.FC = () => {
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   const [hoveredMarkerIdx, setHoveredMarkerIdx] = useState<number | null>(null);
 
+  const countryFlagColors: { [key: string]: string[] } = {
+    'Germany': ['#000000', '#FF0000', '#FFCC00'], // Black, Red, Gold
+    'France': ['#002395', '#FFFFFF', '#ED2939'], // Blue, White, Red
+    'Italy': ['#008C45', '#FFFFFF', '#CD212A'], // Green, White, Red
+    'Poland': ['#FFFFFF', '#DC143C'], // White, Red
+    'Netherlands': ['#21468B', '#FFFFFF', '#AE1C28'], // Blue, White, Red
+    'Belgium': ['#000000', '#FFCD00', '#EF3340'], // Black, Yellow, Red
+    'Austria': ['#ED2939', '#FFFFFF', '#ED2939'], // Red, White, Red
+    'Switzerland': ['#D52B1E'], // Red (with a white cross, but we'll use solid red)
+    'Czech Republic': ['#11457E', '#FFFFFF', '#D7141A'], // Blue, White, Red
+    'Hungary': ['#CD2A3E', '#FFFFFF', '#436F4F'], // Red, White, Green
+    'Slovakia': ['#FFFFFF', '#0B4EA2', '#EE1C25'], // White, Blue, Red
+    'Denmark': ['#C60C30', '#FFFFFF'], // Red, White
+    'Luxembourg': ['#EF3340', '#FFFFFF', '#00A1DE'], // Red, White, Blue
+    'Greece': ['#0D5EAF', '#FFFFFF'] // Blue, White
+  };
+
   const countries = [
     { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162], count: 3 },
     { name: 'Germany', flag: '🇩🇪', routes: 'Daily Routes', coordinates: [10.4515, 51.1657], count: 7 },
@@ -91,25 +108,9 @@ const Coverage: React.FC = () => {
                     {({ geographies }) =>
                       geographies.map((geo) => (
                           <Geography
-                            key={geo.rsmKey}
-                            fill={
-                              [
-                                'Germany',
-                                'France',
-                                'Italy',
-                                'Poland',
-                                'Netherlands',
-                                'Belgium',
-                                'Austria',
-                                'Switzerland',
-                                'Czech Republic',
-                                'Hungary',
-                                'Slovakia',
-                                'Denmark',
-                                'Luxembourg',
-                                'Greece'
-                              ].includes(geo.properties.NAME)
-                                ? 'url(#yellowGradient)'
+ key={geo.rsmKey}
+ fill={
+ countryFlagColors[geo.properties.NAME] ? countryFlagColors[geo.properties.NAME][0]
                                 : '#e5e7eb'
                             }
                             geography={geo}
@@ -180,7 +181,7 @@ const Coverage: React.FC = () => {
                 {/* Reverted to using translation with placeholder after fixing t() function */}
  <span className="text-gray-600 mr-3">{t('ourRoutesDescription', { count: countries.length })}</span>
                 <span className="ml-2 inline-flex items-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 font-bold text-lg shadow-sm">
-                  {countries.length}
+ {countries.length}
                 </span>
               </div>
               <button
