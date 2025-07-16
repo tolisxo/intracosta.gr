@@ -120,17 +120,13 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-400 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+ <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-700 mb-4 md:mb-0">
               © 2024 Intracosta. All rights reserved. Stolos Official
             </div>
             <div className="flex space-x-6">
-              <Link to="/privacy-policy" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
-                {t('privacyPolicy')}
-              </Link>
-              <Link to="/terms-of-service" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
-                {t('termsOfService')}
-              </Link>
+ <Link to="/privacy-policy" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">{t('privacyPolicy')}</Link>
+ <Link to="/terms-of-service" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">{t('termsOfService')}</Link>
             </div>
           </div>
         </div>
