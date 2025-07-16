@@ -665,8 +665,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('el');
 
-  const t = (key: string): string => {
-    return translations[key]?.[language] || key;
+  const t = (key: string, variables?: { [key: string]: any }): string => {
+    const translatedString = translations[key]?.[language] || key;
+    if (variables) {
+      return translatedString.replace(/{{(.*?)}}/g, (match, variableName) => {
+        return variables[variableName.trim()];
+      });
+    }
+    return translatedString;
   };
 
   return (
