@@ -116,19 +116,10 @@ const Coverage: React.FC = () => {
                             geography={geo}
                             stroke="#FFF"
                             style={{
-                              default: { outline: 'none', transition: 'fill 0.3s' },
+                              default: { outline: 'none', transition: 'fill 0.3s', fill: countryFlagColors[geo.properties.NAME] ? countryFlagColors[geo.properties.NAME][0] : '#e5e7eb' },
                               hover: {
-                                fill: 'url(#yellowGradient)', // keep gradient on hover
-                                filter: [
-                                  'Germany',
-                                  'France',
-                                  'Italy',
-                                  'Poland',
-                                  'Netherlands',
-                                  'Belgium',
-                                  'Austria',
-                                  'Switzerland',
-                                ].includes(geo.properties.NAME) ? 'brightness(1.13)' : 'brightness(0.9)', // Slightly brighter on hover for served countries
+                                fill: countryFlagColors[geo.properties.NAME] ? (countryFlagColors[geo.properties.NAME][1] || countryFlagColors[geo.properties.NAME][0]) : '#e5e7eb', // Apply flag color on hover for served countries, use second color if available
+                                filter: countryFlagColors[geo.properties.NAME] ? 'brightness(1.13)' : 'brightness(0.9)', // Slightly brighter on hover for served countries, darker for others
                                 transition: 'fill 0.3s'
                               },
                               pressed: { outline: 'none'
