@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router-dom'; // Add this import
 import { Truck, MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -124,12 +125,12 @@ const Footer: React.FC = () => {
               © 2024 Intracosta. All rights reserved. Stolos Official
             </div>
             <div className="flex space-x-6">
-              <button className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
+              <Link to="/privacy-policy" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
                 {t('privacyPolicy')}
-              </button>
-              <button className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
+              </Link>
+              <Link to="/terms-of-service" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm">
                 {t('termsOfService')}
-              </button>
+              </Link>
             </div>
           </div>
         </div>
