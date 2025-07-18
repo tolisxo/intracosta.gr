@@ -41,6 +41,7 @@ const Coverage: React.FC = () => {
     { name: 'Denmark', flag: '🇩🇰', routes: '2x/Week', coordinates: [9.5018, 56.2639], count: 2 },
     { name: 'Greece', flag: '🇬🇷', routes: 'Daily Routes', coordinates: [21.8243, 39.0742], count: 7 },
     { name: 'Luxembourg', flag: '🇱🇺', routes: '3x/Week', coordinates: [6.1296, 49.8153], count: 3 },
+    { name: 'Cyprus', flag: '🇨🇾', routes: '2x/Week', coordinates: [33.4299, 35.1264], count: 1 },
   ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   const features = [
@@ -135,32 +136,6 @@ const Coverage: React.FC = () => {
                         ))
                     }
                   </Geographies>
-                  {countries.map((country, idx) => (
-                    <Marker key={idx} coordinates={country.coordinates}>
-                      <MapPin
-                        className="transition-transform duration-200 ease-in-out cursor-pointer"
-                        onMouseEnter={() => {
-                          setHoveredCountry(`${country.flag} ${country.name}: ${t('covered')}`);
-                          setHoveredMarkerIdx(idx);
-                        }}
-                        onMouseLeave={() => {
-
-                          setHoveredCountry(null);
-                          setHoveredMarkerIdx(null);
-                        }}
-                        size={24} // Adjust size as needed
-                        color="#facc15" // Pin color
-                        strokeWidth={1.5}
-                        fill="#facc15"
-                        // Adjust the position of the pin if necessary
-                        // style={{ transform: 'translate(-50%, -100%)' }}
-                        style={{
-                          transform: hoveredMarkerIdx === idx ? 'scale(1.25)' : 'scale(1)',
-                          transition: 'transform 0.2s cubic-bezier(0.4,0,0.2,1)'
-                        }}
-                      />
-                    </Marker>
-                  ))}
                 </ComposableMap>
                 
                 {/* Hover Tooltip */}
