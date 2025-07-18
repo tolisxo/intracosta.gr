@@ -837,3 +837,23 @@ export const useLanguage = () => {
   }
   return context;
 };
+  cargoTypeDry: {
+    el: 'Ξηρό φορτίο',
+    en: 'Dry cargo',
+    de: 'Trockengut'
+  },
+  cargoTypeControlled: {
+    el: 'Φορτίο με ελεγχόμενη θερμοκρασία',
+    en: 'Temperature-controlled cargo',
+    de: 'Temperaturgeführte Ladung'
+  },
+  cargoTypeAdr: {
+    el: 'ADR',
+    en: 'ADR',
+    de: 'ADR'
+  },
+  cargoTypeSpecial: {
+    el: 'Ειδική μεταφορά',
+    en: 'Special transport',
+    de: 'Sondertransport'
+  },
