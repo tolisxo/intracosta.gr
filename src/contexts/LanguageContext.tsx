@@ -11,6 +11,71 @@ interface Translations {
 }
 
 const translations: Translations = {
+  termsLastUpdated: {
+    el: 'Τελευταία ενημέρωση',
+    en: 'Last updated',
+    de: 'Zuletzt aktualisiert'
+  },
+  termsAcceptanceTitle: {
+    el: '1. Αποδοχή Όρων',
+    en: '1. Acceptance of Terms',
+    de: '1. Annahme der Bedingungen'
+  },
+  termsAcceptanceText: {
+    el: 'Με την πρόσβαση και χρήση του ιστότοπου και των υπηρεσιών Intracosta, αποδέχεστε και συμφωνείτε να δεσμεύεστε από τους όρους και τις προϋποθέσεις της παρούσας συμφωνίας.',
+    en: 'By accessing and using the Intracosta website and services, you accept and agree to be bound by the terms and provision of this agreement.',
+    de: 'Durch den Zugriff auf und die Nutzung der Intracosta-Website und -Dienste akzeptieren Sie die Bedingungen dieser Vereinbarung.'
+  },
+  termsServicesTitle: {
+    el: '2. Υπηρεσίες',
+    en: '2. Services',
+    de: '2. Dienstleistungen'
+  },
+  termsServicesText: {
+    el: 'Η Intracosta παρέχει διεθνείς μεταφορές και υπηρεσίες logistics σε όλη την Ευρώπη, συμπεριλαμβανομένων οδικών μεταφορών, groupage, εκτελωνισμού και λύσεων αποθήκευσης.',
+    en: 'Intracosta provides international transport and logistics services across Europe. Our services include road transport, groupage, customs clearance, and warehousing solutions.',
+    de: 'Intracosta bietet internationale Transport- und Logistikdienstleistungen in ganz Europa an. Unsere Dienstleistungen umfassen Straßentransport, Sammelladung, Zollabfertigung und Lagerlösungen.'
+  },
+  termsUseWebsiteTitle: {
+    el: '3. Χρήση Ιστότοπου',
+    en: '3. Use of Website',
+    de: '3. Nutzung der Website'
+  },
+  termsUseWebsiteText: {
+    el: 'Μπορείτε να χρησιμοποιείτε τον ιστότοπό μας μόνο για νόμιμους σκοπούς. Συμφωνείτε να μην τον χρησιμοποιείτε με τρόπο που θα μπορούσε να τον βλάψει, να τον υπερφορτώσει ή να τον επηρεάσει αρνητικά.',
+    en: 'You may use our website for lawful purposes only. You agree not to use the site in any way that could damage, disable, overburden, or impair the site.',
+    de: 'Sie dürfen unsere Website nur für rechtmäßige Zwecke nutzen. Sie stimmen zu, die Website nicht in einer Weise zu nutzen, die sie beschädigen, deaktivieren, überlasten oder beeinträchtigen könnte.'
+  },
+  termsQuoteRequestsTitle: {
+    el: '4. Αιτήματα Προσφοράς',
+    en: '4. Quote Requests',
+    de: '4. Angebotsanfragen'
+  },
+  termsQuoteRequestsText: {
+    el: 'Τα αιτήματα προσφοράς μέσω του ιστότοπού μας δεν αποτελούν δεσμευτικές προσφορές. Όλες οι προσφορές υπόκεινται σε επιβεβαίωση και ενδέχεται να τροποποιηθούν ανάλογα με τις απαιτήσεις.',
+    en: 'Quote requests submitted through our website are not binding offers. All quotes are subject to confirmation and may be modified based on actual requirements.',
+    de: 'Angebotsanfragen über unsere Website stellen keine verbindlichen Angebote dar. Alle Angebote bedürfen der Bestätigung und können je nach tatsächlichen Anforderungen geändert werden.'
+  },
+  termsLiabilityTitle: {
+    el: '5. Περιορισμός Ευθύνης',
+    en: '5. Limitation of Liability',
+    de: '5. Haftungsbeschränkung'
+  },
+  termsLiabilityText: {
+    el: 'Η Intracosta δεν φέρει ευθύνη για έμμεσες, παρεπόμενες, ειδικές ή ποινικές ζημίες που προκύπτουν από τη χρήση του ιστότοπου ή των υπηρεσιών μας.',
+    en: 'Intracosta shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our website or services.',
+    de: 'Intracosta haftet nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden, die sich aus der Nutzung unserer Website oder Dienstleistungen ergeben.'
+  },
+  termsContactTitle: {
+    el: '6. Στοιχεία Επικοινωνίας',
+    en: '6. Contact Information',
+    de: '6. Kontaktinformationen'
+  },
+  termsContactText: {
+    el: 'Για ερωτήσεις σχετικά με αυτούς τους Όρους Χρήσης, επικοινωνήστε μαζί μας:',
+    en: 'For questions about these Terms of Service, please contact us at:',
+    de: 'Für Fragen zu diesen Nutzungsbedingungen kontaktieren Sie uns bitte unter:'
+  },
   aboutHighlight1Title: {
     el: 'Σχεδόν καθημερινά δρομολόγια',
     en: 'Almost Daily Routes',
