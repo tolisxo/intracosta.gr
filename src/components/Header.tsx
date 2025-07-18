@@ -20,6 +20,12 @@ const Header: React.FC = () => {
           <Link to="/about" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('about')}</Link>
           <Link to="/contact" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('contact')}</Link>
         </nav>
+        <button
+          onClick={() => document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })}
+          className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md ml-6"
+        >
+          {t('letsCollaborate')}
+        </button>
       </div>
     </header>
   );
