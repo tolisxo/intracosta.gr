@@ -42,7 +42,7 @@ const Header: React.FC = () => {
               <img
                 src="/intracosta-logo-bird.svg"
                 alt="Intracosta Logo"
-                className="w-20 h-20 object-contain transition-transform duration-500 hover:scale-125"
+                className="w-28 h-28 object-contain transition-transform duration-500 hover:scale-125"
               />
             </div>
           </div>
