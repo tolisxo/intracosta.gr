@@ -266,10 +266,10 @@ const QuoteForm: React.FC = () => {
                         required
                       >
                         <option value="">{t('cargoType')}</option>
-                        <option value="dry">Ξηρό φορτίο</option>
-                        <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
-                        <option value="adr">ADR</option>
-                        <option value="special">Ειδική μεταφορά</option>
+                        <option value="dry">{t('cargoTypeDry')}</option>
+                        <option value="controlled">{t('cargoTypeControlled')}</option>
+                        <option value="adr">{t('cargoTypeAdr')}</option>
+                        <option value="special">{t('cargoTypeSpecial')}</option>
                       </select>
                       <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                     </div>
