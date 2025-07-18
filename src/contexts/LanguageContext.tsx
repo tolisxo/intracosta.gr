@@ -260,11 +260,11 @@ const translations: Translations = {
     en: 'Delivery Place',
     de: 'Lieferort'
   },
-  pickupCountry: { el: 'Χώρα Φόρτωσης', en: 'Loading Country', de: 'Ladungsland' },
+  pickupCountry: { el: 'Τόπος Παραλαβής', en: 'Pickup Place', de: 'Abholort' },
   pickupCity: { el: 'Πόλη Φόρτωσης', en: 'Loading City', de: 'Ladungsstadt' },
   pickupPostalCode: { el: 'Τ.Κ. Φόρτωσης', en: 'Loading Postal Code', de: 'Postleitzahl (Ladung)' },
   pickupCompany: { el: 'Επωνυμία Φόρτωσης (Προαιρετικά)', en: 'Loading Company (Optional)', de: 'Firma (optional)' },
-  deliveryCountry: { el: 'Χώρα Παράδοσης', en: 'Delivery Country', de: 'Lieferland' },
+  deliveryCountry: { el: 'Τόπος Παράδοσης', en: 'Delivery Place', de: 'Lieferort' },
   deliveryCity: { el: 'Πόλη Παράδοσης', en: 'Delivery City', de: 'Lieferstadt' },
   deliveryPostalCode: { el: 'Τ.Κ. Παράδοσης', en: 'Delivery Postal Code', de: 'Postleitzahl (Lieferung)' },
   deliveryCompany: { el: 'Επωνυμία Παράδοσης (Προαιρετικά)', en: 'Delivery Company (Optional)', de: 'Firma Lieferung (optional)' },
