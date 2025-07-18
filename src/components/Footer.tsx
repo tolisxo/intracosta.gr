@@ -158,8 +158,21 @@ const Footer: React.FC = () => {
               ✕
             </button>
             <h1 className="text-2xl font-bold mb-4">{t('privacyPolicy')}</h1>
-            <p>{t('privacyPolicyTitle')}</p>
-            {/* Add more translated privacy policy content here */}
+            <div className="space-y-4 text-gray-700">
+              <p>{t('privacyPolicyIntroduction')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyInfoWeCollectTitle')}</h2>
+              <p>{t('privacyPolicyInfoWeCollectText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyHowWeUseInfoTitle')}</h2>
+              <p>{t('privacyPolicyHowWeUseInfoText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyDataStorageTitle')}</h2>
+              <p>{t('privacyPolicyDataStorageText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyDataSharingTitle')}</h2>
+              <p>{t('privacyPolicyDataSharingText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyYourRightsTitle')}</h2>
+              <p>{t('privacyPolicyYourRightsText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyChangesTitle')}</h2>
+              <p>{t('privacyPolicyChangesText')}</p>
+            </div>
           </div>
         </div>
       )}
@@ -175,8 +188,21 @@ const Footer: React.FC = () => {
               ✕
             </button>
             <h1 className="text-2xl font-bold mb-4">{t('termsOfService')}</h1>
-            <p>{t('termsAcceptanceText')}</p>
-            {/* Add more translated terms of service content here */}
+            <div className="space-y-4 text-gray-700">
+              <p>{t('termsAcceptanceText')}</p>
+              <h2 className="text-xl font-semibold">{t('termsServicesTitle')}</h2>
+              <p>{t('termsServicesText')}</p>
+              <h2 className="text-xl font-semibold">{t('termsUseWebsiteTitle')}</h2>
+              <p>{t('termsUseWebsiteText')}</p>
+              <h2 className="text-xl font-semibold">{t('termsQuoteRequestsTitle')}</h2>
+              <p>{t('termsQuoteRequestsText')}</p>
+              <h2 className="text-xl font-semibold">{t('termsLiabilityTitle')}</h2>
+              <p>{t('termsLiabilityText')}</p>
+              <h2 className="text-xl font-semibold">{t('termsContactTitle')}</h2>
+              <p>
+                {t('termsContactText')} info@intracosta.com, +30 23820 27111
+              </p>
+            </div>
           </div>
         </div>
       )}
