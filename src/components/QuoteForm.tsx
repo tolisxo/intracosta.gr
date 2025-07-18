@@ -128,7 +128,7 @@ const QuoteForm: React.FC = () => {
                 <div className="flex flex-col gap-4">
                 {/* Pickup Details */}
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('pickupLocation')}
+                  {t('pickupPlace')}
                 </label>
                 <input
                   type="text"
@@ -168,7 +168,7 @@ const QuoteForm: React.FC = () => {
 
                 {/* Delivery Details */}
                 <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-                  {t('deliveryLocation')}
+                  {t('deliveryPlace')}
                 </label>
                 <input
                   type="text"
