@@ -3,7 +3,6 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import BrandLogo from '../assets/intracosta-brand-text-logo.svg';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -32,7 +31,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex flex-col items-center">
           <img
-            src={BrandLogo}
+            src="/intracosta brand text only.svg"
             alt="Intracosta Brand Logo"
             className="w-64 sm:w-80 md:w-96 h-auto mb-6 animate-fade-in-up-fast"
           />
