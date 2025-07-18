@@ -18,7 +18,9 @@ const QuoteForm: React.FC = () => {
     cargoType: '',
     pallets: '',
     boxes: '',
-    dimensions: '',
+    length: '',
+    width: '',
+    height: '',
     weight: '',
     companyName: '',
     contactPerson: '',
@@ -81,7 +83,9 @@ const QuoteForm: React.FC = () => {
         cargoType: '',
         pallets: '',
         boxes: '',
-        dimensions: '',
+        length: '',
+        width: '',
+        height: '',
         weight: '',
         companyName: '',
         contactPerson: '',
@@ -303,14 +307,38 @@ const QuoteForm: React.FC = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1">
                         {t('dimensions')}
                       </label>
-                      <input
-                        type="text"
-                        name="dimensions"
-                        value={formData.dimensions}
-                        onChange={handleInputChange}
-                        placeholder={t('dimensionsPlaceholder')}
-                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      />
+                      <div className="flex space-x-2">
+                        <input
+                          type="number"
+                          step="0.01"
+                          name="length"
+                          value={formData.length}
+                          onChange={handleInputChange}
+                          placeholder={t('lengthPlaceholder')}
+                          className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                          required
+                        />
+                        <input
+                          type="number"
+                          step="0.01"
+                          name="width"
+                          value={formData.width}
+                          onChange={handleInputChange}
+                          placeholder={t('widthPlaceholder')}
+                          className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                          required
+                        />
+                        <input
+                          type="number"
+                          step="0.01"
+                          name="height"
+                          value={formData.height}
+                          onChange={handleInputChange}
+                          placeholder={t('heightPlaceholder')}
+                          className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                          required
+                        />
+                      </div>
                     </div>
                   )}
                 </div>
