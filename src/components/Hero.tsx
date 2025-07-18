@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
           <img
             src="/intracosta-logo-bird.svg"
             alt="Intracosta Bird Logo"
-            className="w-48 sm:w-64 md:w-72 h-auto mb-6 animate-fade-in-up-fast"
+            className="w-48 sm:w-64 md:w-72 h-auto mb-6 animate-fade-in-up-fast mx-auto"
           />
           <p className="text-base sm:text-lg md:text-xl text-gray-200 animate-fade-in-up-fast mb-6">
             Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
