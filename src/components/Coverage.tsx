@@ -203,36 +203,38 @@ const Coverage: React.FC = () => {
         </div>
 
         {/* Modal */}
-        {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-out opacity-0 scale-95 animate-fade-in">
-            <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
-              <div className="flex justify-between items-center p-6 border-b border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900">{t('coverageTitle')}</h3>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  <X className="w-6 h-6 text-gray-500" />
-                </button>
-              </div>
-              <div className="p-6 overflow-y-auto max-h-[60vh]">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {countries.map((country, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-[1.02]"
-                    >
-                      <div className="flex items-center space-x-3 group">
-                        <span className="text-2xl transform transition-transform duration-300 group-hover:translate-x-1">{country.flag}</span>
-                        <span className="font-medium text-gray-900 group-hover:text-yellow-500 transition-colors duration-300">{country.name}</span>
-                      </div>
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-all duration-300 ease-out ${
+            isModalOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
+          }`}
+        >
+          <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
+            <div className="flex justify-between items-center p-6 border-b border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900">{t('coverageTitle')}</h3>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-500" />
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[60vh]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {countries.map((country, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-[1.02]"
+                  >
+                    <div className="flex items-center space-x-3 group">
+                      <span className="text-2xl transform transition-transform duration-300 group-hover:translate-x-1">{country.flag}</span>
+                      <span className="font-medium text-gray-900 group-hover:text-yellow-500 transition-colors duration-300">{country.name}</span>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
