@@ -1,50 +1,28 @@
 import React from 'react';
-import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const geoUrl =
-  'https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json';
+const Header: React.FC = () => {
+  const { t } = useLanguage();
 
-const countryFlagColors: { [key: string]: [string, string?] } = {
-  Germany: ['#EAB308', '#FFFFFF'],
-  Austria: ['#EAB308', '#FFFFFF'],
-  Netherlands: ['#EAB308', '#FFFFFF'],
-  Belgium: ['#EAB308', '#FFFFFF'],
-  Poland: ['#EAB308', '#FFFFFF'],
-  Luxembourg: ['#EAB308', '#FFFFFF'],
-  Denmark: ['#EAB308', '#FFFFFF'],
-  Greece: ['#EAB308', '#FFFFFF'],
-};
-
-const GeographyMap: React.FC = () => {
   return (
-    <ComposableMap projectionConfig={{ scale: 150 }}>
-      <Geographies geography={geoUrl}>
-        {({ geographies }) =>
-          geographies.map((geo) => (
-            <Geography
-              key={geo.rsmKey}
-              geography={geo}
-              style={{
-                default: {
-                  outline: 'none',
-                  transition: 'fill 0.3s',
-                  fill: countryFlagColors[geo.properties.NAME] ? '#EAB308' : '#e5e7eb',
-                  cursor: countryFlagColors[geo.properties.NAME] ? 'pointer' : 'default'
-                },
-                hover: {
-                  fill: countryFlagColors[geo.properties.NAME] ? '#FFFFFF' : '#e5e7eb',
-                  stroke: countryFlagColors[geo.properties.NAME] ? '#EAB308' : '#e5e7eb',
-                  filter: countryFlagColors[geo.properties.NAME] ? 'brightness(1.05)' : 'brightness(0.95)',
-                  transition: 'fill 0.3s'
-                },
-                pressed: { outline: 'none' },
-              }}
-            />
-          ))
-        }
-      </Geographies>
-    </ComposableMap>
+    <header className="bg-white shadow">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <img
+          src="/intracosta-logo-bird.svg"
+          alt="Intracosta Logo"
+          className="w-28 h-28 object-contain transition-transform duration-500 hover:scale-125"
+        />
+        <nav className="flex space-x-6">
+          <Link to="/" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('home')}</Link>
+          <Link to="/services" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('services')}</Link>
+          <Link to="/coverage" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('coverage')}</Link>
+          <Link to="/about" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('about')}</Link>
+          <Link to="/contact" className="text-gray-700 hover:text-yellow-500 transition-colors duration-300">{t('contact')}</Link>
+        </nav>
+      </div>
+    </header>
   );
 };
 
-export default GeographyMap;
+export default Header;
