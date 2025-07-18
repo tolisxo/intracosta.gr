@@ -310,7 +310,8 @@ const QuoteForm: React.FC = () => {
                       <div className="flex space-x-2">
                         <input
                           type="number"
-                          step="0.01"
+                          step="0.1"
+                          min="0.1"
                           name="length"
                           value={formData.length}
                           onChange={handleInputChange}
@@ -320,7 +321,8 @@ const QuoteForm: React.FC = () => {
                         />
                         <input
                           type="number"
-                          step="0.01"
+                          step="0.1"
+                          min="0.1"
                           name="width"
                           value={formData.width}
                           onChange={handleInputChange}
@@ -330,7 +332,8 @@ const QuoteForm: React.FC = () => {
                         />
                         <input
                           type="number"
-                          step="0.01"
+                          step="0.1"
+                          min="0.1"
                           name="height"
                           value={formData.height}
                           onChange={handleInputChange}
