@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     { key: 'home', href: '#home' },
     { key: 'services', href: '#services' },
     { key: 'coverage', href: '#coverage', countries: [
-      'Germany', 'Austria', 'Netherlands', 'Belgium', 'Poland', 'Luxembourg', 'Denmark', 'Greece'
+      'Germany', 'Austria', 'Netherlands', 'Belgium', 'Poland', 'Luxembourg', 'Denmark', 'Greece', 'Cyprus'
     ] },
     { key: 'about', href: '#about' },
     { key: 'contact', href: '#contact' }
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
                           key={country}
                           className="px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all duration-150 hover:pl-6"
                         >
-                          {country}
+                          {t(country)}
                         </li>
                       ))}
                     </ul>

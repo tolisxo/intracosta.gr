@@ -704,7 +704,8 @@ const translations: Translations = {
       'Πολωνία',
       'Λουξεμβούργο',
       'Δανία',
-      'Ελλάδα'
+      'Ελλάδα',
+      'Κύπρος'
     ],
     en: [
       'Germany',
@@ -714,7 +715,8 @@ const translations: Translations = {
       'Poland',
       'Luxembourg',
       'Denmark',
-      'Greece'
+      'Greece',
+      'Cyprus'
     ],
     de: [
       'Deutschland',
@@ -724,9 +726,20 @@ const translations: Translations = {
       'Polen',
       'Luxemburg',
       'Dänemark',
-      'Griechenland'
+      'Griechenland',
+      'Zypern'
     ]
-  }
+  },
+  // Add translations for each country for t(country) dynamic translation
+  Germany: { el: 'Γερμανία', en: 'Germany', de: 'Deutschland' },
+  Austria: { el: 'Αυστρία', en: 'Austria', de: 'Österreich' },
+  Netherlands: { el: 'Ολλανδία', en: 'Netherlands', de: 'Niederlande' },
+  Belgium: { el: 'Βέλγιο', en: 'Belgium', de: 'Belgien' },
+  Poland: { el: 'Πολωνία', en: 'Poland', de: 'Polen' },
+  Luxembourg: { el: 'Λουξεμβούργο', en: 'Luxembourg', de: 'Luxemburg' },
+  Denmark: { el: 'Δανία', en: 'Denmark', de: 'Dänemark' },
+  Greece: { el: 'Ελλάδα', en: 'Greece', de: 'Griechenland' },
+  Cyprus: { el: 'Κύπρος', en: 'Cyprus', de: 'Zypern' },
 };
 
 interface LanguageContextType {
