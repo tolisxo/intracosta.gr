@@ -26,6 +26,36 @@ const translations: Translations = {
     en: 'Dimensions (Length x Width x Height)',
     de: 'Abmessungen (Länge x Breite x Höhe)'
   },
+  lengthPlaceholder: {
+    el: 'Μήκος (m)',
+    en: 'Length (m)',
+    de: 'Länge (m)'
+  },
+  widthPlaceholder: {
+    el: 'Πλάτος (m)',
+    en: 'Width (m)',
+    de: 'Breite (m)'
+  },
+  heightPlaceholder: {
+    el: 'Ύψος (m)',
+    en: 'Height (m)',
+    de: 'Höhe (m)'
+  },
+  length: {
+    el: 'Μήκος (m)',
+    en: 'Length (m)',
+    de: 'Länge (m)'
+  },
+  width: {
+    el: 'Πλάτος (m)',
+    en: 'Width (m)',
+    de: 'Breite (m)'
+  },
+  height: {
+    el: 'Ύψος (m)',
+    en: 'Height (m)',
+    de: 'Höhe (m)'
+  },
   palletsPlaceholder: {
     el: 'π.χ. 10',
     en: 'e.g. 10',
