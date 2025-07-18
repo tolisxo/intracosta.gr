@@ -38,6 +38,12 @@ const Hero: React.FC = () => {
           <p className="text-base sm:text-lg md:text-xl text-gray-200 animate-fade-in-up-fast">
             Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
           </p>
+          <button
+            onClick={scrollToQuote}
+            className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-xl animate-fade-in-up-fast"
+          >
+            Ας Συνεργαστούμε
+          </button>
         </div>
       </div>
     </section>
