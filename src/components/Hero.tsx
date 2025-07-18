@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
             alt="Intracosta Brand Logo"
             className="w-64 sm:w-80 md:w-96 h-auto mb-6 animate-fade-in-up-fast"
           />
-          <p className="text-base sm:text-lg md:text-xl text-gray-200 animate-fade-in-up-fast">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 animate-fade-in-up-fast mb-6">
             Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
           </p>
           <button
