@@ -6,6 +6,9 @@ import { Truck, MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucid
 const Footer: React.FC = () => {
   const { t, language } = useLanguage();
 
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = React.useState(false);
+  const [showTermsOfService, setShowTermsOfService] = React.useState(false);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -125,22 +128,58 @@ const Footer: React.FC = () => {
               © 2024 Intracosta. All rights reserved. Stolos Official
             </div>
             <div className="flex space-x-6">
-              <Link
-                to={`/${language}/privacy-policy`}
+              <button
+                type="button"
+                onClick={() => setShowPrivacyPolicy(true)}
                 className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
               >
                 {t('privacyPolicy')}
-              </Link>
-              <Link
-                to={`/${language}/terms-of-service`}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowTermsOfService(true)}
                 className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
               >
                 {t('termsOfService')}
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </div>
+      {/* Privacy Policy Modal */}
+      {showPrivacyPolicy && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full overflow-y-auto relative">
+            <button
+              onClick={() => setShowPrivacyPolicy(false)}
+              className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <h1 className="text-2xl font-bold mb-4">{t('privacyPolicy')}</h1>
+            <p>{t('privacyPolicyTitle')}</p>
+            {/* Add more translated privacy policy content here */}
+          </div>
+        </div>
+      )}
+      {/* Terms of Service Modal */}
+      {showTermsOfService && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full overflow-y-auto relative">
+            <button
+              onClick={() => setShowTermsOfService(false)}
+              className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <h1 className="text-2xl font-bold mb-4">{t('termsOfService')}</h1>
+            <p>{t('termsAcceptanceText')}</p>
+            {/* Add more translated terms of service content here */}
+          </div>
+        </div>
+      )}
     </footer>
   );
 };
