@@ -161,32 +161,36 @@ const QuoteForm: React.FC = () => {
                     </option>
                   ))}
                 </select>
-                <input
-                  type="text"
-                  name="pickupCity"
-                  value={formData.pickupCity}
-                  onChange={handleInputChange}
-                  placeholder={t('pickupCity')}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-                  required
-                />
-                <input
-                  type="text"
-                  name="pickupPostalCode"
-                  value={formData.pickupPostalCode}
-                  onChange={handleInputChange}
-                  placeholder={t('pickupPostalCode')}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-                  required
-                />
-                <input
-                  type="text"
-                  name="pickupCompany"
-                  value={formData.pickupCompany}
-                  onChange={handleInputChange}
-                  placeholder={t('pickupCompany')}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-                />
+                {formData.pickupCountry && (
+                  <>
+                    <input
+                      type="text"
+                      name="pickupCity"
+                      value={formData.pickupCity}
+                      onChange={handleInputChange}
+                      placeholder={t('pickupCity')}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="pickupPostalCode"
+                      value={formData.pickupPostalCode}
+                      onChange={handleInputChange}
+                      placeholder={t('pickupPostalCode')}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="pickupCompany"
+                      value={formData.pickupCompany}
+                      onChange={handleInputChange}
+                      placeholder={t('pickupCompany')}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                    />
+                  </>
+                )}
 
                 {/* Delivery Details */}
                 <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
@@ -206,171 +210,175 @@ const QuoteForm: React.FC = () => {
                     </option>
                   ))}
                 </select>
-                <input
-                  type="text"
-                  name="deliveryCity"
-                  value={formData.deliveryCity}
-                  onChange={handleInputChange}
-                  placeholder={t('deliveryCity')}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-                  required
-                />
-                <input
-                  type="text"
-                  name="deliveryPostalCode"
-                  value={formData.deliveryPostalCode}
-                  onChange={handleInputChange}
-                  placeholder={t('deliveryPostalCode')}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-                  required
-                />
-                <input
-                  type="text"
-                  name="deliveryCompany"
-                  value={formData.deliveryCompany}
-                  onChange={handleInputChange}
-                  placeholder={t('deliveryCompany')}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
-                />
+                {formData.pickupCountry && formData.deliveryCountry && (
+                  <>
+                    <input
+                      type="text"
+                      name="deliveryCity"
+                      value={formData.deliveryCity}
+                      onChange={handleInputChange}
+                      placeholder={t('deliveryCity')}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="deliveryPostalCode"
+                      value={formData.deliveryPostalCode}
+                      onChange={handleInputChange}
+                      placeholder={t('deliveryPostalCode')}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="deliveryCompany"
+                      value={formData.deliveryCompany}
+                      onChange={handleInputChange}
+                      placeholder={t('deliveryCompany')}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent mt-3"
+                    />
 
-                {/* Loading Date */}
-                <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
-                  {t('loadingDate')}
-                </label>
-                <input
-                  type="date"
-                  name="loadingDate"
-                  value={formData.loadingDate}
-                  onChange={handleInputChange}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  required
-                />
+                    {/* Loading Date */}
+                    <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
+                      {t('loadingDate')}
+                    </label>
+                    <input
+                      type="date"
+                      name="loadingDate"
+                      value={formData.loadingDate}
+                      onChange={handleInputChange}
+                      className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      required
+                    />
 
-                {/* Cargo Type */}
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t('cargoType')}
-                </label>
-                <div className="relative">
-                  <select
-                    name="cargoType"
-                    value={formData.cargoType}
-                    onChange={handleInputChange}
-                    title="Επιλέξτε τον τύπο φορτίου"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
-                    required
-                  >
-                    <option value="">{t('cargoType')}</option>
-                    <option value="dry">Ξηρό φορτίο</option>
-                    <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
-                    <option value="adr">ADR</option>
-                    <option value="special">Ειδική μεταφορά</option>
-                  </select>
-                  <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                </div>
-
-                {/* Λεπτομέρειες Ποσότητας & Τύπου */}
-                <button
-                  type="button"
-                  onClick={() => setShowCargoDetails(!showCargoDetails)}
-                  className="flex items-center justify-between w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 transition mt-4"
-                >
-                  <span>
-                    {t('cargoQuantityType') !== 'cargoQuantityType'
-                      ? t('cargoQuantityType')
-                      : 'Λεπτομέρειες Ποσότητας & Τύπου'}
-                  </span>
-                  {showCargoDetails ? (
-                    <ChevronUp className="w-5 h-5" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5" />
-                  )}
-                </button>
-                <div
-                  className={`transition-all duration-300 ${showCargoDetails ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'} overflow-hidden`}
-                >
-                  {showCargoDetails && (
-                    <div className="space-y-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('pallets')}
-                      </label>
-                      <input
-                        type="number"
-                        name="pallets"
-                        value={formData.pallets}
+                    {/* Cargo Type */}
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      {t('cargoType')}
+                    </label>
+                    <div className="relative">
+                      <select
+                        name="cargoType"
+                        value={formData.cargoType}
                         onChange={handleInputChange}
-                        placeholder={t('palletsPlaceholder')}
-                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      />
-
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('boxes')}
-                      </label>
-                      <input
-                        type="number"
-                        name="boxes"
-                        value={formData.boxes}
-                        onChange={handleInputChange}
-                        placeholder={t('boxesPlaceholder')}
-                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                      />
-
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('dimensions')}
-                      </label>
-                      <div className="flex space-x-2">
-                        <input
-                          type="number"
-                          step="0.1"
-                          min="0.1"
-                          name="length"
-                          value={formData.length}
-                          onChange={handleInputChange}
-                          placeholder={t('lengthPlaceholder')}
-                          className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          required
-                        />
-                        <input
-                          type="number"
-                          step="0.1"
-                          min="0.1"
-                          name="width"
-                          value={formData.width}
-                          onChange={handleInputChange}
-                          placeholder={t('widthPlaceholder')}
-                          className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          required
-                        />
-                        <input
-                          type="number"
-                          step="0.1"
-                          min="0.1"
-                          name="height"
-                          value={formData.height}
-                          onChange={handleInputChange}
-                          placeholder={t('heightPlaceholder')}
-                          className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                          required
-                        />
-                      </div>
+                        title="Επιλέξτε τον τύπο φορτίου"
+                        className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
+                        required
+                      >
+                        <option value="">{t('cargoType')}</option>
+                        <option value="dry">Ξηρό φορτίο</option>
+                        <option value="controlled">Φορτίο με ελεγχόμενη θερμοκρασία</option>
+                        <option value="adr">ADR</option>
+                        <option value="special">Ειδική μεταφορά</option>
+                      </select>
+                      <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                     </div>
-                  )}
-                </div>
 
-                <label className="block text-sm font-medium text-gray-700 mb-1 mt-4">
-                  {t('weight')}
-                </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    name="weight"
-                    value={formData.weight}
-                    onChange={handleInputChange}
-                    placeholder={t('weight')}
-                    title="Βάρος σε κιλά (π.χ. 1000)"
-                    className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                    required
-                  />
-                </div>
+                    {/* Λεπτομέρειες Ποσότητας & Τύπου */}
+                    <button
+                      type="button"
+                      onClick={() => setShowCargoDetails(!showCargoDetails)}
+                      className="flex items-center justify-between w-full px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 transition mt-4"
+                    >
+                      <span>
+                        {t('cargoQuantityType') !== 'cargoQuantityType'
+                          ? t('cargoQuantityType')
+                          : 'Λεπτομέρειες Ποσότητας & Τύπου'}
+                      </span>
+                      {showCargoDetails ? (
+                        <ChevronUp className="w-5 h-5" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5" />
+                      )}
+                    </button>
+                    <div
+                      className={`transition-all duration-300 ${showCargoDetails ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'} overflow-hidden`}
+                    >
+                      {showCargoDetails && (
+                        <div className="space-y-4">
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            {t('pallets')}
+                          </label>
+                          <input
+                            type="number"
+                            name="pallets"
+                            value={formData.pallets}
+                            onChange={handleInputChange}
+                            placeholder={t('palletsPlaceholder')}
+                            className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                          />
+
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            {t('boxes')}
+                          </label>
+                          <input
+                            type="number"
+                            name="boxes"
+                            value={formData.boxes}
+                            onChange={handleInputChange}
+                            placeholder={t('boxesPlaceholder')}
+                            className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                          />
+
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            {t('dimensions')}
+                          </label>
+                          <div className="flex space-x-2">
+                            <input
+                              type="number"
+                              step="0.1"
+                              min="0.1"
+                              name="length"
+                              value={formData.length}
+                              onChange={handleInputChange}
+                              placeholder={t('lengthPlaceholder')}
+                              className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                              required
+                            />
+                            <input
+                              type="number"
+                              step="0.1"
+                              min="0.1"
+                              name="width"
+                              value={formData.width}
+                              onChange={handleInputChange}
+                              placeholder={t('widthPlaceholder')}
+                              className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                              required
+                            />
+                            <input
+                              type="number"
+                              step="0.1"
+                              min="0.1"
+                              name="height"
+                              value={formData.height}
+                              onChange={handleInputChange}
+                              placeholder={t('heightPlaceholder')}
+                              className="w-1/3 pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                              required
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <label className="block text-sm font-medium text-gray-700 mb-1 mt-4">
+                      {t('weight')}
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        name="weight"
+                        value={formData.weight}
+                        onChange={handleInputChange}
+                        placeholder={t('weight')}
+                        title="Βάρος σε κιλά (π.χ. 1000)"
+                        className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        required
+                      />
+                    </div>
+                  </>
+                )}
                 </div>
               </div>
               {/* Right Column: Contact Details */}
