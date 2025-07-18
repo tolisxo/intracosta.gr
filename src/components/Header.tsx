@@ -40,9 +40,9 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-3 ml-4 mt-0">
             <div className="flex items-center space-x-2">
               <img
-                src="/intracosta brand text only.svg"
-                alt="Intracosta Brand Text Logo"
-                className="w-40 h-auto object-contain scale-[1.2] transition-transform duration-500 hover:scale-[1.4]"
+                src="/intracosta-logo-bird.svg"
+                alt="Intracosta Bird Logo"
+                className="w-28 h-28 object-contain transition-transform duration-500 hover:scale-125"
               />
             </div>
           </div>
