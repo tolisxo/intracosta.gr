@@ -37,7 +37,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-end items-center py-0 md:py-0.5 lg:py-1">
           {/* Logo */}
-          <div className="flex items-center space-x-3 ml-auto">
+          <div className="flex items-center space-x-3 ml-0 mt-[-10px]">
             <div className="flex items-center space-x-2">
               <img
                 src="/intracosta brand text only.svg"
