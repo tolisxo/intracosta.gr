@@ -116,10 +116,16 @@ const Coverage: React.FC = () => {
                             geography={geo}
                             stroke="#FFF"
                             style={{
-                              default: { outline: 'none', transition: 'fill 0.3s', fill: countryFlagColors[geo.properties.NAME] ? countryFlagColors[geo.properties.NAME][0] : '#e5e7eb' },
+                              default: {
+                                outline: 'none',
+                                transition: 'fill 0.3s',
+                                fill: countryFlagColors[geo.properties.NAME] ? '#EAB308' : '#e5e7eb',
+                                cursor: countryFlagColors[geo.properties.NAME] ? 'pointer' : 'default'
+                              },
                               hover: {
-                                fill: countryFlagColors[geo.properties.NAME] ? (countryFlagColors[geo.properties.NAME][1] || countryFlagColors[geo.properties.NAME][0]) : '#e5e7eb', // Apply flag color on hover for served countries, use second color if available
-                                filter: countryFlagColors[geo.properties.NAME] ? 'brightness(1.13)' : 'brightness(0.9)', // Slightly brighter on hover for served countries, darker for others
+                                fill: countryFlagColors[geo.properties.NAME] ? '#FFFFFF' : '#e5e7eb',
+                                stroke: countryFlagColors[geo.properties.NAME] ? '#EAB308' : '#e5e7eb',
+                                filter: countryFlagColors[geo.properties.NAME] ? 'brightness(1.05)' : 'brightness(0.95)',
                                 transition: 'fill 0.3s'
                               },
                               pressed: { outline: 'none'
