@@ -203,7 +203,7 @@ const Coverage: React.FC = () => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-out opacity-0 scale-95 animate-fade-in">
             <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
               <div className="flex justify-between items-center p-6 border-b border-gray-200">
                 <h3 className="text-2xl font-bold text-gray-900">{t('coverageTitle')}</h3>
@@ -219,17 +219,12 @@ const Coverage: React.FC = () => {
                   {countries.map((country, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                      className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-[1.02]"
                     >
-                      <div className="flex items-center space-x-3">
-                        <span className="text-2xl">{country.flag}</span>
-                        <span className="font-medium text-gray-900">{country.name}</span>
+                      <div className="flex items-center space-x-3 group">
+                        <span className="text-2xl transform transition-transform duration-300 group-hover:translate-x-1">{country.flag}</span>
+                        <span className="font-medium text-gray-900 group-hover:text-yellow-500 transition-colors duration-300">{country.name}</span>
                       </div>
-                      <span className="text-sm font-medium px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 flex items-center">
-                        <span className="inline-block w-5 h-5 mr-1 bg-yellow-300 rounded-full text-xs font-bold flex items-center justify-center">{country.count}</span>
- <MapPin className="w-4 h-4 mr-1" /> {/* Add MapPin icon */}
- {t('covered')}
-                      </span>
                     </div>
                   ))}
                 </div>
