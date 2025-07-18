@@ -11,6 +11,26 @@ interface Translations {
 }
 
 const translations: Translations = {
+  cargoTypeDry: {
+    el: 'Ξηρό φορτίο',
+    en: 'Dry cargo',
+    de: 'Trockengut'
+  },
+  cargoTypeControlled: {
+    el: 'Φορτίο με ελεγχόμενη θερμοκρασία',
+    en: 'Temperature-controlled cargo',
+    de: 'Temperaturgeführte Ladung'
+  },
+  cargoTypeAdr: {
+    el: 'ADR',
+    en: 'ADR',
+    de: 'ADR'
+  },
+  cargoTypeSpecial: {
+    el: 'Ειδική μεταφορά',
+    en: 'Special transport',
+    de: 'Sondertransport'
+  },
   pallets: {
     el: 'Παλέτες (Αριθμός)',
     en: 'Pallets (Quantity)',
@@ -837,26 +857,6 @@ export const useLanguage = () => {
   }
   return context;
 };
-const cargoTypeDry = {
-  el: 'Ξηρό φορτίο',
-  en: 'Dry cargo',
-  de: 'Trockengut'
-};
-  cargoTypeControlled: {
-    el: 'Φορτίο με ελεγχόμενη θερμοκρασία',
-    en: 'Temperature-controlled cargo',
-    de: 'Temperaturgeführte Ladung'
-  },
-  cargoTypeAdr: {
-    el: 'ADR',
-    en: 'ADR',
-    de: 'ADR'
-  },
-  cargoTypeSpecial: {
-    el: 'Ειδική μεταφορά',
-    en: 'Special transport',
-    de: 'Sondertransport'
-  },
   // --- Privacy Policy translations ---
   privacyPolicyTitle: {
     el: 'Πολιτική Απορρήτου',
