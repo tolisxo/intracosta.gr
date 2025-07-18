@@ -120,6 +120,19 @@ const QuoteForm: React.FC = () => {
             {t('quoteFormSubtitle')}
           </p>
         </div>
+        {/* Progress Bar */}
+        <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+          <div
+            className="bg-yellow-500 h-2 rounded-full transition-all duration-300"
+            style={{
+              width: `${Math.floor(
+                Object.values(formData).filter(val => val !== '').length /
+                  Object.keys(formData).length *
+                  100
+              )}%`,
+            }}
+          />
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="rounded-2xl shadow-xl bg-gradient-to-br from-white via-gray-50 to-gray-100 p-10 lg:p-12 transition-all duration-300 overflow-visible">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -368,10 +381,17 @@ const QuoteForm: React.FC = () => {
                       onChange={handleInputChange}
                       placeholder={t('email')}
                       title="π.χ. example@mail.com"
-                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      className={`w-full pl-12 pr-4 py-3 border ${
+                        formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+                          ? 'border-red-500'
+                          : 'border-gray-300'
+                      } rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent`}
                       required
                     />
                   </div>
+                  {formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && (
+                    <p className="text-red-500 text-xs mt-1">{t('invalidEmail')}</p>
+                  )}
 
                   <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
                     {t('phone')}
@@ -385,13 +405,31 @@ const QuoteForm: React.FC = () => {
                       onChange={handleInputChange}
                       placeholder={t('phone')}
                       title="π.χ. +30 2101234567"
-                      className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      className={`w-full pl-12 pr-4 py-3 border ${
+                        formData.phone && !/^\+?\d{7,15}$/.test(formData.phone)
+                          ? 'border-red-500'
+                          : 'border-gray-300'
+                      } rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent`}
                       required
                     />
                   </div>
+                  {formData.phone && !/^\+?\d{7,15}$/.test(formData.phone) && (
+                    <p className="text-red-500 text-xs mt-1">{t('invalidPhone')}</p>
+                  )}
                 </div>
               </div>
             </div>
+          </div>
+          {/* Summary Before Submit */}
+          <div className="mt-6 p-4 border rounded-lg bg-gray-50">
+            <h3 className="font-semibold mb-2">{t('summaryTitle')}</h3>
+            <ul className="text-sm text-gray-700 space-y-1">
+              {Object.entries(formData).map(([key, value]) => (
+                <li key={key}>
+                  <span className="font-medium">{t(key)}:</span> {value || '-'}
+                </li>
+              ))}
+            </ul>
           </div>
           {/* Submit Button centered below the grid, outside the two columns */}
           <div className="mt-8 flex justify-center lg:col-span-2">
