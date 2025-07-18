@@ -35,9 +35,9 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-0.5 md:py-1 lg:py-1.5">
+        <div className="flex justify-end items-center py-0 md:py-0.5 lg:py-1">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 ml-auto">
             <div className="flex items-center space-x-2">
               <img
                 src="/intracosta-logo-bird.svg"
