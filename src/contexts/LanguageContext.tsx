@@ -250,6 +250,16 @@ const translations: Translations = {
   },
   pickupLocation: { el: 'Τοποθεσία Παραλαβής', en: 'Pickup Location', de: 'Abholort' },
   deliveryLocation: { el: 'Τοποθεσία Παράδοσης', en: 'Delivery Location', de: 'Lieferort' },
+  pickupPlace: {
+    el: 'Τόπος Παραλαβής',
+    en: 'Pickup Place',
+    de: 'Abholort'
+  },
+  deliveryPlace: {
+    el: 'Τόπος Παράδοσης',
+    en: 'Delivery Place',
+    de: 'Lieferort'
+  },
   pickupCountry: { el: 'Χώρα Φόρτωσης', en: 'Loading Country', de: 'Ladungsland' },
   pickupCity: { el: 'Πόλη Φόρτωσης', en: 'Loading City', de: 'Ladungsstadt' },
   pickupPostalCode: { el: 'Τ.Κ. Φόρτωσης', en: 'Loading Postal Code', de: 'Postleitzahl (Ladung)' },
