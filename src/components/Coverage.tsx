@@ -23,7 +23,8 @@ const Coverage: React.FC = () => {
     'Slovakia': ['#FFFFFF', '#0B4EA2', '#EE1C25'], // White, Blue, Red
     'Denmark': ['#C60C30', '#FFFFFF'], // Red, White
     'Luxembourg': ['#EF3340', '#FFFFFF', '#00A1DE'], // Red, White, Blue
-    'Greece': ['#0D5EAF', '#FFFFFF'] // Blue, White
+    'Greece': ['#0D5EAF', '#FFFFFF'], // Blue, White
+    'Cyprus': ['#D4AF37'], // Gold color for hover and fill
   };
 
   const countries = [
