@@ -177,6 +177,7 @@ const Coverage: React.FC = () => {
                 </span>
               </div>
               <button
+                type="button"
                 onClick={() => setIsModalOpen(true)}
                 className="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 hover:brightness-110 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 focus:outline-none group"
                 style={{ position: 'relative', overflow: 'hidden' }}
