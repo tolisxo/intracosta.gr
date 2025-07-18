@@ -277,38 +277,38 @@ const QuoteForm: React.FC = () => {
                   {showCargoDetails && (
                     <div className="space-y-4">
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Παλέτες (Αριθμός)
+                        {t('pallets')}
                       </label>
                       <input
                         type="number"
                         name="pallets"
                         value={formData.pallets}
                         onChange={handleInputChange}
-                        placeholder="π.χ. 10"
+                        placeholder={t('palletsPlaceholder')}
                         className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       />
 
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Κιβώτια (Αριθμός)
+                        {t('boxes')}
                       </label>
                       <input
                         type="number"
                         name="boxes"
                         value={formData.boxes}
                         onChange={handleInputChange}
-                        placeholder="π.χ. 50"
+                        placeholder={t('boxesPlaceholder')}
                         className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       />
 
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Διαστάσεις (Μήκος x Πλάτος x Ύψος)
+                        {t('dimensions')}
                       </label>
                       <input
                         type="text"
                         name="dimensions"
                         value={formData.dimensions}
                         onChange={handleInputChange}
-                        placeholder="π.χ. 1.2m x 0.8m x 1.5m"
+                        placeholder={t('dimensionsPlaceholder')}
                         className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                       />
                     </div>
