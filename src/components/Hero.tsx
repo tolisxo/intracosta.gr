@@ -31,9 +31,9 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex flex-col items-center">
           <img
-            src="/intracosta brand text only.svg"
-            alt="Intracosta Brand Logo"
-            className="w-64 sm:w-80 md:w-96 h-auto mb-6 animate-fade-in-up-fast"
+            src="/intracosta-logo-bird.svg"
+            alt="Intracosta Bird Logo"
+            className="w-48 sm:w-64 md:w-72 h-auto mb-6 animate-fade-in-up-fast"
           />
           <p className="text-base sm:text-lg md:text-xl text-gray-200 animate-fade-in-up-fast mb-6">
             Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
