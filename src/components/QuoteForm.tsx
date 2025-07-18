@@ -147,15 +147,20 @@ const QuoteForm: React.FC = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {t('pickupPlace')}
                 </label>
-                <input
-                  type="text"
+                <select
                   name="pickupCountry"
                   value={formData.pickupCountry}
                   onChange={handleInputChange}
-                  placeholder={t('pickupCountry')}
                   className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   required
-                />
+                >
+                  <option value="">{t('pickupCountry')}</option>
+                  {t('supportedCountries').map((country: string) => (
+                    <option key={country} value={country}>
+                      {t(country)}
+                    </option>
+                  ))}
+                </select>
                 <input
                   type="text"
                   name="pickupCity"
@@ -187,15 +192,20 @@ const QuoteForm: React.FC = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
                   {t('deliveryPlace')}
                 </label>
-                <input
-                  type="text"
+                <select
                   name="deliveryCountry"
                   value={formData.deliveryCountry}
                   onChange={handleInputChange}
-                  placeholder={t('deliveryCountry')}
                   className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                   required
-                />
+                >
+                  <option value="">{t('deliveryCountry')}</option>
+                  {t('supportedCountries').map((country: string) => (
+                    <option key={country} value={country}>
+                      {t(country)}
+                    </option>
+                  ))}
+                </select>
                 <input
                   type="text"
                   name="deliveryCity"
