@@ -947,4 +947,4 @@ export const useLanguage = () => {
     el: 'Επικοινωνία',
     en: 'Contact Us',
     de: 'Kontaktieren Sie uns'
-  },
+  }
