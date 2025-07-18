@@ -11,6 +11,36 @@ interface Translations {
 }
 
 const translations: Translations = {
+  pallets: {
+    el: 'Παλέτες (Αριθμός)',
+    en: 'Pallets (Quantity)',
+    de: 'Paletten (Anzahl)'
+  },
+  boxes: {
+    el: 'Κιβώτια (Αριθμός)',
+    en: 'Boxes (Quantity)',
+    de: 'Kisten (Anzahl)'
+  },
+  dimensions: {
+    el: 'Διαστάσεις (Μήκος x Πλάτος x Ύψος)',
+    en: 'Dimensions (Length x Width x Height)',
+    de: 'Abmessungen (Länge x Breite x Höhe)'
+  },
+  palletsPlaceholder: {
+    el: 'π.χ. 10',
+    en: 'e.g. 10',
+    de: 'z. B. 10'
+  },
+  boxesPlaceholder: {
+    el: 'π.χ. 50',
+    en: 'e.g. 50',
+    de: 'z. B. 50'
+  },
+  dimensionsPlaceholder: {
+    el: 'π.χ. 1.2m x 0.8m x 1.5m',
+    en: 'e.g. 1.2m x 0.8m x 1.5m',
+    de: 'z. B. 1.2m x 0.8m x 1.5m'
+  },
   termsLastUpdated: {
     el: 'Τελευταία ενημέρωση',
     en: 'Last updated',
