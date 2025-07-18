@@ -159,19 +159,19 @@ const Footer: React.FC = () => {
             </button>
             <h1 className="text-2xl font-bold mb-4">{t('privacyPolicy')}</h1>
             <div className="space-y-4 text-gray-700">
-              <p>{t('privacyPolicyIntroduction') || '...'}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyInfoWeCollectTitle') || '...'}</h2>
-              <p>{t('privacyPolicyInfoWeCollectText') || '...'}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyHowWeUseInfoTitle') || '...'}</h2>
-              <p>{t('privacyPolicyHowWeUseInfoText') || '...'}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyDataStorageTitle') || '...'}</h2>
-              <p>{t('privacyPolicyDataStorageText') || '...'}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyDataSharingTitle') || '...'}</h2>
-              <p>{t('privacyPolicyDataSharingText') || '...'}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyYourRightsTitle') || '...'}</h2>
-              <p>{t('privacyPolicyYourRightsText') || '...'}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyChangesTitle') || '...'}</h2>
-              <p>{t('privacyPolicyChangesText') || '...'}</p>
+              <p>{t('privacyPolicyIntroduction')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyInfoWeCollectTitle')}</h2>
+              <p>{t('privacyPolicyInfoWeCollectText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyHowWeUseInfoTitle')}</h2>
+              <p>{t('privacyPolicyHowWeUseInfoText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyDataStorageTitle')}</h2>
+              <p>{t('privacyPolicyDataStorageText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyDataSharingTitle')}</h2>
+              <p>{t('privacyPolicyDataSharingText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyYourRightsTitle')}</h2>
+              <p>{t('privacyPolicyYourRightsText')}</p>
+              <h2 className="text-xl font-semibold">{t('privacyPolicyChangesTitle')}</h2>
+              <p>{t('privacyPolicyChangesText')}</p>
             </div>
           </div>
         </div>
