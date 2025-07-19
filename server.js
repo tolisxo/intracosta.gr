@@ -2,11 +2,14 @@ import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import https from 'https';
+import http from 'http';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -46,9 +49,25 @@ app.post('/api/quote', (req, res) => {
 const staticPath = path.join(__dirname, 'dist');
 app.use(express.static(staticPath));
 
-const key = fs.readFileSync(process.env.HTTPS_KEY || path.join(__dirname, 'key.pem'));
-const cert = fs.readFileSync(process.env.HTTPS_CERT || path.join(__dirname, 'cert.pem'));
+// Serve index.html for any SPA route
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(staticPath, 'index.html'));
+});
 
-https.createServer({ key, cert }, app).listen(443, () => {
-  console.log('HTTPS server running on port 443');
+const port = process.env.PORT || 443;
+
+let server;
+try {
+  const keyPath = process.env.HTTPS_KEY || path.join(__dirname, 'key.pem');
+  const certPath = process.env.HTTPS_CERT || path.join(__dirname, 'cert.pem');
+  const key = fs.readFileSync(keyPath);
+  const cert = fs.readFileSync(certPath);
+  server = https.createServer({ key, cert }, app);
+} catch {
+  console.warn('Failed to load HTTPS certificates, falling back to HTTP');
+  server = http.createServer(app);
+}
+
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
