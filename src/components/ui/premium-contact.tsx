@@ -262,6 +262,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 tracking-tight"
             variants={fadeInUp}
           >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
               Ας
             </span>
             <br />
