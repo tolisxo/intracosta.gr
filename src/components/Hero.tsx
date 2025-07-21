@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden">
         <img
           src="https://www.volvotrucks.com/content/dam/volvo/volvo-trucks/markets/master/home/volvo-trucks-homepage-hero-image-2023.jpg"
-          alt="Volvo truck on European road"
+          alt={t('heroTruckAlt')}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gray-900/60"></div>
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col items-center -mt-6">
           <img
             src="/intracosta brand text only.svg"
-            alt="Intracosta Brand Logo"
+            alt={t('logoAlt')}
             className="w-64 sm:w-80 md:w-96 h-auto mb-6 animate-fade-in-up-fast mx-auto"
           />
           <p className="text-base sm:text-lg md:text-xl text-gray-200 animate-fade-in-up-fast mb-6">
