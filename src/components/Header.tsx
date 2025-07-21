@@ -42,7 +42,31 @@ const Header: React.FC = () => {
               <img
                 src="/intracosta-logo-bird.svg"
                 alt={t('logoAlt')}
-                className="w-64 h-64 object-contain transition-transform duration-500 hover:scale-125"
+                import { motion } from 'framer-motion';
+                
+                const Hero = () => {
+                  return (
+                    <section className="relative h-screen">
+                      <motion.div 
+                        className="absolute inset-0"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <div className="absolute inset-0 bg-gray-900/60"></div>
+                      </motion.div>
+                
+                      {/* Content */}
+                      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <div className="flex flex-col items-center -mt-6">
+                          {/* Your content here */}
+                        </div>
+                      </div>
+                    </section>
+                  );
+                };
+                
+                export default Hero;                className="w-64 h-64 object-contain transition-transform duration-500 hover:scale-125"
               />
             </div>
           </div>
