@@ -9,22 +9,36 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('services.internationalTitle'),
-      description: t('services.internationalDescription'),
+      title: t('services.internationalAndNationalRoadTitle'),
+      description: t('services.internationalAndNationalRoadDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
-      icon: <ArrowRight className="w-12 h-12" />, // Changed from Truck to ArrowRight
-      title: t('services.nationalTitle'),
-      description: t('services.nationalDescription'),
+      icon: <ArrowRight className="w-12 h-12" />,
+      title: t('services.airTransportTitle'),
+      description: t('services.airTransportDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
-      title: t('services.warehousingTitle'),
-      description: t('services.warehousingDescription'),
+      title: t('services.seaTransportTitle'),
+      description: t('services.seaTransportDescription'),
+      color: 'bg-gray-700',
+      hoverColor: 'hover:bg-gray-800'
+    },
+    {
+      icon: <Truck className="w-12 h-12" />,
+      title: t('services.specialTransportTitle'),
+      description: t('services.specialTransportDescription'),
+      color: 'bg-gray-700',
+      hoverColor: 'hover:bg-gray-800'
+    },
+    {
+      icon: <Warehouse className="w-12 h-12" />,
+      title: t('services.storageAndHandlingTitle'),
+      description: t('services.storageAndHandlingDescription'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800'
     }
