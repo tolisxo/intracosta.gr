@@ -35,14 +35,14 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-end items-center py-0 md:py-0.5 lg:py-1">
+        <div className="flex justify-end items-center py-1 md:py-1.5 lg:py-2">
           {/* Logo */}
           <div className="flex items-center space-x-3 ml-4 mt-0">
             <div className="flex items-center space-x-2">
               <img
                 src="/intracosta-logo-bird.svg"
                 alt={t('logoAlt')}
-                className="w-28 h-28 object-contain transition-transform duration-500 hover:scale-125"
+                className="w-40 h-40 object-contain transition-transform duration-500 hover:scale-125"
               />
             </div>
           </div>
