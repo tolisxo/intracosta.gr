@@ -11,6 +11,37 @@ interface Translations {
 }
 
 const translations: Translations = {
+  // Contact Section Titles & Subtitles
+  'contact.emailUsTitle': {
+    el: 'Στείλτε μας Email',
+    en: 'Email Us',
+    de: 'Senden Sie uns eine E-Mail'
+  },
+  'contact.emailUsSubtitle': {
+    el: 'Επικοινωνήστε μαζί μας μέσω email',
+    en: 'Get in touch via email',
+    de: 'Kontaktieren Sie uns per E-Mail'
+  },
+  'contact.callUsTitle': {
+    el: 'Καλέστε μας',
+    en: 'Call Us',
+    de: 'Rufen Sie uns an'
+  },
+  'contact.callUsSubtitle': {
+    el: 'Μιλήστε απευθείας με την ομάδα μας',
+    en: 'Speak directly with our team',
+    de: 'Sprechen Sie direkt mit unserem Team'
+  },
+  'contact.visitUsTitle': {
+    el: 'Επισκεφθείτε μας',
+    en: 'Visit Us',
+    de: 'Besuchen Sie uns'
+  },
+  'contact.visitUsSubtitle': {
+    el: 'Τα κεντρικά μας γραφεία',
+    en: 'Our headquarters',
+    de: 'Unser Hauptsitz'
+  },
   cargoTypeDry: {
     el: 'Ξηρό φορτίο',
     en: 'Dry cargo',

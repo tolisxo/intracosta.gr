@@ -34,9 +34,12 @@ const Contact: React.FC = () => {
       <PremiumContact 
         onSubmit={handleFormSubmit}
         contactInfo={{
-          email: t('contactTitleEmail'),
-          phone: t('contactTitlePhone'),
-          address: t('contactTitleAddress'),
+          email: t('contact.emailUsTitle'),
+          emailSubtitle: t('contact.emailUsSubtitle'),
+          phone: t('contact.callUsTitle'),
+          phoneSubtitle: t('contact.callUsSubtitle'),
+          address: t('contact.visitUsTitle'),
+          addressSubtitle: t('contact.visitUsSubtitle'),
           emailValue: 'export@intracosta.com',
           phoneValue: '+30 23820 27111',
           addressValue: '3ο χλμ Γιαννιτσών Θεσσαλονίκης, GR58100 Γιαννιτσά'
