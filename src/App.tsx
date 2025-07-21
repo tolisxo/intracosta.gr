@@ -1,6 +1,9 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import LocalBusinessSchema from './components/SEO/LocalBusinessSchema';
+import LocalSEOHead from './components/SEO/LocalSEOHead';
+import GoogleBusinessIntegration from './components/SEO/GoogleBusinessIntegration';
 import SmoothScroll from './components/ui/smooth-scroll';
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -28,15 +31,9 @@ const AppContent: React.FC = () => {
         <link rel="alternate" hreflang="el" href="https://example.gr/el" />
         <link rel="alternate" hreflang="de" href="https://example.gr/de" />
       </Helmet>
+      <GoogleBusinessIntegration />
       <Router>
         <div className="min-h-screen">
-          <Helmet>
-            <link rel="canonical" href="https://www.intracosta.gr/" />
-            <meta property="og:title" content="Intracosta - Reliable International Transport Across Europe" />
-            <meta property="og:description" content="Professional international transport and logistics services across Europe." />
-            <meta property="og:url" content="https://www.intracosta.gr/" />
-            <meta property="og:type" content="website" />
-          </Helmet>
           <Header />
           <main>
             <Routes>
@@ -44,6 +41,8 @@ const AppContent: React.FC = () => {
                 path="/"
                 element={
                   <>
+                    <LocalSEOHead page="home" />
+                    <LocalBusinessSchema page="home" />
                     <Hero />
                     <TrustSection />
                     <Services />
@@ -56,8 +55,24 @@ const AppContent: React.FC = () => {
                   </>
                 }
               />
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+              <Route 
+                path="/privacy-policy" 
+                element={
+                  <>
+                    <LocalSEOHead page="about" title="Privacy Policy - Intracosta" />
+                    <PrivacyPolicyPage />
+                  </>
+                } 
+              />
+              <Route 
+                path="/terms-of-service" 
+                element={
+                  <>
+                    <LocalSEOHead page="about" title="Terms of Service - Intracosta" />
+                    <TermsOfServicePage />
+                  </>
+                } 
+              />
             </Routes>
           </main>
           <Footer />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import NAP from './SEO/NAP';
 import { Truck, MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -90,33 +91,12 @@ const Footer: React.FC = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-6">{t('contactInfo')}</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />
-                <a
-                  href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
-                >
-                  3ο χλμ Γιαννιτσών Θεσσαλονίκης<br />
-                  GR58100 Γιαννιτσά
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <a href="tel:+302382027111" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">+30 23820 27111</a>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />
-                <div className="flex flex-col space-y-1">
-                  <a href="mailto:export@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">export@intracosta.com</a>
-                  <a href="mailto:import@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">import@intracosta.com</a>
-                  <a href="mailto:dispo.greece@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">dispo.greece@intracosta.com</a>
-                  <a href="mailto:account@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">account@intracosta.com</a>
-                  <a href="mailto:info@intracosta.com" className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full">info@intracosta.com</a>
-                </div>
-              </div>
+            <NAP variant="full" showIcons={true} />
+            <div className="mt-4 space-y-1">
+              <a href="mailto:export@intracosta.com" className="block text-sm text-gray-600 hover:text-yellow-500 transition-colors">export@intracosta.com</a>
+              <a href="mailto:import@intracosta.com" className="block text-sm text-gray-600 hover:text-yellow-500 transition-colors">import@intracosta.com</a>
+              <a href="mailto:dispo.greece@intracosta.com" className="block text-sm text-gray-600 hover:text-yellow-500 transition-colors">dispo.greece@intracosta.com</a>
+              <a href="mailto:account@intracosta.com" className="block text-sm text-gray-600 hover:text-yellow-500 transition-colors">account@intracosta.com</a>
             </div>
           </div>
         </div>
@@ -125,7 +105,9 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-400 mt-12 pt-8">
  <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-700 mb-4 md:mb-0">
-              © 2024 Intracosta. All rights reserved. Stolos Official
+              <span itemScope itemType="https://schema.org/Organization">
+                © 2024 <span itemProp="name">Intracosta</span>. All rights reserved.
+              </span>
             </div>
             <div className="flex space-x-6">
               <button
