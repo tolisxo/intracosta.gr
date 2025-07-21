@@ -11,6 +11,37 @@ interface Translations {
 }
 
 const translations: Translations = {
+  // Contact Form Section - Add missing keys for dynamic labels and placeholders
+  contactFormTitle: {
+    el: 'Στείλτε μας ένα Μήνυμα',
+    en: 'Send us a Message',
+    de: 'Senden Sie uns eine Nachricht'
+  },
+  name: {
+    el: 'Όνομα',
+    en: 'Name',
+    de: 'Name'
+  },
+  email: {
+    el: 'Email',
+    en: 'Email',
+    de: 'E-Mail'
+  },
+  companyName: {
+    el: 'Επωνυμία Εταιρείας',
+    en: 'Company Name',
+    de: 'Firmenname'
+  },
+  message: {
+    el: 'Μήνυμα',
+    en: 'Message',
+    de: 'Nachricht'
+  },
+  sendMessage: {
+    el: 'Αποστολή Μηνύματος',
+    en: 'Send Message',
+    de: 'Nachricht senden'
+  },
   // Contact Section Titles & Subtitles
   'contact.emailUsTitle': {
     el: 'Στείλτε μας Email',
