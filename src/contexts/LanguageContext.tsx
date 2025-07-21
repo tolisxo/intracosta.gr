@@ -207,7 +207,7 @@ const translations: Translations = {
   },
   about: { el: 'Σχετικά', en: 'About', de: 'Über uns' },
   contact: { el: 'Επικοινωνία', en: 'Contact', de: 'Kontakt' },
-  getQuote: { el: 'Ας Συνεργαστούμε', en: "Let's Work Together", de: 'Lassen Sie uns zusammenarbeiten' },
+  getQuote: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact Us', de: 'Kontaktieren Sie uns' },
   
   // Hero Section
   heroTitle: { 
