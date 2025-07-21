@@ -1,12 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight } from 'lucide-react';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, -200]);
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
@@ -17,15 +17,17 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-40 sm:pt-32 pb-24">
-      {/* Background Video */}
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src="https://www.volvotrucks.com/content/dam/volvo/volvo-trucks/markets/master/home/volvo-trucks-homepage-hero-image-2023.jpg"
-          alt="Volvo truck on European road"
-          className="w-full h-full object-cover"
-        />
+      {/* Background Image with simple parallax effect */}
+      <motion.div className="absolute inset-0 overflow-hidden">
+        <motion.div style={{ y }} className="absolute inset-0">
+          <img
+            src="https://www.volvotrucks.com/content/dam/volvo/volvo-trucks/markets/master/home/volvo-trucks-homepage-hero-image-2023.jpg"
+            alt="Volvo truck on European road"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gray-900/60"></div>
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
