@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-2">
               <img
                 src="/intracosta-logo-bird.svg"
-                alt="Intracosta Bird Logo"
+                alt={t('logoAlt')}
                 className="w-28 h-28 object-contain transition-transform duration-500 hover:scale-125"
               />
             </div>
