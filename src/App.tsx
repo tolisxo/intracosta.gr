@@ -14,12 +14,20 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import { Helmet } from 'react-helmet-async';
 
 function App() {
   return (
     <LanguageProvider>
       <Router>
         <div className="min-h-screen">
+          <Helmet>
+            <link rel="canonical" href="https://www.intracosta.gr/" />
+            <meta property="og:title" content="Intracosta - Reliable International Transport Across Europe" />
+            <meta property="og:description" content="Professional international transport and logistics services across Europe." />
+            <meta property="og:url" content="https://www.intracosta.gr/" />
+            <meta property="og:type" content="website" />
+          </Helmet>
           <Header />
           <main>
             <Routes>
