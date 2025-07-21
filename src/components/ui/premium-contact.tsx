@@ -156,12 +156,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 text-white overflow-hidden">
+    <section className="relative py-20 bg-white text-gray-900 overflow-hidden">
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
         {/* Animated gradient mesh */}
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-yellow-500/[0.08] via-orange-500/[0.05] to-gray-500/[0.08]"
+          className="absolute inset-0 bg-gradient-to-br from-yellow-500/[0.03] via-orange-500/[0.02] to-gray-500/[0.03]"
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
           }}
@@ -177,7 +177,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
         
         {/* Moving orbs */}
         <motion.div
-          className="absolute top-1/3 left-1/5 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl"
+          className="absolute top-1/3 left-1/5 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl"
           animate={{
             x: [0, 200, 0],
             y: [0, 100, 0],
@@ -190,7 +190,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-orange-400/5 rounded-full blur-3xl"
           animate={{
             x: [0, -150, 0],
             y: [0, -80, 0],
@@ -208,7 +208,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-px h-40 bg-gradient-to-b from-transparent via-white/20 to-transparent"
+              className="absolute w-px h-40 bg-gradient-to-b from-transparent via-gray-300/30 to-transparent"
               style={{
                 left: `${20 + (i * 15)}%`,
                 top: `${25 + (i * 8)}%`,
@@ -243,16 +243,16 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           variants={fadeInUp}
         >
           <motion.div
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.08] border border-white/[0.15] backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05, borderColor: "rgba(255, 255, 255, 0.3)" }}
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 backdrop-blur-sm mb-6"
+            whileHover={{ scale: 1.05, borderColor: "rgba(0, 0, 0, 0.2)" }}
           >
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             >
-              <Sparkles className="h-4 w-4 text-yellow-300" />
+              <Sparkles className="h-4 w-4 text-yellow-500" />
             </motion.div>
-            <span className="text-sm font-medium text-white/80">
+            <span className="text-sm font-medium text-gray-600">
               ✨ Επικοινωνήστε μαζί μας
             </span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -262,12 +262,11 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 tracking-tight"
             variants={fadeInUp}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
               Ας
             </span>
             <br />
             <motion.span 
-              className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-orange-300 to-yellow-300"
+              className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500"
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}
@@ -285,7 +284,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           </motion.h2>
           
           <motion.p 
-            className="text-xl sm:text-2xl text-white/60 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
             Έτοιμοι να μεταφέρουμε την επιχείρησή σας στο επόμενο επίπεδο; Ας ξεκινήσουμε μια συζήτηση για τους στόχους σας και πώς μπορούμε να σας βοηθήσουμε να τους επιτύχετε.
@@ -300,19 +299,19 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           {companyStats.map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center p-6 bg-white/[0.05] backdrop-blur-xl rounded-2xl border border-white/[0.15] group hover:bg-white/[0.08] transition-all"
+              className="text-center p-6 bg-gray-50 backdrop-blur-xl rounded-2xl border border-gray-200 group hover:bg-gray-100 transition-all shadow-sm"
               whileHover={{ scale: 1.05, y: -5 }}
               variants={fadeInUp}
             >
               <motion.div
-                className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-white/20 flex items-center justify-center mx-auto mb-3"
+                className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-gray-200 flex items-center justify-center mx-auto mb-3"
                 whileHover={{ rotateY: 180 }}
                 transition={{ duration: 0.6 }}
               >
-                <stat.icon className="w-6 h-6 text-yellow-300" />
+                <stat.icon className="w-6 h-6 text-yellow-500" />
               </motion.div>
-              <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-white/60 text-sm">{stat.label}</div>
+              <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -324,8 +323,8 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             variants={fadeInUp}
           >
             <div>
-              <h3 className="text-3xl font-bold text-white mb-4">Στείλτε μας ένα μήνυμα</h3>
-              <p className="text-white/60 text-lg">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Στείλτε μας ένα μήνυμα</h3>
+              <p className="text-gray-600 text-lg">
                 Πείτε μας για το έργο σας και θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
               </p>
             </div>
@@ -342,15 +341,15 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/40" />
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                       <input
                         type="text"
                         placeholder="Το όνομά σας"
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className={`w-full pl-10 pr-4 py-4 bg-white/[0.08] border rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-yellow-400 transition-all ${
+                        className={`w-full pl-10 pr-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
                           errors.name ? 'border-red-400' : 'border-white/[0.15]'
-                        }`}
+                        } shadow-sm`}
                       />
                       {errors.name && (
                         <motion.p
@@ -364,15 +363,15 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                     </div>
 
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/40" />
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                       <input
                         type="email"
                         placeholder="Διεύθυνση Email"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        className={`w-full pl-10 pr-4 py-4 bg-white/[0.08] border rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-yellow-400 transition-all ${
+                        className={`w-full pl-10 pr-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
                           errors.email ? 'border-red-400' : 'border-white/[0.15]'
-                        }`}
+                        } shadow-sm`}
                       />
                       {errors.email && (
                         <motion.p
@@ -387,26 +386,26 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   </div>
 
                   <div className="relative">
-                    <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/40" />
+                    <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="text"
                       placeholder="Εταιρεία (Προαιρετικό)"
                       value={formData.company}
                       onChange={(e) => handleInputChange('company', e.target.value)}
-                      className="w-full pl-10 pr-4 py-4 bg-white/[0.08] border border-white/[0.15] rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-yellow-400 transition-all"
+                      className="w-full pl-10 pr-4 py-4 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all shadow-sm"
                     />
                   </div>
 
                   <div className="relative">
-                    <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-white/40" />
+                    <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-gray-400" />
                     <textarea
                       placeholder="Πείτε μας για τις μεταφορικές σας ανάγκες..."
                       rows={6}
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
-                      className={`w-full pl-10 pr-4 py-4 bg-white/[0.08] border rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-yellow-400 transition-all resize-none ${
+                      className={`w-full pl-10 pr-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all resize-none ${
                         errors.message ? 'border-red-400' : 'border-white/[0.15]'
-                      }`}
+                      } shadow-sm`}
                     />
                     {errors.message && (
                       <motion.p
@@ -422,7 +421,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative group overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50"
+                    className="w-full relative group overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -464,8 +463,8 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   >
                     <CheckCircle className="w-10 h-10 text-green-400" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Το μήνυμα στάλθηκε!</h3>
-                  <p className="text-white/60 text-lg mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Το μήνυμα στάλθηκε!</h3>
+                  <p className="text-gray-600 text-lg mb-6">
                     Σας ευχαριστούμε που επικοινωνήσατε μαζί μας. Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
                   </p>
                   <motion.button
@@ -473,7 +472,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                       setIsSubmitted(false);
                       setFormData({ name: '', email: '', company: '', message: '' });
                     }}
-                    className="px-6 py-3 bg-white/[0.08] border border-white/[0.15] rounded-xl text-white hover:bg-white/[0.12] transition-all"
+                    className="px-6 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-900 hover:bg-gray-200 transition-all shadow-sm"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -490,8 +489,8 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             variants={fadeInUp}
           >
             <div>
-              <h3 className="text-3xl font-bold text-white mb-4">Άλλοι τρόποι επικοινωνίας</h3>
-              <p className="text-white/60 text-lg">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Άλλοι τρόποι επικοινωνίας</h3>
+              <p className="text-gray-600 text-lg">
                 Επιλέξτε τον τρόπο που σας εξυπηρετεί καλύτερα.
               </p>
             </div>
@@ -503,24 +502,24 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   href={method.link}
                   target={method.link.startsWith('http') ? '_blank' : undefined}
                   rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="block p-6 bg-white/[0.05] backdrop-blur-xl rounded-2xl border border-white/[0.15] hover:bg-white/[0.08] transition-all group"
+                  className="block p-6 bg-gray-50 backdrop-blur-xl rounded-2xl border border-gray-200 hover:bg-gray-100 transition-all group shadow-sm hover:shadow-md"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.02, y: -2 }}
                 >
                   <div className="flex items-center gap-4">
                     <motion.div
-                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${method.gradient} border border-white/20 flex items-center justify-center`}
+                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${method.gradient} border border-gray-200 flex items-center justify-center`}
                       whileHover={{ scale: 1.1, rotateY: 180 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <method.icon className="w-7 h-7 text-white" />
+                      <method.icon className="w-7 h-7 text-gray-700" />
                     </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-white mb-1">{method.title}</h4>
-                      <p className="text-white/60 text-sm mb-2">{method.description}</p>
-                      <p className="text-white font-medium">{method.value}</p>
+                      <h4 className="text-xl font-semibold text-gray-900 mb-1">{method.title}</h4>
+                      <p className="text-gray-600 text-sm mb-2">{method.description}</p>
+                      <p className="text-gray-900 font-medium">{method.value}</p>
                     </div>
-                    <ArrowRight className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 group-hover:translate-x-1 transition-all" />
                   </div>
                 </motion.a>
               ))}
@@ -528,11 +527,11 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
 
             {/* Additional Info */}
             <motion.div
-              className="p-6 bg-gradient-to-br from-yellow-500/[0.08] to-orange-500/[0.08] backdrop-blur-xl rounded-2xl border border-yellow-400/30"
+              className="p-6 bg-gradient-to-br from-yellow-500/[0.08] to-orange-500/[0.08] backdrop-blur-xl rounded-2xl border border-yellow-400/30 shadow-sm"
               variants={fadeInUp}
             >
-              <h4 className="text-lg font-semibold text-white mb-3">Εγγύηση Γρήγορης Απάντησης</h4>
-              <p className="text-white/80 text-sm leading-relaxed">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">Εγγύηση Γρήγορης Απάντησης</h4>
+              <p className="text-gray-700 text-sm leading-relaxed">
                 Είμαστε περήφανοι για τους γρήγορους χρόνους απόκρισής μας. Όλες οι ερωτήσεις απαντώνται συνήθως εντός 24 ωρών κατά τις εργάσιμες ώρες, 
                 και θα προγραμματίσουμε μια κλήση εντός 24 ωρών για να συζητήσουμε λεπτομερώς τις ανάγκες σας.
               </p>
@@ -544,7 +543,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full"
+            className="absolute w-2 h-2 bg-gray-300/40 rounded-full"
             style={{
               left: `${10 + (i * 12)}%`,
               top: `${20 + (i * 10)}%`,
