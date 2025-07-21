@@ -49,6 +49,14 @@ app.post('/api/quote', (req, res) => {
 const staticPath = path.join(__dirname, 'dist');
 app.use(express.static(staticPath));
 
+app.get('/robots.txt', (_req, res) => {
+  res.sendFile(path.join(staticPath, 'robots.txt'));
+});
+
+app.get('/sitemap.xml', (_req, res) => {
+  res.sendFile(path.join(staticPath, 'sitemap.xml'));
+});
+
 // Serve index.html for any SPA route
 app.get('*', (_req, res) => {
   res.sendFile(path.join(staticPath, 'index.html'));
