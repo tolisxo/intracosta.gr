@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import SmoothScroll from './components/ui/smooth-scroll';
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Hero from './components/Hero';
@@ -70,7 +71,9 @@ function App() {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <AppContent />
+        <SmoothScroll>
+          <AppContent />
+        </SmoothScroll>
       </LanguageProvider>
     </HelmetProvider>
   );
