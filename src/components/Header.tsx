@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import NAP from './SEO/NAP';
 import { Menu, X, Globe, Truck } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -39,11 +40,16 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 ml-4 mt-0">
             <div className="flex items-center space-x-2">
-              <img
-                src="/intracosta-logo-bird.svg"
-                alt={t('logoAlt')}
-                className="w-80 h-80 object-contain transition-transform duration-500 hover:scale-125"
-              />
+              <div itemScope itemType="https://schema.org/Organization">
+                <img
+                  src="/intracosta-logo-bird.svg"
+                  alt={t('logoAlt')}
+                  className="w-80 h-80 object-contain transition-transform duration-500 hover:scale-125"
+                  itemProp="logo"
+                />
+                <meta itemProp="name" content="Intracosta" />
+                <meta itemProp="url" content="https://www.intracosta.gr" />
+              </div>
             </div>
           </div>
 
