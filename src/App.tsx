@@ -4,6 +4,8 @@ import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import LocalBusinessSchema from './components/SEO/LocalBusinessSchema';
 import LocalSEOHead from './components/SEO/LocalSEOHead';
 import GoogleBusinessIntegration from './components/SEO/GoogleBusinessIntegration';
+import NavigationIndicator from './components/NavigationIndicator';
+import MobileBottomNav from './components/MobileBottomNav';
 import SmoothScroll from './components/ui/smooth-scroll';
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -35,6 +37,8 @@ const AppContent: React.FC = () => {
       <Router>
         <div className="min-h-screen">
           <Header />
+          <NavigationIndicator />
+          <MobileBottomNav />
           <main>
             <Routes>
               <Route

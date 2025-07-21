@@ -260,15 +260,20 @@ const translations: Translations = {
   },
   // Navigation
   home: { el: 'Αρχική', en: 'Home', de: 'Startseite' },
+  homeDescription: { el: 'Αρχική σελίδα', en: 'Home page', de: 'Startseite' },
   services: { el: 'Υπηρεσίες', en: 'Services', de: 'Dienstleistungen' },
+  servicesDescription: { el: 'Οι υπηρεσίες μας', en: 'Our services', de: 'Unsere Dienstleistungen' },
   coverage: { el: 'Περιοχές', en: 'Coverage', de: 'Abdeckung' },
+  coverageDescription: { el: 'Περιοχές κάλυψης', en: 'Coverage areas', de: 'Abdeckungsgebiete' },
   covered: {
     el: 'Καλύπτεται',
     en: 'Covered',
     de: 'Abgedeckt'
   },
   about: { el: 'Σχετικά', en: 'About', de: 'Über uns' },
+  aboutDescription: { el: 'Σχετικά με εμάς', en: 'About us', de: 'Über uns' },
   contact: { el: 'Επικοινωνία', en: 'Contact', de: 'Kontakt' },
+  contactDescription: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact us', de: 'Kontaktieren Sie uns' },
   getQuote: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact Us', de: 'Kontaktieren Sie uns' },
   
   // Hero Section
