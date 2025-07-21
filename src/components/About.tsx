@@ -43,7 +43,7 @@ const About: React.FC = () => {
           >
             <img
               src="https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Truck transporting goods"
+              alt={t('aboutTruckAlt')}
               className="rounded-xl shadow-2xl"
             />
             <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-6 rounded-xl shadow-lg">

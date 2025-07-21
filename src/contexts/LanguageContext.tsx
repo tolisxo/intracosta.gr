@@ -221,6 +221,12 @@ const translations: Translations = {
     de: 'Von einer Palette bis zur kompletten LKW-Ladung verbinden wir Griechenland mit jeder Ecke Europas, bieten Geschwindigkeit, Sicherheit und vollständige Zollabfertigung. Sie konzentrieren sich auf das Wachstum – wir kümmern uns um den Rest.' 
   },
   heroCtaText: { el: 'Ζητήστε Δωρεάν Προσφορά', en: 'Get Free Quote', de: 'Kostenloses Angebot' },
+  heroTruckAlt: {
+    el: 'Φορτηγό Volvo σε ευρωπαϊκό δρόμο',
+    en: 'Volvo truck on European road',
+    de: 'Volvo-Lkw auf europäischer Straße'
+  },
+  logoAlt: { el: 'Λογότυπο Intracosta', en: 'Intracosta Logo', de: 'Intracosta-Logo' },
   
   // Trust Section
   yearsExperience: { el: 'Χρόνια Εμπειρίας', en: 'Years Experience', de: 'Jahre Erfahrung' },
@@ -374,6 +380,11 @@ const translations: Translations = {
     el: 'Με πάνω από 60 χρόνια εμπειρίας στον τομέα των μεταφορών, η In.Tra.Costa ΕΠΕ προσφέρει αξιόπιστες και ευέλικτες λύσεις σε Ελλάδα και Ευρώπη. Με σύγχρονο ιδιόκτητο στόλο και δίκτυο συνεργατών, εξασφαλίζουμε ασφάλεια, ταχύτητα και συνέπεια στις εμπορευματικές σας ανάγκες.',
     en: 'With over 60 years of experience in the transport sector, In.Tra.Costa EPE offers reliable and flexible solutions in Greece and Europe. With a modern private fleet and a network of partners, we ensure safety, speed, and consistency for your cargo needs.',
     de: 'Mit über 60 Jahren Erfahrung im Transportwesen bietet In.Tra.Costa EPE zuverlässige und flexible Lösungen in Griechenland und Europa. Mit einer modernen privaten Flotte und einem Partnernetzwerk gewährleisten wir Sicherheit, Schnelligkeit und Zuverlässigkeit für Ihre Frachten.'
+  },
+  aboutTruckAlt: {
+    el: 'Φορτηγό που μεταφέρει εμπορεύματα',
+    en: 'Truck transporting goods',
+    de: 'Lkw, der Waren transportiert'
   },
   aboutIntracostaSummary: {
     el: 'Η Intracosta είναι μια αμιγώς ελληνική εταιρία διεθνών οδικών μεταφορών και logistics. Με 25 χρόνια εμπειρίας στον κλάδο, με έναν στόλο άνω των 50 ιδιόκτητων φορτηγών τελευταίας τεχνολογίας και ευρύ δίκτυο συνεργατών σε όλη την κεντρική Ευρώπη, μετατρέπουμε τις μετακινήσεις εμπορευμάτων σε απλή, προβλέψιμη διαδικασία.',
