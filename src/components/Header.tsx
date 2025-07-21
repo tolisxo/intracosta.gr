@@ -151,14 +151,14 @@ const Header: React.FC = () => {
             <div className="flex items-center">
               <button
                 onClick={() => scrollToSection('#home')}
-                className="flex items-center space-x-3 group"
+                className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105"
                 aria-label="Intracosta Home"
               >
                 <div itemScope itemType="https://schema.org/Organization">
                   <img
-                    src="/intracosta-logo-bird.svg"
+                    src="/logocorrectversion.svg"
                     alt={t('logoAlt')}
-                    className="h-12 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="h-14 lg:h-20 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-sm"
                     itemProp="logo"
                   />
                   <meta itemProp="name" content="Intracosta" />
@@ -168,7 +168,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
+            <nav className="hidden lg:flex items-center space-x-2" role="navigation" aria-label="Main navigation">
               {menuItems.map((item) => (
                 <div key={item.key} className="relative dropdown-container">
                   {item.key === 'coverage' ? (
@@ -177,58 +177,60 @@ const Header: React.FC = () => {
                       <button
                         onClick={() => setIsCoverageOpen(!isCoverageOpen)}
                         onMouseEnter={() => setIsCoverageOpen(true)}
-                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg font-medium transition-all duration-200 group ${
+                        className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 group relative overflow-hidden ${
                           isActive(item.key)
-                            ? 'text-yellow-600 bg-yellow-50'
-                            : 'text-gray-700 hover:text-yellow-600 hover:bg-gray-50'
+                            ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
+                            : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-lg hover:scale-105'
                         }`}
                         aria-expanded={isCoverageOpen}
                         aria-haspopup="true"
                       >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                         {item.icon && <item.icon className="w-4 h-4" />}
-                        <span>{t(item.key)}</span>
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                        <span className="relative z-10">{t(item.key)}</span>
+                        <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
                           isCoverageOpen ? 'rotate-180' : ''
-                        }`} />
+                        } group-hover:scale-110`} />
                       </button>
 
                       {/* Coverage Mega Menu */}
                       <div
-                        className={`absolute top-full left-0 mt-2 w-96 bg-white rounded-xl shadow-xl border border-gray-200 transition-all duration-300 ${
+                        className={`absolute top-full left-0 mt-3 w-[420px] bg-white rounded-2xl shadow-2xl border border-gray-100 transition-all duration-500 backdrop-blur-sm ${
                           isCoverageOpen 
-                            ? 'opacity-100 visible transform translate-y-0' 
-                            : 'opacity-0 invisible transform -translate-y-2'
+                            ? 'opacity-100 visible transform translate-y-0 scale-100' 
+                            : 'opacity-0 invisible transform -translate-y-4 scale-95'
                         }`}
                         onMouseLeave={() => setIsCoverageOpen(false)}
                       >
-                        <div className="p-6">
+                        <div className="p-8">
                           <div className="mb-4">
-                            <h3 className="font-semibold text-gray-900 mb-2">Ευρωπαϊκές Διαδρομές</h3>
-                            <p className="text-sm text-gray-600">Εξυπηρετούμε 15+ χώρες με τακτικά δρομολόγια</p>
+                            <h3 className="font-bold text-xl text-gray-900 mb-2 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">Ευρωπαϊκές Διαδρομές</h3>
+                            <p className="text-gray-600">Εξυπηρετούμε 15+ χώρες με τακτικά δρομολόγια</p>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid grid-cols-2 gap-4">
                             {item.countries?.map((country) => (
                               <button
                                 key={country.name}
                                 onClick={() => scrollToSection('#coverage')}
-                                className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors group text-left"
+                                className="flex items-center justify-between p-4 rounded-xl hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 transition-all duration-300 group text-left hover:shadow-md hover:scale-105 border border-transparent hover:border-yellow-200"
                               >
                                 <div className="flex items-center space-x-3">
-                                  <span className="text-lg">{country.flag}</span>
+                                  <span className="text-xl group-hover:scale-110 transition-transform duration-300">{country.flag}</span>
                                   <div>
-                                    <div className="font-medium text-gray-900 text-sm">{t(country.name)}</div>
-                                    <div className="text-xs text-gray-500">{country.routes}</div>
+                                    <div className="font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">{t(country.name)}</div>
+                                    <div className="text-xs text-gray-500 group-hover:text-orange-600 transition-colors duration-300">{country.routes}</div>
                                   </div>
                                 </div>
+                                <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300 rotate-[-90deg]" />
                               </button>
                             ))}
                           </div>
-                          <div className="mt-4 pt-4 border-t border-gray-100">
+                          <div className="mt-6 pt-6 border-t border-gray-100">
                             <button
                               onClick={() => scrollToSection('#coverage')}
-                              className="w-full text-center py-2 text-yellow-600 hover:text-yellow-700 font-medium text-sm transition-colors"
+                              className="w-full text-center py-3 px-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
                             >
-                              Δείτε όλες τις διαδρομές →
+                              Δείτε όλες τις διαδρομές
                             </button>
                           </div>
                         </div>
@@ -239,30 +241,32 @@ const Header: React.FC = () => {
                     <div className="relative">
                       <button
                         onClick={() => scrollToSection(item.href)}
-                        className={`flex items-center space-x-1 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                        className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                           isActive(item.key)
-                            ? 'text-yellow-600 bg-yellow-50'
-                            : 'text-gray-700 hover:text-yellow-600 hover:bg-gray-50'
+                            ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
+                            : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-lg hover:scale-105'
                         }`}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                         {item.icon && <item.icon className="w-4 h-4" />}
-                        <span>{t(item.key)}</span>
+                        <span className="relative z-10">{t(item.key)}</span>
                       </button>
                     </div>
                   ) : (
                     // Regular Menu Item
                     <button
                       onClick={() => scrollToSection(item.href)}
-                      className={`flex items-center space-x-1 px-4 py-2 rounded-lg font-medium transition-all duration-200 relative ${
+                      className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                         isActive(item.key)
-                          ? 'text-yellow-600 bg-yellow-50'
-                          : 'text-gray-700 hover:text-yellow-600 hover:bg-gray-50'
+                          ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
+                          : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-lg hover:scale-105'
                       }`}
                     >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                       {item.icon && <item.icon className="w-4 h-4" />}
-                      <span>{t(item.key)}</span>
+                      <span className="relative z-10">{t(item.key)}</span>
                       {isActive(item.key) && (
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-500 rounded-full"></div>
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full shadow-lg"></div>
                       )}
                     </button>
                   )}
@@ -276,22 +280,22 @@ const Header: React.FC = () => {
               <div className="relative dropdown-container">
                 <button
                   onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                  className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:text-gray-900 transition-colors rounded-lg hover:bg-gray-50"
+                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 hover:text-gray-900 transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-md hover:scale-105 group"
                   aria-expanded={isLanguageOpen}
                   aria-haspopup="true"
                   aria-label="Select language"
                 >
-                  <Globe className="w-4 h-4" />
+                  <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                   <span className="text-sm font-medium">
                     {languages.find(lang => lang.code === language)?.name}
                   </span>
-                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${
+                  <ChevronDown className={`w-3 h-3 transition-all duration-300 group-hover:scale-110 ${
                     isLanguageOpen ? 'rotate-180' : ''
                   }`} />
                 </button>
                 
                 {isLanguageOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
+                  <div className="absolute right-0 mt-3 w-52 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-50 backdrop-blur-sm">
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
@@ -299,11 +303,11 @@ const Header: React.FC = () => {
                           setLanguage(lang.code);
                           setIsLanguageOpen(false);
                         }}
-                        className={`w-full px-4 py-3 text-left text-sm flex items-center space-x-3 hover:bg-gray-50 transition-colors ${
-                          language === lang.code ? 'bg-yellow-50 text-yellow-600' : 'text-gray-700'
+                        className={`w-full px-5 py-4 text-left text-sm flex items-center space-x-3 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 transition-all duration-300 hover:scale-105 rounded-xl mx-2 ${
+                          language === lang.code ? 'bg-gradient-to-r from-yellow-50 to-orange-50 text-yellow-600 shadow-md' : 'text-gray-700'
                         }`}
                       >
-                        <span className="text-lg">{lang.flag}</span>
+                        <span className="text-lg hover:scale-110 transition-transform duration-300">{lang.flag}</span>
                         <div>
                           <div className="font-medium">{lang.fullName}</div>
                           <div className="text-xs text-gray-500">{lang.name}</div>
@@ -320,15 +324,17 @@ const Header: React.FC = () => {
               {/* CTA Button */}
               <button
                 onClick={() => scrollToSection('#quote')}
-                className="hidden sm:flex items-center space-x-2 bg-yellow-500 text-white border-2 border-yellow-500 hover:bg-white hover:text-yellow-500 px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md"
+                className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group relative overflow-hidden"
               >
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                 <span>{t('getQuote')}</span>
+                <ChevronDown className="w-4 h-4 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
               </button>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
+                className="lg:hidden p-3 text-gray-700 hover:text-gray-900 transition-all duration-300 rounded-xl hover:bg-gray-50 hover:scale-110"
                 aria-expanded={isMenuOpen}
                 aria-label="Toggle mobile menu"
               >
@@ -341,36 +347,36 @@ const Header: React.FC = () => {
           <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
             isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}>
-            <div className="py-4 border-t border-gray-200">
+            <div className="py-6 border-t border-gray-100 bg-gradient-to-b from-white to-gray-50">
               <nav className="flex flex-col space-y-2" role="navigation" aria-label="Mobile navigation">
                 {menuItems.map((item) => (
                   <div key={item.key}>
                     <button
                       onClick={() => scrollToSection(item.href)}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 text-left rounded-lg transition-colors ${
+                      className={`w-full flex items-center space-x-4 px-6 py-4 text-left rounded-xl transition-all duration-300 mx-2 group ${
                         isActive(item.key)
-                          ? 'text-yellow-600 bg-yellow-50'
-                          : 'text-gray-700 hover:text-yellow-600 hover:bg-gray-50'
+                          ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md'
+                          : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-md hover:scale-105'
                       }`}
                     >
-                      {item.icon && <item.icon className="w-5 h-5" />}
+                      {item.icon && <item.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />}
                       <div>
-                        <div className="font-medium">{t(item.key)}</div>
-                        <div className="text-sm text-gray-500">{item.description}</div>
+                        <div className="font-semibold text-lg">{t(item.key)}</div>
+                        <div className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-300">{item.description}</div>
                       </div>
                     </button>
                     
                     {/* Mobile Coverage Countries */}
                     {item.key === 'coverage' && item.countries && (
-                      <div className="ml-8 mt-2 space-y-1">
+                      <div className="ml-12 mt-3 space-y-2">
                         {item.countries.slice(0, 4).map((country) => (
-                          <div key={country.name} className="flex items-center space-x-2 px-2 py-1 text-sm text-gray-600">
+                          <div key={country.name} className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-yellow-50 transition-colors duration-300">
                             <span>{country.flag}</span>
                             <span>{t(country.name)}</span>
-                            <span className="text-xs text-gray-400">({country.routes})</span>
+                            <span className="text-xs text-gray-400 ml-auto">({country.routes})</span>
                           </div>
                         ))}
-                        <div className="px-2 py-1 text-xs text-gray-500">
+                        <div className="px-3 py-2 text-xs text-gray-500 font-medium">
                           +{(item.countries.length - 4)} περισσότερες...
                         </div>
                       </div>
@@ -381,7 +387,7 @@ const Header: React.FC = () => {
                 {/* Mobile CTA */}
                 <button
                   onClick={() => scrollToSection('#quote')}
-                  className="mx-4 mt-4 bg-yellow-500 text-white hover:bg-yellow-600 px-4 py-3 rounded-lg font-medium transition-all text-center"
+                  className="mx-6 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105"
                 >
                   {t('getQuote')}
                 </button>
@@ -392,7 +398,7 @@ const Header: React.FC = () => {
       </header>
 
       {/* Spacer for fixed header */}
-      <div className="h-16 lg:h-20"></div>
+      <div className="h-20 lg:h-24"></div>
     </>
   );
 };
