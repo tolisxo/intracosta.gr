@@ -869,7 +869,7 @@ export const useLanguage = () => {
   return context;
 };
   // --- New services translations ---
-  services_internationalAndNationalRoadTitle: {
+  'services.internationalAndNationalRoadTitle': {
     el: 'Διεθνείς και Εθνικές Οδικές Μεταφορές',
     en: 'International and National Road Transport',
     de: 'Internationale und nationale Straßentransporte'
