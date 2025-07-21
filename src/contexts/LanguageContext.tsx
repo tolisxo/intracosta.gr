@@ -868,3 +868,54 @@ export const useLanguage = () => {
   }
   return context;
 };
+  // --- New services translations ---
+  services_internationalAndNationalRoadTitle: {
+    el: 'Διεθνείς και Εθνικές Οδικές Μεταφορές',
+    en: 'International and National Road Transport',
+    de: 'Internationale und nationale Straßentransporte'
+  },
+  services_internationalAndNationalRoadDescription: {
+    el: 'Μεταφορές φορτίων εντός Ελλάδας και σε όλη την Ευρώπη με πλήρη κάλυψη.',
+    en: 'Freight transport within Greece and across Europe with full coverage.',
+    de: 'Frachttransporte innerhalb Griechenlands und in ganz Europa mit vollständiger Abdeckung.'
+  },
+  services_airTransportTitle: {
+    el: 'Αερομεταφορές',
+    en: 'Air Transport',
+    de: 'Luftfracht'
+  },
+  services_airTransportDescription: {
+    el: 'Γρήγορες αερομεταφορές για επείγοντα φορτία και διεθνείς παραδόσεις.',
+    en: 'Fast air freight for urgent cargo and international deliveries.',
+    de: 'Schnelle Luftfracht für eilige Sendungen und internationale Lieferungen.'
+  },
+  services_seaTransportTitle: {
+    el: 'Μεταφορές μέσω Θαλάσσης',
+    en: 'Sea Transport',
+    de: 'Seefracht'
+  },
+  services_seaTransportDescription: {
+    el: 'Οικονομικές θαλάσσιες μεταφορές για μεγάλες ποσότητες φορτίου.',
+    en: 'Cost-effective sea transport for large cargo volumes.',
+    de: 'Kostengünstige Seefracht für große Frachtmengen.'
+  },
+  services_specialTransportTitle: {
+    el: 'Ειδικές Μεταφορές',
+    en: 'Special Transport',
+    de: 'Sondertransporte'
+  },
+  services_specialTransportDescription: {
+    el: 'Μεταφορά φορτίων υπερμεγεθών ή ειδικών απαιτήσεων.',
+    en: 'Transport of oversized or special requirement cargo.',
+    de: 'Transport von übergroßen oder besonderen Frachten.'
+  },
+  services_storageAndHandlingTitle: {
+    el: 'Υπηρεσίες Αποθήκευσης και Φορτοεκφόρτωσης',
+    en: 'Storage and Handling Services',
+    de: 'Lager- und Umschlagdienstleistungen'
+  },
+  services_storageAndHandlingDescription: {
+    el: 'Ασφαλής αποθήκευση και επαγγελματικές υπηρεσίες φορτοεκφόρτωσης.',
+    en: 'Secure warehousing and professional loading/unloading services.',
+    de: 'Sichere Lagerung und professionelle Be- und Entladungsdienste.'
+  },
