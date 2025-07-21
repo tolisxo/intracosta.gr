@@ -158,7 +158,7 @@ const Header: React.FC = () => {
                   <img
                     src="/logocorrectversion.svg"
                     alt={t('logoAlt')}
-                    className="h-14 lg:h-20 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-sm"
+                    className="h-16 lg:h-24 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-sm"
                     itemProp="logo"
                   />
                   <meta itemProp="name" content="Intracosta" />
