@@ -42,7 +42,13 @@ const Contact: React.FC = () => {
           addressSubtitle: t('contact.visitUsSubtitle'),
           emailValue: 'export@intracosta.com',
           phoneValue: '+30 23820 27111',
-          addressValue: '3ο χλμ Γιαννιτσών Θεσσαλονίκης, GR58100 Γιαννιτσά'
+          addressValue: '3ο χλμ Γιαννιτσών Θεσσαλονίκης, GR58100 Γιαννιτσά',
+          formTitle: t('contactFormTitle'),
+          formSubmit: t('sendMessage'),
+          nameLabel: t('name'),
+          emailLabel: t('email'),
+          companyLabel: t('companyName'),
+          messageLabel: t('message')
         }}
       />
     </div>
