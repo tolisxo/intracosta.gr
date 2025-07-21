@@ -832,43 +832,6 @@ const translations: Translations = {
   Greece: { el: 'Ελλάδα', en: 'Greece', de: 'Griechenland' },
   Cyprus: { el: 'Κύπρος', en: 'Cyprus', de: 'Zypern' },
 
-};
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('el');
-
-  const t = (key: string, variables?: { [key: string]: any }): string => {
-    const translatedString = translations[key]?.[language] || key;
-    if (variables) {
-      return translatedString.replace(/{{(.*?)}}/g, (match, variableName) => {
-        return variables[variableName.trim()];
-      });
-    }
-    return translatedString;
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-};
   // --- New services translations ---
   services_internationalAndNationalRoadTitle: {
     el: 'Διεθνείς και Εθνικές Οδικές Μεταφορές',
@@ -919,4 +882,41 @@ export const useLanguage = () => {
     el: 'Ασφαλής αποθήκευση και επαγγελματικές υπηρεσίες φορτοεκφόρτωσης.',
     en: 'Secure warehousing and professional loading/unloading services.',
     de: 'Sichere Lagerung und professionelle Be- und Entladungsdienste.'
-  },
+  }
+};
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [language, setLanguage] = useState<Language>('el');
+
+  const t = (key: string, variables?: { [key: string]: any }): string => {
+    const translatedString = translations[key]?.[language] || key;
+    if (variables) {
+      return translatedString.replace(/{{(.*?)}}/g, (match, variableName) => {
+        return variables[variableName.trim()];
+      });
+    }
+    return translatedString;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
