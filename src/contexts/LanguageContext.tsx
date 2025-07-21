@@ -833,55 +833,164 @@ const translations: Translations = {
   Cyprus: { el: 'Κύπρος', en: 'Cyprus', de: 'Zypern' },
 
   // --- New services translations ---
-  services_internationalAndNationalRoadTitle: {
+  'services.internationalAndNationalRoadTitle': {
     el: 'Διεθνείς και Εθνικές Οδικές Μεταφορές',
     en: 'International and National Road Transport',
     de: 'Internationale und nationale Straßentransporte'
   },
-  services_internationalAndNationalRoadDescription: {
+  'services.internationalAndNationalRoadDescription': {
     el: 'Μεταφορές φορτίων εντός Ελλάδας και σε όλη την Ευρώπη με πλήρη κάλυψη.',
     en: 'Freight transport within Greece and across Europe with full coverage.',
     de: 'Frachttransporte innerhalb Griechenlands und in ganz Europa mit vollständiger Abdeckung.'
   },
-  services_airTransportTitle: {
+  'services.airTransportTitle': {
     el: 'Αερομεταφορές',
     en: 'Air Transport',
     de: 'Luftfracht'
   },
-  services_airTransportDescription: {
+  'services.airTransportDescription': {
     el: 'Γρήγορες αερομεταφορές για επείγοντα φορτία και διεθνείς παραδόσεις.',
     en: 'Fast air freight for urgent cargo and international deliveries.',
     de: 'Schnelle Luftfracht für eilige Sendungen und internationale Lieferungen.'
   },
-  services_seaTransportTitle: {
+  'services.seaTransportTitle': {
     el: 'Μεταφορές μέσω Θαλάσσης',
     en: 'Sea Transport',
     de: 'Seefracht'
   },
-  services_seaTransportDescription: {
+  'services.seaTransportDescription': {
     el: 'Οικονομικές θαλάσσιες μεταφορές για μεγάλες ποσότητες φορτίου.',
     en: 'Cost-effective sea transport for large cargo volumes.',
     de: 'Kostengünstige Seefracht für große Frachtmengen.'
   },
-  services_specialTransportTitle: {
+  'services.specialTransportTitle': {
     el: 'Ειδικές Μεταφορές',
     en: 'Special Transport',
     de: 'Sondertransporte'
   },
-  services_specialTransportDescription: {
+  'services.specialTransportDescription': {
     el: 'Μεταφορά φορτίων υπερμεγεθών ή ειδικών απαιτήσεων.',
     en: 'Transport of oversized or special requirement cargo.',
     de: 'Transport von übergroßen oder besonderen Frachten.'
   },
-  services_storageAndHandlingTitle: {
+  'services.storageAndHandlingTitle': {
     el: 'Υπηρεσίες Αποθήκευσης και Φορτοεκφόρτωσης',
     en: 'Storage and Handling Services',
     de: 'Lager- und Umschlagdienstleistungen'
   },
-  services_storageAndHandlingDescription: {
+  'services.storageAndHandlingDescription': {
     el: 'Ασφαλής αποθήκευση και επαγγελματικές υπηρεσίες φορτοεκφόρτωσης.',
     en: 'Secure warehousing and professional loading/unloading services.',
     de: 'Sichere Lagerung und professionelle Be- und Entladungsdienste.'
+  },
+  
+  // Add missing form validation translations
+  invalidEmail: {
+    el: 'Παρακαλώ εισάγετε έγκυρη διεύθυνση email',
+    en: 'Please enter a valid email address',
+    de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
+  },
+  invalidPhone: {
+    el: 'Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου',
+    en: 'Please enter a valid phone number',
+    de: 'Bitte geben Sie eine gültige Telefonnummer ein'
+  },
+  summaryTitle: {
+    el: 'Περίληψη Αιτήματος',
+    en: 'Request Summary',
+    de: 'Anfragezusammenfassung'
+  },
+  
+  // Add missing privacy policy translations
+  privacyPolicyTitle: {
+    el: 'Πολιτική Απορρήτου',
+    en: 'Privacy Policy',
+    de: 'Datenschutzrichtlinie'
+  },
+  privacyPolicyEffectiveDate: {
+    el: 'Ημερομηνία ισχύος',
+    en: 'Effective date',
+    de: 'Gültigkeitsdatum'
+  },
+  privacyPolicyIntroduction: {
+    el: 'Η Intracosta σέβεται την ιδιωτικότητά σας και δεσμεύεται να προστατεύει τα προσωπικά σας δεδομένα.',
+    en: 'Intracosta respects your privacy and is committed to protecting your personal data.',
+    de: 'Intracosta respektiert Ihre Privatsphäre und verpflichtet sich, Ihre persönlichen Daten zu schützen.'
+  },
+  privacyPolicyInfoWeCollectTitle: {
+    el: 'Πληροφορίες που Συλλέγουμε',
+    en: 'Information We Collect',
+    de: 'Informationen, die wir sammeln'
+  },
+  privacyPolicyInfoWeCollectText: {
+    el: 'Συλλέγουμε πληροφορίες που μας παρέχετε άμεσα, όπως όταν συμπληρώνετε φόρμες επικοινωνίας.',
+    en: 'We collect information you provide directly to us, such as when you fill out contact forms.',
+    de: 'Wir sammeln Informationen, die Sie uns direkt zur Verfügung stellen, z.B. beim Ausfüllen von Kontaktformularen.'
+  },
+  privacyPolicyHowWeUseInfoTitle: {
+    el: 'Πώς Χρησιμοποιούμε τις Πληροφορίες',
+    en: 'How We Use Information',
+    de: 'Wie wir Informationen verwenden'
+  },
+  privacyPolicyHowWeUseInfoText: {
+    el: 'Χρησιμοποιούμε τις πληροφορίες για να παρέχουμε και να βελτιώνουμε τις υπηρεσίες μας.',
+    en: 'We use information to provide and improve our services.',
+    de: 'Wir verwenden Informationen, um unsere Dienstleistungen bereitzustellen und zu verbessern.'
+  },
+  privacyPolicyDataStorageTitle: {
+    el: 'Αποθήκευση Δεδομένων',
+    en: 'Data Storage',
+    de: 'Datenspeicherung'
+  },
+  privacyPolicyDataStorageText: {
+    el: 'Τα δεδομένα σας αποθηκεύονται με ασφάλεια και διατηρούνται μόνο όσο είναι απαραίτητο.',
+    en: 'Your data is stored securely and retained only as long as necessary.',
+    de: 'Ihre Daten werden sicher gespeichert und nur so lange aufbewahrt, wie es notwendig ist.'
+  },
+  privacyPolicyDataSharingTitle: {
+    el: 'Κοινοποίηση Δεδομένων',
+    en: 'Data Sharing',
+    de: 'Datenweitergabe'
+  },
+  privacyPolicyDataSharingText: {
+    el: 'Δεν πουλάμε, εμπορευόμαστε ή μεταφέρουμε τα προσωπικά σας δεδομένα σε τρίτους.',
+    en: 'We do not sell, trade, or transfer your personal data to third parties.',
+    de: 'Wir verkaufen, handeln oder übertragen Ihre persönlichen Daten nicht an Dritte.'
+  },
+  privacyPolicyYourRightsTitle: {
+    el: 'Τα Δικαιώματά σας',
+    en: 'Your Rights',
+    de: 'Ihre Rechte'
+  },
+  privacyPolicyYourRightsText: {
+    el: 'Έχετε το δικαίωμα πρόσβασης, διόρθωσης ή διαγραφής των προσωπικών σας δεδομένων.',
+    en: 'You have the right to access, correct, or delete your personal data.',
+    de: 'Sie haben das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu korrigieren oder zu löschen.'
+  },
+  privacyPolicyChangesTitle: {
+    el: 'Αλλαγές στην Πολιτική',
+    en: 'Policy Changes',
+    de: 'Richtlinienänderungen'
+  },
+  privacyPolicyChangesText: {
+    el: 'Ενδέχεται να ενημερώνουμε αυτήν την πολιτική περιστασιακά. Θα σας ειδοποιήσουμε για σημαντικές αλλαγές.',
+    en: 'We may update this policy from time to time. We will notify you of any significant changes.',
+    de: 'Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren.'
+  },
+  privacyPolicyCookiesSectionTitle: {
+    el: 'Cookies',
+    en: 'Cookies',
+    de: 'Cookies'
+  },
+  privacyPolicyCookiesSectionText: {
+    el: 'Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία σας στον ιστότοπό μας.',
+    en: 'We use cookies to improve your experience on our website.',
+    de: 'Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern.'
+  },
+  privacyPolicyContactUsTitle: {
+    el: 'Επικοινωνήστε μαζί μας',
+    en: 'Contact Us',
+    de: 'Kontaktieren Sie uns'
   }
 };
 
