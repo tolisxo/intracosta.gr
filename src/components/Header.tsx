@@ -146,23 +146,31 @@ const Header: React.FC = () => {
           : 'bg-white/90 backdrop-blur-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3 lg:py-4">
+          <div className="flex justify-between items-center py-4 lg:py-6">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center min-w-0 flex-shrink-0 pr-4 lg:pr-8">
               <button
                 onClick={() => scrollToSection('#home')}
-                className="flex items-center space-x-3 group transition-all duration-300 hover:scale-105"
+                className="flex items-center space-x-3 lg:space-x-4 group transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 rounded-lg p-2"
                 aria-label="Intracosta Home"
               >
                 <div itemScope itemType="https://schema.org/Organization">
                   <img
-                    src="/logocorrectversion.svg"
-                    alt={t('logoAlt')}
-                    className="h-16 lg:h-24 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-sm"
+                    src="/intracosta001.png"
+                    alt="Mazimazie design"
+                    className="h-20 lg:h-28 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl"
                     itemProp="logo"
                   />
-                  <meta itemProp="name" content="Intracosta" />
+                  <meta itemProp="name" content="Mazimazie design" />
                   <meta itemProp="url" content="https://www.intracosta.gr" />
+                </div>
+                <div className="hidden sm:block">
+                  <div className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+                    Mazimazie
+                  </div>
+                  <div className="text-sm lg:text-base text-gray-600 font-medium -mt-1">
+                    design
+                  </div>
                 </div>
               </button>
             </div>
