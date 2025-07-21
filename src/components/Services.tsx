@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Truck, Warehouse, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {
   const { t } = useLanguage();
@@ -41,9 +42,13 @@ const Services: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className={`group rounded-xl ${service.color} hover:${service.hoverColor} transition-all duration-300 hover:-translate-y-2 overflow-hidden w-full max-w-xs shadow-lg hover:shadow-2xl`}
+              initial={{ opacity: 0, y: 20, scale: 1 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1.03 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               <div className="p-8 text-center">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white text-yellow-500 mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -56,7 +61,7 @@ const Services: React.FC = () => {
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
