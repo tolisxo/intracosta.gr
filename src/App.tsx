@@ -15,7 +15,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
-import { Helmet } from 'react-helmet-async';
 
 
 const AppContent: React.FC = () => {

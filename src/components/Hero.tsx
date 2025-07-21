@@ -17,9 +17,8 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-40 sm:pt-32 pb-24">
+      <motion.div style={{ y }} className="absolute inset-0 bg-gray-900/60"></motion.div>
 
-        <div className="absolute inset-0 bg-gray-900/60"></div>
-      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -831,6 +831,7 @@ const translations: Translations = {
   Denmark: { el: 'Δανία', en: 'Denmark', de: 'Dänemark' },
   Greece: { el: 'Ελλάδα', en: 'Greece', de: 'Griechenland' },
   Cyprus: { el: 'Κύπρος', en: 'Cyprus', de: 'Zypern' },
+
 };
 
 interface LanguageContextType {
