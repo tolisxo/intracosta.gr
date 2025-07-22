@@ -118,14 +118,15 @@ const Header: React.FC = () => {
 
   return (
     <>
-      {/* Top Contact Bar - Hidden on mobile */}
-      <div className="hidden lg:block bg-gray-800 text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex items-center space-x-6">
-              <a href="tel:+302382027111" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
-                <Phone className="w-4 h-4" />
-                <span>+30 23820 27111</span>
+      <header role="banner">
+        {/* Top Contact Bar - Hidden on mobile */}
+        <div className="hidden lg:block bg-gray-800 text-white py-2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center text-sm">
+              <div className="flex items-center space-x-6">
+                <a href="tel:+302382027111" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
+                  <Phone className="w-4 h-4" />
+                  <span>+30 23820 27111</span>
               </a>
               <a href="mailto:export@intracosta.com" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
                 <Mail className="w-4 h-4" />
@@ -139,14 +140,14 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className={`fixed top-0 lg:top-10 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
-          : 'bg-white/90 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 lg:py-6">
+        {/* Main Header */}
+        <div className={`fixed top-0 lg:top-10 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
+            : 'bg-white/90 backdrop-blur-sm'
+        }`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center py-4 lg:py-6">
             {/* Logo */}
             <div className="flex items-center justify-start mr-8 lg:mr-12">
               <button
@@ -395,6 +396,7 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
       </header>
 
       {/* Spacer for fixed header */}
