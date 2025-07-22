@@ -59,32 +59,34 @@ const NavigationIndicator: React.FC = () => {
       </div>
 
       {/* Side Navigation Indicator */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <nav className="flex flex-col space-y-3" aria-label="Page sections">
-          {sections.map((section) => (
-            <button
-              key={section.key}
-              onClick={() => scrollToSection(section.key)}
-              className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
-                activeSection === section.key
-                  ? 'bg-yellow-500 scale-125'
-                  : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to ${section.label}`}
-            >
-              {/* Tooltip */}
-              <div className={`absolute right-6 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap transition-all duration-200 ${
-                activeSection === section.key
-                  ? 'opacity-100 visible'
-                  : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'
-              }`}>
-                {section.label}
-                <div className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
-              </div>
-            </button>
-          ))}
-        </nav>
-      </div>
+      <aside role="complementary" aria-label="Section navigation">
+        <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
+          <nav className="flex flex-col space-y-3" aria-label="Page sections">
+            {sections.map((section) => (
+              <button
+                key={section.key}
+                onClick={() => scrollToSection(section.key)}
+                className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
+                  activeSection === section.key
+                    ? 'bg-yellow-500 scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to ${section.label}`}
+              >
+                {/* Tooltip */}
+                <div className={`absolute right-6 top-1/2 transform -translate-y-1/2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap transition-all duration-200 ${
+                  activeSection === section.key
+                    ? 'opacity-100 visible'
+                    : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'
+                }`}>
+                  {section.label}
+                  <div className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+                </div>
+              </button>
+            ))}
+          </nav>
+        </div>
+      </aside>
     </>
   );
 };
