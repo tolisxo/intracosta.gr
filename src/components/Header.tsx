@@ -148,7 +148,7 @@ const Header: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4 lg:py-6">
             {/* Logo */}
-            <div className="flex items-center justify-center flex-1">
+            <div className="flex items-center justify-start mr-8 lg:mr-12">
               <button
                 onClick={() => scrollToSection('#home')}
                 className="group transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 rounded-lg p-2"
@@ -168,7 +168,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-2" role="navigation" aria-label="Main navigation">
+            <nav className="hidden lg:flex items-center space-x-2 flex-1" role="navigation" aria-label="Main navigation">
               {menuItems.map((item) => (
                 <div key={item.key} className="relative dropdown-container">
                   {item.key === 'coverage' ? (
