@@ -6,7 +6,8 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, -200]);
+  // Increase parallax movement for stronger scroll effect
+  const y = useTransform(scrollY, [0, 600], [0, -400]);
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
