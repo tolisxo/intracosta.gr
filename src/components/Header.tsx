@@ -149,9 +149,13 @@ const Header: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center py-4 lg:py-6">
             {/* Logo */}
-            <div className="flex items-center justify-start mr-8 lg:mr-12">
-              <button
-                onClick={() => scrollToSection('#home')}
+              <div className="flex items-center justify-start mr-8 lg:mr-12">
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('#home');
+                }}
                 className="group transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 rounded-lg p-2"
                 aria-label="Intracosta Home"
               >
@@ -165,7 +169,7 @@ const Header: React.FC = () => {
                   <meta itemProp="name" content="Intracosta" />
                   <meta itemProp="url" content="https://www.intracosta.gr" />
                 </div>
-              </button>
+              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -209,10 +213,14 @@ const Header: React.FC = () => {
                             <p className="text-gray-600">Εξυπηρετούμε 15+ χώρες με τακτικά δρομολόγια</p>
                           </div>
                           <div className="grid grid-cols-2 gap-4">
-                            {item.countries?.map((country) => (
-                              <button
+                              {item.countries?.map((country) => (
+                              <a
                                 key={country.name}
-                                onClick={() => scrollToSection('#coverage')}
+                                href="#coverage"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  scrollToSection('#coverage');
+                                }}
                                 className="flex items-center justify-between p-4 rounded-xl hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 transition-all duration-300 group text-left hover:shadow-md hover:scale-105 border border-transparent hover:border-yellow-200"
                               >
                                 <div className="flex items-center space-x-3">
@@ -223,25 +231,33 @@ const Header: React.FC = () => {
                                   </div>
                                 </div>
                                 <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300 rotate-[-90deg]" />
-                              </button>
+                              </a>
                             ))}
                           </div>
-                          <div className="mt-6 pt-6 border-t border-gray-100">
-                            <button
-                              onClick={() => scrollToSection('#coverage')}
-                              className="w-full text-center py-3 px-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
-                            >
-                              Δείτε όλες τις διαδρομές
-                            </button>
-                          </div>
+                            <div className="mt-6 pt-6 border-t border-gray-100">
+                              <a
+                                href="#coverage"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  scrollToSection('#coverage');
+                                }}
+                                className="w-full block text-center py-3 px-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+                              >
+                                Δείτε όλες τις διαδρομές
+                              </a>
+                            </div>
                         </div>
                       </div>
                     </div>
                   ) : item.subItems ? (
                     // Services Dropdown
                     <div className="relative">
-                      <button
-                        onClick={() => scrollToSection(item.href)}
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection(item.href);
+                        }}
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                           isActive(item.key)
                             ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
@@ -251,12 +267,16 @@ const Header: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                         {item.icon && <item.icon className="w-4 h-4" />}
                         <span className="relative z-10">{t(item.key)}</span>
-                      </button>
+                      </a>
                     </div>
                   ) : (
                     // Regular Menu Item
-                    <button
-                      onClick={() => scrollToSection(item.href)}
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(item.href);
+                      }}
                       className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                         isActive(item.key)
                           ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
@@ -269,7 +289,7 @@ const Header: React.FC = () => {
                       {isActive(item.key) && (
                         <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full shadow-lg"></div>
                       )}
-                    </button>
+                    </a>
                   )}
                 </div>
               ))}
@@ -323,14 +343,18 @@ const Header: React.FC = () => {
               </div>
 
               {/* CTA Button */}
-              <button
-                onClick={() => scrollToSection('#quote')}
+              <a
+                href="#quote"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('#quote');
+                }}
                 className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                 <span>{t('getQuote')}</span>
                 <ChevronDown className="w-4 h-4 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              </a>
 
               {/* Mobile Menu Button */}
               <button
@@ -352,8 +376,12 @@ const Header: React.FC = () => {
               <nav className="flex flex-col space-y-2" role="navigation" aria-label="Mobile navigation">
                 {menuItems.map((item) => (
                   <div key={item.key}>
-                    <button
-                      onClick={() => scrollToSection(item.href)}
+                    <a
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(item.href);
+                      }}
                       className={`w-full flex items-center space-x-4 px-6 py-4 text-left rounded-xl transition-all duration-300 mx-2 group ${
                         isActive(item.key)
                           ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md'
@@ -365,7 +393,7 @@ const Header: React.FC = () => {
                         <div className="font-semibold text-lg">{t(item.key)}</div>
                         <div className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-300">{item.description}</div>
                       </div>
-                    </button>
+                    </a>
                     
                     {/* Mobile Coverage Countries */}
                     {item.key === 'coverage' && item.countries && (
@@ -386,12 +414,16 @@ const Header: React.FC = () => {
                 ))}
                 
                 {/* Mobile CTA */}
-                <button
-                  onClick={() => scrollToSection('#quote')}
+                <a
+                  href="#quote"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('#quote');
+                  }}
                   className="mx-6 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105"
                 >
                   {t('getQuote')}
-                </button>
+                </a>
               </nav>
             </div>
           </div>

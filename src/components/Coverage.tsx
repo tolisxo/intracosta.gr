@@ -158,9 +158,9 @@ const Coverage: React.FC = () => {
                   {countries.length}
                 </span>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(true)}
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
                 className="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 hover:brightness-110 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 focus:outline-none group"
                 style={{ position: 'relative', overflow: 'hidden' }}
                 onMouseEnter={e => {
@@ -179,8 +179,19 @@ const Coverage: React.FC = () => {
                     zIndex: 0
                   }}
                 />
-              </button>
-            </div>
+                </button>
+                <a
+                  href="#quote"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.querySelector('#quote');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="mt-4 inline-block text-yellow-600 font-semibold hover:underline"
+                >
+                  {t('getQuote')}
+                </a>
+              </div>
           </div>
         </div>
 
