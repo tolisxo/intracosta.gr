@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MapPin, Truck, X, Warehouse } from 'lucide-react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
@@ -6,6 +6,13 @@ import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps
 const Coverage: React.FC = () => {
   const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      closeButtonRef.current?.focus();
+    }
+  }, [isModalOpen]);
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   const [hoveredMarkerIdx, setHoveredMarkerIdx] = useState<number | null>(null);
 
@@ -200,11 +207,14 @@ const Coverage: React.FC = () => {
           className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-all duration-300 ease-out ${
             isModalOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
           }`}
+          role="dialog"
+          aria-modal="true"
         >
           <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-hidden">
             <div className="flex justify-between items-center p-6 border-b border-gray-200">
               <h3 className="text-2xl font-bold text-gray-900">{t('coverageTitle')}</h3>
               <button
+                ref={closeButtonRef}
                 onClick={() => setIsModalOpen(false)}
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >

@@ -342,8 +342,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative">
+                      <label htmlFor="name" className="sr-only">
+                        Όνομα
+                      </label>
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                       <input
+                        id="name"
                         type="text"
                         placeholder="Το όνομά σας"
                         value={formData.name}
@@ -364,8 +368,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                     </div>
 
                     <div className="relative">
+                      <label htmlFor="email" className="sr-only">
+                        Email
+                      </label>
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                       <input
+                        id="email"
                         type="email"
                         placeholder="Διεύθυνση Email"
                         value={formData.email}
@@ -387,8 +395,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   </div>
 
                   <div className="relative">
+                    <label htmlFor="company" className="sr-only">
+                      Εταιρεία
+                    </label>
                     <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
+                      id="company"
                       type="text"
                       placeholder="Εταιρεία (Προαιρετικό)"
                       value={formData.company}
@@ -398,8 +410,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   </div>
 
                   <div className="relative">
+                    <label htmlFor="message" className="sr-only">
+                      Μήνυμα
+                    </label>
                     <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-gray-400" />
                     <textarea
+                      id="message"
                       placeholder="Πείτε μας για τις μεταφορικές σας ανάγκες..."
                       rows={6}
                       value={formData.message}
