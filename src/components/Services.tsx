@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Truck, Warehouse, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -12,14 +13,16 @@ const Services: React.FC = () => {
       title: t('services.internationalAndNationalRoadTitle'),
       description: t('services.internationalAndNationalRoadDescription'),
       color: 'bg-gray-700',
-      hoverColor: 'hover:bg-gray-800'
+      hoverColor: 'hover:bg-gray-800',
+      link: '/international-transport'
     },
     {
       icon: <ArrowRight className="w-12 h-12" />,
       title: t('services.airTransportTitle'),
       description: t('services.airTransportDescription'),
       color: 'bg-gray-700',
-      hoverColor: 'hover:bg-gray-800'
+      hoverColor: 'hover:bg-gray-800',
+      link: '/domestic-transport'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
@@ -40,7 +43,8 @@ const Services: React.FC = () => {
       title: t('services.storageAndHandlingTitle'),
       description: t('services.storageAndHandlingDescription'),
       color: 'bg-gray-700',
-      hoverColor: 'hover:bg-gray-800'
+      hoverColor: 'hover:bg-gray-800',
+      link: '/warehousing'
     }
   ];
 
@@ -70,10 +74,15 @@ const Services: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
                 <p className="text-white mb-6 leading-relaxed">{service.description}</p>
-                <button className="inline-flex items-center text-white hover:text-yellow-400 font-semibold transition-colors">
-                  {t('learnMore')}
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                {service.link && (
+                  <Link
+                    to={service.link}
+                    className="inline-flex items-center text-white hover:text-yellow-400 font-semibold transition-colors"
+                  >
+                    {t('learnMore')}
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}

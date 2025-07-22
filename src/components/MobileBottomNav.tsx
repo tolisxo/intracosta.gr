@@ -50,9 +50,13 @@ const MobileBottomNav: React.FC = () => {
         aria-label="Mobile navigation"
       >
         {navItems.map((item) => (
-          <button
+          <a
             key={item.key}
-            onClick={() => scrollToSection(item.href)}
+            href={item.href}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(item.href);
+            }}
             className={`flex flex-col items-center space-y-1 px-3 py-2 rounded-lg transition-all duration-200 ${
               activeSection === item.key
                 ? 'text-yellow-600'
@@ -67,18 +71,22 @@ const MobileBottomNav: React.FC = () => {
             {activeSection === item.key && (
               <div className="w-1 h-1 bg-yellow-500 rounded-full"></div>
             )}
-          </button>
+          </a>
         ))}
       </nav>
       
       {/* Quick Contact FAB */}
-      <button
-        onClick={() => scrollToSection('#quote')}
+      <a
+        href="#quote"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection('#quote');
+        }}
         className="absolute -top-6 right-4 w-12 h-12 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-yellow-600 transition-all duration-300 flex items-center justify-center hover:scale-110"
         aria-label="Get Quote"
       >
         <MessageCircle className="w-6 h-6" />
-      </button>
+      </a>
     </div>
   );
 };

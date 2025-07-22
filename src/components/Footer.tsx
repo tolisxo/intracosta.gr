@@ -7,8 +7,6 @@ import { Truck, MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucid
 const Footer: React.FC = () => {
   const { t, language } = useLanguage();
 
-  const [showPrivacyPolicy, setShowPrivacyPolicy] = React.useState(false);
-  const [showTermsOfService, setShowTermsOfService] = React.useState(false);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -42,13 +40,13 @@ const Footer: React.FC = () => {
               <img src="/logocorrectversion.svg" alt={t('logoAlt')} className="h-24" />
             </div>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+              <a href="#" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
                 <Facebook className="w-5 h-5 text-yellow-500" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+              <a href="#" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
                 <Linkedin className="w-5 h-5 text-yellow-500" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+              <a href="#" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
                 <Instagram className="w-5 h-5 text-yellow-500" />
               </a>
             </div>
@@ -60,12 +58,16 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.key}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(link.href);
+                    }}
                     className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
                   >
                     {t(link.key)}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -77,12 +79,16 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.key}>
-                  <button
-                    onClick={() => scrollToSection(`#${service.key}`)}
+                  <a
+                    href={`#${service.key}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(`#${service.key}`);
+                    }}
                     className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full"
                   >
                     {t(service.key)}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -109,85 +115,23 @@ const Footer: React.FC = () => {
                 © 2024 <span itemProp="name">Intracosta</span>. All rights reserved.
               </span>
             </div>
-            <div className="flex space-x-6">
-              <button
-                type="button"
-                onClick={() => setShowPrivacyPolicy(true)}
-                className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
-              >
-                {t('privacyPolicy')}
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowTermsOfService(true)}
-                className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
-              >
-                {t('termsOfService')}
-              </button>
-            </div>
+              <div className="flex space-x-6">
+                <Link
+                  to="/privacy-policy"
+                  className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
+                >
+                  {t('privacyPolicy')}
+                </Link>
+                <Link
+                  to="/terms-of-service"
+                  className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
+                >
+                  {t('termsOfService')}
+                </Link>
+              </div>
           </div>
         </div>
       </div>
-      {/* Privacy Policy Modal */}
-      {showPrivacyPolicy && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full overflow-y-auto relative">
-            <button
-              onClick={() => setShowPrivacyPolicy(false)}
-              className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-            <h1 className="text-2xl font-bold mb-4">{t('privacyPolicy')}</h1>
-            <div className="space-y-4 text-gray-700">
-              <p>{t('privacyPolicyIntroduction')}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyInfoWeCollectTitle')}</h2>
-              <p>{t('privacyPolicyInfoWeCollectText')}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyHowWeUseInfoTitle')}</h2>
-              <p>{t('privacyPolicyHowWeUseInfoText')}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyDataStorageTitle')}</h2>
-              <p>{t('privacyPolicyDataStorageText')}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyDataSharingTitle')}</h2>
-              <p>{t('privacyPolicyDataSharingText')}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyYourRightsTitle')}</h2>
-              <p>{t('privacyPolicyYourRightsText')}</p>
-              <h2 className="text-xl font-semibold">{t('privacyPolicyChangesTitle')}</h2>
-              <p>{t('privacyPolicyChangesText')}</p>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* Terms of Service Modal */}
-      {showTermsOfService && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full overflow-y-auto relative">
-            <button
-              onClick={() => setShowTermsOfService(false)}
-              className="absolute top-4 right-4 text-gray-700 hover:text-red-500"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-            <h1 className="text-2xl font-bold mb-4">{t('termsOfService')}</h1>
-            <div className="space-y-4 text-gray-700">
-              <p>{t('termsAcceptanceText')}</p>
-              <h2 className="text-xl font-semibold">{t('termsServicesTitle')}</h2>
-              <p>{t('termsServicesText')}</p>
-              <h2 className="text-xl font-semibold">{t('termsUseWebsiteTitle')}</h2>
-              <p>{t('termsUseWebsiteText')}</p>
-              <h2 className="text-xl font-semibold">{t('termsQuoteRequestsTitle')}</h2>
-              <p>{t('termsQuoteRequestsText')}</p>
-              <h2 className="text-xl font-semibold">{t('termsLiabilityTitle')}</h2>
-              <p>{t('termsLiabilityText')}</p>
-              <h2 className="text-xl font-semibold">{t('termsContactTitle')}</h2>
-              <p>
-                {t('termsContactText')} info@intracosta.com, +30 23820 27111
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </footer>
   );
 };
