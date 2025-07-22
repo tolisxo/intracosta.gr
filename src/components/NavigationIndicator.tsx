@@ -61,7 +61,11 @@ const NavigationIndicator: React.FC = () => {
       {/* Side Navigation Indicator */}
       <aside role="complementary" aria-label="Section navigation">
         <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-          <nav className="flex flex-col space-y-3" aria-label="Page sections">
+          <nav
+            className="flex flex-col space-y-3"
+            role="navigation"
+            aria-label="Page sections"
+          >
             {sections.map((section) => (
               <button
                 key={section.key}
