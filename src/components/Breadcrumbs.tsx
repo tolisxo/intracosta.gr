@@ -31,13 +31,17 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
       <ol className="flex items-center space-x-2">
         {/* Home Link */}
         <li>
-          <button
-            onClick={() => scrollToSection('#home')}
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('#home');
+            }}
             className="flex items-center text-gray-500 hover:text-yellow-600 transition-colors"
             aria-label="Home"
           >
             <Home className="w-4 h-4" />
-          </button>
+          </a>
         </li>
 
         {items.map((item, index) => (
@@ -51,12 +55,16 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
                 {item.label}
               </span>
             ) : item.href ? (
-              <button
-                onClick={() => item.href && scrollToSection(item.href)}
+              <a
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href!);
+                }}
                 className="text-gray-500 hover:text-yellow-600 transition-colors"
               >
                 {item.label}
-              </button>
+              </a>
             ) : (
               <span className="text-gray-500">{item.label}</span>
             )}

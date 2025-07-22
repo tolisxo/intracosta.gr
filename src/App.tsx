@@ -21,6 +21,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import InternationalTransportPage from './pages/InternationalTransportPage';
+import DomesticTransportPage from './pages/DomesticTransportPage';
+import WarehousingPage from './pages/WarehousingPage';
 
 
 const AppContent: React.FC = () => {
@@ -59,8 +62,35 @@ const AppContent: React.FC = () => {
                   </>
                 }
               />
-              <Route 
-                path="/privacy-policy" 
+              <Route
+                path="/international-transport"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="International Transport - Intracosta" />
+                    <InternationalTransportPage />
+                  </>
+                }
+              />
+              <Route
+                path="/domestic-transport"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="Domestic Transport - Intracosta" />
+                    <DomesticTransportPage />
+                  </>
+                }
+              />
+              <Route
+                path="/warehousing"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="Warehousing - Intracosta" />
+                    <WarehousingPage />
+                  </>
+                }
+              />
+              <Route
+                path="/privacy-policy"
                 element={
                   <>
                     <LocalSEOHead page="about" title="Privacy Policy - Intracosta" />
