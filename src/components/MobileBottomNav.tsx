@@ -44,7 +44,11 @@ const MobileBottomNav: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 lg:hidden">
-      <nav className="flex items-center justify-around py-2">
+      <nav
+        className="flex items-center justify-around py-2"
+        role="navigation"
+        aria-label="Mobile navigation"
+      >
         {navItems.map((item) => (
           <button
             key={item.key}
