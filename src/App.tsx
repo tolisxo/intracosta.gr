@@ -39,7 +39,7 @@ const AppContent: React.FC = () => {
           <Header />
           <NavigationIndicator />
           <MobileBottomNav />
-          <main>
+          <main id="main-content" role="main">
             <Routes>
               <Route
                 path="/"
