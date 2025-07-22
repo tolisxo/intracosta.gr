@@ -8,6 +8,9 @@ const links = [
   { url: '/coverage', changefreq: 'monthly', priority: 0.8 },
   { url: '/about', changefreq: 'monthly', priority: 0.7 },
   { url: '/contact', changefreq: 'monthly', priority: 0.8 },
+  { url: '/international-transport', changefreq: 'monthly', priority: 0.8 },
+  { url: '/domestic-transport', changefreq: 'monthly', priority: 0.8 },
+  { url: '/warehousing', changefreq: 'monthly', priority: 0.8 },
   { url: '/privacy-policy', changefreq: 'yearly', priority: 0.5 },
   { url: '/terms-of-service', changefreq: 'yearly', priority: 0.5 },
   

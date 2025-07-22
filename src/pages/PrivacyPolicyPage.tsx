@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const PrivacyPolicyPage: React.FC = () => {
   const { t } = useLanguage();
@@ -7,8 +8,15 @@ const PrivacyPolicyPage: React.FC = () => {
   const effectiveDate = '01/01/2025'; // Μπορείς να το κάνεις δυναμικό αν θέλεις
   const websiteAddress = 'www.intracosta.gr';
 
+  const crumbs = [
+    { label: t('home'), href: '#home' },
+    { label: 'Policies', href: '#policies' },
+    { label: t('privacyPolicy'), current: true }
+  ];
+
   return (
     <div className="container mx-auto py-8 px-4">
+      <Breadcrumbs items={crumbs} className="mb-4" />
       <h1 className="text-3xl font-bold mb-4">{t('privacyPolicyTitle')}</h1>
       <p className="text-sm text-gray-600 mb-6">
         {t('privacyPolicyEffectiveDate')}: {effectiveDate}
