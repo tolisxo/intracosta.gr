@@ -57,6 +57,15 @@ const transporter = nodemailer.createTransport({
   auth: smtpUser && smtpPass ? { user: smtpUser, pass: smtpPass } : undefined,
 });
 
+// Test SMTP connection on startup
+transporter.verify((error, success) => {
+  if (error) {
+    console.error('SMTP connection failed:', error);
+  } else {
+    console.log('SMTP server is ready to take our messages');
+  }
+});
+
 function buildPlainText(obj) {
   return Object.entries(obj)
     .map(([key, value]) => `${key}: ${value ?? ''}`)
@@ -121,17 +130,21 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(staticPath, 'index.html'));
 });
 
-const port = process.env.PORT || 443;
+const port = process.env.PORT || 3000;
 
 let server;
-try {
-  const keyPath = process.env.HTTPS_KEY || path.join(__dirname, 'key.pem');
-  const certPath = process.env.HTTPS_CERT || path.join(__dirname, 'cert.pem');
-  const key = fs.readFileSync(keyPath);
-  const cert = fs.readFileSync(certPath);
-  server = https.createServer({ key, cert }, app);
-} catch {
-  console.warn('Failed to load HTTPS certificates, falling back to HTTP');
+if (isProduction) {
+  try {
+    const keyPath = process.env.HTTPS_KEY || path.join(__dirname, 'key.pem');
+    const certPath = process.env.HTTPS_CERT || path.join(__dirname, 'cert.pem');
+    const key = fs.readFileSync(keyPath);
+    const cert = fs.readFileSync(certPath);
+    server = https.createServer({ key, cert }, app);
+  } catch {
+    console.warn('Failed to load HTTPS certificates, falling back to HTTP');
+    server = http.createServer(app);
+  }
+} else {
   server = http.createServer(app);
 }
 
