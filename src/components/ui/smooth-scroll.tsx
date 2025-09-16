@@ -11,10 +11,17 @@ const SmoothScroll = forwardRef<HTMLDivElement, SmoothScrollProps>(({ children }
     <ReactLenis
       root
       options={{
-        lerp: 0.05,
-        duration: 1.8,
+        lerp: 0.08, // Slightly faster for more responsive feel
+        duration: 1.2, // Faster duration for snappier scrolling
         smoothWheel: true,
         smoothTouch: true,
+        wheelMultiplier: 1.2, // More responsive wheel scrolling
+        touchMultiplier: 2, // Better touch scrolling
+        infinite: false,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        normalizeWheel: true,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for smoother feel
       }}
     >
       <div ref={ref}>
