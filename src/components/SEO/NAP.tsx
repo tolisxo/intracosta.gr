@@ -21,7 +21,14 @@ const NAP: React.FC<NAPProps> = ({
       country: 'Ελλάδα'
     },
     phone: '+30 23820 27111',
-    email: 'info@intracosta.com'
+    email: 'info@intracosta.com',
+    emails: [
+      'info@intracosta.com',
+      'export@intracosta.com',
+      'import@intracosta.com',
+      'dispo.greece@intracosta.com',
+      'account@intracosta.com'
+    ]
   };
 
   if (variant === 'inline') {
@@ -79,15 +86,21 @@ const NAP: React.FC<NAPProps> = ({
           </a>
         </div>
 
-        <div className="flex items-center space-x-3">
-          {showIcons && <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0" />}
-          <a 
-            href={`mailto:${napData.email}`}
-            className="text-gray-700 hover:text-yellow-500 transition-colors"
-            itemProp="email"
-          >
-            {napData.email}
-          </a>
+        <div className="flex items-start space-x-3">
+          {showIcons && <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />}
+          <div className="space-y-1">
+            {napData.emails.map((email, index) => (
+              <a 
+                key={index}
+                href={`mailto:${email}`}
+                className="block text-gray-700 hover:text-yellow-500 transition-colors text-sm"
+                itemProp="email"
+                title={`Click to send email to ${email}`}
+              >
+                {email}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>

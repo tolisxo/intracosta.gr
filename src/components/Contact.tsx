@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
           phoneSubtitle: t('contact.callUsSubtitle'),
           address: t('contact.visitUsTitle'),
           addressSubtitle: t('contact.visitUsSubtitle'),
-          emailValue: 'export@intracosta.com',
+          emailValue: 'info@intracosta.com',
           phoneValue: '+30 23820 27111',
           addressValue: '3ο χλμ Γιαννιτσών Θεσσαλονίκης, GR58100 Γιαννιτσά',
           formTitle: t('contactFormTitle'),
