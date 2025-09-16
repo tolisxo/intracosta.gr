@@ -22,8 +22,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "Get in touch via email",
-    value: "export@intracosta.com",
-    link: "mailto:export@intracosta.com",
+    value: "info@intracosta.com",
+    link: "mailto:info@intracosta.com",
     gradient: "from-yellow-500/20 to-orange-500/20",
     hoverColor: "yellow"
   },
@@ -541,6 +541,42 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 </motion.a>
               ))}
             </div>
+
+            {/* All Email Addresses */}
+            <motion.div
+              className="p-6 bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-200 shadow-sm"
+              variants={fadeInUp}
+            >
+              <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <Mail className="w-5 h-5 text-yellow-500" />
+                Όλες οι Διευθύνσεις Email
+              </h4>
+              <p className="text-gray-600 text-sm mb-4">
+                Κάντε κλικ σε οποιαδήποτε διεύθυνση email για να ανοίξει το email client σας:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  'info@intracosta.com',
+                  'export@intracosta.com', 
+                  'import@intracosta.com',
+                  'dispo.greece@intracosta.com',
+                  'account@intracosta.com'
+                ].map((email, index) => (
+                  <motion.a
+                    key={index}
+                    href={`mailto:${email}`}
+                    className="flex items-center gap-3 p-3 bg-gray-50 hover:bg-yellow-50 border border-gray-200 hover:border-yellow-300 rounded-lg transition-all group"
+                    whileHover={{ scale: 1.02, x: 4 }}
+                    title={`Click to send email to ${email}`}
+                  >
+                    <Mail className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 transition-colors flex-shrink-0" />
+                    <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium">
+                      {email}
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
 
             {/* Additional Info */}
             <motion.div
