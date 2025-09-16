@@ -46,15 +46,21 @@ const smtpHost = process.env.SMTP_HOST;
 const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 587;
 const smtpUser = process.env.SMTP_USER;
 const smtpPass = process.env.SMTP_PASS;
-const mailFrom = process.env.MAIL_FROM || `no-reply@${(process.env.DOMAIN || 'intracosta.gr')}`;
-const mailToContact = process.env.MAIL_TO_CONTACT || process.env.MAIL_TO || 'export@intracosta.com';
-const mailToQuote = process.env.MAIL_TO_QUOTE || process.env.MAIL_TO || 'export@intracosta.com';
+const mailFrom = process.env.MAIL_FROM || 'christos.kostas@intracosta.com';
+const mailToContact = process.env.MAIL_TO_CONTACT || process.env.MAIL_TO || 'christos.kostas@intracosta.com';
+const mailToQuote = process.env.MAIL_TO_QUOTE || process.env.MAIL_TO || 'christos.kostas@intracosta.com';
 
 const transporter = nodemailer.createTransport({
-  host: smtpHost,
-  port: smtpPort,
-  secure: smtpPort === 465, // true for 465, false for other ports
-  auth: smtpUser && smtpPass ? { user: smtpUser, pass: smtpPass } : undefined,
+  host: smtpHost || 'mail.intracosta.com',
+  port: smtpPort || 587,
+  secure: (smtpPort || 587) === 465, // true for 465, false for other ports
+  auth: {
+    user: smtpUser || 'christos.kostas@intracosta.com',
+    pass: smtpPass || 'X7Ydu@eUqIxl'
+  },
+  connectionTimeout: 60000, // 60 seconds
+  greetingTimeout: 30000,   // 30 seconds
+  socketTimeout: 60000,     // 60 seconds
 });
 
 // Test SMTP connection on startup
