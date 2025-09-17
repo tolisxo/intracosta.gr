@@ -6,25 +6,21 @@ const MeetTheTeam: React.FC = () => {
     {
       name: 'Nikos Papadopoulos',
       role: 'Logistics Coordinator',
-      image: '/team/nikos.jpg',
       description: 'Ensures all shipments arrive on time and with full documentation.'
     },
     {
       name: 'Elena Georgiou',
       role: 'Customs Specialist',
-      image: '/team/elena.jpg',
       description: 'Expert in customs clearance and compliance regulations.'
     },
     {
       name: 'Kostas Dimitriadis',
       role: 'Transport Manager',
-      image: '/team/kostas.jpg',
       description: 'Oversees all transportation routes and manages carrier relationships.'
     },
     {
       name: 'Maria Ioannou',
       role: 'Customer Service Lead',
-      image: '/team/maria.jpg',
       description: 'Dedicated to providing excellent support and client satisfaction.'
     }
   ];
@@ -48,11 +44,9 @@ const MeetTheTeam: React.FC = () => {
         >
           {teamMembers.map((member, index) => (
             <div key={index} className="rounded-xl shadow-md bg-white p-6 text-center transition-transform hover:-translate-y-1">
-              <img 
-                src={member.image} 
-                alt={member.name} 
-                className="mx-auto mb-4 w-32 h-32 rounded-full object-cover"
-              />
+              <div className="mx-auto mb-4 w-32 h-32 rounded-full bg-gray-100 flex items-center justify-center text-6xl">
+                🎧
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
               <p className="text-orange-500 font-medium mb-2">{member.role}</p>
               <p className="text-gray-600 text-sm">{member.description}</p>
