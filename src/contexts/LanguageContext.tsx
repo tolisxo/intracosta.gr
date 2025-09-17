@@ -454,9 +454,9 @@ const translations: Translations = {
     de: 'Lkw, der Waren transportiert'
   },
   aboutIntracostaSummary: {
-    el: 'Η Intracosta είναι μια αμιγώς ελληνική εταιρία διεθνών οδικών μεταφορών και logistics. Με 25 χρόνια εμπειρίας στον κλάδο, με έναν στόλο άνω των 50 ιδιόκτητων φορτηγών τελευταίας τεχνολογίας και ευρύ δίκτυο συνεργατών σε όλη την κεντρική Ευρώπη, μετατρέπουμε τις μετακινήσεις εμπορευμάτων σε απλή, προβλέψιμη διαδικασία.',
-    en: 'Intracosta is a purely Greek company specializing in international road transport and logistics. With 25 years of experience in the field, a fleet of over 50 state-of-the-art trucks, and an extensive partner network across central Europe, we make freight transport a simple, predictable process.',
-    de: 'Intracosta ist ein rein griechisches Unternehmen für internationale Straßentransporte und Logistik. Mit 25 Jahren Erfahrung in der Branche, über 50 firmeneigenen modernen Lkw und einem umfangreichen Partnernetzwerk in ganz Mitteleuropa machen wir den Warentransport zu einem einfachen, planbaren Prozess.'
+    el: 'Η INTRACOSTA ΕΠΕ είναι μια αμιγώς ελληνική εταιρία οδικών μεταφορών και υπηρεσιών logistics, με διαδρομή πλέον των 25 ετών στον κλάδο των μεταφορών και σταθερή προσήλωση στην αξιοπιστία, τη συνέπεια και την τεχνολογική εξέλιξη. Με έναν στόλο άνω των 50 ιδιόκτητων φορτηγών τελευταίας τεχνολογίας και ένα ευρύ δίκτυο συνεργατών σε Ελλάδα και Ευρώπη, προσφέρουμε ολοκληρωμένες λύσεις μεταφοράς και αποθήκευσης, που καλύπτουν τις πραγματικές ανάγκες των πελατών μας.',
+    en: 'INTRACOSTA EPE is a purely Greek road transport and logistics services company, with a track record of over 25 years in the transport sector and a steadfast commitment to reliability, consistency and technological advancement. With a fleet of over 50 state-of-the-art trucks and a wide network of partners in Greece and Europe, we offer integrated transport and storage solutions that meet the real needs of our customers.',
+    de: 'INTRACOSTA EPE ist ein rein griechisches Unternehmen für Straßentransporte und Logistikdienstleistungen mit einer Laufbahn von über 25 Jahren im Transportsektor und einem festen Engagement für Zuverlässigkeit, Beständigkeit und technologischen Fortschritt. Mit einer Flotte von über 50 modernsten Lkw und einem breiten Partnernetzwerk in Griechenland und Europa bieten wir integrierte Transport- und Lagerlösungen, die den tatsächlichen Bedürfnissen unserer Kunden entsprechen.'
   },
   aboutHighlightsTitle: {
     el: 'Τι μας κάνει διαφορετικούς:',
