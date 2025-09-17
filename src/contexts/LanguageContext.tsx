@@ -472,94 +472,34 @@ const translations: Translations = {
   // FAQ
   faqTitle: { el: 'Συχνές Ερωτήσεις', en: 'Frequently Asked Questions', de: 'Häufig gestellte Fragen' },
   faq1Question: {
-    el: 'Ποιες χώρες καλύπτει η Intracosta με τις υπηρεσίες της;',
-    en: 'Which countries does Intracosta serve?',
-    de: 'Welche Länder bedient Intracosta?'
+    el: 'Μεταφέρετε δέματα και προσωπικά αντικείμενα;',
+    en: 'Do you transport packages and personal items?',
+    de: 'Transportieren Sie Pakete und persönliche Gegenstände?'
   },
   faq1Answer: {
-    el: 'Η Intracosta εξυπηρετεί τις μεγαλύτερες αγορές της Ευρώπης, συμπεριλαμβανομένων Γερμανίας, Αυστρίας, Ολλανδίας, Βελγίου, Πολωνίας, Λουξεμβούργου, Δανίας και φυσικά της Ελλάδας, με τακτικές αναχωρήσεις και παραδόσεις.',
-    en: 'Intracosta serves the major markets of Europe, including Germany, Austria, Netherlands, Belgium, Poland, Luxembourg, Denmark, and of course Greece, with regular departures and deliveries.',
-    de: 'Intracosta bedient die wichtigsten Märkte Europas, darunter Deutschland, Österreich, Niederlande, Belgien, Polen, Luxemburg, Dänemark und natürlich Griechenland, mit regelmäßigen Abfahrten und Lieferungen.'
+    el: 'Δεν μεταφέρουμε προσωπικά μικροαντικείμενα και μικροδέματα (πχ. Φακέλους), αλλά με συνεννόηση μπορούμε να μεταφέρουμε δέματα μεγαλύτερων διαστάσεων (πχ. Κιβώτιο)',
+    en: 'We do not transport personal small items and small packages (e.g. envelopes), but with coordination we can transport larger packages (e.g. boxes)',
+    de: 'Wir transportieren keine persönlichen kleinen Gegenstände und kleinen Pakete (z.B. Umschläge), aber mit Absprache können wir größere Pakete (z.B. Kisten) transportieren'
   },
   faq2Question: {
-    el: 'Ποια είδη φορτίου μεταφέρει η εταιρεία;',
-    en: 'What types of cargo does the company transport?',
-    de: 'Welche Arten von Fracht transportiert das Unternehmen?'
+    el: 'Μεταφέρεται αλκοόλ ή διάφορα καπνικά είδη;',
+    en: 'Are alcohol or various tobacco products transported?',
+    de: 'Werden Alkohol oder verschiedene Tabakerzeugnisse transportiert?'
   },
   faq2Answer: {
-    el: 'Διαχειριζόμαστε ξηρό φορτίο, φορτίο με ελεγχόμενη θερμοκρασία, ADR (επικίνδυνα υλικά) καθώς και ειδικές μεταφορές μεγάλων ή ασυνήθιστων διαστάσεων.',
-    en: 'We handle dry cargo, temperature-controlled cargo, ADR (dangerous goods), as well as special transport of large or unusual dimensions.',
-    de: 'Wir transportieren Trockenfracht, temperaturgeführte Fracht, ADR (Gefahrgut) sowie Spezialtransporte von großen oder ungewöhnlichen Abmessungen.'
+    el: 'Μόνο αν πρόκειται για μεταφορά από εταιρία παραγωγής με τα κατάλληλα έγγραφα. Δεν μεταφέρουμε προσωπικά καπνικά ή αλκοολούχα είδη και σε περίπτωση αποστολής κιβωτίου θα πρέπει να αποδείξετε την μη ύπαρξη τους.',
+    en: 'Only if it is transport from a production company with the appropriate documents. We do not transport personal tobacco or alcoholic products and in case of sending a box you must prove their non-existence.',
+    de: 'Nur wenn es sich um Transport von einem Produktionsunternehmen mit den entsprechenden Dokumenten handelt. Wir transportieren keine persönlichen Tabak- oder alkoholischen Produkte und im Fall des Versendens einer Kiste müssen Sie deren Nichtexistenz nachweisen.'
   },
   faq3Question: {
-    el: 'Διαθέτει η Intracosta υπηρεσίες αποθήκευσης;',
-    en: 'Does Intracosta provide warehousing services?',
-    de: 'Bietet Intracosta Lagerdienstleistungen an?'
+    el: 'Μπορείτε να παραλάβετε ή να παραδώσετε φορτίο σε κάθε περιοχή των χωρών εξυπηρέτησής σας;',
+    en: 'Can you pick up or deliver cargo in every area of the countries you serve?',
+    de: 'Können Sie Fracht in jedem Bereich der Länder, die Sie bedienen, abholen oder liefern?'
   },
   faq3Answer: {
-    el: 'Ναι, παρέχουμε υπηρεσίες αποθήκευσης σε ιδιόκτητες αποθήκες στην Ελλάδα (Γιαννιτσά) και Γερμανία (Όσναμπουργκ), καθώς και μέσω συνεργατών σε στρατηγικά σημεία της Ευρώπης.',
-    en: 'Yes, we provide warehousing services in our owned warehouses in Greece (Giannitsa) and Germany (Osnabrück), as well as through partners in strategic locations across Europe.',
-    de: 'Ja, wir bieten Lagerdienstleistungen in unseren eigenen Lagern in Griechenland (Giannitsa) und Deutschland (Osnabrück) sowie über Partner an strategischen Standorten in ganz Europa an.'
-  },
-  faq4Question: {
-    el: 'Πόσο συχνά πραγματοποιούνται τα δρομολόγια;',
-    en: 'How often are the routes operated?',
-    de: 'Wie häufig werden die Routen betrieben?'
-  },
-  faq4Answer: {
-    el: 'Διαθέτουμε σχεδόν καθημερινά δρομολόγια από/προς την Ελλάδα και τις κύριες ευρωπαϊκές χώρες, εξασφαλίζοντας άμεση εξυπηρέτηση.',
-    en: 'We operate almost daily routes to/from Greece and major European countries, ensuring prompt service.',
-    de: 'Wir betreiben nahezu tägliche Routen von/nach Griechenland und den wichtigsten europäischen Ländern, um einen schnellen Service zu gewährleisten.'
-  },
-  faq5Question: {
-    el: 'Η εταιρεία παρέχει ασφάλιση για τα φορτία;',
-    en: 'Does the company provide cargo insurance?',
-    de: 'Bietet das Unternehmen eine Frachtversicherung an?'
-  },
-  faq5Answer: {
-    el: 'Ναι, όλα τα φορτία καλύπτονται από ασφάλεια CMR για πλήρη προστασία και διαφάνεια κατά τη μεταφορά.',
-    en: 'Yes, all cargo is covered by CMR insurance for full protection and transparency during transport.',
-    de: 'Ja, alle Frachten sind durch eine CMR-Versicherung für vollständigen Schutz und Transparenz während des Transports abgedeckt.'
-  },
-  faq6Question: {
-    el: 'Μπορεί η Intracosta να διαχειριστεί πλήρη και μερικά φορτία (FTL & LTL);',
-    en: 'Can Intracosta handle full and partial loads (FTL & LTL)?',
-    de: 'Kann Intracosta Komplett- und Teilladungen (FTL & LTL) abwickeln?'
-  },
-  faq6Answer: {
-    el: 'Βεβαίως. Εξυπηρετούμε τόσο πλήρεις φορτώσεις (FTL) όσο και μερικά φορτία (LTL), προσαρμόζοντας τις λύσεις στις ανάγκες σας.',
-    en: 'Certainly. We handle both full truckloads (FTL) and less-than-truckload shipments (LTL), tailoring solutions to your needs.',
-    de: 'Selbstverständlich. Wir wickeln sowohl Komplettladungen (FTL) als auch Teilladungen (LTL) ab und passen die Lösungen an Ihre Bedürfnisse an.'
-  },
-  faq7Question: {
-    el: 'Ποιος είναι ο χρόνος παράδοσης των μεταφορών;',
-    en: 'What is the delivery time for transports?',
-    de: 'Wie lange dauert die Lieferung der Transporte?'
-  },
-  faq7Answer: {
-    el: 'Ο χρόνος παράδοσης εξαρτάται από τη χώρα προορισμού, αλλά συνήθως οι παραδόσεις εντός Ε.Ε. ολοκληρώνονται μέσα σε 2-5 εργάσιμες ημέρες.',
-    en: 'Delivery time depends on the destination country, but deliveries within the EU are usually completed within 2-5 business days.',
-    de: 'Die Lieferzeit hängt vom Bestimmungsland ab, aber Lieferungen innerhalb der EU werden in der Regel innerhalb von 2-5 Werktagen abgeschlossen.'
-  },
-  faq8Question: {
-    el: 'Πώς μπορώ να ζητήσω προσφορά;',
-    en: 'How can I request a quote?',
-    de: 'Wie kann ich ein Angebot anfordern?'
-  },
-  faq8Answer: {
-    el: 'Μπορείτε να χρησιμοποιήσετε τη φόρμα "Λεπτομέρειες Μεταφοράς" στον ιστότοπό μας ή να επικοινωνήσετε με το τμήμα πωλήσεων στο export@intracosta.com.',
-    en: 'You can use the "Transport Details" form on our website or contact our sales department at export@intracosta.com.',
-    de: 'Sie können das Formular „Transportdetails“ auf unserer Website nutzen oder sich an unsere Verkaufsabteilung unter export@intracosta.com wenden.'
-  },
-  faq9Question: {
-    el: 'Διαθέτει η εταιρεία στόλο ιδιόκτητων οχημάτων;',
-    en: 'Does the company have a fleet of owned vehicles?',
-    de: 'Verfügt das Unternehmen über eine eigene Fahrzeugflotte?'
-  },
-  faq9Answer: {
-    el: 'Διαθέτουμε πάνω από 50 ιδιόκτητα φορτηγά τελευταίας τεχνολογίας (Euro 6) για τη διασφάλιση υψηλής ποιότητας υπηρεσιών.',
-    en: 'We have over 50 state-of-the-art trucks (Euro 6) to ensure high-quality services.',
-    de: 'Wir verfügen über mehr als 50 hochmoderne Lkw (Euro 6), um einen qualitativ hochwertigen Service zu gewährleisten.'
+    el: 'Στις περισσότερες χώρες παραλαμβάνουμε και παραδίδουμε σε όλη την επικράτειά τους, με την συμβολή στενών συνεργατών μας που υπάρχουν σε κάθε χώρα εξυπηρέτησης.',
+    en: 'In most countries we pick up and deliver throughout their territory, with the contribution of our close partners who exist in each service country.',
+    de: 'In den meisten Ländern holen und liefern wir in ihrem gesamten Gebiet ab, mit dem Beitrag unserer engen Partner, die in jedem Service-Land existieren.'
   },
   faq10Question: {
     el: 'Γιατί να επιλέξω την Intracosta;',
