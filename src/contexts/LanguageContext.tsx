@@ -99,7 +99,7 @@ const translations: Translations = {
     de: 'Paletten (Anzahl)'
   },
   boxes: {
-    el: 'Κιβώτια (Αριθμός)',
+    el: 'Τεμάχια (Αριθμός)',
     en: 'Boxes (Quantity)',
     de: 'Kisten (Anzahl)'
   },
