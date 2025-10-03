@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Truck, Warehouse, ArrowRight } from 'lucide-react';
+import { Truck, Warehouse, ArrowRight, Ship, Package } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {
@@ -10,41 +10,35 @@ const Services: React.FC = () => {
   const services = [
     {
       icon: <Truck className="w-12 h-12" />,
-      title: t('services.internationalAndNationalRoadTitle'),
-      description: t('services.internationalAndNationalRoadDescription'),
+      title: t('services.roadTransportTitle'),
+      description: t('services.roadTransportSummary'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800',
-      link: '/international-transport'
+      link: '/road-transport'
     },
     {
-      icon: <ArrowRight className="w-12 h-12" />,
-      title: t('services.airTransportTitle'),
-      description: t('services.airTransportDescription'),
+      icon: <Ship className="w-12 h-12" />,
+      title: t('services.intermodalTitle'),
+      description: t('services.intermodalSummary'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800',
-      link: '/domestic-transport'
+      link: '/intermodal-transport'
     },
     {
-      icon: <Warehouse className="w-12 h-12" />,
-      title: t('services.seaTransportTitle'),
-      description: t('services.seaTransportDescription'),
-      color: 'bg-gray-700',
-      hoverColor: 'hover:bg-gray-800'
-    },
-    {
-      icon: <Truck className="w-12 h-12" />,
+      icon: <Package className="w-12 h-12" />,
       title: t('services.specialTransportTitle'),
-      description: t('services.specialTransportDescription'),
+      description: t('services.specialTransportSummary'),
       color: 'bg-gray-700',
-      hoverColor: 'hover:bg-gray-800'
+      hoverColor: 'hover:bg-gray-800',
+      link: '/special-transport'
     },
     {
       icon: <Warehouse className="w-12 h-12" />,
-      title: t('services.storageAndHandlingTitle'),
-      description: t('services.storageAndHandlingDescription'),
+      title: t('services.logisticsTitle'),
+      description: t('services.logisticsSummary'),
       color: 'bg-gray-700',
       hoverColor: 'hover:bg-gray-800',
-      link: '/warehousing'
+      link: '/logistics-services'
     }
   ];
 
@@ -58,11 +52,11 @@ const Services: React.FC = () => {
           <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`group rounded-xl ${service.color} hover:${service.hoverColor} transition-all duration-300 hover:-translate-y-2 overflow-hidden w-full max-w-xs shadow-lg hover:shadow-2xl`}
+              className={`group rounded-xl ${service.color} hover:${service.hoverColor} transition-all duration-300 hover:-translate-y-2 overflow-hidden w-full shadow-lg hover:shadow-2xl`}
               initial={{ opacity: 0, y: 20, scale: 1 }}
               whileInView={{ opacity: 1, y: 0, scale: 1.03 }}
               viewport={{ once: true, amount: 0.3 }}

@@ -840,55 +840,72 @@ const translations: Translations = {
   Cyprus: { el: 'Κύπρος', en: 'Cyprus', de: 'Zypern' },
 
   // --- New services translations ---
-  'services.internationalAndNationalRoadTitle': {
-    el: 'Διεθνείς και Εθνικές Οδικές Μεταφορές',
-    en: 'International and National Road Transport',
-    de: 'Internationale und nationale Straßentransporte'
+  // Service 1: National and International Road Transport
+  'services.roadTransportTitle': {
+    el: 'Εθνικές και Διεθνείς Οδικές Μεταφορές',
+    en: 'National and International Road Transport',
+    de: 'Nationale und internationale Straßentransporte'
   },
-  'services.internationalAndNationalRoadDescription': {
-    el: 'Μεταφορές φορτίων εντός Ελλάδας και σε όλη την Ευρώπη με πλήρη κάλυψη.',
-    en: 'Freight transport within Greece and across Europe with full coverage.',
-    de: 'Frachttransporte innerhalb Griechenlands und in ganz Europa mit vollständiger Abdeckung.'
+  'services.roadTransportSummary': {
+    el: 'Αξιόπιστες λύσεις οδικής μεταφοράς σε Ελλάδα και Ευρώπη με έμφαση στη διακίνηση εμπορευμάτων προς και από χώρες της κεντρικής Ευρώπης.',
+    en: 'Reliable road transport solutions in Greece and Europe with emphasis on freight movement to and from Central European countries.',
+    de: 'Zuverlässige Straßentransportlösungen in Griechenland und Europa mit Schwerpunkt auf Güterverkehr zu und von mitteleuropäischen Ländern.'
   },
-  'services.airTransportTitle': {
-    el: 'Αερομεταφορές',
-    en: 'Air Transport',
-    de: 'Luftfracht'
+  'services.roadTransportFull': {
+    el: 'Προσφέρουμε αξιόπιστες λύσεις οδικής μεταφοράς σε Ελλάδα και Ευρώπη, με έμφαση στη διακίνηση εμπορευμάτων προς και από χώρες της κεντρικής Ευρώπης.\n\nΔιαχειριζόμαστε πλήρη και μερικά φορτία (FTL/LTL), με δυνατότητα τακτικών δρομολογίων, σύγχρονο στόλο και διαρκή παρακολούθηση μεταφοράς.\n\nΗ έμφαση στην συνεργασία, τη συνέπεια και την ασφάλεια καθιστά τις υπηρεσίες μας ιδανικές για επιχειρήσεις που απαιτούν επαγγελματική διαχείριση εφοδιαστικής αλυσίδας.',
+    en: 'We offer reliable road transport solutions in Greece and Europe, with emphasis on freight movement to and from Central European countries.\n\nWe handle full and partial loads (FTL/LTL), with regular routes, modern fleet and continuous shipment tracking.\n\nThe emphasis on cooperation, consistency and safety makes our services ideal for businesses requiring professional supply chain management.',
+    de: 'Wir bieten zuverlässige Straßentransportlösungen in Griechenland und Europa mit Schwerpunkt auf Güterverkehr zu und von mitteleuropäischen Ländern.\n\nWir handhaben Voll- und Teilladungen (FTL/LTL) mit regelmäßigen Routen, moderner Flotte und kontinuierlicher Sendungsverfolgung.\n\nDer Schwerpunkt auf Zusammenarbeit, Konsistenz und Sicherheit macht unsere Dienstleistungen ideal für Unternehmen, die professionelles Supply-Chain-Management benötigen.'
   },
-  'services.airTransportDescription': {
-    el: 'Γρήγορες αερομεταφορές για επείγοντα φορτία και διεθνείς παραδόσεις.',
-    en: 'Fast air freight for urgent cargo and international deliveries.',
-    de: 'Schnelle Luftfracht für eilige Sendungen und internationale Lieferungen.'
+
+  // Service 2: Intermodal Transport
+  'services.intermodalTitle': {
+    el: 'Διατροπικές (Συνδυασμένες) Μεταφορές',
+    en: 'Intermodal (Combined) Transport',
+    de: 'Intermodale (kombinierte) Transporte'
   },
-  'services.seaTransportTitle': {
-    el: 'Μεταφορές μέσω Θαλάσσης',
-    en: 'Sea Transport',
-    de: 'Seefracht'
+  'services.intermodalSummary': {
+    el: 'Υποστηρίζουμε τη διασύνδεση οδικών μεταφορών με θαλάσσια και αεροπορική μεταφορά φορτίων, προσφέροντας ολοκληρωμένες λύσεις door-to-port και port-to-door.',
+    en: 'We support the connection of road transport with sea and air freight, offering complete door-to-port and port-to-door solutions.',
+    de: 'Wir unterstützen die Verbindung von Straßentransport mit See- und Luftfracht und bieten komplette Door-to-Port- und Port-to-Door-Lösungen.'
   },
-  'services.seaTransportDescription': {
-    el: 'Οικονομικές θαλάσσιες μεταφορές για μεγάλες ποσότητες φορτίου.',
-    en: 'Cost-effective sea transport for large cargo volumes.',
-    de: 'Kostengünstige Seefracht für große Frachtmengen.'
+  'services.intermodalFull': {
+    el: 'Υποστηρίζουμε τη διασύνδεση οδικών μεταφορών με θαλάσσια και αεροπορική μεταφορά φορτίων, προσφέροντας ολοκληρωμένες λύσεις door-to-port και port-to-door.\n\nΑναλαμβάνουμε τον πλήρη συντονισμό εμπορευμάτων από και προς κάθε βασικό λιμάνι ή αεροδρόμιο των χωρών που εξυπηρετούμε, με στόχο την ελαχιστοποίηση χρόνου και κόστους για τον πελάτη.\n\nΗ εμπειρία μας σε διατροπικές μεταφορές εγγυάται την ομαλή και αξιόπιστη διακίνηση, ανεξαρτήτως προορισμού.',
+    en: 'We support the connection of road transport with sea and air freight, offering complete door-to-port and port-to-door solutions.\n\nWe undertake full coordination of goods from and to every major port or airport of the countries we serve, aiming to minimize time and cost for the client.\n\nOur experience in intermodal transport guarantees smooth and reliable movement, regardless of destination.',
+    de: 'Wir unterstützen die Verbindung von Straßentransport mit See- und Luftfracht und bieten komplette Door-to-Port- und Port-to-Door-Lösungen.\n\nWir übernehmen die vollständige Koordination von Waren von und zu jedem wichtigen Hafen oder Flughafen der von uns bedienten Länder, um Zeit und Kosten für den Kunden zu minimieren.\n\nUnsere Erfahrung im intermodalen Transport garantiert eine reibungslose und zuverlässige Abwicklung, unabhängig vom Zielort.'
   },
+
+  // Service 3: Special Transport
   'services.specialTransportTitle': {
     el: 'Ειδικές Μεταφορές',
     en: 'Special Transport',
     de: 'Sondertransporte'
   },
-  'services.specialTransportDescription': {
-    el: 'Μεταφορά φορτίων υπερμεγεθών ή ειδικών απαιτήσεων.',
-    en: 'Transport of oversized or special requirement cargo.',
-    de: 'Transport von übergroßen oder besonderen Frachten.'
+  'services.specialTransportSummary': {
+    el: 'Διαθέτουμε την τεχνογνωσία και τον εξοπλισμό για τη διαχείριση απαιτητικών φορτίων: υπερμεγέθη, βαρέα, ευπαθή ή υψηλής αξίας εμπορεύματα.',
+    en: 'We have the expertise and equipment to handle demanding cargo: oversized, heavy, fragile or high-value goods.',
+    de: 'Wir verfügen über das Know-how und die Ausrüstung für anspruchsvolle Fracht: übergroße, schwere, empfindliche oder hochwertige Güter.'
   },
-  'services.storageAndHandlingTitle': {
-    el: 'Υπηρεσίες Αποθήκευσης και Φορτοεκφόρτωσης',
-    en: 'Storage and Handling Services',
-    de: 'Lager- und Umschlagdienstleistungen'
+  'services.specialTransportFull': {
+    el: 'Διαθέτουμε την τεχνογνωσία και τον εξοπλισμό για τη διαχείριση απαιτητικών φορτίων:\n– υπερμεγέθη,\n– βαρέα,\n– ευπαθή ή\n– υψηλής αξίας εμπορεύματα.\n\nΚάθε έργο σχεδιάζεται με βάση τις τεχνικές του ιδιαιτερότητες, τηρώντας όλους τους κανονισμούς και τις προδιαγραφές ασφαλείας. Προσφέρουμε εξατομικευμένες λύσεις ανά έργο και φορτίο.',
+    en: 'We have the expertise and equipment to handle demanding cargo:\n– oversized,\n– heavy,\n– fragile or\n– high-value goods.\n\nEach project is designed based on its technical specifications, complying with all regulations and safety standards. We offer customized solutions per project and cargo.',
+    de: 'Wir verfügen über das Know-how und die Ausrüstung für anspruchsvolle Fracht:\n– übergroß,\n– schwer,\n– empfindlich oder\n– hochwertig.\n\nJedes Projekt wird nach seinen technischen Spezifikationen geplant und entspricht allen Vorschriften und Sicherheitsstandards. Wir bieten maßgeschneiderte Lösungen pro Projekt und Fracht.'
   },
-  'services.storageAndHandlingDescription': {
-    el: 'Ασφαλής αποθήκευση και επαγγελματικές υπηρεσίες φορτοεκφόρτωσης.',
-    en: 'Secure warehousing and professional loading/unloading services.',
-    de: 'Sichere Lagerung und professionelle Be- und Entladungsdienste.'
+
+  // Service 4: Logistics Services
+  'services.logisticsTitle': {
+    el: 'Υπηρεσίες Logistics',
+    en: 'Logistics Services',
+    de: 'Logistikdienstleistungen'
+  },
+  'services.logisticsSummary': {
+    el: 'Προσφέρουμε ολοκληρωμένες υπηρεσίες logistics που καλύπτουν το σύνολο της διαχείρισης της εφοδιαστικής αλυσίδας από αποθήκευση έως διανομή.',
+    en: 'We offer comprehensive logistics services covering the entire supply chain management from warehousing to distribution.',
+    de: 'Wir bieten umfassende Logistikdienstleistungen, die das gesamte Supply-Chain-Management von der Lagerung bis zur Verteilung abdecken.'
+  },
+  'services.logisticsFull': {
+    el: 'Προσφέρουμε ολοκληρωμένες υπηρεσίες logistics, καλύπτοντας το σύνολο της διαχείρισης της εφοδιαστικής αλυσίδας.\n\nΟι υπηρεσίες μας περιλαμβάνουν:\n– παραλαβή και ταξινόμηση φορτίων,\n– αποθήκευση,\n– διαχείριση αποθεμάτων (inventory control),\n– picking, packing & repacking,\n– φορτοεκφορτώσεις,\n– cross-docking και\n– προετοιμασία για διανομή ή εξαγωγή.\n\nΗ ομάδα μας συνδυάζει τεχνογνωσία, σύγχρονο εξοπλισμό και λειτουργική ευελιξία για να υποστηρίξει αποδοτικά κάθε κρίκο της εφοδιαστικής αλυσίδας των συνεργατών μας.',
+    en: 'We offer comprehensive logistics services covering the entire supply chain management.\n\nOur services include:\n– cargo reception and sorting,\n– warehousing,\n– inventory control,\n– picking, packing & repacking,\n– loading/unloading,\n– cross-docking and\n– preparation for distribution or export.\n\nOur team combines expertise, modern equipment and operational flexibility to efficiently support every link in our partners\' supply chain.',
+    de: 'Wir bieten umfassende Logistikdienstleistungen, die das gesamte Supply-Chain-Management abdecken.\n\nUnsere Dienstleistungen umfassen:\n– Warenannahme und Sortierung,\n– Lagerung,\n– Bestandsverwaltung (Inventory Control),\n– Kommissionierung, Verpackung & Umverpackung,\n– Be- und Entladung,\n– Cross-Docking und\n– Vorbereitung für Verteilung oder Export.\n\nUnser Team kombiniert Fachwissen, moderne Ausrüstung und operative Flexibilität, um jedes Glied der Lieferkette unserer Partner effizient zu unterstützen.'
   },
   
   // Add missing form validation translations
