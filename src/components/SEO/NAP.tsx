@@ -14,12 +14,26 @@ const NAP: React.FC<NAPProps> = ({
 }) => {
   const napData = {
     name: 'Intracosta',
-    address: {
-      street: '3ο χλμ Γιαννιτσών Θεσσαλονίκης',
-      city: 'Γιαννιτσά',
-      postalCode: 'GR58100',
-      country: 'Ελλάδα'
-    },
+    addresses: [
+      {
+        label: 'Έδρα',
+        street: '1 χλμ Λάκκας-Σκύδρας',
+        city: 'Πέλλα',
+        country: 'Ελλάδα'
+      },
+      {
+        label: 'Υποκατάστημα',
+        street: '3,5 χλμ Γιαννιτσών-Θεσσαλονίκης',
+        city: 'Πέλλα',
+        country: 'Ελλάδα'
+      },
+      {
+        label: 'Intracosta Deutschland',
+        street: 'Am Kanal 2-4',
+        city: 'Ladbergen',
+        country: 'Germany'
+      }
+    ],
     phone: '+30 23820 27111',
     email: 'info@intracosta.com',
     emails: [
@@ -32,11 +46,12 @@ const NAP: React.FC<NAPProps> = ({
   };
 
   if (variant === 'inline') {
+    const mainAddress = napData.addresses[0];
     return (
       <span className={`inline-flex items-center gap-2 ${className}`}>
         <span itemProp="name">{napData.name}</span>
         <span className="text-gray-400">•</span>
-        <span itemProp="address">{napData.address.street}, {napData.address.city}</span>
+        <span itemProp="address">{mainAddress.street}, {mainAddress.city}</span>
         <span className="text-gray-400">•</span>
         <span itemProp="telephone">{napData.phone}</span>
       </span>
@@ -44,12 +59,13 @@ const NAP: React.FC<NAPProps> = ({
   }
 
   if (variant === 'compact') {
+    const mainAddress = napData.addresses[0];
     return (
       <div className={`space-y-1 ${className}`} itemScope itemType="https://schema.org/LocalBusiness">
         <div className="font-semibold" itemProp="name">{napData.name}</div>
         <div className="text-sm text-gray-600" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-          <span itemProp="streetAddress">{napData.address.street}</span><br />
-          <span itemProp="postalCode">{napData.address.postalCode}</span> <span itemProp="addressLocality">{napData.address.city}</span>
+          <span itemProp="streetAddress">{mainAddress.street}</span><br />
+          <span itemProp="addressLocality">{mainAddress.city}, {mainAddress.country}</span>
         </div>
         <div className="text-sm text-gray-600" itemProp="telephone">{napData.phone}</div>
       </div>
@@ -58,23 +74,25 @@ const NAP: React.FC<NAPProps> = ({
 
   return (
     <div className={`space-y-3 ${className}`} itemScope itemType="https://schema.org/LocalBusiness">
-      <h3 className="text-lg font-semibold text-gray-900" itemProp="name">
-        {napData.name}
-      </h3>
       
-      <div className="space-y-2">
-        <div className="flex items-start space-x-3" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+      <div className="space-y-3">
+        {/* Addresses */}
+        <div className="flex items-start space-x-3">
           {showIcons && <MapPin className="w-5 h-5 text-yellow-500 mt-1 flex-shrink-0" />}
-          <div className="text-gray-700">
-            <div itemProp="streetAddress">{napData.address.street}</div>
-            <div>
-              <span itemProp="postalCode">{napData.address.postalCode}</span>{' '}
-              <span itemProp="addressLocality">{napData.address.city}</span>
-            </div>
-            <div itemProp="addressCountry">{napData.address.country}</div>
+          <div className="space-y-2 text-gray-700">
+            <div className="font-semibold text-gray-900">Διεύθυνση:</div>
+            {napData.addresses.map((address, index) => (
+              <div key={index} itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="text-sm">
+                <span className="font-medium text-gray-800">- {address.label}:</span>{' '}
+                <span itemProp="streetAddress">{address.street}</span>,{' '}
+                <span itemProp="addressLocality">{address.city}</span>,{' '}
+                <span itemProp="addressCountry">{address.country}</span>
+              </div>
+            ))}
           </div>
         </div>
 
+        {/* Phone */}
         <div className="flex items-center space-x-3">
           {showIcons && <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />}
           <a 
@@ -86,6 +104,7 @@ const NAP: React.FC<NAPProps> = ({
           </a>
         </div>
 
+        {/* Emails */}
         <div className="flex items-start space-x-3">
           {showIcons && <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-1" />}
           <div className="space-y-1">
