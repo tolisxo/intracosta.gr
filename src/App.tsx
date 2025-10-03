@@ -24,6 +24,10 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import InternationalTransportPage from './pages/InternationalTransportPage';
 import DomesticTransportPage from './pages/DomesticTransportPage';
 import WarehousingPage from './pages/WarehousingPage';
+import RoadTransportPage from './pages/RoadTransportPage';
+import IntermodalTransportPage from './pages/IntermodalTransportPage';
+import SpecialTransportPage from './pages/SpecialTransportPage';
+import LogisticsServicesPage from './pages/LogisticsServicesPage';
 
 
 const AppContent: React.FC = () => {
@@ -86,6 +90,42 @@ const AppContent: React.FC = () => {
                   <>
                     <LocalSEOHead page="services" title="Warehousing - Intracosta" />
                     <WarehousingPage />
+                  </>
+                }
+              />
+              <Route
+                path="/road-transport"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="Road Transport - Intracosta" />
+                    <RoadTransportPage />
+                  </>
+                }
+              />
+              <Route
+                path="/intermodal-transport"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="Intermodal Transport - Intracosta" />
+                    <IntermodalTransportPage />
+                  </>
+                }
+              />
+              <Route
+                path="/special-transport"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="Special Transport - Intracosta" />
+                    <SpecialTransportPage />
+                  </>
+                }
+              />
+              <Route
+                path="/logistics-services"
+                element={
+                  <>
+                    <LocalSEOHead page="services" title="Logistics Services - Intracosta" />
+                    <LogisticsServicesPage />
                   </>
                 }
               />
