@@ -430,10 +430,7 @@ const translations: Translations = {
   },
   weight: { el: 'Βάρος (kg)', en: 'Weight (kg)', de: 'Gewicht (kg)' },
   desiredDate: { el: 'Επιθυμητή Ημερομηνία', en: 'Desired Date', de: 'Gewünschtes Datum' },
-  companyName: { el: 'Επωνυμία Εταιρείας', en: 'Company Name', de: 'Firmenname' },
   contactPerson: { el: 'Υπεύθυνος Επικοινωνίας', en: 'Contact Person', de: 'Ansprechpartner' },
-  email: { el: 'Email', en: 'Email', de: 'E-Mail' },
-  phone: { el: 'Τηλέφωνο', en: 'Phone', de: 'Telefon' },
   submitQuote: { el: 'Αποστολή Αιτήματος', en: 'Submit Request', de: 'Anfrage senden' },
   
   // About
@@ -540,9 +537,6 @@ const translations: Translations = {
     en: 'Business Hours',
     de: 'Öffnungszeiten'
   },
-  name: { el: 'Όνομα', en: 'Name', de: 'Name' },
-  message: { el: 'Μήνυμα', en: 'Message', de: 'Nachricht' },
-  sendMessage: { el: 'Αποστολή Μηνύματος', en: 'Send Message', de: 'Nachricht senden' },
   addressLabel: {
     el: 'Διεύθυνση',
     en: 'Address',
@@ -642,11 +636,6 @@ const translations: Translations = {
     el: 'Οχήματα προδιαγραφών Euro 6',
     en: 'Euro 6 compliant vehicles',
     de: 'Fahrzeuge gemäß Euro 6 Norm'
-  },
-  contactFormTitle: {
-    el: 'Στείλτε μας ένα Μήνυμα',
-    en: 'Send us a Message',
-    de: 'Senden Sie uns eine Nachricht'
   },
   sendUsMessage: {
     el: 'Στείλτε μας ένα Μήνυμα',
@@ -788,46 +777,10 @@ const translations: Translations = {
   },
   missionText: {
     el: 'Η αποστολή μας είναι να διασφαλίζουμε την αδιάκοπη λειτουργία της εφοδιαστικής αλυσίδας των πελατών μας, με απόλυτη συνέπεια, ασφάλεια και διαφάνεια στο κόστος. Από μια παλέτα έως ένα πλήρες φορτίο, οργανώνουμε τη βέλτιστη διαδρομή, αξιοποιούμε το διεθνές μας δίκτυο και παραδίδουμε στην ώρα μας, ώστε οι συνεργάτες μας να επικεντρώνονται στην ανάπτυξη της επιχείρησής τους.',
-    en: 'Our mission is to ensure the uninterrupted operation of our clients' supply chain, with absolute consistency, safety and cost transparency. From a single pallet to a full load, we organize the optimal route, leverage our international network and deliver on time, so our partners can focus on growing their business.',
+    en: 'Our mission is to ensure the uninterrupted operation of our clients\' supply chain, with absolute consistency, safety and cost transparency. From a single pallet to a full load, we organize the optimal route, leverage our international network and deliver on time, so our partners can focus on growing their business.',
     de: 'Unsere Mission ist es, den reibungslosen Betrieb der Lieferkette unserer Kunden mit absoluter Konsistenz, Sicherheit und Kostentransparenz zu gewährleisten. Von einer Palette bis zu einer Komplettladung organisieren wir die optimale Route, nutzen unser internationales Netzwerk und liefern pünktlich, damit sich unsere Partner auf das Wachstum ihres Unternehmens konzentrieren können.'
   },
 
-  // Added supported countries for dropdown
-  supportedCountries: {
-    el: [
-      'Γερμανία',
-      'Αυστρία',
-      'Ολλανδία',
-      'Βέλγιο',
-      'Πολωνία',
-      'Λουξεμβούργο',
-      'Δανία',
-      'Ελλάδα',
-      'Κύπρος'
-    ],
-    en: [
-      'Germany',
-      'Austria',
-      'Netherlands',
-      'Belgium',
-      'Poland',
-      'Luxembourg',
-      'Denmark',
-      'Greece',
-      'Cyprus'
-    ],
-    de: [
-      'Deutschland',
-      'Österreich',
-      'Niederlande',
-      'Belgien',
-      'Polen',
-      'Luxemburg',
-      'Dänemark',
-      'Griechenland',
-      'Zypern'
-    ]
-  },
   // Add translations for each country for t(country) dynamic translation
   Germany: { el: 'Γερμανία', en: 'Germany', de: 'Deutschland' },
   Austria: { el: 'Αυστρία', en: 'Austria', de: 'Österreich' },
