@@ -114,19 +114,50 @@ const About: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="mt-12 p-6 bg-gray-50 rounded-xl shadow hover:shadow-md transition grid grid-cols-1 sm:grid-cols-[80px_1fr] gap-4"
+          className="mt-16 relative"
         >
-          <div className="flex-shrink-0">
-            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-gray-100 shadow-inner">
-              <Target className="w-10 h-10 text-yellow-500" />
-            </div>
-          </div>
-          <div>
-            <div className="flex items-center mb-4">
-              <Target className="w-8 h-8 text-yellow-500 mr-3" />
-              <h3 className="text-3xl font-extrabold text-gray-900">{t('missionTitle')}</h3>
-            </div>
-            <p className="text-gray-700 text-lg leading-relaxed">{t('missionText')}</p>
+          {/* Background Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-orange-500/5 to-yellow-500/5 rounded-2xl"></div>
+          
+          {/* Content Container */}
+          <div className="relative p-8 md:p-12 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-yellow-100 hover:shadow-2xl transition-all duration-300">
+            {/* Top Icon Badge */}
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-full mb-6"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Target className="w-5 h-5 text-yellow-600" />
+              <span className="text-sm font-semibold text-yellow-700">{t('missionTitle')}</span>
+            </motion.div>
+
+            {/* Mission Text */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="space-y-4"
+            >
+              <p className="text-gray-800 text-xl md:text-2xl leading-relaxed font-medium">
+                {t('missionText')}
+              </p>
+            </motion.div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-yellow-400/10 to-orange-400/10 rounded-full blur-3xl -z-10"></div>
+            
+            {/* Bottom Accent Line */}
+            <motion.div 
+              className="mt-8 h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 rounded-full"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            ></motion.div>
           </div>
         </motion.div>
       </div>
