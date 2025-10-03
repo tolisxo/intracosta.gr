@@ -2,6 +2,19 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Send, MapPin, Package, Calendar, User, Mail, Phone, Building, ChevronDown, ChevronUp } from 'lucide-react';
 
+// Supported countries list
+const SUPPORTED_COUNTRIES = [
+  'Germany',
+  'Austria',
+  'Netherlands',
+  'Belgium',
+  'Poland',
+  'Luxembourg',
+  'Denmark',
+  'Greece',
+  'Cyprus'
+];
+
 const QuoteForm: React.FC = () => {
   const { t } = useLanguage();
   
@@ -155,7 +168,7 @@ const QuoteForm: React.FC = () => {
                   required
                 >
                   <option value="">{t('pickupCountry')}</option>
-                  {t('supportedCountries').map((country: string) => (
+                  {SUPPORTED_COUNTRIES.map((country) => (
                     <option key={country} value={country}>
                       {t(country)}
                     </option>
@@ -204,7 +217,7 @@ const QuoteForm: React.FC = () => {
                   required
                 >
                   <option value="">{t('deliveryCountry')}</option>
-                  {t('supportedCountries').map((country: string) => (
+                  {SUPPORTED_COUNTRIES.map((country) => (
                     <option key={country} value={country}>
                       {t(country)}
                     </option>
