@@ -65,7 +65,7 @@ const IntermodalTransportPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="prose prose-lg max-w-none"
             >
-              {t('services.intermodalFull').split('\n\n').map((paragraph, index) => (
+              {(t('services.intermodalFull') || '').split('\n\n').map((paragraph, index) => (
                 <p key={index} className="text-gray-700 text-lg leading-relaxed mb-6">
                   {paragraph}
                 </p>
