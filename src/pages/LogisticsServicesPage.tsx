@@ -98,7 +98,7 @@ const LogisticsServicesPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="prose prose-lg max-w-none"
             >
-              {t('services.logisticsFull').split('\n\n').map((paragraph, index) => (
+              {(t('services.logisticsFull') || '').split('\n\n').map((paragraph, index) => (
                 <div key={index} className="mb-6">
                   {paragraph.split('\n').map((line, lineIndex) => (
                     <p key={lineIndex} className="text-gray-700 text-lg leading-relaxed mb-2">
