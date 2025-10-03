@@ -243,8 +243,8 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           variants={fadeInUp}
         >
           <motion.div
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05, borderColor: "rgba(0, 0, 0, 0.2)" }}
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 backdrop-blur-sm mb-6"
+            whileHover={{ scale: 1.05, borderColor: "rgba(251, 191, 36, 0.5)" }}
           >
             <motion.div
               animate={{ rotate: 360 }}
@@ -252,7 +252,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             >
               <Sparkles className="h-4 w-4 text-yellow-500" />
             </motion.div>
-            <span className="text-sm font-medium text-gray-600">
+            <span className="text-sm font-medium text-yellow-700">
               ✨ Επικοινωνήστε μαζί μας
             </span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -438,7 +438,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative group overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
+                    className="w-full relative group overflow-hidden bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

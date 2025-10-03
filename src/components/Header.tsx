@@ -10,6 +10,8 @@ const Header: React.FC = () => {
   const [isCoverageOpen, setIsCoverageOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   const languages = [
     { code: 'el' as const, name: 'ΕΛ', flag: '🇬🇷', fullName: 'Ελληνικά' },
@@ -70,7 +72,25 @@ const Header: React.FC = () => {
   // Track scroll position and active section
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollPos = window.scrollY;
+      
+      setIsScrolled(currentScrollPos > 20);
+      
+      // Compact mode: scroll down = compact, scroll up = normal
+      if (currentScrollPos > 100) {
+        if (currentScrollPos > prevScrollPos) {
+          // Scrolling down
+          setIsCompact(true);
+        } else {
+          // Scrolling up
+          setIsCompact(false);
+        }
+      } else {
+        // Near top, always normal size
+        setIsCompact(false);
+      }
+      
+      setPrevScrollPos(currentScrollPos);
       
       // Update active section based on scroll position
       const sections = menuItems.map(item => item.key);
@@ -90,7 +110,7 @@ const Header: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [prevScrollPos]);
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -147,7 +167,9 @@ const Header: React.FC = () => {
             : 'bg-white/90 backdrop-blur-sm'
         }`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4 lg:py-6">
+            <div className={`flex justify-between items-center transition-all duration-300 ${
+              isCompact ? 'py-2 lg:py-3' : 'py-4 lg:py-6'
+            }`}>
             {/* Logo */}
               <div className="flex items-center justify-start mr-8 lg:mr-12">
               <a
@@ -163,7 +185,9 @@ const Header: React.FC = () => {
                   <img
                     src="/intracosta001.png"
                     alt="Intracosta Logo"
-                    className="h-20 lg:h-28 w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl"
+                    className={`w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl ${
+                      isCompact ? 'h-12 lg:h-16' : 'h-16 lg:h-24'
+                    }`}
                     itemProp="logo"
                   />
                   <meta itemProp="name" content="Intracosta" />
@@ -287,7 +311,7 @@ const Header: React.FC = () => {
                       {item.icon && <item.icon className="w-4 h-4" />}
                       <span className="relative z-10">{t(item.key)}</span>
                       {isActive(item.key) && (
-                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full shadow-lg"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
                       )}
                     </a>
                   )}
@@ -432,7 +456,9 @@ const Header: React.FC = () => {
       </header>
 
       {/* Spacer for fixed header */}
-      <div className="h-20 lg:h-24"></div>
+      <div className={`transition-all duration-300 ${
+        isCompact ? 'h-16 lg:h-24' : 'h-24 lg:h-44'
+      }`}></div>
     </>
   );
 };
