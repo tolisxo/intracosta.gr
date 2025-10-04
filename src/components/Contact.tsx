@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import LocalSEOHead from './SEO/LocalSEOHead';
 import LocalBusinessSchema from './SEO/LocalBusinessSchema';
+import CitationConsistency from './SEO/CitationConsistency';
 import { PremiumContact } from './ui/premium-contact';
 
 const Contact: React.FC = () => {
@@ -35,6 +36,7 @@ const Contact: React.FC = () => {
     <div id="contact">
       <LocalSEOHead page="contact" />
       <LocalBusinessSchema page="contact" />
+      <CitationConsistency />
       <PremiumContact 
         onSubmit={handleFormSubmit}
         contactInfo={{

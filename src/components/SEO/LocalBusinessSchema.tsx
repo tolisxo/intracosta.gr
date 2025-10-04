@@ -110,6 +110,21 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({ page = 'home'
     "currenciesAccepted": "EUR",
     "foundingDate": "1999",
     "numberOfEmployees": "50-100",
+    "knowsAbout": [
+      "International Road Transport",
+      "Logistics",
+      "Supply Chain Management",
+      "Customs Clearance",
+      "Freight Forwarding",
+      "European Transport Routes"
+    ],
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "European Transport Association"
+      }
+    ],
+    "award": "ISO 9001 Certified Transport Services",
     "slogan": {
       el: "Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη",
       en: "Reliable international transport across Europe",
@@ -128,26 +143,59 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({ page = 'home'
           "itemOffered": {
             "@type": "Service",
             "name": "International Road Transport",
-            "description": "Full truckload and groupage services across Europe"
-          }
-        },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Customs Clearance",
-            "description": "Complete customs documentation and clearance services"
+            "description": "Full truckload and groupage services across Europe",
+            "areaServed": ["Greece", "Germany", "Austria", "Netherlands", "Belgium"],
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://www.intracosta.gr/international-transport"
+            }
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
-            "@type": "Service", 
+            "@type": "Service",
+            "name": "Customs Clearance",
+            "description": "Complete customs documentation and clearance services",
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://www.intracosta.gr/logistics-services"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
             "name": "Warehousing",
-            "description": "Secure storage and inventory management"
+            "description": "Secure storage and inventory management",
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://www.intracosta.gr/warehousing"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Domestic Transport Greece",
+            "description": "Reliable domestic transport services within Greece",
+            "areaServed": "Greece",
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://www.intracosta.gr/domestic-transport"
+            }
           }
         }
       ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 

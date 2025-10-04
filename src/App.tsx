@@ -4,6 +4,8 @@ import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import LocalBusinessSchema from './components/SEO/LocalBusinessSchema';
 import LocalSEOHead from './components/SEO/LocalSEOHead';
 import GoogleBusinessIntegration from './components/SEO/GoogleBusinessIntegration';
+import ReviewSchema from './components/SEO/ReviewSchema';
+import SitemapGenerator from './components/SEO/SitemapGenerator';
 import NavigationIndicator from './components/NavigationIndicator';
 import MobileBottomNav from './components/MobileBottomNav';
 import SmoothScroll from './components/ui/smooth-scroll';
@@ -37,10 +39,12 @@ const AppContent: React.FC = () => {
     <>
       <Helmet>
         <html lang={language} />
-        <link rel="alternate" hreflang="el" href="https://example.gr/el" />
-        <link rel="alternate" hreflang="de" href="https://example.gr/de" />
+        <link rel="alternate" hreflang="el" href="https://www.intracosta.gr/el" />
+        <link rel="alternate" hreflang="de" href="https://www.intracosta.gr/de" />
       </Helmet>
       <GoogleBusinessIntegration />
+      <ReviewSchema />
+      <SitemapGenerator />
       <Router>
         <div className="min-h-screen">
           <Header />
