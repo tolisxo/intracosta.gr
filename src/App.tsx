@@ -15,7 +15,7 @@ import Hero from './components/Hero';
 import TrustSection from './components/TrustSection';
 import Services from './components/Services';
 import Coverage from './components/Coverage';
-import QuoteForm from './components/QuoteForm';
+import QuoteForm from './components/QuoteFormEnhanced';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
