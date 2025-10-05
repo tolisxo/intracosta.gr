@@ -1,6 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Send, MapPin, Package, Calendar, User, Mail, Phone, Building, ChevronDown, ChevronUp } from 'lucide-react';
+import { Send, MapPin, Package, Calendar, User, Mail, Phone, Building, ChevronDown, ChevronUp, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import {
+  validateEmail,
+  validatePhone,
+  validatePostalCode,
+  validateDate,
+  validateWeight,
+  validateDimension,
+  formatPhoneNumber,
+  ValidationResult
+} from '../utils/formValidation';
+import { saveQuoteToDatabase, QuoteFormData } from '../utils/supabaseClient';
 
 // Supported countries list
 const SUPPORTED_COUNTRIES = [
@@ -15,9 +26,15 @@ const SUPPORTED_COUNTRIES = [
   'Cyprus'
 ];
 
+const FORM_STORAGE_KEY = 'intracosta_quote_form_draft';
+
+interface FieldValidation {
+  [key: string]: ValidationResult;
+}
+
 const QuoteForm: React.FC = () => {
   const { t } = useLanguage();
-  
+
   const [formData, setFormData] = useState({
     pickupCountry: '',
     pickupCity: '',
@@ -38,13 +55,34 @@ const QuoteForm: React.FC = () => {
     companyName: '',
     contactPerson: '',
     email: '',
+    emailConfirm: '',
     phone: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // Controls whether cargo detail fields are visible
   const [showCargoDetails, setShowCargoDetails] = useState(false);
+  const [fieldValidation, setFieldValidation] = useState<FieldValidation>({});
+  const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem(FORM_STORAGE_KEY);
+    if (savedData) {
+      try {
+        const parsed = JSON.parse(savedData);
+        setFormData(parsed);
+      } catch (err) {
+        console.error('Failed to load saved form data:', err);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (Object.values(formData).some(val => val !== '')) {
+      localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(formData));
+    }
+  }, [formData]);
 
   const sanitizeInput = (val: string) => val.replace(/<[^>]*>?/gm, '');
   const getCsrfToken = () => {
@@ -52,19 +90,132 @@ const QuoteForm: React.FC = () => {
     return match ? match[1] : '';
   };
 
+  const validateField = useCallback((name: string, value: string): ValidationResult => {
+    switch (name) {
+      case 'email':
+        return validateEmail(value);
+      case 'emailConfirm':
+        if (value !== formData.email) {
+          return { isValid: false, message: 'Emails do not match' };
+        }
+        return { isValid: true };
+      case 'phone':
+        return validatePhone(value, formData.pickupCountry || formData.deliveryCountry);
+      case 'pickupPostalCode':
+        return validatePostalCode(value, formData.pickupCountry);
+      case 'deliveryPostalCode':
+        return validatePostalCode(value, formData.deliveryCountry);
+      case 'loadingDate':
+        return validateDate(value);
+      case 'weight':
+        return validateWeight(value);
+      case 'length':
+        return validateDimension(value, 'Length');
+      case 'width':
+        return validateDimension(value, 'Width');
+      case 'height':
+        return validateDimension(value, 'Height');
+      default:
+        if (value.trim() === '') {
+          return { isValid: false, message: 'This field is required' };
+        }
+        return { isValid: true };
+    }
+  }, [formData.email, formData.pickupCountry, formData.deliveryCountry]);
+
+  const markFieldTouched = (fieldName: string) => {
+    setTouchedFields(prev => new Set(prev).add(fieldName));
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    let sanitizedValue = sanitizeInput(value);
+
+    if (name === 'phone') {
+      sanitizedValue = formatPhoneNumber(sanitizedValue, formData.pickupCountry || formData.deliveryCountry);
+    }
+
     setFormData(prev => ({
       ...prev,
-      [name]: sanitizeInput(value)
+      [name]: sanitizedValue
+    }));
+
+    if (touchedFields.has(name)) {
+      const validation = validateField(name, sanitizedValue);
+      setFieldValidation(prev => ({
+        ...prev,
+        [name]: validation
+      }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    markFieldTouched(name);
+    const validation = validateField(name, value);
+    setFieldValidation(prev => ({
+      ...prev,
+      [name]: validation
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmissionError(null);
+
+    const allFields = Object.keys(formData);
+    allFields.forEach(field => markFieldTouched(field));
+
+    const validations: FieldValidation = {};
+    let hasErrors = false;
+
+    allFields.forEach(field => {
+      const validation = validateField(field, formData[field as keyof typeof formData]);
+      validations[field] = validation;
+      if (!validation.isValid) {
+        hasErrors = true;
+      }
+    });
+
+    setFieldValidation(validations);
+
+    if (hasErrors) {
+      setIsSubmitting(false);
+      setSubmissionError('Please correct the errors before submitting');
+      return;
+    }
 
     try {
+      const quoteData: QuoteFormData = {
+        pickupCountry: formData.pickupCountry,
+        pickupCity: formData.pickupCity,
+        pickupPostalCode: formData.pickupPostalCode,
+        pickupCompany: formData.pickupCompany || undefined,
+        deliveryCountry: formData.deliveryCountry,
+        deliveryCity: formData.deliveryCity,
+        deliveryPostalCode: formData.deliveryPostalCode,
+        deliveryCompany: formData.deliveryCompany || undefined,
+        loadingDate: formData.loadingDate,
+        cargoType: formData.cargoType,
+        pallets: formData.pallets ? parseInt(formData.pallets) : undefined,
+        boxes: formData.boxes ? parseInt(formData.boxes) : undefined,
+        length: formData.length ? parseFloat(formData.length) : undefined,
+        width: formData.width ? parseFloat(formData.width) : undefined,
+        height: formData.height ? parseFloat(formData.height) : undefined,
+        weight: parseFloat(formData.weight),
+        companyName: formData.companyName,
+        contactPerson: formData.contactPerson,
+        email: formData.email,
+        phone: formData.phone,
+      };
+
+      const dbResult = await saveQuoteToDatabase(quoteData);
+
+      if (!dbResult.success) {
+        console.error('Database save failed:', dbResult.error);
+      }
+
       await fetch('/api/quote', {
         method: 'POST',
         headers: {
@@ -73,53 +224,107 @@ const QuoteForm: React.FC = () => {
         },
         body: JSON.stringify(formData),
       });
+
+      localStorage.removeItem(FORM_STORAGE_KEY);
+      setIsSubmitted(true);
     } catch (err) {
       console.error(err);
+      setSubmissionError('Failed to submit quote. Please try again.');
+      setIsSubmitting(false);
+      return;
     }
 
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        pickupCountry: '',
-        pickupCity: '',
-        pickupPostalCode: '',
-        pickupCompany: '',
-        deliveryCountry: '',
-        deliveryCity: '',
-        deliveryPostalCode: '',
-        deliveryCompany: '',
-        loadingDate: '',
-        cargoType: '',
-        pallets: '',
-        boxes: '',
-        length: '',
-        width: '',
-        height: '',
-        weight: '',
-        companyName: '',
-        contactPerson: '',
-        email: '',
-        phone: ''
-      });
-    }, 3000);
   };
+
+  const resetForm = () => {
+    setIsSubmitted(false);
+    setFormData({
+      pickupCountry: '',
+      pickupCity: '',
+      pickupPostalCode: '',
+      pickupCompany: '',
+      deliveryCountry: '',
+      deliveryCity: '',
+      deliveryPostalCode: '',
+      deliveryCompany: '',
+      loadingDate: '',
+      cargoType: '',
+      pallets: '',
+      boxes: '',
+      length: '',
+      width: '',
+      height: '',
+      weight: '',
+      companyName: '',
+      contactPerson: '',
+      email: '',
+      emailConfirm: '',
+      phone: ''
+    });
+    setFieldValidation({});
+    setTouchedFields(new Set());
+    localStorage.removeItem(FORM_STORAGE_KEY);
+  };
+
+  const getFieldStatus = (fieldName: string) => {
+    if (!touchedFields.has(fieldName)) return null;
+    const validation = fieldValidation[fieldName];
+    if (!validation) return null;
+    return validation.isValid ? 'valid' : 'invalid';
+  };
+
+  const renderFieldIcon = (fieldName: string) => {
+    const status = getFieldStatus(fieldName);
+    if (status === 'valid') {
+      return <CheckCircle2 className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-500" />;
+    }
+    if (status === 'invalid') {
+      return <AlertCircle className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-red-500" />;
+    }
+    return null;
+  };
+
+  const getFieldClassName = (fieldName: string, baseClassName: string) => {
+    const status = getFieldStatus(fieldName);
+    if (status === 'valid') {
+      return `${baseClassName} border-green-500 focus:ring-green-500`;
+    }
+    if (status === 'invalid') {
+      return `${baseClassName} border-red-500 focus:ring-red-500`;
+    }
+    return baseClassName;
+  };
+
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  };
+
+  const completedFields = Object.entries(formData).filter(([key, value]) => {
+    if (key === 'emailConfirm') return true;
+    return value !== '';
+  }).length;
+  const totalFields = Object.keys(formData).length - 1;
 
   if (isSubmitted) {
     return (
       <section id="quote" className="py-20 bg-gradient-to-br from-gray-700 to-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-xl shadow-2xl p-12">
-            <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Send className="w-10 h-10 text-white" />
+            <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+              <CheckCircle2 className="w-10 h-10 text-white" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
-            <p className="text-xl text-gray-600">
-              Your quote request has been sent successfully. We'll get back to you within 24 hours.
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('thankYou') || 'Thank You!'}</h2>
+            <p className="text-xl text-gray-600 mb-8">
+              {t('quoteSuccessMessage') || "Your quote request has been sent successfully. We'll get back to you within 24 hours."}
             </p>
+            <button
+              onClick={resetForm}
+              className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
+              {t('submitAnotherQuote') || 'Submit Another Quote'}
+            </button>
           </div>
         </div>
       </section>
@@ -137,19 +342,32 @@ const QuoteForm: React.FC = () => {
             {t('quoteFormSubtitle')}
           </p>
         </div>
-        {/* Progress Bar */}
-        <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
-          <div
-            className="bg-yellow-500 h-2 rounded-full transition-all duration-300"
-            style={{
-              width: `${Math.floor(
-                Object.values(formData).filter(val => val !== '').length /
-                  Object.keys(formData).length *
-                  100
-              )}%`,
-            }}
-          />
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-medium text-white">
+              {t('formProgress') || 'Form Progress'}
+            </span>
+            <span className="text-sm font-medium text-white">
+              {completedFields} / {totalFields} {t('fieldsCompleted') || 'fields'}
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-3 shadow-inner">
+            <div
+              className="bg-gradient-to-r from-yellow-400 to-yellow-500 h-3 rounded-full transition-all duration-500 ease-out"
+              style={{
+                width: `${Math.floor((completedFields / totalFields) * 100)}%`,
+              }}
+            />
+          </div>
         </div>
+        {submissionError && (
+          <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r">
+            <div className="flex items-center">
+              <AlertCircle className="w-5 h-5 text-red-500 mr-3" />
+              <p className="text-red-700 font-medium">{submissionError}</p>
+            </div>
+          </div>
+        )}
         <form onSubmit={handleSubmit}>
           <div className="rounded-2xl shadow-xl bg-gradient-to-br from-white via-gray-50 to-gray-100 p-10 lg:p-12 transition-all duration-300 overflow-visible">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -160,20 +378,34 @@ const QuoteForm: React.FC = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {t('pickupPlace')}
                 </label>
-                <select
-                  name="pickupCountry"
-                  value={formData.pickupCountry}
-                  onChange={handleInputChange}
-                  className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  required
-                >
-                  <option value="">{t('pickupCountry')}</option>
-                  {SUPPORTED_COUNTRIES.map((country) => (
-                    <option key={country} value={country}>
-                      {t(country)}
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    name="pickupCountry"
+                    value={formData.pickupCountry}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    className={getFieldClassName('pickupCountry', 'w-full pl-4 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px]')}
+                    required
+                    aria-label={t('pickupPlace')}
+                    aria-required="true"
+                    aria-invalid={getFieldStatus('pickupCountry') === 'invalid'}
+                    aria-describedby="pickupCountry-error"
+                    autoComplete="country"
+                  >
+                    <option value="">{t('pickupCountry')}</option>
+                    {SUPPORTED_COUNTRIES.map((country) => (
+                      <option key={country} value={country}>
+                        {t(country)}
+                      </option>
+                    ))}
+                  </select>
+                  {renderFieldIcon('pickupCountry')}
+                </div>
+                {touchedFields.has('pickupCountry') && fieldValidation.pickupCountry && !fieldValidation.pickupCountry.isValid && (
+                  <p id="pickupCountry-error" className="text-red-500 text-sm mt-1" role="alert">
+                    {fieldValidation.pickupCountry.message}
+                  </p>
+                )}
                 {formData.pickupCountry && (
                   <>
                     <input

@@ -432,7 +432,29 @@ const translations: Translations = {
   desiredDate: { el: 'Επιθυμητή Ημερομηνία', en: 'Desired Date', de: 'Gewünschtes Datum' },
   contactPerson: { el: 'Υπεύθυνος Επικοινωνίας', en: 'Contact Person', de: 'Ansprechpartner' },
   submitQuote: { el: 'Αποστολή Αιτήματος', en: 'Submit Request', de: 'Anfrage senden' },
-  
+  emailConfirm: { el: 'Επιβεβαίωση Email', en: 'Confirm Email', de: 'E-Mail bestätigen' },
+  phone: { el: 'Τηλέφωνο', en: 'Phone', de: 'Telefon' },
+  formProgress: { el: 'Πρόοδος Φόρμας', en: 'Form Progress', de: 'Formularfortschritt' },
+  fieldsCompleted: { el: 'πεδία', en: 'fields', de: 'Felder' },
+  thankYou: { el: 'Ευχαριστούμε!', en: 'Thank You!', de: 'Vielen Dank!' },
+  quoteSuccessMessage: {
+    el: 'Το αίτημα προσφοράς σας στάλθηκε επιτυχώς. Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.',
+    en: "Your quote request has been sent successfully. We'll get back to you within 24 hours.",
+    de: 'Ihre Angebotsanfrage wurde erfolgreich gesendet. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.'
+  },
+  submitAnotherQuote: { el: 'Υποβολή Νέου Αιτήματος', en: 'Submit Another Quote', de: 'Weiteres Angebot einreichen' },
+  formValidationError: {
+    el: 'Παρακαλώ διορθώστε τα σφάλματα πριν την υποβολή',
+    en: 'Please correct the errors before submitting',
+    de: 'Bitte korrigieren Sie die Fehler vor dem Absenden'
+  },
+  submissionError: {
+    el: 'Αποτυχία υποβολής. Παρακαλώ δοκιμάστε ξανά.',
+    en: 'Failed to submit. Please try again.',
+    de: 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.'
+  },
+  submitting: { el: 'Αποστολή...', en: 'Submitting...', de: 'Wird gesendet...' },
+
   // About
   aboutTitle: { el: 'Σχετικά με εμάς', en: 'About Us', de: 'Über uns' },
   aboutText: { 
