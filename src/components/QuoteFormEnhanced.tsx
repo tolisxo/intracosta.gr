@@ -46,8 +46,8 @@ const QuoteFormEnhanced: React.FC = () => {
     loadingDate: '',
     cargoType: '',
     cargoTypeOther: '',
-    pallets: '',
-    boxes: '',
+    packageType: '',
+    quantity: '',
     length: '',
     width: '',
     height: '',
@@ -205,8 +205,8 @@ const QuoteFormEnhanced: React.FC = () => {
         loadingDate: formData.loadingDate,
         cargoType: formData.cargoType,
         cargoTypeOther: formData.cargoType === 'other' ? formData.cargoTypeOther : undefined,
-        pallets: formData.pallets ? parseInt(formData.pallets) : undefined,
-        boxes: formData.boxes ? parseInt(formData.boxes) : undefined,
+        packageType: formData.packageType || undefined,
+        quantity: formData.quantity ? parseInt(formData.quantity) : undefined,
         length: formData.length ? parseFloat(formData.length) : undefined,
         width: formData.width ? parseFloat(formData.width) : undefined,
         height: formData.height ? parseFloat(formData.height) : undefined,
@@ -259,8 +259,8 @@ const QuoteFormEnhanced: React.FC = () => {
       loadingDate: '',
       cargoType: '',
       cargoTypeOther: '',
-      pallets: '',
-      boxes: '',
+      packageType: '',
+      quantity: '',
       length: '',
       width: '',
       height: '',
@@ -311,11 +311,12 @@ const QuoteFormEnhanced: React.FC = () => {
   };
 
   const completedFields = Object.entries(formData).filter(([key, value]) => {
-    if (key === 'emailConfirm' || key === 'pickupCompany' || key === 'deliveryCompany' || key === 'pallets' || key === 'boxes') return true;
+    if (key === 'emailConfirm' || key === 'pickupCompany' || key === 'deliveryCompany') return true;
     if (key === 'cargoTypeOther' && formData.cargoType !== 'other') return true;
+    if ((key === 'packageType' || key === 'quantity' || key === 'length' || key === 'width' || key === 'height') && !showCargoDetails) return true;
     return value !== '';
   }).length;
-  const totalFields = Object.keys(formData).length - 6;
+  const totalFields = Object.keys(formData).length - 8;
 
   if (isSubmitted) {
     return (
@@ -665,6 +666,7 @@ const QuoteFormEnhanced: React.FC = () => {
                           <option value="controlled">{t('cargoTypeControlled')}</option>
                           <option value="adr">{t('cargoTypeAdr')}</option>
                           <option value="special">{t('cargoTypeSpecial')}</option>
+                          <option value="ldm">{t('cargoTypeLdm') || 'LDM'}</option>
                           <option value="other">{t('cargoTypeOther') || 'Άλλο'}</option>
                         </select>
                         <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -737,91 +739,122 @@ const QuoteFormEnhanced: React.FC = () => {
                         {showCargoDetails && (
                           <div className="space-y-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                             <div>
-                              <label htmlFor="pallets" className="block text-sm font-semibold text-gray-700 mb-2">
-                                {t('pallets')}
+                              <label htmlFor="packageType" className="block text-sm font-semibold text-gray-700 mb-2">
+                                {t('packageType') || 'Τύπος Συσκευασίας'}
                               </label>
-                              <input
-                                type="number"
-                                id="pallets"
-                                name="pallets"
-                                value={formData.pallets}
-                                onChange={handleInputChange}
-                                placeholder={t('palletsPlaceholder')}
-                                min="0"
-                                className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base"
-                                aria-label={t('pallets')}
-                              />
-                            </div>
-
-                            <div>
-                              <label htmlFor="boxes" className="block text-sm font-semibold text-gray-700 mb-2">
-                                {t('boxes')}
-                              </label>
-                              <input
-                                type="number"
-                                id="boxes"
-                                name="boxes"
-                                value={formData.boxes}
-                                onChange={handleInputChange}
-                                placeholder={t('boxesPlaceholder')}
-                                min="0"
-                                className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base"
-                                aria-label={t('boxes')}
-                              />
-                            </div>
-
-                            <div>
-                              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                {t('dimensions')} (m)
-                              </label>
-                              <div className="grid grid-cols-3 gap-2">
-                                <div className="relative">
-                                  <input
-                                    type="number"
-                                    step="0.1"
-                                    min="0.1"
-                                    id="length"
-                                    name="length"
-                                    value={formData.length}
-                                    onChange={handleInputChange}
-                                    onBlur={handleBlur}
-                                    placeholder={t('lengthPlaceholder') || 'L'}
-                                    className={getFieldClassName('length', 'w-full pl-3 pr-2 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
-                                    aria-label="Length in meters"
-                                  />
-                                </div>
-                                <div className="relative">
-                                  <input
-                                    type="number"
-                                    step="0.1"
-                                    min="0.1"
-                                    id="width"
-                                    name="width"
-                                    value={formData.width}
-                                    onChange={handleInputChange}
-                                    onBlur={handleBlur}
-                                    placeholder={t('widthPlaceholder') || 'W'}
-                                    className={getFieldClassName('width', 'w-full pl-3 pr-2 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
-                                    aria-label="Width in meters"
-                                  />
-                                </div>
-                                <div className="relative">
-                                  <input
-                                    type="number"
-                                    step="0.1"
-                                    min="0.1"
-                                    id="height"
-                                    name="height"
-                                    value={formData.height}
-                                    onChange={handleInputChange}
-                                    onBlur={handleBlur}
-                                    placeholder={t('heightPlaceholder') || 'H'}
-                                    className={getFieldClassName('height', 'w-full pl-3 pr-2 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
-                                    aria-label="Height in meters"
-                                  />
+                              <div className="relative">
+                                <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none z-10" />
+                                <select
+                                  id="packageType"
+                                  name="packageType"
+                                  value={formData.packageType}
+                                  onChange={handleInputChange}
+                                  onBlur={handleBlur}
+                                  className={getFieldClassName('packageType', 'w-full pl-12 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
+                                  aria-label={t('packageType') || 'Package Type'}
+                                >
+                                  <option value="">{t('selectPackageType') || 'Επιλέξτε τύπο συσκευασίας'}</option>
+                                  <option value="pallets">{t('pallets') || 'Παλέτες'}</option>
+                                  <option value="boxes">{t('boxes') || 'Τεμάχια/Κιβώτια'}</option>
+                                  <option value="bulk">{t('bulk') || 'Χύδην'}</option>
+                                  <option value="container">{t('container') || 'Κοντέινερ'}</option>
+                                  <option value="other">{t('otherPackage') || 'Άλλο'}</option>
+                                </select>
+                                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                                  {renderFieldIcon('packageType')}
                                 </div>
                               </div>
+                              {touchedFields.has('packageType') && fieldValidation.packageType && !fieldValidation.packageType.isValid && (
+                                <p className="text-red-600 text-sm mt-1 flex items-center" role="alert">
+                                  <AlertCircle className="w-4 h-4 mr-1" />
+                                  {fieldValidation.packageType.message}
+                                </p>
+                              )}
                             </div>
+
+                            {formData.packageType && (
+                              <div className="space-y-4 animate-fade-in">
+                                <div>
+                                  <label htmlFor="quantity" className="block text-sm font-semibold text-gray-700 mb-2">
+                                    {t('quantity') || 'Τεμάχια (Αριθμός)'}
+                                  </label>
+                                  <div className="relative">
+                                    <input
+                                      type="number"
+                                      id="quantity"
+                                      name="quantity"
+                                      value={formData.quantity}
+                                      onChange={handleInputChange}
+                                      onBlur={handleBlur}
+                                      placeholder={t('quantityPlaceholder') || 'π.χ. 10'}
+                                      min="0"
+                                      className={getFieldClassName('quantity', 'w-full pl-4 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
+                                      aria-label={t('quantity') || 'Quantity'}
+                                    />
+                                    {renderFieldIcon('quantity')}
+                                  </div>
+                                  {touchedFields.has('quantity') && fieldValidation.quantity && !fieldValidation.quantity.isValid && (
+                                    <p className="text-red-600 text-sm mt-1 flex items-center" role="alert">
+                                      <AlertCircle className="w-4 h-4 mr-1" />
+                                      {fieldValidation.quantity.message}
+                                    </p>
+                                  )}
+                                </div>
+
+                                <div>
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    {t('dimensions') || 'Διαστάσεις'} (m)
+                                  </label>
+                                  <div className="grid grid-cols-3 gap-2">
+                                    <div className="relative">
+                                      <input
+                                        type="number"
+                                        step="0.1"
+                                        min="0.1"
+                                        id="length"
+                                        name="length"
+                                        value={formData.length}
+                                        onChange={handleInputChange}
+                                        onBlur={handleBlur}
+                                        placeholder={t('lengthPlaceholder') || 'Μήκος'}
+                                        className={getFieldClassName('length', 'w-full pl-3 pr-2 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
+                                        aria-label={t('length') || 'Length in meters'}
+                                      />
+                                    </div>
+                                    <div className="relative">
+                                      <input
+                                        type="number"
+                                        step="0.1"
+                                        min="0.1"
+                                        id="width"
+                                        name="width"
+                                        value={formData.width}
+                                        onChange={handleInputChange}
+                                        onBlur={handleBlur}
+                                        placeholder={t('widthPlaceholder') || 'Πλάτος'}
+                                        className={getFieldClassName('width', 'w-full pl-3 pr-2 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
+                                        aria-label={t('width') || 'Width in meters'}
+                                      />
+                                    </div>
+                                    <div className="relative">
+                                      <input
+                                        type="number"
+                                        step="0.1"
+                                        min="0.1"
+                                        id="height"
+                                        name="height"
+                                        value={formData.height}
+                                        onChange={handleInputChange}
+                                        onBlur={handleBlur}
+                                        placeholder={t('heightPlaceholder') || 'Ύψος'}
+                                        className={getFieldClassName('height', 'w-full pl-3 pr-2 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
+                                        aria-label={t('height') || 'Height in meters'}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>

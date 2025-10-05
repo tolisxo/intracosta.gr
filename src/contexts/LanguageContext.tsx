@@ -93,6 +93,11 @@ const translations: Translations = {
     en: 'Special transport',
     de: 'Sondertransport'
   },
+  cargoTypeLdm: {
+    el: 'LDM',
+    en: 'LDM',
+    de: 'LDM'
+  },
   cargoTypeOther: {
     el: 'Άλλο',
     en: 'Other',
@@ -108,50 +113,85 @@ const translations: Translations = {
     en: 'e.g. Liquid bulk, Vehicles, etc.',
     de: 'z.B. Flüssigkeiten, Fahrzeuge, usw.'
   },
+  packageType: {
+    el: 'Τύπος Συσκευασίας',
+    en: 'Package Type',
+    de: 'Verpackungsart'
+  },
+  selectPackageType: {
+    el: 'Επιλέξτε τύπο συσκευασίας',
+    en: 'Select package type',
+    de: 'Verpackungsart auswählen'
+  },
   pallets: {
-    el: 'Παλέτες (Αριθμός)',
-    en: 'Pallets (Quantity)',
-    de: 'Paletten (Anzahl)'
+    el: 'Παλέτες',
+    en: 'Pallets',
+    de: 'Paletten'
   },
   boxes: {
+    el: 'Τεμάχια/Κιβώτια',
+    en: 'Boxes/Pieces',
+    de: 'Kisten/Stück'
+  },
+  bulk: {
+    el: 'Χύδην',
+    en: 'Bulk',
+    de: 'Schüttgut'
+  },
+  container: {
+    el: 'Κοντέινερ',
+    en: 'Container',
+    de: 'Container'
+  },
+  otherPackage: {
+    el: 'Άλλο',
+    en: 'Other',
+    de: 'Andere'
+  },
+  quantity: {
     el: 'Τεμάχια (Αριθμός)',
-    en: 'Boxes (Quantity)',
-    de: 'Kisten (Anzahl)'
+    en: 'Quantity',
+    de: 'Anzahl'
+  },
+  quantityPlaceholder: {
+    el: 'π.χ. 10',
+    en: 'e.g. 10',
+    de: 'z.B. 10'
   },
   dimensions: {
-    el: 'Διαστάσεις (Μήκος x Πλάτος x Ύψος)',
-    en: 'Dimensions (Length x Width x Height)',
-    de: 'Abmessungen (Länge x Breite x Höhe)'
-  },
-  lengthPlaceholder: {
-    el: 'Μήκος (m)',
-    en: 'Length (m)',
-    de: 'Länge (m)'
-  },
-  widthPlaceholder: {
-    el: 'Πλάτος (m)',
-    en: 'Width (m)',
-    de: 'Breite (m)'
-  },
-  heightPlaceholder: {
-    el: 'Ύψος (m)',
-    en: 'Height (m)',
-    de: 'Höhe (m)'
+    el: 'Διαστάσεις',
+    en: 'Dimensions',
+    de: 'Abmessungen'
   },
   length: {
-    el: 'Μήκος (m)',
-    en: 'Length (m)',
-    de: 'Länge (m)'
+    el: 'Μήκος',
+    en: 'Length',
+    de: 'Länge'
   },
   width: {
-    el: 'Πλάτος (m)',
-    en: 'Width (m)',
-    de: 'Breite (m)'
+    el: 'Πλάτος',
+    en: 'Width',
+    de: 'Breite'
   },
   height: {
-    el: 'Ύψος (m)',
-    en: 'Height (m)',
-    de: 'Höhe (m)'
+    el: 'Ύψος',
+    en: 'Height',
+    de: 'Höhe'
+  },
+  lengthPlaceholder: {
+    el: 'Μήκος',
+    en: 'Length',
+    de: 'Länge'
+  },
+  widthPlaceholder: {
+    el: 'Πλάτος',
+    en: 'Width',
+    de: 'Breite'
+  },
+  heightPlaceholder: {
+    el: 'Ύψος',
+    en: 'Height',
+    de: 'Höhe'
   },
   palletsPlaceholder: {
     el: 'π.χ. 10',
