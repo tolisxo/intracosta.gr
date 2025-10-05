@@ -45,6 +45,7 @@ const QuoteFormEnhanced: React.FC = () => {
     deliveryCompany: '',
     loadingDate: '',
     cargoType: '',
+    cargoTypeOther: '',
     pallets: '',
     boxes: '',
     length: '',
@@ -114,13 +115,18 @@ const QuoteFormEnhanced: React.FC = () => {
         return validateDimension(value, 'Width');
       case 'height':
         return validateDimension(value, 'Height');
+      case 'cargoTypeOther':
+        if (formData.cargoType === 'other' && value.trim() === '') {
+          return { isValid: false, message: 'Please specify the cargo type' };
+        }
+        return { isValid: true };
       default:
-        if (value.trim() === '' && name !== 'pickupCompany' && name !== 'deliveryCompany' && name !== 'pallets' && name !== 'boxes') {
+        if (value.trim() === '' && name !== 'pickupCompany' && name !== 'deliveryCompany' && name !== 'pallets' && name !== 'boxes' && name !== 'cargoTypeOther') {
           return { isValid: false, message: 'This field is required' };
         }
         return { isValid: true };
     }
-  }, [formData.email, formData.pickupCountry, formData.deliveryCountry]);
+  }, [formData.email, formData.pickupCountry, formData.deliveryCountry, formData.cargoType]);
 
   const markFieldTouched = (fieldName: string) => {
     setTouchedFields(prev => new Set(prev).add(fieldName));
@@ -198,6 +204,7 @@ const QuoteFormEnhanced: React.FC = () => {
         deliveryCompany: formData.deliveryCompany || undefined,
         loadingDate: formData.loadingDate,
         cargoType: formData.cargoType,
+        cargoTypeOther: formData.cargoType === 'other' ? formData.cargoTypeOther : undefined,
         pallets: formData.pallets ? parseInt(formData.pallets) : undefined,
         boxes: formData.boxes ? parseInt(formData.boxes) : undefined,
         length: formData.length ? parseFloat(formData.length) : undefined,
@@ -251,6 +258,7 @@ const QuoteFormEnhanced: React.FC = () => {
       deliveryCompany: '',
       loadingDate: '',
       cargoType: '',
+      cargoTypeOther: '',
       pallets: '',
       boxes: '',
       length: '',
@@ -304,9 +312,10 @@ const QuoteFormEnhanced: React.FC = () => {
 
   const completedFields = Object.entries(formData).filter(([key, value]) => {
     if (key === 'emailConfirm' || key === 'pickupCompany' || key === 'deliveryCompany' || key === 'pallets' || key === 'boxes') return true;
+    if (key === 'cargoTypeOther' && formData.cargoType !== 'other') return true;
     return value !== '';
   }).length;
-  const totalFields = Object.keys(formData).length - 5;
+  const totalFields = Object.keys(formData).length - 6;
 
   if (isSubmitted) {
     return (
@@ -656,6 +665,7 @@ const QuoteFormEnhanced: React.FC = () => {
                           <option value="controlled">{t('cargoTypeControlled')}</option>
                           <option value="adr">{t('cargoTypeAdr')}</option>
                           <option value="special">{t('cargoTypeSpecial')}</option>
+                          <option value="other">{t('cargoTypeOther') || 'Άλλο'}</option>
                         </select>
                         <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
                           {renderFieldIcon('cargoType')}
@@ -668,6 +678,38 @@ const QuoteFormEnhanced: React.FC = () => {
                         </p>
                       )}
                     </div>
+
+                    {formData.cargoType === 'other' && (
+                      <div className="animate-fade-in">
+                        <label htmlFor="cargoTypeOther" className="block text-sm font-semibold text-gray-700 mb-2">
+                          {t('cargoTypeOtherSpecify') || 'Προσδιορίστε τον τύπο φορτίου'} <span className="text-red-500">*</span>
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="text"
+                            id="cargoTypeOther"
+                            name="cargoTypeOther"
+                            value={formData.cargoTypeOther}
+                            onChange={handleInputChange}
+                            onBlur={handleBlur}
+                            placeholder={t('cargoTypeOtherPlaceholder') || 'π.χ. Υγρά χύμα, Οχήματα, κ.λπ.'}
+                            className={getFieldClassName('cargoTypeOther', 'w-full pl-4 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
+                            required
+                            aria-label={t('cargoTypeOtherSpecify') || 'Specify cargo type'}
+                            aria-required="true"
+                            aria-invalid={getFieldStatus('cargoTypeOther') === 'invalid'}
+                            maxLength={100}
+                          />
+                          {renderFieldIcon('cargoTypeOther')}
+                        </div>
+                        {touchedFields.has('cargoTypeOther') && fieldValidation.cargoTypeOther && !fieldValidation.cargoTypeOther.isValid && (
+                          <p className="text-red-600 text-sm mt-1 flex items-center" role="alert">
+                            <AlertCircle className="w-4 h-4 mr-1" />
+                            {fieldValidation.cargoTypeOther.message}
+                          </p>
+                        )}
+                      </div>
+                    )}
 
                     <div>
                       <button

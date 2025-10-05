@@ -20,6 +20,7 @@ export interface QuoteFormData {
   deliveryCompany?: string;
   loadingDate: string;
   cargoType: string;
+  cargoTypeOther?: string;
   pallets?: number;
   boxes?: number;
   length?: number;
@@ -46,6 +47,7 @@ export async function saveQuoteToDatabase(formData: QuoteFormData): Promise<{ su
         delivery_company: formData.deliveryCompany || null,
         loading_date: formData.loadingDate,
         cargo_type: formData.cargoType,
+        cargo_type_other: formData.cargoTypeOther || null,
         pallets: formData.pallets ? parseInt(String(formData.pallets)) : null,
         boxes: formData.boxes ? parseInt(String(formData.boxes)) : null,
         length: formData.length ? parseFloat(String(formData.length)) : null,

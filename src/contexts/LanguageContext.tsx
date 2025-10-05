@@ -93,6 +93,21 @@ const translations: Translations = {
     en: 'Special transport',
     de: 'Sondertransport'
   },
+  cargoTypeOther: {
+    el: 'Άλλο',
+    en: 'Other',
+    de: 'Andere'
+  },
+  cargoTypeOtherSpecify: {
+    el: 'Προσδιορίστε τον τύπο φορτίου',
+    en: 'Specify cargo type',
+    de: 'Frachtart angeben'
+  },
+  cargoTypeOtherPlaceholder: {
+    el: 'π.χ. Υγρά χύμα, Οχήματα, κ.λ.π.',
+    en: 'e.g. Liquid bulk, Vehicles, etc.',
+    de: 'z.B. Flüssigkeiten, Fahrzeuge, usw.'
+  },
   pallets: {
     el: 'Παλέτες (Αριθμός)',
     en: 'Pallets (Quantity)',
