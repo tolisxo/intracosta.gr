@@ -42,9 +42,9 @@ const About: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <img
-              src="https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
               alt={t('aboutTruckAlt')}
-              className="rounded-xl shadow-2xl"
+              className="rounded-xl shadow-2xl object-cover h-[400px] w-full"
             />
             <div className="absolute -bottom-6 -right-6 bg-yellow-500 text-white p-6 rounded-xl shadow-lg">
               <div className="text-3xl font-bold">25+</div>
