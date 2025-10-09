@@ -186,7 +186,7 @@ const Header: React.FC = () => {
                     src="/intracosta001.png"
                     alt="Intracosta Logo"
                     className={`w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl ${
-                      isCompact ? 'h-12 lg:h-16' : 'h-16 lg:h-24'
+                      isCompact ? 'h-16 lg:h-20' : 'h-20 lg:h-28'
                     }`}
                     itemProp="logo"
                   />
@@ -457,7 +457,7 @@ const Header: React.FC = () => {
 
       {/* Spacer for fixed header */}
       <div className={`transition-all duration-300 ${
-        isCompact ? 'h-16 lg:h-24' : 'h-24 lg:h-44'
+        isCompact ? 'h-20 lg:h-28' : 'h-28 lg:h-48'
       }`}></div>
     </>
   );
