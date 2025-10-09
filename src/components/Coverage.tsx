@@ -15,6 +15,48 @@ const Coverage: React.FC = () => {
   }, [isModalOpen]);
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
   const [hoveredMarkerIdx, setHoveredMarkerIdx] = useState<number | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
+
+  // Warehouse and coverage data
+  const coverageData: { [key: string]: { regions: string[], postalCodes: string[] } } = {
+    'Germany': {
+      regions: ['North Rhine-Westphalia', 'Lower Saxony', 'Bavaria', 'Baden-Württemberg'],
+      postalCodes: ['49000-49999', '48000-48999', '80000-89999', '70000-79999']
+    },
+    'Austria': {
+      regions: ['Vienna', 'Upper Austria', 'Lower Austria', 'Tyrol'],
+      postalCodes: ['1000-1999', '4000-4999', '2000-2999', '6000-6999']
+    },
+    'Netherlands': {
+      regions: ['North Holland', 'South Holland', 'Utrecht', 'North Brabant'],
+      postalCodes: ['1000-1999', '2000-2999', '3000-3999', '4000-5999']
+    },
+    'Belgium': {
+      regions: ['Brussels', 'Flanders', 'Wallonia', 'Antwerp'],
+      postalCodes: ['1000-1299', '2000-3999', '4000-7999', '2000-2999']
+    },
+    'Poland': {
+      regions: ['Masovia', 'Silesia', 'Greater Poland', 'Lesser Poland'],
+      postalCodes: ['00-001-05-999', '40-001-47-999', '60-001-64-999', '30-001-34-999']
+    },
+    'Luxembourg': {
+      regions: ['Luxembourg City', 'Diekirch', 'Grevenmacher'],
+      postalCodes: ['1000-2999', '9000-9999', '6700-6999']
+    },
+    'Denmark': {
+      regions: ['Capital Region', 'Zealand', 'South Denmark', 'Central Jutland'],
+      postalCodes: ['1000-2999', '4000-4999', '5000-6999', '7000-8999']
+    },
+    'Greece': {
+      regions: ['Αττική', 'Θεσσαλονίκη', 'Πάτρα', 'Πέλλα'],
+      postalCodes: ['10000-19999', '54000-56999', '26000-26999', '58000-58999']
+    },
+    'Cyprus': {
+      regions: ['Nicosia', 'Limassol', 'Larnaca'],
+      postalCodes: ['1000-2999', '3000-4999', '6000-7999']
+    }
+  };
 
   const countryFlagColors: { [key: string]: string[] } = {
     'Germany': ['#000000', '#FF0000', '#FFCC00'], // Black, Red, Gold
@@ -117,19 +159,35 @@ const Coverage: React.FC = () => {
                     {({ geographies }) =>
                       geographies.map((geo) => (
                           <Geography
- key={geo.rsmKey}
- fill={
- countryFlagColors[geo.properties.NAME] ? countryFlagColors[geo.properties.NAME][0]
+                            key={geo.rsmKey}
+                            fill={
+                              countryFlagColors[geo.properties.NAME] ? countryFlagColors[geo.properties.NAME][0]
                                 : '#e5e7eb'
                             }
                             geography={geo}
                             stroke="#FFF"
+                            onClick={(e) => {
+                              if (coverageData[geo.properties.NAME]) {
+                                const rect = e.currentTarget.getBoundingClientRect();
+                                setPopoverPosition({
+                                  x: rect.left + rect.width / 2,
+                                  y: rect.top + rect.height / 2
+                                });
+                                setSelectedCountry(geo.properties.NAME);
+                              }
+                            }}
+                            onMouseEnter={() => {
+                              if (coverageData[geo.properties.NAME]) {
+                                setHoveredCountry(geo.properties.NAME);
+                              }
+                            }}
+                            onMouseLeave={() => setHoveredCountry(null)}
                             style={{
                               default: {
                                 outline: 'none',
                                 transition: 'fill 0.3s',
                                 fill: countryFlagColors[geo.properties.NAME] ? '#EAB308' : '#e5e7eb',
-                                cursor: countryFlagColors[geo.properties.NAME] ? 'pointer' : 'default'
+                                cursor: coverageData[geo.properties.NAME] ? 'pointer' : 'default'
                               },
                               hover: {
                                 fill: countryFlagColors[geo.properties.NAME] ? '#FFFFFF' : '#e5e7eb',
@@ -147,10 +205,99 @@ const Coverage: React.FC = () => {
                 </ComposableMap>
                 
                 {/* Hover Tooltip */}
-                {hoveredCountry && (
+                {hoveredCountry && !selectedCountry && (
                   <div className="absolute top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg z-10 pointer-events-none">
-                    {hoveredCountry}
+                    <div className="text-sm font-medium">{hoveredCountry}</div>
+                    <div className="text-xs text-gray-300 mt-1">Click για περισσότερα</div>
                   </div>
+                )}
+
+                {/* Coverage Popover */}
+                {selectedCountry && coverageData[selectedCountry] && (
+                  <>
+                    {/* Backdrop */}
+                    <div 
+                      className="fixed inset-0 z-20" 
+                      onClick={() => setSelectedCountry(null)}
+                    />
+                    
+                    {/* Popover Card */}
+                    <div 
+                      className="absolute z-30 bg-white rounded-xl shadow-2xl border-2 border-yellow-400 p-6 max-w-md animate-in fade-in zoom-in duration-200"
+                      style={{
+                        left: '50%',
+                        top: '50%',
+                        transform: 'translate(-50%, -50%)'
+                      }}
+                    >
+                      {/* Header */}
+                      <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-5 h-5 text-yellow-600" />
+                          <h3 className="text-xl font-bold text-gray-900">{selectedCountry}</h3>
+                        </div>
+                        <button
+                          onClick={() => setSelectedCountry(null)}
+                          className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+                          aria-label="Close"
+                        >
+                          <X className="w-5 h-5 text-gray-500" />
+                        </button>
+                      </div>
+
+                      {/* Regions */}
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-yellow-500" />
+                          Περιοχές Κάλυψης
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {coverageData[selectedCountry].regions.map((region, idx) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1 bg-yellow-50 text-yellow-700 text-sm rounded-full border border-yellow-200"
+                            >
+                              {region}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Postal Codes */}
+                      <div>
+                        <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                          <Warehouse className="w-4 h-4 text-yellow-500" />
+                          Ταχυδρομικοί Κώδικες
+                        </h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {coverageData[selectedCountry].postalCodes.map((code, idx) => (
+                            <div
+                              key={idx}
+                              className="px-3 py-2 bg-gray-50 text-gray-700 text-sm rounded-lg border border-gray-200 font-mono"
+                            >
+                              {code}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="mt-5 pt-4 border-t border-gray-200">
+                        <a
+                          href="#quote"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedCountry(null);
+                            const el = document.querySelector('#quote');
+                            el?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          className="block w-full text-center bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        >
+                          Ζητήστε Προσφορά
+                        </a>
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
             </div>
