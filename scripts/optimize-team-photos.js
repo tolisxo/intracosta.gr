@@ -1,6 +1,10 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const teamDir = path.join(__dirname, '../public/team');
 const optimizedDir = path.join(__dirname, '../public/team/optimized');
@@ -18,7 +22,7 @@ const files = fs.readdirSync(teamDir).filter(file =>
 console.log(`Found ${files.length} images to optimize...`);
 
 // Process each image
-files.forEach(async (file) => {
+const processImage = async (file) => {
   const inputPath = path.join(teamDir, file);
   const outputPath = path.join(optimizedDir, file.toLowerCase());
   
@@ -39,7 +43,10 @@ files.forEach(async (file) => {
   } catch (error) {
     console.error(`✗ Error processing ${file}:`, error.message);
   }
-});
+};
+
+// Process all images
+await Promise.all(files.map(processImage));
 
 console.log('\nOptimization complete! Optimized images are in public/team/optimized/');
 console.log('Review the optimized images, then move them to replace the originals.');
