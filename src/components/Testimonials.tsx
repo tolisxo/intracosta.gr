@@ -130,11 +130,21 @@ const MeetTheTeam: React.FC = () => {
     }
   };
 
+  // Flatten all team members into one array with department info
+  const allMembers = teams.flatMap(team => 
+    team.members.map(member => ({
+      ...member,
+      department: team.department,
+      departmentIcon: team.icon,
+      color: team.color
+    }))
+  );
+
   return (
-    <section id="team" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="team" className="py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         {/* Main Header */}
-        <div className="text-center mb-16">
+        <div className="text-center">
           <motion.h2 
             className="text-4xl font-bold text-gray-900 mb-4"
             initial={{ opacity: 0, y: -20 }}
@@ -152,74 +162,102 @@ const MeetTheTeam: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Dedicated professionals working across departments to deliver excellence
+            Dedicated professionals across Import, Export, and Accounting departments
           </motion.p>
         </div>
+      </div>
 
-        {/* Department Sections */}
-        <div className="space-y-16">
-          {teams.map((team, teamIndex) => {
-            const colors = getColorClasses(team.color);
-            
-            return (
-              <motion.div
-                key={teamIndex}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: teamIndex * 0.1 }}
-              >
-                {/* Department Header */}
-                <div className="text-center mb-8">
-                  <div className="flex items-center justify-center gap-3 mb-3">
-                    <div className={`inline-flex items-center gap-2 px-4 py-2 ${colors.badge} border rounded-full`}>
-                      <span className={colors.icon}>{team.icon}</span>
-                      <h3 className="text-2xl font-bold text-gray-900">{team.department}</h3>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 max-w-xl mx-auto">{team.description}</p>
-                </div>
+      {/* Horizontal Scrolling Team Members */}
+      <div className="relative">
+        {/* Scroll hint - left gradient */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none hidden md:block"></div>
+        
+        {/* Scroll hint - right gradient */}
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none hidden md:block"></div>
 
-                {/* Team Members Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {team.members.map((member, memberIndex) => (
-                    <motion.div
-                      key={memberIndex}
-                      className="rounded-xl shadow-md bg-white p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: memberIndex * 0.1 }}
-                    >
-                      <div className={`mx-auto mb-4 w-32 h-32 rounded-full overflow-hidden bg-gray-100 ring-4 ${colors.ring}`}>
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center text-6xl">
-                            👤
-                          </div>
-                        )}
+        {/* Scrollable container */}
+        <div className="overflow-x-auto scrollbar-hide pb-4 px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="flex gap-6 w-max"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            {allMembers.map((member, index) => {
+              const colors = getColorClasses(member.color);
+              
+              return (
+                <motion.div
+                  key={index}
+                  className="w-72 flex-shrink-0"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "0px 100px" }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <div className="rounded-xl shadow-md bg-white p-6 text-center h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                    {/* Department Badge */}
+                    <div className="flex items-center justify-center mb-4">
+                      <div className={`inline-flex items-center gap-1.5 px-3 py-1 ${colors.badge} border rounded-full text-sm`}>
+                        <span className={colors.icon}>{member.departmentIcon}</span>
+                        <span className="font-medium text-gray-700">{member.department}</span>
                       </div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-1">
-                        {member.name}
-                      </h4>
-                      <p className={`${colors.text} font-medium mb-2`}>
-                        {member.role}
-                      </p>
-                      <p className="text-gray-600 text-sm">{member.description}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+                    </div>
+
+                    {/* Profile Picture */}
+                    <div className={`mx-auto mb-4 w-32 h-32 rounded-full overflow-hidden bg-gray-100 ring-4 ${colors.ring}`}>
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-6xl">
+                          👤
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Member Info */}
+                    <h4 className="text-xl font-semibold text-gray-900 mb-1">
+                      {member.name}
+                    </h4>
+                    <p className={`${colors.text} font-medium mb-3 text-sm`}>
+                      {member.role}
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {member.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+
+        {/* Scroll hint text */}
+        <div className="text-center mt-6 text-sm text-gray-500">
+          <span className="inline-flex items-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            Scroll to see all team members
+          </span>
         </div>
       </div>
+
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };
