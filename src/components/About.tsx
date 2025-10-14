@@ -1,31 +1,77 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Shield, Award, Users, Target, Truck, Warehouse, ShieldCheck } from 'lucide-react';
+import { Users, Target, Truck, Warehouse, ShieldCheck } from 'lucide-react';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
 
-  const values = [
+  const teamMembers = [
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: t('aboutReliabilityTitle'),
-      description: t('aboutReliabilityDesc')
+      name: 'Κώστας Φίλιππος',
+      role: t('teamGeneralDirector'),
+      image: '/team/dsc_2161.jpg',
+      department: 'leadership'
     },
     {
-      icon: <Award className="w-8 h-8" />,
-      title: t('aboutQualityTitle'),
-      description: t('aboutQualityDesc')
+      name: 'Κώστα Κατερίνα',
+      role: t('teamImportDepartment'),
+      image: '/team/dsc_2196.jpg',
+      department: 'import'
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: t('aboutPartnershipTitle'),
-      description: t('aboutPartnershipDesc')
+      name: 'Πετρίδης Δημήτρης',
+      role: t('teamImportDepartment'),
+      image: '/team/dsc_2226.jpg',
+      department: 'import'
     },
     {
-      icon: <Target className="w-8 h-8" />,
-      title: t('aboutInnovationTitle'),
-      description: t('aboutInnovationDesc')
+      name: 'Εμμανουηλίδου Αναστασία',
+      role: t('teamImportDepartment'),
+      image: '/team/dsc_2234.jpg',
+      department: 'import'
+    },
+    {
+      name: 'Δήμου Μαρία',
+      role: t('teamImportDepartment'),
+      image: '/team/dsc_2268.jpg',
+      department: 'import'
+    },
+    {
+      name: 'Γιαννακίδου Ειρήνη',
+      role: t('teamImportDepartment'),
+      image: '/team/dsc_2288.jpg',
+      department: 'import'
+    },
+    {
+      name: 'Αλμπάνη Ελένη',
+      role: t('teamExportDepartment'),
+      image: '/team/dsc_2297.jpg',
+      department: 'export'
+    },
+    {
+      name: 'Βαγγέλης',
+      role: t('teamExportDepartment'),
+      image: '/team/dsc_2328.jpg',
+      department: 'export'
+    },
+    {
+      name: 'Κουλούδη Νικολέτα',
+      role: t('teamAccountingDepartment'),
+      image: '/team/dsc_2334.jpg',
+      department: 'accounting'
+    },
+    {
+      name: 'Κουλόυδη Ειρήνη',
+      role: t('teamAccountingDepartment'),
+      image: '/team/dsc_2346.jpg',
+      department: 'accounting'
+    },
+    {
+      name: 'Τσιτλακίδου Κυριακή',
+      role: t('teamAccountingDepartment'),
+      image: '/team/dsc_2383.jpg',
+      department: 'accounting'
     }
   ];
 
@@ -158,6 +204,70 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
             ></motion.div>
+          </div>
+        </motion.div>
+
+        {/* Team Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-full mb-4"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Users className="w-5 h-5 text-yellow-600" />
+              <span className="text-sm font-semibold text-yellow-700">{t('teamTitle')}</span>
+            </motion.div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">{t('teamTitle')}</h3>
+            <p className="text-gray-600">{t('teamSubtitle')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="relative group"
+              >
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="aspect-square overflow-hidden bg-gray-100">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-100"><svg class="w-20 h-20 text-yellow-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>';
+                        }
+                      }}
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <h4 className="font-bold text-lg text-gray-900 mb-1">{member.name}</h4>
+                    <p className="text-sm text-yellow-600 font-medium">{member.role}</p>
+                  </div>
+                  {member.department === 'leadership' && (
+                    <div className="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                      ⭐
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

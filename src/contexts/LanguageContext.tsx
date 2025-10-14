@@ -1045,6 +1045,38 @@ const translations: Translations = {
     el: 'Επικοινωνήστε μαζί μας',
     en: 'Contact Us',
     de: 'Kontaktieren Sie uns'
+  },
+
+  // Team Section
+  teamTitle: {
+    el: 'Η Ομάδα μας',
+    en: 'Our Team',
+    de: 'Unser Team'
+  },
+  teamSubtitle: {
+    el: 'Γνωρίστε τους ανθρώπους πίσω από την επιτυχία μας',
+    en: 'Meet the people behind our success',
+    de: 'Lernen Sie die Menschen hinter unserem Erfolg kennen'
+  },
+  teamGeneralDirector: {
+    el: 'Γενικός Διευθυντής',
+    en: 'General Director',
+    de: 'Generaldirektor'
+  },
+  teamImportDepartment: {
+    el: 'Ομάδα Εισαγωγής',
+    en: 'Import Team',
+    de: 'Import-Team'
+  },
+  teamExportDepartment: {
+    el: 'Ομάδα Εξαγωγής',
+    en: 'Export Team',
+    de: 'Export-Team'
+  },
+  teamAccountingDepartment: {
+    el: 'Ομάδα Λογιστηρίου',
+    en: 'Accounting Team',
+    de: 'Buchhaltungsteam'
   }
 };
 
