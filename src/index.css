@@ -337,6 +337,22 @@ select:focus-visible {
   animation: shake 0.5s ease-in-out;
 }
 
+/* Hide scrollbar for horizontal team scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth horizontal scroll */
+.overflow-x-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   * {

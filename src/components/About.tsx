@@ -230,44 +230,58 @@ const About: React.FC = () => {
             <p className="text-gray-600">{t('teamSubtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="relative group"
-              >
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="aspect-square overflow-hidden bg-gray-100">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          parent.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-100"><svg class="w-20 h-20 text-yellow-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>';
-                        }
-                      }}
-                    />
-                  </div>
-                  <div className="p-4 text-center">
-                    <h4 className="font-bold text-lg text-gray-900 mb-1">{member.name}</h4>
-                    <p className="text-sm text-yellow-600 font-medium">{member.role}</p>
-                  </div>
-                  {member.department === 'leadership' && (
-                    <div className="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                      ⭐
+          {/* Horizontal Scrolling Container */}
+          <div className="relative">
+            <div className="overflow-x-auto pb-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              <div className="flex gap-6 px-4" style={{ width: 'max-content' }}>
+                {teamMembers.map((member, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="relative group flex-shrink-0"
+                    style={{ width: '240px' }}
+                  >
+                    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-6">
+                      <div className="relative mb-4">
+                        {/* Circular Image */}
+                        <div className="w-48 h-48 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-white shadow-xl">
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              const parent = target.parentElement;
+                              if (parent) {
+                                parent.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-100"><svg class="w-20 h-20 text-yellow-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>';
+                              }
+                            }}
+                          />
+                        </div>
+                        {member.department === 'leadership' && (
+                          <div className="absolute top-0 right-1/2 translate-x-24 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                            ⭐
+                          </div>
+                        )}
+                      </div>
+                      <div className="text-center">
+                        <h4 className="font-bold text-lg text-gray-900 mb-1">{member.name}</h4>
+                        <p className="text-sm text-yellow-600 font-medium">{member.role}</p>
+                      </div>
                     </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Scroll Indicator */}
+            <div className="text-center mt-4">
+              <p className="text-sm text-gray-500">← Σύρετε για να δείτε περισσότερα / Scroll to see more →</p>
+            </div>
           </div>
         </motion.div>
       </div>
