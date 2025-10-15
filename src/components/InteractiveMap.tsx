@@ -111,7 +111,7 @@ const InteractiveMap: React.FC = () => {
         {/* Modal for selected country */}
         {selectedCountry && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto border-2 border-yellow-300">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden border-2 border-yellow-300 flex flex-col">
               <div className="p-6 border-b border-gray-200">
                 <div className="flex justify-between items-center">
                   <h3 className="text-2xl font-bold text-gray-900 flex items-center">
@@ -127,32 +127,34 @@ const InteractiveMap: React.FC = () => {
                 </div>
               </div>
               
-              <div className="p-6">
+              <div className="p-6 flex-1 overflow-hidden flex flex-col">
                 {/* Coverage Areas */}
-                <div className="mb-8">
+                <div className="mb-6 flex-1 overflow-hidden flex flex-col">
                   <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                     <MapPin className="w-5 h-5 mr-2 text-yellow-600" />
-                    {t('warehousesTitle')}
+                    {t('warehousesTitle')} ({selectedCountry.warehouses.length})
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {selectedCountry.warehouses.map((warehouse, index) => (
-                      <div
-                        key={index}
-                        className="px-4 py-3 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-lg border border-yellow-200 hover:shadow-md transition-shadow"
-                      >
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <p className="font-semibold text-gray-900">{warehouse.city}</p>
-                            <p className="text-sm text-gray-600">{t('postalCodeLabel')}: {warehouse.code}</p>
+                  <div className="overflow-y-auto flex-1 pr-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {selectedCountry.warehouses.map((warehouse, index) => (
+                        <div
+                          key={index}
+                          className="px-4 py-3 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-lg border border-yellow-200 hover:shadow-md transition-shadow"
+                        >
+                          <div className="flex justify-between items-start">
+                            <div className="flex-1 min-w-0">
+                              <p className="font-semibold text-gray-900 truncate">{warehouse.city}</p>
+                              <p className="text-sm text-gray-600">{t('postalCodeLabel')}: {warehouse.code}</p>
+                            </div>
+                            {warehouse.isCentral && (
+                              <span className="px-3 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full ml-2 flex-shrink-0">
+                                {t('centralWarehouseShort')}
+                              </span>
+                            )}
                           </div>
-                          {warehouse.isCentral && (
-                            <span className="px-3 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full">
-                              {t('centralWarehouseShort')}
-                            </span>
-                          )}
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
 
