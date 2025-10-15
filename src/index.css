@@ -353,13 +353,13 @@ select:focus-visible {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Team photo centering - fixed and stable */
+/* Team photo centering - completely static */
 .team-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  /* Remove hover animation - keep static */
+  /* Completely static - no animations */
 }
 
 /* Face-centered cropping for team photos */
