@@ -18,43 +18,49 @@ const Coverage: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [popoverPosition, setPopoverPosition] = useState({ x: 0, y: 0 });
 
-  // Warehouse and coverage data
-  const coverageData: { [key: string]: { regions: string[], postalCodes: string[] } } = {
+  // Real warehouse and coverage data
+  const coverageData: { [key: string]: { warehouses: Array<{code: string, city: string, isCentral?: boolean}>, postalCodes: string[] } } = {
     'Germany': {
-      regions: ['North Rhine-Westphalia', 'Lower Saxony', 'Bavaria', 'Baden-Württemberg'],
-      postalCodes: ['49000-49999', '48000-48999', '80000-89999', '70000-79999']
+      warehouses: [
+        { code: '85716', city: 'Munich' },
+        { code: '65549', city: 'Limburg' },
+        { code: '79576', city: 'Weil am Rhein' },
+        { code: '16727', city: 'Velten' },
+        { code: '04435', city: 'Schkeuditz' },
+        { code: '34253', city: 'Kassel' },
+        { code: '22113', city: 'Hamburg' },
+        { code: '68309', city: 'Mannheim' },
+        { code: '74321', city: 'Stuttgart' },
+        { code: '49549', city: 'Ladbergen', isCentral: true },
+        { code: '30916', city: 'Isernhagen' }
+      ],
+      postalCodes: ['85716', '65549', '79576', '16727', '04435', '34253', '22113', '68309', '74321', '49549', '30916']
     },
     'Austria': {
-      regions: ['Vienna', 'Upper Austria', 'Lower Austria', 'Tyrol'],
-      postalCodes: ['1000-1999', '4000-4999', '2000-2999', '6000-6999']
+      warehouses: [
+        { code: '1210', city: 'Wien' },
+        { code: '2514', city: 'Linz' }
+      ],
+      postalCodes: ['1210', '2514']
     },
     'Netherlands': {
-      regions: ['North Holland', 'South Holland', 'Utrecht', 'North Brabant'],
-      postalCodes: ['1000-1999', '2000-2999', '3000-3999', '4000-5999']
+      warehouses: [
+        { code: '4824', city: 'Breda' }
+      ],
+      postalCodes: ['4824']
     },
     'Belgium': {
-      regions: ['Brussels', 'Flanders', 'Wallonia', 'Antwerp'],
-      postalCodes: ['1000-1299', '2000-3999', '4000-7999', '2000-2999']
-    },
-    'Poland': {
-      regions: ['Masovia', 'Silesia', 'Greater Poland', 'Lesser Poland'],
-      postalCodes: ['00-001-05-999', '40-001-47-999', '60-001-64-999', '30-001-34-999']
-    },
-    'Luxembourg': {
-      regions: ['Luxembourg City', 'Diekirch', 'Grevenmacher'],
-      postalCodes: ['1000-2999', '9000-9999', '6700-6999']
-    },
-    'Denmark': {
-      regions: ['Capital Region', 'Zealand', 'South Denmark', 'Central Jutland'],
-      postalCodes: ['1000-2999', '4000-4999', '5000-6999', '7000-8999']
+      warehouses: [
+        { code: '2830', city: 'Willebroek' }
+      ],
+      postalCodes: ['2830']
     },
     'Greece': {
-      regions: ['Αττική', 'Θεσσαλονίκη', 'Πάτρα', 'Πέλλα'],
-      postalCodes: ['10000-19999', '54000-56999', '26000-26999', '58000-58999']
-    },
-    'Cyprus': {
-      regions: ['Nicosia', 'Limassol', 'Larnaca'],
-      postalCodes: ['1000-2999', '3000-4999', '6000-7999']
+      warehouses: [
+        { code: '58100', city: 'Γιαννιτσά', isCentral: true },
+        { code: '19600', city: 'Ασπρόπυργος' }
+      ],
+      postalCodes: ['58100', '19600']
     }
   };
 
@@ -77,21 +83,11 @@ const Coverage: React.FC = () => {
   };
 
   const countries = [
-    { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162], count: 3 },
-    { name: 'Germany', flag: '🇩🇪', routes: 'Daily Routes', coordinates: [10.4515, 51.1657], count: 7 },
-    { name: 'Netherlands', flag: '🇳🇱', routes: 'Daily Routes', coordinates: [5.2913, 52.1326], count: 5 },
-    { name: 'Belgium', flag: '🇧🇪', routes: '3x/Week', coordinates: [4.4699, 50.5039], count: 3 },
-    { name: 'France', flag: '🇫🇷', routes: '2x/Week', coordinates: [2.2137, 46.2276], count: 2 },
-    { name: 'Italy', flag: '🇮🇹', routes: '2x/Week', coordinates: [12.5674, 41.8719], count: 2 },
-    { name: 'Switzerland', flag: '🇨🇭', routes: '2x/Week', coordinates: [8.2275, 46.8182], count: 2 },
-    { name: 'Poland', flag: '🇵🇱', routes: '3x/Week', coordinates: [19.1451, 51.9194], count: 3 },
-    { name: 'Czech Republic', flag: '🇨🇿', routes: '2x/Week', coordinates: [15.4729, 49.8175], count: 2 },
-    { name: 'Hungary', flag: '🇭🇺', routes: '2x/Week', coordinates: [19.5033, 47.1625], count: 2 },
-    { name: 'Slovakia', flag: '🇸🇰', routes: '2x/Week', coordinates: [19.699, 48.669], count: 2 },
-    { name: 'Denmark', flag: '🇩🇰', routes: '2x/Week', coordinates: [9.5018, 56.2639], count: 2 },
-    { name: 'Greece', flag: '🇬🇷', routes: 'Daily Routes', coordinates: [21.8243, 39.0742], count: 7 },
-    { name: 'Luxembourg', flag: '🇱🇺', routes: '3x/Week', coordinates: [6.1296, 49.8153], count: 3 },
-    { name: 'Cyprus', flag: '🇨🇾', routes: '2x/Week', coordinates: [33.4299, 35.1264], count: 1 },
+    { name: 'Austria', flag: '🇦🇹', routes: '3x/Week', coordinates: [14.5501, 47.5162], count: 2 },
+    { name: 'Germany', flag: '🇩🇪', routes: 'Daily Routes', coordinates: [10.4515, 51.1657], count: 11 },
+    { name: 'Netherlands', flag: '🇳🇱', routes: 'Daily Routes', coordinates: [5.2913, 52.1326], count: 1 },
+    { name: 'Belgium', flag: '🇧🇪', routes: '3x/Week', coordinates: [4.4699, 50.5039], count: 1 },
+    { name: 'Greece', flag: '🇬🇷', routes: 'Daily Routes', coordinates: [21.8243, 39.0742], count: 2 },
   ].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
 
   const features = [
@@ -245,20 +241,28 @@ const Coverage: React.FC = () => {
                         </button>
                       </div>
 
-                      {/* Regions */}
+                      {/* Warehouses */}
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-yellow-500" />
-                          Περιοχές Κάλυψης
+                          <Warehouse className="w-4 h-4 text-yellow-500" />
+                          Αποθήκες
                         </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {coverageData[selectedCountry].regions.map((region, idx) => (
-                            <span
+                        <div className="grid grid-cols-1 gap-2">
+                          {coverageData[selectedCountry].warehouses.map((warehouse, idx) => (
+                            <div
                               key={idx}
-                              className="px-3 py-1 bg-yellow-50 text-yellow-700 text-sm rounded-full border border-yellow-200"
+                              className="flex justify-between items-center px-3 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 text-yellow-800 text-sm rounded-lg border border-yellow-200"
                             >
-                              {region}
-                            </span>
+                              <div>
+                                <span className="font-semibold">{warehouse.city}</span>
+                                <span className="text-gray-600 ml-2">ΤΚ: {warehouse.code}</span>
+                              </div>
+                              {warehouse.isCentral && (
+                                <span className="px-2 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full">
+                                  Κεντρική
+                                </span>
+                              )}
+                            </div>
                           ))}
                         </div>
                       </div>
