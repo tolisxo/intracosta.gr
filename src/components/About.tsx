@@ -44,9 +44,15 @@ const About: React.FC = () => {
       department: 'import'
     },
     {
-      name: 'Αλμπάνη Ελένη',
-      role: t('teamExportDepartment'),
+      name: 'Κατερίνα Νταούλα',
+      role: t('teamImportManager'),
       image: '/team/Κατερίνα Νταούλα.JPG',
+      department: 'import'
+    },
+    {
+      name: 'Πλεπλές Θεόδωρος',
+      role: t('teamExportManager'),
+      image: '/team/Πλεπλές Θεόδωρος.JPG',
       department: 'export'
     },
     {
@@ -54,6 +60,12 @@ const About: React.FC = () => {
       role: t('teamExportDepartment'),
       image: '/team/Βαγγέλης.JPG',
       department: 'export'
+    },
+    {
+      name: 'Παπαδημητρίου Δημήτριος',
+      role: t('teamAccountingManager'),
+      image: '/team/Δημήτριος Παπαδημητρίου.JPG',
+      department: 'accounting'
     },
     {
       name: 'Κουλούδη Νικολέτα',
@@ -262,11 +274,14 @@ const About: React.FC = () => {
                             }}
                           />
                         </div>
-                        {member.department === 'leadership' && (
-                          <div className="absolute top-0 right-1/2 translate-x-24 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                            ⭐
-                          </div>
-                        )}
+                  {(member.department === 'leadership' || 
+                    member.name === 'Κατερίνα Νταούλα' || 
+                    member.name === 'Πλεπλές Θεόδωρος' || 
+                    member.name === 'Παπαδημητρίου Δημήτριος') && (
+                    <div className="absolute top-0 right-1/2 translate-x-24 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                      {member.department === 'leadership' ? '⭐' : '👔'}
+                    </div>
+                  )}
                       </div>
                       <div className="text-center">
                         <h4 className="font-bold text-lg text-gray-900 mb-1">{member.name}</h4>

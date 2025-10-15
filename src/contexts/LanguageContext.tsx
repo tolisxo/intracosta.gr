@@ -1077,6 +1077,21 @@ const translations: Translations = {
     el: 'Ομάδα Λογιστηρίου',
     en: 'Accounting Team',
     de: 'Buchhaltungsteam'
+  },
+  teamImportManager: {
+    el: 'Υπεύθυνος Εισαγωγής',
+    en: 'Import Manager',
+    de: 'Importleiter'
+  },
+  teamExportManager: {
+    el: 'Υπεύθυνος Εξαγωγής',
+    en: 'Export Manager',
+    de: 'Exportleiter'
+  },
+  teamAccountingManager: {
+    el: 'Υπεύθυνος Λογιστηρίου',
+    en: 'Accounting Manager',
+    de: 'Buchhaltungsleiter'
   }
 };
 
