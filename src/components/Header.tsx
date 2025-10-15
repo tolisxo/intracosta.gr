@@ -185,8 +185,8 @@ const Header: React.FC = () => {
                   <img
                     src="/intracosta001.png"
                     alt="Intracosta Logo"
-                    className={`w-auto object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl ${
-                      isCompact ? 'h-16 lg:h-20' : 'h-20 lg:h-28'
+                    className={`object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl ${
+                      isCompact ? 'h-16 w-32 lg:h-20 lg:w-40' : 'h-20 w-40 lg:h-28 lg:w-56'
                     }`}
                     itemProp="logo"
                   />
