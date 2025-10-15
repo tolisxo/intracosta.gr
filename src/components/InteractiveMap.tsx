@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { MapPin, Warehouse, X } from 'lucide-react';
+import { MapPin, Warehouse, X, FileText, Mail } from 'lucide-react';
 
 interface WarehouseData {
   country: string;
@@ -111,11 +111,12 @@ const InteractiveMap: React.FC = () => {
         {/* Modal for selected country */}
         {selectedCountry && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto border-2 border-yellow-300">
               <div className="p-6 border-b border-gray-200">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    {t('warehousesTitle')} - {t(selectedCountry.country)}
+                  <h3 className="text-2xl font-bold text-gray-900 flex items-center">
+                    <MapPin className="w-6 h-6 mr-3 text-yellow-600" />
+                    {t(selectedCountry.country)}
                   </h3>
                   <button
                     onClick={closeModal}
@@ -127,17 +128,17 @@ const InteractiveMap: React.FC = () => {
               </div>
               
               <div className="p-6">
-                {/* Warehouses */}
+                {/* Coverage Areas */}
                 <div className="mb-8">
                   <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Warehouse className="w-5 h-5 mr-2 text-yellow-600" />
+                    <MapPin className="w-5 h-5 mr-2 text-yellow-600" />
                     {t('warehousesTitle')}
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {selectedCountry.warehouses.map((warehouse, index) => (
                       <div
                         key={index}
-                        className="p-4 bg-gray-50 rounded-lg border border-gray-200"
+                        className="px-4 py-3 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-lg border border-yellow-200 hover:shadow-md transition-shadow"
                       >
                         <div className="flex justify-between items-center">
                           <div>
@@ -145,7 +146,7 @@ const InteractiveMap: React.FC = () => {
                             <p className="text-sm text-gray-600">ΤΚ: {warehouse.code}</p>
                           </div>
                           {warehouse.isCentral && (
-                            <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded-full">
+                            <span className="px-3 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full">
                               {t('centralWarehouse')}
                             </span>
                           )}
@@ -156,20 +157,38 @@ const InteractiveMap: React.FC = () => {
                 </div>
 
                 {/* Postal Codes */}
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <FileText className="w-5 h-5 mr-2 text-yellow-600" />
                     {t('postalCodesTitle')}
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedCountry.postalCodes.map((code, index) => (
                       <span
                         key={index}
-                        className="px-3 py-2 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-lg"
+                        className="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         {code}
                       </span>
                     ))}
                   </div>
+                </div>
+
+                {/* Call to Action Button */}
+                <div className="pt-4">
+                  <button 
+                    onClick={() => {
+                      const quoteSection = document.querySelector('#quote');
+                      if (quoteSection) {
+                        quoteSection.scrollIntoView({ behavior: 'smooth' });
+                        closeModal();
+                      }
+                    }}
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    <Mail className="w-5 h-5 inline mr-2" />
+                    Ζητήστε Προσφορά
+                  </button>
                 </div>
               </div>
             </div>
