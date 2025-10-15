@@ -1092,6 +1092,33 @@ const translations: Translations = {
     el: 'Υπεύθυνος Λογιστηρίου',
     en: 'Accounting Manager',
     de: 'Buchhaltungsleiter'
+  },
+
+  // Interactive Map
+  mapTitle: {
+    el: 'Χάρτης Αποθηκών',
+    en: 'Warehouse Map',
+    de: 'Lagerkarte'
+  },
+  mapSubtitle: {
+    el: 'Κάντε κλικ σε μια χώρα για να δείτε τις αποθήκες και τα ΤΚ',
+    en: 'Click on a country to see warehouses and postal codes',
+    de: 'Klicken Sie auf ein Land, um Lagerhäuser und Postleitzahlen zu sehen'
+  },
+  warehousesTitle: {
+    el: 'Αποθήκες',
+    en: 'Warehouses',
+    de: 'Lagerhäuser'
+  },
+  postalCodesTitle: {
+    el: 'Ταχυδρομικοί Κωδικοί',
+    en: 'Postal Codes',
+    de: 'Postleitzahlen'
+  },
+  centralWarehouse: {
+    el: 'Κεντρική Αποθήκη',
+    en: 'Central Warehouse',
+    de: 'Zentrales Lager'
   }
 };
 
