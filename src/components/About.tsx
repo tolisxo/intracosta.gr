@@ -10,25 +10,25 @@ const About: React.FC = () => {
     {
       name: 'Κώστας Φίλιππος',
       role: t('teamGeneralDirector'),
-      image: '/team/dsc_2161.jpg',
+      image: '/team/kostas-filippos.jpg',
       department: 'leadership'
     },
     {
       name: 'Κώστα Κατερίνα',
       role: t('teamImportDepartment'),
-      image: '/team/dsc_2196.jpg',
+      image: '/team/kostas-katerina.jpg',
       department: 'import'
     },
     {
       name: 'Πετρίδης Δημήτρης',
       role: t('teamImportDepartment'),
-      image: '/team/dsc_2226.jpg',
+      image: '/team/petridis-dimitris.jpg',
       department: 'import'
     },
     {
       name: 'Εμμανουηλίδου Αναστασία',
       role: t('teamImportDepartment'),
-      image: '/team/dsc_2234.jpg',
+      image: '/team/emmanouilidou-anastasia.jpg',
       department: 'import'
     },
     {
