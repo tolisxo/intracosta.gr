@@ -79,7 +79,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
+    
     if (!validateForm()) return;
+    
+    // Save current scroll position
+    const scrollPosition = window.scrollY;
     
     setIsSubmitting(true);
     
@@ -102,6 +107,11 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
         }
       }
       setIsSubmitted(true);
+      
+      // Restore scroll position after state update
+      setTimeout(() => {
+        window.scrollTo({ top: scrollPosition, behavior: 'instant' });
+      }, 0);
     } catch (error) {
       console.error('Form submission error:', error);
       alert('Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος. Παρακαλώ δοκιμάστε ξανά.');
