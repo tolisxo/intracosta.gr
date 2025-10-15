@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <span className="mr-2 text-xl">→</span>
-              Ας Συνεργαστούμε
+{t('letsCooperate')}
             </motion.a>
           </ScrollAnimation>
         </ScrollAnimation>

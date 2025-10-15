@@ -313,6 +313,36 @@ const translations: Translations = {
     en: 'Drivers and staff who treat each shipment as their own.',
     de: 'Fahrer und Personal, die jede Sendung wie ihre eigene behandeln.'
   },
+  letsCooperate: {
+    el: 'Ας Συνεργαστούμε',
+    en: "Let's Cooperate",
+    de: 'Lassen Sie uns zusammenarbeiten'
+  },
+  letsCooperateDescription: {
+    el: 'Έτοιμοι να μεταφέρουμε την επιχείρησή σας στο επόμενο επίπεδο; Ας ξεκινήσουμε μια συζήτηση για τους στόχους σας και πώς μπορούμε να σας βοηθήσουμε να τους επιτύχετε.',
+    en: "Ready to take your business to the next level? Let's start a discussion about your goals and how we can help you achieve them.",
+    de: 'Bereit, Ihr Unternehmen auf die nächste Stufe zu bringen? Lassen Sie uns ein Gespräch über Ihre Ziele führen und wie wir Ihnen helfen können, sie zu erreichen.'
+  },
+  responseTime: {
+    el: 'Χρόνος Απάντησης',
+    en: 'Response Time',
+    de: 'Antwortzeit'
+  },
+  europeanRoutes: {
+    el: 'Ευρωπαϊκές Διαδρομές',
+    en: 'European Routes',
+    de: 'Europäische Routen'
+  },
+  cmrInsurance: {
+    el: 'Ασφάλεια CMR',
+    en: 'CMR Insurance',
+    de: 'CMR-Versicherung'
+  },
+  onTimeDelivery: {
+    el: 'Εγκαίρια Παράδοση',
+    en: 'On-Time Delivery',
+    de: 'Pünktliche Lieferung'
+  },
   // Navigation
   home: { el: 'Αρχική', en: 'Home', de: 'Startseite' },
   homeDescription: { el: 'Αρχική σελίδα', en: 'Home page', de: 'Startseite' },

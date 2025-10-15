@@ -15,6 +15,7 @@ import {
   Shield,
   Zap
 } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const contactMethods = [
   {
@@ -47,10 +48,10 @@ const contactMethods = [
 ];
 
 const companyStats = [
-  { label: "Response Time", value: "< 24 hours", icon: Clock },
-  { label: "European Routes", value: "15+", icon: Globe },
-  { label: "CMR Insurance", value: "Full Coverage", icon: Shield },
-  { label: "On-Time Delivery", value: "99.5%", icon: Zap }
+  { labelKey: "responseTime", value: "< 24 hours", icon: Clock },
+  { labelKey: "europeanRoutes", value: "15+", icon: Globe },
+  { labelKey: "cmrInsurance", value: "Full Coverage", icon: Shield },
+  { labelKey: "onTimeDelivery", value: "99.5%", icon: Zap }
 ];
 
 interface PremiumContactProps {
@@ -63,6 +64,7 @@ interface PremiumContactProps {
 }
 
 export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -159,22 +161,22 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Έτοιμοι να μεταφέρουμε την επιχείρησή σας στο επόμενο επίπεδο; Ας ξεκινήσουμε μια συζήτηση για τους στόχους σας και πώς μπορούμε να σας βοηθήσουμε να τους επιτύχετε.
+            {t('letsCooperateDescription')}
           </p>
         </div>
 
         {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {companyStats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-gray-50 rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors shadow-sm"
+              className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors shadow-sm"
             >
-              <div className="w-12 h-12 rounded-xl bg-yellow-50 border border-gray-200 flex items-center justify-center mx-auto mb-3">
-                <stat.icon className="w-6 h-6 text-yellow-500" />
+              <div className="w-10 h-10 rounded-lg bg-yellow-50 border border-gray-200 flex items-center justify-center mx-auto mb-2">
+                <stat.icon className="w-5 h-5 text-yellow-500" />
               </div>
-              <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-sm">{stat.label}</div>
+              <div className="text-xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-xs">{t(stat.labelKey)}</div>
             </div>
           ))}
         </div>
