@@ -143,11 +143,11 @@ const InteractiveMap: React.FC = () => {
                         <div className="flex justify-between items-center">
                           <div>
                             <p className="font-semibold text-gray-900">{warehouse.city}</p>
-                            <p className="text-sm text-gray-600">ΤΚ: {warehouse.code}</p>
+                            <p className="text-sm text-gray-600">{t('postalCodeLabel')}: {warehouse.code}</p>
                           </div>
                           {warehouse.isCentral && (
                             <span className="px-3 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full">
-                              {t('centralWarehouse')}
+                              {t('centralWarehouseShort')}
                             </span>
                           )}
                         </div>
