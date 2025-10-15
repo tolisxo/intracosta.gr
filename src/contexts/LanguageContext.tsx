@@ -1119,33 +1119,6 @@ const translations: Translations = {
     el: 'Κεντρική Αποθήκη',
     en: 'Central Warehouse',
     de: 'Zentrales Lager'
-  },
-
-  // Country names
-  Germany: {
-    el: 'Γερμανία',
-    en: 'Germany',
-    de: 'Deutschland'
-  },
-  Austria: {
-    el: 'Αυστρία',
-    en: 'Austria',
-    de: 'Österreich'
-  },
-  Belgium: {
-    el: 'Βέλγιο',
-    en: 'Belgium',
-    de: 'Belgien'
-  },
-  Netherlands: {
-    el: 'Ολλανδία',
-    en: 'Netherlands',
-    de: 'Niederlande'
-  },
-  Greece: {
-    el: 'Ελλάδα',
-    en: 'Greece',
-    de: 'Griechenland'
   }
 };
 
