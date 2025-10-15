@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Send, Package, User, Mail, Phone, Building, ChevronDown, ChevronUp, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { PhoneInput } from './ui/PhoneInput';
 import {
   validateEmail,
   validatePhone,
@@ -100,7 +101,7 @@ const QuoteFormEnhanced: React.FC = () => {
         }
         return { isValid: true };
       case 'phone':
-        return validatePhone(value, formData.pickupCountry || formData.deliveryCountry);
+        return validatePhone(value);
       case 'pickupPostalCode':
         return validatePostalCode(value, formData.pickupCountry);
       case 'deliveryPostalCode':
@@ -1030,27 +1031,30 @@ const QuoteFormEnhanced: React.FC = () => {
                   <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
                     {t('phone')} <span className="text-red-500">*</span>
                   </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      placeholder={t('phone')}
-                      className={getFieldClassName('phone', 'w-full pl-12 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all min-h-[48px] text-base')}
-                      required
-                      aria-label={t('phone')}
-                      aria-required="true"
-                      aria-invalid={getFieldStatus('phone') === 'invalid'}
-                      autoComplete="tel"
-                    />
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                      {renderFieldIcon('phone')}
-                    </div>
-                  </div>
+                  <PhoneInput
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(value, countryCode) => {
+                      setFormData(prev => ({ ...prev, phone: value }));
+                      if (touchedFields.has('phone')) {
+                        const validation = validateField('phone', value);
+                        setFieldValidation(prev => ({ ...prev, phone: validation }));
+                      }
+                    }}
+                    onBlur={() => {
+                      markFieldTouched('phone');
+                      const validation = validateField('phone', formData.phone);
+                      setFieldValidation(prev => ({ ...prev, phone: validation }));
+                    }}
+                    placeholder={t('phone')}
+                    className={getFieldClassName('phone', '')}
+                    required
+                    aria-label={t('phone')}
+                    aria-required="true"
+                    aria-invalid={getFieldStatus('phone') === 'invalid'}
+                    autoComplete="tel"
+                  />
                   {touchedFields.has('phone') && fieldValidation.phone && !fieldValidation.phone.isValid && (
                     <p className="text-red-600 text-sm mt-1 flex items-center" role="alert">
                       <AlertCircle className="w-4 h-4 mr-1" />

@@ -2,56 +2,18 @@ import React, { useState, useRef } from 'react';
 import { 
   Mail, 
   Phone, 
-  MapPin, 
-  Send, 
-  User, 
-  MessageSquare, 
-  Building, 
-  ArrowRight,
-  Sparkles,
+  MapPin,
   CheckCircle,
   Clock,
-  Globe,
   Shield,
   Zap
 } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-const contactMethods = [
-  {
-    icon: Mail,
-    title: "Email Us",
-    description: "Get in touch via email",
-    value: "info@intracosta.com",
-    link: "mailto:info@intracosta.com",
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    hoverColor: "yellow"
-  },
-  {
-    icon: Phone,
-    title: "Call Us",
-    description: "Speak directly with our team",
-    value: "+30 23820 27111",
-    link: "tel:+302382027111",
-    gradient: "from-gray-500/20 to-gray-600/20",
-    hoverColor: "gray"
-  },
-  {
-    icon: MapPin,
-    title: "Visit Us",
-    description: "Our headquarters",
-    value: "Giannitsa, Greece",
-    link: "https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8",
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    hoverColor: "yellow"
-  }
-];
-
 const companyStats = [
-  { labelKey: "responseTime", value: "< 24 hours", icon: Clock },
-  { labelKey: "europeanRoutes", value: "15+", icon: Globe },
-  { labelKey: "cmrInsurance", value: "Full Coverage", icon: Shield },
-  { labelKey: "onTimeDelivery", value: "99.5%", icon: Zap }
+  { labelKey: "responseTime", value: "< 24h", label: "Απάντηση", icon: Clock },
+  { labelKey: "cmrInsurance", value: "Full Coverage", label: "Κάλυψη", icon: Shield },
+  { labelKey: "onTimeDelivery", value: "99.5%", label: "Παράδοση", icon: Zap }
 ];
 
 interface PremiumContactProps {
@@ -68,15 +30,15 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    message: ''
+    message: '',
+    gdprConsent: false
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }));
@@ -87,23 +49,32 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
     const newErrors: Record<string, string> = {};
     
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'Το όνομα είναι υποχρεωτικό';
     }
     
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'Το email είναι υποχρεωτικό';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = 'Παρακαλώ εισάγετε έγκυρο email';
     }
     
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = 'Το μήνυμα είναι υποχρεωτικό';
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+      newErrors.message = 'Το μήνυμα πρέπει να έχει τουλάχιστον 10 χαρακτήρες';
+    }
+    
+    if (!formData.gdprConsent) {
+      newErrors.gdprConsent = 'Πρέπει να αποδεχτείτε την πολιτική απορρήτου';
     }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const getCsrfToken = () => {
+    const match = document.cookie.match(/XSRF-TOKEN=([^;]+)/);
+    return match ? match[1] : '';
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -116,18 +87,24 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
       if (onSubmit) {
         await onSubmit(formData);
       } else {
-        // Default form submission
-        await fetch('/api/contact', {
+        // Default form submission to /api/contact
+        const response = await fetch('/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'CSRF-Token': getCsrfToken(),
           },
           body: JSON.stringify(formData),
         });
+        
+        if (!response.ok) {
+          throw new Error('Failed to send email');
+        }
       }
       setIsSubmitted(true);
     } catch (error) {
       console.error('Form submission error:', error);
+      alert('Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος. Παρακαλώ δοκιμάστε ξανά.');
     } finally {
       setIsSubmitting(false);
     }
@@ -141,17 +118,10 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
 
       <div 
         ref={containerRef}
-        className="relative z-10 max-w-7xl mx-auto px-6"
+        className="relative z-10 max-w-4xl mx-auto px-6"
       >
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 mb-6">
-            <Sparkles className="h-4 w-4 text-yellow-500" />
-            <span className="text-sm font-medium text-yellow-700">
-              Επικοινωνήστε μαζί μας
-            </span>
-          </div>
-
+        <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
             <span className="text-gray-900">Ας</span>
             <br />
@@ -160,241 +130,220 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
             {t('letsCooperateDescription')}
           </p>
-        </div>
 
-        {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          {companyStats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-4 bg-gray-50 rounded-xl border border-gray-200 hover:bg-gray-100 transition-colors shadow-sm"
-            >
-              <div className="w-10 h-10 rounded-lg bg-yellow-50 border border-gray-200 flex items-center justify-center mx-auto mb-2">
-                <stat.icon className="w-5 h-5 text-yellow-500" />
-              </div>
-              <div className="text-xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-gray-600 text-xs">{t(stat.labelKey)}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Στείλτε μας ένα μήνυμα</h3>
-              <p className="text-gray-600 text-lg">
-                Πείτε μας για το έργο σας και θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
-              </p>
-            </div>
-
-            {!isSubmitted ? (
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6"
+          {/* USP Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
+            {companyStats.map((stat, index) => (
+              <div
+                key={index}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-200"
               >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative">
-                      <label htmlFor="name" className="sr-only">
-                        Όνομα
-                      </label>
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                      <input
-                        id="name"
-                        type="text"
-                        placeholder="Το όνομά σας"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        className={`w-full pl-10 pr-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
-                          errors.name ? 'border-red-400' : 'border-white/[0.15]'
-                        } shadow-sm`}
-                      />
-                      {errors.name && (
-                        <p className="text-red-400 text-sm mt-2">
-                          {errors.name}
-                        </p>
-                      )}
-                    </div>
+                <stat.icon className="w-4 h-4 text-yellow-500" />
+                <span className="text-sm font-medium text-gray-900">{stat.value}</span>
+                <span className="text-sm text-gray-600">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                    <div className="relative">
-                      <label htmlFor="email" className="sr-only">
-                        Email
-                      </label>
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="Διεύθυνση Email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        className={`w-full pl-10 pr-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
-                          errors.email ? 'border-red-400' : 'border-white/[0.15]'
-                        } shadow-sm`}
-                      />
-                      {errors.email && (
-                        <p className="text-red-400 text-sm mt-2">
-                          {errors.email}
-                        </p>
-                      )}
-                    </div>
-                  </div>
+        {/* Contact Options - Simple 3-line layout */}
+        <div className="space-y-3 mb-8">
+          <a
+            href="mailto:info@intracosta.com"
+            className="flex items-center gap-3 text-gray-700 hover:text-yellow-600 transition-colors group"
+          >
+            <Mail className="w-5 h-5 text-yellow-500 group-hover:text-yellow-600" />
+            <span className="text-lg">info@intracosta.com</span>
+          </a>
+          <a
+            href="tel:+302382027111"
+            className="flex items-center gap-3 text-gray-700 hover:text-yellow-600 transition-colors group"
+          >
+            <Phone className="w-5 h-5 text-yellow-500 group-hover:text-yellow-600" />
+            <span className="text-lg">+30 23820 27111</span>
+          </a>
+          <a
+            href="https://maps.app.goo.gl/AhQDdGwnDz4zrD2n8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 text-gray-700 hover:text-yellow-600 transition-colors group"
+          >
+            <MapPin className="w-5 h-5 text-yellow-500 group-hover:text-yellow-600" />
+            <span className="text-lg">Giannitsa, Greece</span>
+          </a>
+        </div>
 
-                  <div className="relative">
-                    <label htmlFor="company" className="sr-only">
-                      Εταιρεία
-                    </label>
-                    <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                    <input
-                      id="company"
-                      type="text"
-                      placeholder="Εταιρεία (Προαιρετικό)"
-                      value={formData.company}
-                      onChange={(e) => handleInputChange('company', e.target.value)}
-                      className="w-full pl-10 pr-4 py-4 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all shadow-sm"
-                    />
-                  </div>
+        {/* All Email Addresses Section */}
+        <div className="mb-10">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              Όλες οι Διευθύνσεις Email
+            </h3>
+            <p className="text-gray-600 text-sm">
+              Κάντε κλικ για να στείλετε email στην κατάλληλη διεύθυνση.
+            </p>
+          </div>
 
-                  <div className="relative">
-                    <label htmlFor="message" className="sr-only">
-                      Μήνυμα
-                    </label>
-                    <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-gray-400" />
-                    <textarea
-                      id="message"
-                      placeholder="Πείτε μας για τις μεταφορικές σας ανάγκες..."
-                      rows={6}
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      className={`w-full pl-10 pr-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all resize-none ${
-                        errors.message ? 'border-red-400' : 'border-white/[0.15]'
-                      } shadow-sm`}
-                    />
-                    {errors.message && (
-                      <p className="text-red-400 text-sm mt-2">
-                        {errors.message}
-                      </p>
-                    )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { email: 'info@intracosta.com', department: 'Γενικές Πληροφορίες' },
+              { email: 'export@intracosta.com', department: 'Εξαγωγές' },
+              { email: 'import@intracosta.com', department: 'Εισαγωγές' },
+              { email: 'dispo.greece@intracosta.com', department: 'Διανομή Ελλάδα' },
+              { email: 'account@intracosta.com', department: 'Λογιστήριο' }
+            ].map((item, index) => (
+              <a
+                key={index}
+                href={`mailto:${item.email}`}
+                className="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-md hover:border-yellow-400 hover:bg-yellow-50 hover:shadow-md transition-all group"
+              >
+                <Mail className="w-5 h-5 text-yellow-500 group-hover:text-yellow-600 flex-shrink-0 mt-0.5" />
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-medium text-gray-900 mb-1">
+                    {item.department}
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      {isSubmitting ? (
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          <Send className="h-5 w-5" />
-                          Αποστολή Μηνύματος
-                          <ArrowRight className="h-4 w-4" />
-                        </>
-                      )}
-                    </span>
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-12">
-                  <div className="w-20 h-20 rounded-full bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
+                  <div className="text-sm text-gray-600 group-hover:text-yellow-700 break-all">
+                    {item.email}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Το μήνυμα στάλθηκε!</h3>
-                  <p className="text-gray-600 text-lg mb-6">
-                    Σας ευχαριστούμε που επικοινωνήσατε μαζί μας. Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormData({ name: '', email: '', company: '', message: '' });
-                    }}
-                    className="px-6 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-900 hover:bg-gray-200 transition-colors shadow-sm"
-                  >
-                    Αποστολή άλλου μηνύματος
-                  </button>
                 </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="text-center mb-8">
+          <p className="text-gray-500 text-sm">ή χρησιμοποιήστε τη φόρμα για να μας στείλετε μήνυμα</p>
+        </div>
+
+        {/* Contact Form */}
+        {!isSubmitted ? (
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4"
+          >
+            <div className="relative">
+              <input
+                id="name"
+                type="text"
+                placeholder="Όνομα"
+                value={formData.name}
+                onChange={(e) => handleInputChange('name', e.target.value)}
+                className={`w-full px-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
+                  errors.name ? 'border-red-400' : 'border-gray-200'
+                }`}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
               )}
             </div>
-          </div>
 
-          {/* Contact Methods */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Άλλοι τρόποι επικοινωνίας</h3>
-              <p className="text-gray-600 text-lg">
-                Επιλέξτε τον τρόπο που σας εξυπηρετεί καλύτερα.
-              </p>
+            <div className="relative">
+              <input
+                id="email"
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                className={`w-full px-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
+                  errors.email ? 'border-red-400' : 'border-gray-200'
+                }`}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
 
-            <div className="space-y-6">
-              {contactMethods.map((method, index) => (
-                <a
-                  key={index}
-                  href={method.link}
-                  target={method.link.startsWith('http') ? '_blank' : undefined}
-                  rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="block p-6 bg-gray-50 rounded-2xl border border-gray-200 hover:bg-gray-100 transition-colors group shadow-sm hover:shadow-md"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-yellow-50 border border-gray-200 flex items-center justify-center">
-                      <method.icon className="w-7 h-7 text-gray-700" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-semibold text-gray-900 mb-1">{method.title}</h4>
-                      <p className="text-gray-600 text-sm mb-2">{method.description}</p>
-                      <p className="text-gray-900 font-medium">{method.value}</p>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 transition-colors" />
-                  </div>
-                </a>
-              ))}
+            <div className="relative">
+              <textarea
+                id="message"
+                placeholder="Μήνυμα"
+                rows={5}
+                value={formData.message}
+                onChange={(e) => handleInputChange('message', e.target.value)}
+                className={`w-full px-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all resize-none ${
+                  errors.message ? 'border-red-400' : 'border-gray-200'
+                }`}
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              )}
             </div>
 
-            {/* All Email Addresses */}
-            <div className="p-6 bg-white rounded-2xl border border-gray-200 shadow-sm">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Mail className="w-5 h-5 text-yellow-500" />
-                Όλες οι Διευθύνσεις Email
-              </h4>
-              <p className="text-gray-600 text-sm mb-4">
-                Κάντε κλικ σε οποιαδήποτε διεύθυνση email για να ανοίξει το email client σας:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {[
-                  'info@intracosta.com',
-                  'export@intracosta.com', 
-                  'import@intracosta.com',
-                  'dispo.greece@intracosta.com',
-                  'account@intracosta.com'
-                ].map((email, index) => (
-                  <a
-                    key={index}
-                    href={`mailto:${email}`}
-                    className="flex items-center gap-3 p-3 bg-gray-50 hover:bg-yellow-50 border border-gray-200 hover:border-yellow-300 rounded-lg transition-colors group"
-                    title={`Click to send email to ${email}`}
-                  >
-                    <Mail className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 transition-colors flex-shrink-0" />
-                    <span className="text-sm text-gray-700 group-hover:text-gray-900 font-medium">
-                      {email}
-                    </span>
+            <div className="relative">
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={formData.gdprConsent}
+                  onChange={(e) => handleInputChange('gdprConsent', e.target.checked)}
+                  className="mt-1 w-4 h-4 rounded border-gray-300 text-yellow-500 focus:ring-yellow-500"
+                />
+                <span className="text-sm text-gray-700 flex-1">
+                  Αποδέχομαι την{' '}
+                  <a href="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
+                    πολιτική απορρήτου
                   </a>
-                ))}
-              </div>
+                  {' '}και συναινώ στην επεξεργασία των προσωπικών μου δεδομένων
+                </span>
+              </label>
+              {errors.gdprConsent && (
+                <p className="text-red-500 text-sm mt-1">{errors.gdprConsent}</p>
+              )}
             </div>
 
-            {/* Additional Info */}
-            <div className="p-6 bg-yellow-50 rounded-2xl border border-yellow-200 shadow-sm">
-              <h4 className="text-lg font-semibold text-gray-900 mb-3">Εγγύηση Γρήγορης Απάντησης</h4>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Είμαστε περήφανοι για τους γρήγορους χρόνους απόκρισής μας. Όλες οι ερωτήσεις απαντώνται συνήθως εντός 24 ωρών κατά τις εργάσιμες ώρες, 
-                και θα προγραμματίσουμε μια κλήση εντός 24 ωρών για να συζητήσουμε λεπτομερώς τις ανάγκες σας.
-              </p>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
+            >
+              <span className="flex items-center justify-center gap-2">
+                {isSubmitting ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <Mail className="h-5 w-5" />
+                    Αποστολή Μηνύματος
+                  </>
+                )}
+              </span>
+            </button>
+          </form>
+        ) : (
+          <div className="text-center py-12">
+            <div className="w-20 h-20 rounded-full bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-10 h-10 text-green-500" />
             </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Το μήνυμα στάλθηκε!</h3>
+            <p className="text-gray-600 text-lg mb-6">
+              Σας ευχαριστούμε που επικοινωνήσατε μαζί μας. Θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.
+            </p>
+            <button
+              onClick={() => {
+                setIsSubmitted(false);
+                setFormData({ name: '', email: '', message: '', gdprConsent: false });
+              }}
+              className="px-6 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-900 hover:bg-gray-200 transition-colors shadow-sm"
+            >
+              Αποστολή άλλου μηνύματος
+            </button>
           </div>
+        )}
+
+        {/* GDPR Notice */}
+        <div className="mt-6 text-center">
+          <p className="text-xs text-gray-500">
+            Τα προσωπικά σας δεδομένα θα χρησιμοποιηθούν μόνο για να σας απαντήσουμε. 
+            Δείτε την πλήρη{' '}
+            <a href="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
+              πολιτική απορρήτου
+            </a>
+            .
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
   );
 }
