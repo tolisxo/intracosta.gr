@@ -109,12 +109,13 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-400 mt-12 pt-8">
- <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-700 mb-4 md:mb-0">
               <span itemScope itemType="https://schema.org/Organization">
                 © 2024 <span itemProp="name">Intracosta</span>. All rights reserved.
               </span>
             </div>
+            <div className="flex items-center space-x-4">
               <div className="flex space-x-6">
                 <Link
                   to="/privacy-policy"
@@ -129,6 +130,21 @@ const Footer: React.FC = () => {
                   {t('termsOfService')}
                 </Link>
               </div>
+              
+              {/* EU Funding Stickers */}
+              <div className="flex items-center space-x-2 ml-4">
+                <img 
+                  src="/e-bannerseuerdf730x90-1.jpg" 
+                  alt="European Union Regional Development Fund" 
+                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                />
+                <img 
+                  src="/sticker-website_etpa_gr_highres-1.jpg" 
+                  alt="ΕΣΠΑ 2014-2020" 
+                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
