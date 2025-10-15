@@ -220,24 +220,14 @@ const About: React.FC = () => {
         </motion.div>
 
         {/* Team Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="mt-20"
-        >
+        <div className="mt-20">
           <div className="text-center mb-12">
-            <motion.div 
+            <div 
               className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-full mb-4"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
             >
               <Users className="w-5 h-5 text-yellow-600" />
               <span className="text-sm font-semibold text-yellow-700">{t('teamTitle')}</span>
-            </motion.div>
+            </div>
             <h3 className="text-3xl font-bold text-gray-900 mb-2">{t('teamTitle')}</h3>
             <p className="text-gray-600">{t('teamSubtitle')}</p>
           </div>
@@ -247,15 +237,11 @@ const About: React.FC = () => {
             <div className="overflow-x-auto pb-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               <div className="flex gap-6 px-4" style={{ width: 'max-content' }}>
                 {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="relative group flex-shrink-0"
-                    style={{ width: '240px' }}
-                  >
+              <div
+                key={index}
+                className="relative flex-shrink-0"
+                style={{ width: '240px' }}
+              >
                     <div className="bg-white rounded-2xl shadow-lg p-6">
                       <div className="relative mb-4">
                         {/* Circular Image */}
@@ -294,7 +280,7 @@ const About: React.FC = () => {
                         <p className="text-sm text-yellow-600 font-medium">{member.role}</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -304,7 +290,7 @@ const About: React.FC = () => {
               <p className="text-sm text-gray-500">← Σύρετε για να δείτε περισσότερα / Scroll to see more →</p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
