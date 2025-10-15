@@ -245,7 +245,7 @@ const Coverage: React.FC = () => {
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
                           <Warehouse className="w-4 h-4 text-yellow-500" />
-                          Αποθήκες
+                          {t('warehousesLabel')}
                         </h4>
                         <div className="grid grid-cols-1 gap-2">
                           {coverageData[selectedCountry].warehouses.map((warehouse, idx) => (
@@ -255,11 +255,11 @@ const Coverage: React.FC = () => {
                             >
                               <div>
                                 <span className="font-semibold">{warehouse.city}</span>
-                                <span className="text-gray-600 ml-2">ΤΚ: {warehouse.code}</span>
+                                <span className="text-gray-600 ml-2">{t('postalCodeLabel')}: {warehouse.code}</span>
                               </div>
                               {warehouse.isCentral && (
                                 <span className="px-2 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full">
-                                  Κεντρική
+                                  {t('centralWarehouseShort')}
                                 </span>
                               )}
                             </div>
