@@ -393,7 +393,6 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
 }
