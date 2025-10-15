@@ -171,7 +171,7 @@ const Header: React.FC = () => {
               isCompact ? 'py-2 lg:py-3' : 'py-4 lg:py-6'
             }`}>
             {/* Logo */}
-              <div className="flex items-center justify-start mr-8 lg:mr-12">
+              <div className="flex items-center justify-start ml-8 lg:ml-12 mr-auto">
               <a
                 href="#home"
                 onClick={(e) => {
