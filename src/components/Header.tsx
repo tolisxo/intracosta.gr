@@ -209,7 +209,7 @@ const Header: React.FC = () => {
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 group relative overflow-hidden ${
                           isActive(item.key)
                             ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
-                            : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-lg hover:scale-105'
+                            : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                         }`}
                         aria-expanded={isCoverageOpen}
                         aria-haspopup="true"
@@ -285,7 +285,7 @@ const Header: React.FC = () => {
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                           isActive(item.key)
                             ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
-                            : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-lg hover:scale-105'
+                            : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                         }`}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
@@ -304,7 +304,7 @@ const Header: React.FC = () => {
                       className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                         isActive(item.key)
                           ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
-                          : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-lg hover:scale-105'
+                          : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                       }`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
@@ -325,7 +325,7 @@ const Header: React.FC = () => {
               <div className="relative dropdown-container">
                 <button
                   onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 hover:text-gray-900 transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-md hover:scale-105 group"
+                  className="flex items-center space-x-2 px-4 py-3 text-gray-700 hover:text-gray-900 transition-all duration-300 rounded-xl hover:underline hover:decoration-yellow-500 hover:underline-offset-4 group"
                   aria-expanded={isLanguageOpen}
                   aria-haspopup="true"
                   aria-label="Select language"
@@ -409,7 +409,7 @@ const Header: React.FC = () => {
                       className={`w-full flex items-center space-x-4 px-6 py-4 text-left rounded-xl transition-all duration-300 mx-2 group ${
                         isActive(item.key)
                           ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md'
-                          : 'text-gray-700 hover:text-yellow-600 hover:bg-gradient-to-r hover:from-gray-50 hover:to-yellow-50 hover:shadow-md hover:scale-105'
+                          : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                       }`}
                     >
                       {item.icon && <item.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />}
@@ -423,7 +423,7 @@ const Header: React.FC = () => {
                     {item.key === 'coverage' && item.countries && (
                       <div className="ml-12 mt-3 space-y-2">
                         {item.countries.slice(0, 4).map((country) => (
-                          <div key={country.name} className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-yellow-50 transition-colors duration-300">
+                          <div key={country.name} className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 rounded-lg hover:underline hover:decoration-yellow-500 hover:underline-offset-4 transition-colors duration-300">
                             <span>{country.flag}</span>
                             <span>{t(country.name)}</span>
                             <span className="text-xs text-gray-400 ml-auto">({country.routes})</span>
