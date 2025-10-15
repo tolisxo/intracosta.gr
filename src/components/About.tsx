@@ -256,7 +256,7 @@ const About: React.FC = () => {
                     className="relative group flex-shrink-0"
                     style={{ width: '240px' }}
                   >
-                    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-6">
+                    <div className="bg-white rounded-2xl shadow-lg p-6">
                       <div className="relative mb-4">
                         {/* Circular Image */}
                         <div className="w-48 h-48 mx-auto team-photo-container bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-white shadow-xl">
@@ -264,6 +264,12 @@ const About: React.FC = () => {
                             src={member.image}
                             alt={member.name}
                             className="team-photo"
+                            style={{
+                              objectFit: 'cover',
+                              objectPosition: 'center 30%',
+                              width: '100%',
+                              height: '100%'
+                            }}
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.style.display = 'none';
