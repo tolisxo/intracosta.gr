@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
             <img
               src="/intracosta χωρις το επε.svg"
               alt={t('logoAlt')}
-              className="w-80 sm:w-96 md:w-[500px] lg:w-[600px] h-auto mb-8 mx-auto magnetic hover-glow"
+              className="w-80 sm:w-96 md:w-[500px] lg:w-[600px] h-auto mb-8 ml-auto magnetic hover-glow"
             />
           </ScrollAnimation>
           
