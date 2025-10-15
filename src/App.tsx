@@ -20,6 +20,7 @@ import About from './components/About';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
+import InteractiveMap from './components/InteractiveMap';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
@@ -64,6 +65,7 @@ const AppContent: React.FC = () => {
                     <Coverage />
                     <QuoteForm />
                     <About />
+                    <InteractiveMap />
                     <Testimonials />
                     <FAQ />
                     <Contact />
