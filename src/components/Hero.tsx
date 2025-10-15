@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20 pt-40 sm:pt-32 pb-24">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20">
       {/* Enhanced parallax background */}
       <motion.div 
         style={{ y, opacity, scale }} 
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
 
       {/* Content with enhanced animations */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <ScrollAnimation animation="stagger" className="flex flex-col items-center -mt-6">
+        <ScrollAnimation animation="stagger" className="flex flex-col items-center justify-center min-h-screen">
           <ScrollAnimation animation="scaleIn" delay={0.2}>
             <img
               src="/intracosta χωρις το επε.svg"
