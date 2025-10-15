@@ -178,7 +178,7 @@ const Header: React.FC = () => {
                   e.preventDefault();
                   scrollToSection('#home');
                 }}
-                className="group transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 rounded-lg p-2"
+                className="group transition-all duration-300 hover:scale-105 focus:outline-none rounded-lg p-2"
                 aria-label="Intracosta Home"
               >
                 <div itemScope itemType="https://schema.org/Organization">
@@ -208,7 +208,7 @@ const Header: React.FC = () => {
                         onMouseEnter={() => setIsCoverageOpen(true)}
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 group relative overflow-hidden ${
                           isActive(item.key)
-                            ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
+                            ? 'text-yellow-600'
                             : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                         }`}
                         aria-expanded={isCoverageOpen}
@@ -284,7 +284,7 @@ const Header: React.FC = () => {
                         }}
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                           isActive(item.key)
-                            ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
+                            ? 'text-yellow-600'
                             : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                         }`}
                       >
@@ -303,7 +303,7 @@ const Header: React.FC = () => {
                       }}
                       className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                         isActive(item.key)
-                          ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md border border-yellow-200'
+                          ? 'text-yellow-600'
                           : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                       }`}
                     >
@@ -408,7 +408,7 @@ const Header: React.FC = () => {
                       }}
                       className={`w-full flex items-center space-x-4 px-6 py-4 text-left rounded-xl transition-all duration-300 mx-2 group ${
                         isActive(item.key)
-                          ? 'text-yellow-600 bg-gradient-to-r from-yellow-50 to-orange-50 shadow-md'
+                          ? 'text-yellow-600'
                           : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
                       }`}
                     >
