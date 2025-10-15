@@ -10,67 +10,67 @@ const About: React.FC = () => {
     {
       name: 'Κώστας Φίλιππος',
       role: t('teamGeneralDirector'),
-      image: '/team/kostas-filippos.jpg',
+      image: '/team/Κώστας Φίλιππος.JPG',
       department: 'leadership'
     },
     {
       name: 'Κώστα Κατερίνα',
       role: t('teamImportDepartment'),
-      image: '/team/kostas-katerina.jpg',
+      image: '/team/Κώστα Κατερίνα.JPG',
       department: 'import'
     },
     {
       name: 'Πετρίδης Δημήτρης',
       role: t('teamImportDepartment'),
-      image: '/team/petridis-dimitris.jpg',
+      image: '/team/Πετρίδης Δημήτριος.JPG',
       department: 'import'
     },
     {
       name: 'Εμμανουηλίδου Αναστασία',
       role: t('teamImportDepartment'),
-      image: '/team/emmanouilidou-anastasia.jpg',
+      image: '/team/Εμμανουηλίδου Αναστασία.JPG',
       department: 'import'
     },
     {
       name: 'Δήμου Μαρία',
       role: t('teamImportDepartment'),
-      image: '/team/dsc_2268.jpg',
+      image: '/team/Δήμου Μαρία.JPG',
       department: 'import'
     },
     {
       name: 'Γιαννακίδου Ειρήνη',
       role: t('teamImportDepartment'),
-      image: '/team/dsc_2288.jpg',
+      image: '/team/Γιαννακίδου Ειρήνη.JPG',
       department: 'import'
     },
     {
       name: 'Αλμπάνη Ελένη',
       role: t('teamExportDepartment'),
-      image: '/team/dsc_2297.jpg',
+      image: '/team/Κατερίνα Νταούλα.JPG',
       department: 'export'
     },
     {
       name: 'Βαγγέλης',
       role: t('teamExportDepartment'),
-      image: '/team/dsc_2328.jpg',
+      image: '/team/Βαγγέλης.JPG',
       department: 'export'
     },
     {
       name: 'Κουλούδη Νικολέτα',
       role: t('teamAccountingDepartment'),
-      image: '/team/dsc_2334.jpg',
+      image: '/team/Κουλούδη Νικολέτα.JPG',
       department: 'accounting'
     },
     {
       name: 'Κουλόυδη Ειρήνη',
       role: t('teamAccountingDepartment'),
-      image: '/team/dsc_2346.jpg',
+      image: '/team/Κουλούδη Ειρήνη.JPG',
       department: 'accounting'
     },
     {
       name: 'Τσιτλακίδου Κυριακή',
       role: t('teamAccountingDepartment'),
-      image: '/team/dsc_2383.jpg',
+      image: '/team/Κυριακή Τσιτλακίδου.JPG',
       department: 'accounting'
     }
   ];
