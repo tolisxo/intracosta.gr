@@ -17,7 +17,6 @@ import Services from './components/Services';
 import Coverage from './components/Coverage';
 import QuoteForm from './components/QuoteFormEnhanced';
 import About from './components/About';
-import Team from './components/Team';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import InteractiveMap from './components/InteractiveMap';
@@ -65,7 +64,6 @@ const AppContent: React.FC = () => {
                     <Coverage />
                     <QuoteForm />
                     <About />
-                    <Team />
                     <InteractiveMap />
                     <FAQ />
                     <Contact />
