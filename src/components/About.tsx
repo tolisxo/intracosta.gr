@@ -242,7 +242,7 @@ const About: React.FC = () => {
                 className="relative flex-shrink-0"
                 style={{ width: '240px' }}
               >
-                    <div className="bg-white rounded-2xl shadow-lg p-6">
+                    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-6 cursor-pointer group">
                       <div className="relative mb-4">
                         {/* Circular Image */}
                         <div className="w-48 h-48 mx-auto team-photo-container bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-white shadow-xl">
@@ -270,14 +270,14 @@ const About: React.FC = () => {
                     member.name === 'Κατερίνα Νταούλα' || 
                     member.name === 'Πλεπλές Θεόδωρος' || 
                     member.name === 'Παπαδημητρίου Δημήτριος') && (
-                    <div className="absolute top-0 right-1/2 translate-x-24 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    <div className="absolute top-0 right-1/2 translate-x-24 bg-yellow-500 group-hover:bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
                       {member.department === 'leadership' ? '⭐' : '👔'}
                     </div>
                   )}
                       </div>
                       <div className="text-center">
-                        <h4 className="font-bold text-lg text-gray-900 mb-1">{member.name}</h4>
-                        <p className="text-sm text-yellow-600 font-medium">{member.role}</p>
+                        <h4 className="font-bold text-lg text-gray-900 mb-1 group-hover:text-yellow-700 transition-colors duration-300">{member.name}</h4>
+                        <p className="text-sm text-yellow-600 font-medium group-hover:text-yellow-800 transition-colors duration-300">{member.role}</p>
                       </div>
                     </div>
                   </div>
