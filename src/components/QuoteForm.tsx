@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Send, MapPin, Package, Calendar, User, Mail, Phone, Building, ChevronDown, ChevronUp, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { PhoneInput } from './ui/PhoneInput';
 import {
   validateEmail,
   validatePhone,
@@ -690,26 +691,18 @@ const QuoteForm: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1 mt-6">
                     {t('phone')}
                   </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder={t('phone')}
-                      title="π.χ. +30 2101234567"
-                      className={`w-full pl-12 pr-4 py-3 border ${
-                        formData.phone && !/^\+?\d{7,15}$/.test(formData.phone)
-                          ? 'border-red-500'
-                          : 'border-gray-300'
-                      } rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent`}
-                      required
-                    />
-                  </div>
-                  {formData.phone && !/^\+?\d{7,15}$/.test(formData.phone) && (
-                    <p className="text-red-500 text-xs mt-1">{t('invalidPhone')}</p>
-                  )}
+                  <PhoneInput
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(value, countryCode) => {
+                      setFormData(prev => ({ ...prev, phone: value }));
+                    }}
+                    placeholder={t('phone')}
+                    required
+                    aria-label={t('phone')}
+                    aria-required="true"
+                    autoComplete="tel"
+                  />
                 </div>
               </div>
             </div>

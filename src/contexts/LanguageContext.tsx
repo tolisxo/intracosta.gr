@@ -822,6 +822,26 @@ const translations: Translations = {
     en: 'Pan-European coverage with modern distribution hubs',
     de: 'Paneuropäische Abdeckung mit modernen Verteilzentren'
   },
+  warehousesLabel: {
+    el: 'Αποθήκες',
+    en: 'Warehouses',
+    de: 'Lagerhäuser'
+  },
+  postalCodeLabel: {
+    el: 'ΤΚ',
+    en: 'Postal Code',
+    de: 'Postleitzahl'
+  },
+  centralWarehouseShort: {
+    el: 'Κεντρική',
+    en: 'Central',
+    de: 'Zentral'
+  },
+  postalCodesTitle: {
+    el: 'Ταχυδρομικοί Κώδικες',
+    en: 'Postal Codes',
+    de: 'Postleitzahlen'
+  },
 
   // About Values Block
   aboutReliabilityTitle: {

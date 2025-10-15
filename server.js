@@ -46,9 +46,9 @@ const smtpHost = process.env.SMTP_HOST;
 const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 587;
 const smtpUser = process.env.SMTP_USER;
 const smtpPass = process.env.SMTP_PASS;
-const mailFrom = process.env.MAIL_FROM || 'christos.kostas@intracosta.com';
-const mailToContact = process.env.MAIL_TO_CONTACT || process.env.MAIL_TO || 'christos.kostas@intracosta.com';
-const mailToQuote = process.env.MAIL_TO_QUOTE || process.env.MAIL_TO || 'christos.kostas@intracosta.com';
+const mailFrom = process.env.MAIL_FROM || 'web@intracosta.com';
+const mailToContact = process.env.MAIL_TO_CONTACT || process.env.MAIL_TO || 'web@intracosta.com';
+const mailToQuote = process.env.MAIL_TO_QUOTE || process.env.MAIL_TO || 'web@intracosta.com';
 
 const transporter = nodemailer.createTransport({
   host: smtpHost || 'mail.intracosta.com',
