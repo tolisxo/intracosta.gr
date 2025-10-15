@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
         <ScrollAnimation animation="stagger" className="flex flex-col items-center -mt-6">
           <ScrollAnimation animation="scaleIn" delay={0.2}>
             <img
-              src="/intracosta brand text only.svg"
+              src="/intracosta text only.svg"
               alt={t('logoAlt')}
               className="w-64 sm:w-80 md:w-96 h-auto mb-6 mx-auto magnetic hover-glow"
             />
