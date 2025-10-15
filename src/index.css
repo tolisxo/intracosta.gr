@@ -257,9 +257,9 @@ select:focus-visible {
   transition: transform 0.1s ease-out;
 }
 
-/* Floating elements */
+/* Disabled floating animations for better performance */
 .floating {
-  animation: float 6s ease-in-out infinite;
+  /* animation: float 6s ease-in-out infinite; - DISABLED FOR PERFORMANCE */
 }
 
 @keyframes float {

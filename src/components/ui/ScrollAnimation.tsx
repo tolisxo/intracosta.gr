@@ -25,8 +25,8 @@ const animations: Record<string, Variants> = {
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   },
@@ -41,8 +41,8 @@ const animations: Record<string, Variants> = {
       x: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   },
@@ -57,8 +57,8 @@ const animations: Record<string, Variants> = {
       x: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   },
@@ -73,40 +73,36 @@ const animations: Record<string, Variants> = {
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.3,
+        ease: "easeOut"
       }
     }
   },
   scaleIn: {
     hidden: { 
       opacity: 0, 
-      scale: 0.8,
-      rotateY: -15
+      scale: 0.9
     },
     visible: { 
       opacity: 1, 
       scale: 1,
-      rotateY: 0,
       transition: {
-        duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   },
   slideInUp: {
     hidden: { 
       opacity: 0, 
-      y: 100,
-      filter: 'blur(10px)'
+      y: 50
     },
     visible: { 
       opacity: 1, 
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   },
@@ -133,8 +129,8 @@ const childVariants: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94]
+      duration: 0.3,
+      ease: "easeOut"
     }
   }
 };
