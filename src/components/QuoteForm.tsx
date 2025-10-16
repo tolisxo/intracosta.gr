@@ -162,6 +162,11 @@ const QuoteForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    // Save current scroll position
+    const scrollPosition = window.scrollY;
+    
     setIsSubmitting(true);
     setSubmissionError(null);
 
@@ -227,7 +232,16 @@ const QuoteForm: React.FC = () => {
       });
 
       localStorage.removeItem(FORM_STORAGE_KEY);
+      
+      // Restore scroll position immediately before state update
+      window.scrollTo({ top: scrollPosition, behavior: 'instant' });
+      
       setIsSubmitted(true);
+      
+      // Ensure scroll position is maintained after React re-render
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: scrollPosition, behavior: 'instant' });
+      });
     } catch (err) {
       console.error(err);
       setSubmissionError('Failed to submit quote. Please try again.');
