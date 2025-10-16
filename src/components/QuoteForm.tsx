@@ -12,7 +12,6 @@ import {
   formatPhoneNumber,
   ValidationResult
 } from '../utils/formValidation';
-import { saveQuoteToDatabase, QuoteFormData } from '../utils/supabaseClient';
 
 // Supported countries list
 const SUPPORTED_COUNTRIES = [
@@ -193,35 +192,7 @@ const QuoteForm: React.FC = () => {
     }
 
     try {
-      const quoteData: QuoteFormData = {
-        pickupCountry: formData.pickupCountry,
-        pickupCity: formData.pickupCity,
-        pickupPostalCode: formData.pickupPostalCode,
-        pickupCompany: formData.pickupCompany || undefined,
-        deliveryCountry: formData.deliveryCountry,
-        deliveryCity: formData.deliveryCity,
-        deliveryPostalCode: formData.deliveryPostalCode,
-        deliveryCompany: formData.deliveryCompany || undefined,
-        loadingDate: formData.loadingDate,
-        cargoType: formData.cargoType,
-        pallets: formData.pallets ? parseInt(formData.pallets) : undefined,
-        boxes: formData.boxes ? parseInt(formData.boxes) : undefined,
-        length: formData.length ? parseFloat(formData.length) : undefined,
-        width: formData.width ? parseFloat(formData.width) : undefined,
-        height: formData.height ? parseFloat(formData.height) : undefined,
-        weight: parseFloat(formData.weight),
-        companyName: formData.companyName,
-        contactPerson: formData.contactPerson,
-        email: formData.email,
-        phone: formData.phone,
-      };
-
-      const dbResult = await saveQuoteToDatabase(quoteData);
-
-      if (!dbResult.success) {
-        console.error('Database save failed:', dbResult.error);
-      }
-
+      // Send quote request via email
       await fetch('/api/quote', {
         method: 'POST',
         headers: {
