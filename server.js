@@ -8,6 +8,10 @@ import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,7 +47,7 @@ app.use((req, res, next) => {
 
 // Email transport
 const smtpHost = process.env.SMTP_HOST;
-const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 587;
+const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 465;
 const smtpUser = process.env.SMTP_USER;
 const smtpPass = process.env.SMTP_PASS;
 const mailFrom = process.env.MAIL_FROM || 'web@intracosta.com';
@@ -52,11 +56,11 @@ const mailToQuote = process.env.MAIL_TO_QUOTE || process.env.MAIL_TO || 'web@int
 
 const transporter = nodemailer.createTransport({
   host: smtpHost || 'mail.intracosta.com',
-  port: smtpPort || 587,
-  secure: (smtpPort || 587) === 465, // true for 465, false for other ports
+  port: smtpPort || 465,
+  secure: (smtpPort || 465) === 465, // true for 465, false for other ports
   auth: {
-    user: smtpUser || 'christos.kostas@intracosta.com',
-    pass: smtpPass || 'X7Ydu@eUqIxl'
+    user: smtpUser || 'web@intracosta.com',
+    pass: smtpPass || 'wx7zI?PNuEn,QuWs'
   },
   connectionTimeout: 60000, // 60 seconds
   greetingTimeout: 30000,   // 30 seconds
