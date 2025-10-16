@@ -13,7 +13,7 @@ Create a `.env` file in the project root with the following configuration:
 ```bash
 # Email Configuration
 SMTP_HOST=mail.intracosta.com
-SMTP_PORT=587
+SMTP_PORT=465
 SMTP_USER=web@intracosta.com
 SMTP_PASS=wx7zI?PNuEn,QuWs
 MAIL_FROM=web@intracosta.com
@@ -35,7 +35,7 @@ MAIL_TO_QUOTE=web@intracosta.com
 
 ## SMTP Settings
 - **Host**: mail.intracosta.com
-- **Port**: 587 (TLS)
+- **Port**: 465 (SSL)
 - **Authentication**: Required (web@intracosta.com)
 
 ## Security Notes
