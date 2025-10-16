@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Mail, 
   Phone, 
@@ -106,12 +107,16 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           throw new Error('Failed to send email');
         }
       }
+      
+      // Restore scroll position immediately before state update
+      window.scrollTo({ top: scrollPosition, behavior: 'instant' });
+      
       setIsSubmitted(true);
       
-      // Restore scroll position after state update
-      setTimeout(() => {
+      // Ensure scroll position is maintained after React re-render
+      requestAnimationFrame(() => {
         window.scrollTo({ top: scrollPosition, behavior: 'instant' });
-      }, 0);
+      });
     } catch (error) {
       console.error('Form submission error:', error);
       alert('Παρουσιάστηκε σφάλμα κατά την αποστολή του μηνύματος. Παρακαλώ δοκιμάστε ξανά.');
@@ -293,9 +298,9 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 />
                 <span className="text-sm text-gray-700 flex-1">
                   Αποδέχομαι την{' '}
-                  <a href="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
+                  <Link to="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
                     πολιτική απορρήτου
-                  </a>
+                  </Link>
                   {' '}και συναινώ στην επεξεργασία των προσωπικών μου δεδομένων
                 </span>
               </label>
@@ -347,9 +352,9 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
           <p className="text-xs text-gray-500">
             Τα προσωπικά σας δεδομένα θα χρησιμοποιηθούν μόνο για να σας απαντήσουμε. 
             Δείτε την πλήρη{' '}
-            <a href="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
+            <Link to="/privacy-policy" className="text-yellow-600 hover:text-yellow-700 underline">
               πολιτική απορρήτου
-            </a>
+            </Link>
             .
           </p>
         </div>
