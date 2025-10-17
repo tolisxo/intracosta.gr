@@ -573,48 +573,7 @@ const translations: Translations = {
     de: 'Was uns anders macht:\n- Nahezu tägliche Routen von/nach Griechenland und Mitteleuropa\n- Zwei firmeneigene Lagerhäuser (Giannitsa, Osnabrück) und Dutzende Partnerstandorte in Griechenland, Deutschland, Österreich, Niederlande, Belgien, Polen für Be- und Entladung sowie Zwischenlagerung\n- CMR-Versicherung für Liefernachweise und garantierte Sicherheit, Zuverlässigkeit und Transparenz auf jeder Route\n- Ein Team von Fahrern und Mitarbeitern, das jede Sendung behandelt, als wäre es ihre eigene\n\nUnsere Mission ist es, die Lieferketten unserer Kunden am Laufen zu halten – schnell, sicher und mit vollständiger Kostentransparenz. Von einer Palette bis hin zu Komplettladungen entwerfen wir die optimale Route, nutzen unser internationales Netzwerk und liefern genau dann, wenn Sie es brauchen, damit Sie sich auf das Wachstum Ihres Unternehmens konzentrieren können.'
   },
   
-  // FAQ
-  faqTitle: { el: 'Συχνές Ερωτήσεις', en: 'Frequently Asked Questions', de: 'Häufig gestellte Fragen' },
-  faq1Question: {
-    el: 'Μεταφέρετε δέματα και προσωπικά αντικείμενα;',
-    en: 'Do you transport packages and personal items?',
-    de: 'Transportieren Sie Pakete und persönliche Gegenstände?'
-  },
-  faq1Answer: {
-    el: 'Δεν μεταφέρουμε προσωπικά μικροαντικείμενα και μικροδέματα (πχ. Φακέλους), αλλά με συνεννόηση μπορούμε να μεταφέρουμε δέματα μεγαλύτερων διαστάσεων (πχ. Κιβώτιο)',
-    en: 'We do not transport personal small items and small packages (e.g. envelopes), but with coordination we can transport larger packages (e.g. boxes)',
-    de: 'Wir transportieren keine persönlichen kleinen Gegenstände und kleinen Pakete (z.B. Umschläge), aber mit Absprache können wir größere Pakete (z.B. Kisten) transportieren'
-  },
-  faq2Question: {
-    el: 'Μεταφέρεται αλκοόλ ή διάφορα καπνικά είδη;',
-    en: 'Are alcohol or various tobacco products transported?',
-    de: 'Werden Alkohol oder verschiedene Tabakerzeugnisse transportiert?'
-  },
-  faq2Answer: {
-    el: 'Μόνο αν πρόκειται για μεταφορά από εταιρία παραγωγής με τα κατάλληλα έγγραφα. Δεν μεταφέρουμε προσωπικά καπνικά ή αλκοολούχα είδη και σε περίπτωση αποστολής κιβωτίου θα πρέπει να αποδείξετε την μη ύπαρξη τους.',
-    en: 'Only if it is transport from a production company with the appropriate documents. We do not transport personal tobacco or alcoholic products and in case of sending a box you must prove their non-existence.',
-    de: 'Nur wenn es sich um Transport von einem Produktionsunternehmen mit den entsprechenden Dokumenten handelt. Wir transportieren keine persönlichen Tabak- oder alkoholischen Produkte und im Fall des Versendens einer Kiste müssen Sie deren Nichtexistenz nachweisen.'
-  },
-  faq3Question: {
-    el: 'Μπορείτε να παραλάβετε ή να παραδώσετε φορτίο σε κάθε περιοχή των χωρών εξυπηρέτησής σας;',
-    en: 'Can you pick up or deliver cargo in every area of the countries you serve?',
-    de: 'Können Sie Fracht in jedem Bereich der Länder, die Sie bedienen, abholen oder liefern?'
-  },
-  faq3Answer: {
-    el: 'Στις περισσότερες χώρες παραλαμβάνουμε και παραδίδουμε σε όλη την επικράτειά τους, με την συμβολή στενών συνεργατών μας που υπάρχουν σε κάθε χώρα εξυπηρέτησης.',
-    en: 'In most countries we pick up and deliver throughout their territory, with the contribution of our close partners who exist in each service country.',
-    de: 'In den meisten Ländern holen und liefern wir in ihrem gesamten Gebiet ab, mit dem Beitrag unserer engen Partner, die in jedem Service-Land existieren.'
-  },
-  faq10Question: {
-    el: 'Γιατί να επιλέξω την Intracosta;',
-    en: 'Why should I choose Intracosta?',
-    de: 'Warum sollte ich Intracosta wählen?'
-  },
-  faq10Answer: {
-    el: 'Για την εμπειρία 25 ετών, την αξιοπιστία στις παραδόσεις, το εκτεταμένο δίκτυο στην Ευρώπη και την ομάδα επαγγελματιών που αντιμετωπίζουν κάθε αποστολή σαν δική τους.',
-    en: 'For 25 years of experience, reliability in deliveries, an extensive network across Europe, and a team of professionals who treat every shipment as their own.',
-    de: 'Für 25 Jahre Erfahrung, Zuverlässigkeit bei Lieferungen, ein umfangreiches Netzwerk in Europa und ein Team von Fachleuten, die jede Sendung wie ihre eigene behandeln.'
-  },
+  // FAQ - All FAQ translations are now in separate translation files
   
   // Contact
   contactTitle: { el: 'Επικοινωνήστε μαζί μας', en: 'Contact Us', de: 'Kontaktieren Sie uns' },
