@@ -384,7 +384,7 @@ const Header: React.FC = () => {
                   e.preventDefault();
                   scrollToSection('#quote');
                 }}
-                className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group relative overflow-hidden"
+                className="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group relative overflow-hidden whitespace-nowrap"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                 <span>{t('getQuote')}</span>
@@ -455,7 +455,7 @@ const Header: React.FC = () => {
                     e.preventDefault();
                     scrollToSection('#quote');
                   }}
-                  className="mx-6 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105"
+                  className="mx-6 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
                 >
                   {t('getQuote')}
                 </a>
