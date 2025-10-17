@@ -185,7 +185,7 @@ const Header: React.FC = () => {
               >
                 <div itemScope itemType="https://schema.org/Organization">
                   <img
-                    src="/intracosta-logo.svg"
+                    src="/intracosta001.png"
                     alt="Intracosta Logo"
                     className="object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl"
                     style={{
