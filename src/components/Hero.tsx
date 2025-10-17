@@ -1,22 +1,23 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import ScrollAnimation from './ui/ScrollAnimation';
 import LazyImage from './ui/LazyImage';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
 
   // Simplified parallax - reduced calculations for better performance
   const { scrollY } = useScroll();
   const isMobile = window.innerWidth <= 768;
-  const y = useTransform(scrollY, [0, 300], [0, isMobile ? -50 : -100]);
-  const opacity = useTransform(scrollY, [0, 200], [1, isMobile ? 0.8 : 0.5]);
+  const y = useTransform(scrollY, [0, 300], [0, shouldReduceMotion ? 0 : (isMobile ? -50 : -100)]);
+  const opacity = useTransform(scrollY, [0, 200], [1, shouldReduceMotion ? 1 : (isMobile ? 0.8 : 0.5)]);
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth' });
     }
   };
 

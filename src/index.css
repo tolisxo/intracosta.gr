@@ -3,6 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens for accessibility */
+:root {
+  --color-brand-primary: #eab308; /* yellow-500 */
+  --color-brand-dark: #ca8a04; /* yellow-600 - better contrast */
+  --color-text-primary: #111827; /* gray-900 */
+  --color-text-secondary: #4b5563; /* gray-600 */
+  --color-text-muted: #6b7280; /* gray-500 */
+  --color-focus: #eab308; /* yellow-500 */
+  --color-error: #dc2626; /* red-600 */
+  --color-success: #16a34a; /* green-600 */
+  --color-warning: #d97706; /* amber-600 */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -139,7 +152,7 @@ html {
 
 /* Enhanced focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #eab308; /* yellow-500 */
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -148,7 +161,7 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 a:focus-visible {
-  outline: 2px solid #eab308; /* yellow-500 */
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -412,12 +425,15 @@ a:focus-visible {
   object-position: center 30%;
 }
 
-/* Reduced motion support */
+/* Enhanced reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
   html {
@@ -431,5 +447,18 @@ a:focus-visible {
   .scroll-reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .magnetic:hover {
+    transform: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hover-glow::before {
+    opacity: 0;
   }
 }
