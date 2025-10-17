@@ -9,8 +9,9 @@ const Hero: React.FC = () => {
 
   // Simplified parallax - reduced calculations for better performance
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 300], [0, -100]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0.5]);
+  const isMobile = window.innerWidth <= 768;
+  const y = useTransform(scrollY, [0, 300], [0, isMobile ? -50 : -100]);
+  const opacity = useTransform(scrollY, [0, 200], [1, isMobile ? 0.8 : 0.5]);
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
@@ -23,8 +24,8 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-mt-20">
       {/* Simplified parallax background */}
       <motion.div 
-        style={{ y, opacity }} 
-        className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80"
+        style={{ y: isMobile ? 0 : y, opacity: isMobile ? 1 : opacity }} 
+        className={`absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80 ${isMobile ? 'mobile-parallax' : ''}`}
       />
       
       {/* Static background elements - no animations for better performance */}

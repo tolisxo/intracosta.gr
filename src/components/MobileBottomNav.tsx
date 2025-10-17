@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Home, Truck, MapPin, User, Phone, MessageCircle } from 'lucide-react';
 
 const MobileBottomNav: React.FC = () => {
   const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('home');
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   const navItems = [
     { key: 'home', icon: Home, label: t('home'), href: '#home' },
@@ -16,7 +18,18 @@ const MobileBottomNav: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
       const sections = navItems.map(item => item.key);
+      
+      // Auto-hide navigation on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+
+      // Update active section
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -31,19 +44,25 @@ const MobileBottomNav: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
+      // Haptic feedback simulation
+      if ('vibrate' in navigator) {
+        navigator.vibrate(50);
+      }
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 lg:hidden safe-area-pb">
+    <div className={`fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 lg:hidden safe-area-pb transition-transform duration-300 ${
+      isVisible ? 'translate-y-0' : 'translate-y-full'
+    }`}>
       <nav
         className="flex items-center justify-around py-3 px-2"
         role="navigation"
