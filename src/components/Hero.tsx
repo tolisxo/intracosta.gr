@@ -41,12 +41,12 @@ const Hero: React.FC = () => {
             <img
               src="/intracosta χωρις το επε.svg"
               alt={t('logoAlt')}
-              className="w-80 sm:w-96 md:w-[500px] lg:w-[600px] h-auto mb-8 mx-auto magnetic hover-glow"
+              className="w-64 sm:w-80 md:w-[500px] lg:w-[600px] h-auto mb-6 sm:mb-8 mx-auto magnetic hover-glow"
             />
           </ScrollAnimation>
           
           <ScrollAnimation animation="fadeInUp" delay={0.4}>
-            <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
               Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
             </p>
           </ScrollAnimation>
@@ -58,11 +58,11 @@ const Hero: React.FC = () => {
                 e.preventDefault();
                 scrollToQuote();
               }}
-              className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-2xl magnetic hover-glow"
+              className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-6 sm:px-8 py-4 sm:py-5 rounded-xl text-lg sm:text-xl font-semibold transition-all duration-300 shadow-2xl magnetic hover-glow min-h-[56px] touch-manipulation"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="mr-2 text-xl">→</span>
+              <span className="mr-2 text-xl sm:text-2xl">→</span>
 {t('letsCooperate')}
             </motion.a>
           </ScrollAnimation>

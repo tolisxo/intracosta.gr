@@ -8,6 +8,7 @@ import ReviewSchema from './components/SEO/ReviewSchema';
 import SitemapGenerator from './components/SEO/SitemapGenerator';
 import NavigationIndicator from './components/NavigationIndicator';
 import MobileBottomNav from './components/MobileBottomNav';
+import './styles/mobile-optimizations.css';
 import SmoothScroll from './components/ui/smooth-scroll';
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';

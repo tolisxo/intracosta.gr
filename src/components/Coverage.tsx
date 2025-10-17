@@ -220,7 +220,7 @@ const Coverage: React.FC = () => {
                     
                     {/* Popover Card */}
                     <div 
-                      className="absolute z-30 bg-white rounded-xl shadow-2xl border-2 border-yellow-400 p-6 max-w-lg max-h-[70vh] animate-in fade-in zoom-in duration-200 overflow-hidden flex flex-col"
+                      className="absolute z-30 bg-white rounded-xl shadow-2xl border-2 border-yellow-400 p-4 sm:p-6 max-w-sm sm:max-w-lg max-h-[80vh] sm:max-h-[70vh] animate-in fade-in zoom-in duration-200 overflow-hidden flex flex-col modal-mobile"
                       style={{
                         left: '50%',
                         top: '50%',

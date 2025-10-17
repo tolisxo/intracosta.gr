@@ -394,7 +394,7 @@ const Header: React.FC = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-3 text-gray-700 hover:text-gray-900 transition-all duration-300 rounded-xl hover:bg-gray-50 hover:scale-110"
+                className="lg:hidden p-3 text-gray-700 hover:text-gray-900 transition-all duration-300 rounded-xl hover:bg-gray-50 hover:scale-110 min-h-[48px] min-w-[48px] touch-manipulation"
                 aria-expanded={isMenuOpen}
                 aria-label="Toggle mobile menu"
               >
