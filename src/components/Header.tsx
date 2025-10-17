@@ -147,11 +147,11 @@ const Header: React.FC = () => {
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center space-x-6">
                 <a href="tel:+302382027111" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4" aria-hidden="true" />
                   <span>+30 23820 27111</span>
               </a>
               <a href="mailto:export@intracosta.com" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4" aria-hidden="true" />
                 <span>export@intracosta.com</span>
               </a>
             </div>
@@ -225,7 +225,7 @@ const Header: React.FC = () => {
                         <span className="relative z-10">{t(item.key)}</span>
                         <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
                           isCoverageOpen ? 'rotate-180' : ''
-                        } group-hover:scale-110`} />
+                        } group-hover:scale-110`} aria-hidden="true" />
                         {/* Custom hover underline */}
                         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
                         {/* Active underline */}
@@ -265,7 +265,7 @@ const Header: React.FC = () => {
                                     <div className="font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">{t(country.name)}</div>
                                   </div>
                                 </div>
-                                <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300 rotate-[-90deg]" />
+                                <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300 rotate-[-90deg]" aria-hidden="true" />
                               </a>
                             ))}
                           </div>
@@ -356,7 +356,7 @@ const Header: React.FC = () => {
                   </span>
                   <ChevronDown className={`w-3 h-3 transition-all duration-300 group-hover:scale-110 ${
                     isLanguageOpen ? 'rotate-180' : ''
-                  }`} />
+                  }`} aria-hidden="true" />
                 </button>
                 
                 {isLanguageOpen && (
@@ -394,7 +394,7 @@ const Header: React.FC = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                 <span>{t('getQuote')}</span>
-                <ChevronDown className="w-4 h-4 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" />
+                <ChevronDown className="w-4 h-4 rotate-[-90deg] group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
               </a>
 
               {/* Mobile Menu Button */}
@@ -404,7 +404,7 @@ const Header: React.FC = () => {
                 aria-expanded={isMenuOpen}
                 aria-label="Toggle mobile menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -444,7 +444,7 @@ const Header: React.FC = () => {
                       onClick={() => setIsMenuOpen(false)}
                       className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                     >
-                      <X className="w-6 h-6" />
+                      <X className="w-6 h-6" aria-hidden="true" />
                     </button>
                   </div>
                   
@@ -482,7 +482,7 @@ const Header: React.FC = () => {
                                 <span>Περιοχές ({item.countries.length})</span>
                                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
                                   isCountriesExpanded ? 'rotate-180' : ''
-                                }`} />
+                                }`} aria-hidden="true" />
                               </button>
                               <motion.div
                                 initial={false}

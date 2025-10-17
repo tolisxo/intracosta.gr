@@ -9,7 +9,7 @@ const Services: React.FC = () => {
 
   const services = [
     {
-      icon: <Truck className="w-12 h-12" />,
+      icon: <Truck className="w-12 h-12" aria-hidden="true" />,
       title: t('services.roadTransportTitle'),
       description: t('services.roadTransportSummary'),
       color: 'bg-gray-700',
@@ -25,7 +25,7 @@ const Services: React.FC = () => {
       link: '/intermodal-transport'
     },
     {
-      icon: <Package className="w-12 h-12" />,
+      icon: <Package className="w-12 h-12" aria-hidden="true" />,
       title: t('services.specialTransportTitle'),
       description: t('services.specialTransportSummary'),
       color: 'bg-gray-700',

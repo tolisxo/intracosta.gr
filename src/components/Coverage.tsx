@@ -93,12 +93,12 @@ const Coverage: React.FC = () => {
 
   const features = [
     {
-      icon: <MapPin className="text-yellow-500 w-8 h-8" />,
+      icon: <MapPin className="text-yellow-500 w-8 h-8" aria-hidden="true" />,
       title: t('strategicLocationsTitle'),
       description: t('strategicLocationsDescription')
     },
     {
-      icon: <Truck className="text-yellow-500 w-8 h-8" />,
+      icon: <Truck className="text-yellow-500 w-8 h-8" aria-hidden="true" />,
       title: t('modernFleetTitle'),
       description: t('modernFleetDescription')
     },
@@ -238,7 +238,7 @@ const Coverage: React.FC = () => {
                       {/* Header */}
                       <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-200">
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-5 h-5 text-yellow-600" />
+                          <MapPin className="w-5 h-5 text-yellow-600" aria-hidden="true" />
                           <h3 className="text-xl font-bold text-gray-900">{selectedCountry}</h3>
                         </div>
                         <button
@@ -246,7 +246,7 @@ const Coverage: React.FC = () => {
                           className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
                           aria-label="Close"
                         >
-                          <X className="w-5 h-5 text-gray-500" />
+                          <X className="w-5 h-5 text-gray-500" aria-hidden="true" />
                         </button>
                       </div>
 
@@ -337,7 +337,7 @@ const Coverage: React.FC = () => {
                   // For premium effect, we could add more here if needed
                 }}
               >
-                <MapPin className="w-5 h-5 mr-2 transition-transform duration-200 group-hover:scale-110" />
+                <MapPin className="w-5 h-5 mr-2 transition-transform duration-200 group-hover:scale-110" aria-hidden="true" />
                 <span className="relative z-10">{t('coverageTitle')}</span>
                 <span
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -392,7 +392,7 @@ const Coverage: React.FC = () => {
                   aria-label={`Toggle details for ${country.name}`}
                 >
                   <div className="flex flex-col items-center">
-                    <MapPin className="w-8 h-8 text-gray-400 mb-3 group-hover:text-yellow-500 transition-colors" />
+                    <MapPin className="w-8 h-8 text-gray-400 mb-3 group-hover:text-yellow-500 transition-colors" aria-hidden="true" />
                     <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">
                       {country.name}
                     </h4>
@@ -410,14 +410,14 @@ const Coverage: React.FC = () => {
             <div className="mt-8 bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <div className="flex items-center justify-between mb-6">
                 <h4 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-yellow-500" />
+                  <MapPin className="w-5 h-5 text-yellow-500" aria-hidden="true" />
                   {expandedCountry}
                 </h4>
                 <button
                   onClick={() => setExpandedCountry(null)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className="w-5 h-5 text-gray-500" aria-hidden="true" />
                 </button>
               </div>
 
@@ -500,7 +500,7 @@ const Coverage: React.FC = () => {
                 onClick={() => setIsModalOpen(false)}
                 className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <X className="w-6 h-6 text-gray-500" />
+                <X className="w-6 h-6 text-gray-500" aria-hidden="true" />
               </button>
             </div>
             <div className="p-6 overflow-y-auto max-h-[60vh]">
