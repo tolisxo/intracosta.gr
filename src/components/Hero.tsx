@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
         <ScrollAnimation animation="stagger" className="flex flex-col items-center justify-center min-h-screen">
           <ScrollAnimation animation="scaleIn" delay={0.2}>
             <LazyImage
-              src="/intracosta001.png"
+              src="/intracosta-logo.svg"
               alt={t('logoAlt')}
               className="w-64 sm:w-80 md:w-[400px] lg:w-[500px] h-auto mb-6 sm:mb-8 mx-auto magnetic hover-glow hero-logo"
             />
