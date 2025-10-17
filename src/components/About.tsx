@@ -112,19 +112,43 @@ const About: React.FC = () => {
 
           {/* Content Section */}
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <motion.h2 
+              className="text-4xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+            >
               {t('aboutTitle')}
-            </h2>
-            <div className="w-24 h-1 bg-yellow-500 mb-8"></div>
+            </motion.h2>
+            <motion.div 
+              className="w-24 h-1 bg-yellow-500 mb-8"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            ></motion.div>
             
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <motion.p 
+              className="text-lg text-gray-600 mb-8 leading-relaxed"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               {t('aboutIntracostaSummary')}
-            </p>
+            </motion.p>
 
             {/* Highlights Title */}
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+            <motion.h3 
+              className="text-2xl font-bold text-gray-800 mb-4"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               {t('aboutHighlightsTitle')}
-            </h3>
+            </motion.h3>
 
             {/* Values Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -245,7 +269,7 @@ const About: React.FC = () => {
               }}
             >
               <div 
-                className="flex gap-4 sm:gap-6 px-4 sm:px-6" 
+                className="flex gap-6 px-6" 
                 style={{ 
                   width: 'max-content',
                   willChange: 'transform',
@@ -257,8 +281,8 @@ const About: React.FC = () => {
                     key={index}
                     className="relative flex-shrink-0"
                     style={{ 
-                      width: '180px', 
-                      height: '280px',
+                      width: '240px', 
+                      height: '320px',
                       scrollSnapAlign: 'start',
                       willChange: 'transform',
                       transform: 'translateZ(0)'
@@ -267,20 +291,20 @@ const About: React.FC = () => {
                     <div 
                       className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer group h-full flex flex-col team-card"
                       style={{ 
-                        width: '180px', 
-                        height: '280px',
-                        padding: '12px',
+                        width: '240px', 
+                        height: '320px',
+                        padding: '20px',
                         willChange: 'transform',
                         transform: 'translateZ(0)'
                       }}
                     >
                       <div className="relative mb-4 flex-shrink-0 flex justify-center">
-                        {/* Circular Image - Mobile optimized */}
+                        {/* Circular Image - Clean & minimal */}
                         <div 
-                          className="bg-gradient-to-br from-yellow-100 to-orange-100 border-3 sm:border-4 border-white shadow-sm rounded-full overflow-hidden"
+                          className="bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-white shadow-sm rounded-full overflow-hidden"
                           style={{ 
-                            width: '100px', 
-                            height: '100px',
+                            width: '120px', 
+                            height: '120px',
                             willChange: 'transform',
                             transform: 'translateZ(0)'
                           }}
@@ -329,11 +353,8 @@ const About: React.FC = () => {
             </div>
             
             {/* Scroll Indicator */}
-            <div className="text-center mt-4">
-              <p className="text-xs sm:text-sm text-gray-500 px-4">
-                <span className="hidden sm:inline">← Σύρετε για να δείτε περισσότερα / Scroll to see more →</span>
-                <span className="sm:hidden">Σύρετε αριστερά/δεξιά για περισσότερα</span>
-              </p>
+            <div className="text-center mt-6">
+              <p className="text-sm text-gray-500">← Σύρετε για να δείτε περισσότερα / Scroll to see more →</p>
             </div>
           </div>
         </div>
