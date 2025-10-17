@@ -258,7 +258,7 @@ const About: React.FC = () => {
               <Users className="w-5 h-5 text-yellow-600" />
               <span className="text-sm font-semibold text-yellow-700">{t('teamTitle')}</span>
             </div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">{t('teamTitle')}</h3>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">{t('teamTitle')}</h2>
             <p className="text-gray-600">{t('teamSubtitle')}</p>
           </div>
 

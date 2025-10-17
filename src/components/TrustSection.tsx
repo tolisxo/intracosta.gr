@@ -16,7 +16,7 @@ const TrustSection: React.FC = () => {
       color: 'text-[#f5bd00]'
     },
     {
-      icon: <Package className="w-8 h-8 group-hover:text-white text-[#f5bd00]" />,
+      icon: <Package className="w-8 h-8 group-hover:text-white text-[#f5bd00]" aria-hidden="true" />,
       number: '15K+',
       label: t('shipmentsPerYear'),
       color: 'text-[#f5bd00]'
@@ -28,7 +28,7 @@ const TrustSection: React.FC = () => {
       color: 'text-[#f5bd00]'
     },
     {
-      icon: <Truck className="w-8 h-8 group-hover:text-white text-[#f5bd00]" />,
+      icon: <Truck className="w-8 h-8 group-hover:text-white text-[#f5bd00]" aria-hidden="true" />,
       number: '50+',
       label: t('fleetVehicles'),
       color: 'text-[#f5bd00]'

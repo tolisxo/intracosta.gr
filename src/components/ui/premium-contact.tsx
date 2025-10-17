@@ -243,6 +243,9 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             className="space-y-4"
           >
             <div className="relative">
+              <label htmlFor="name" className="sr-only">
+                {t('name')}
+              </label>
               <input
                 id="name"
                 type="text"
@@ -252,13 +255,22 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 className={`w-full px-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
                   errors.name ? 'border-red-400' : 'border-gray-200'
                 }`}
+                aria-label={t('name')}
+                aria-required="true"
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                <p id="name-error" className="text-red-500 text-sm mt-1" role="alert">
+                  {errors.name}
+                </p>
               )}
             </div>
 
             <div className="relative">
+              <label htmlFor="email" className="sr-only">
+                {t('email')}
+              </label>
               <input
                 id="email"
                 type="email"
@@ -268,13 +280,22 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 className={`w-full px-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all ${
                   errors.email ? 'border-red-400' : 'border-gray-200'
                 }`}
+                aria-label={t('email')}
+                aria-required="true"
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                <p id="email-error" className="text-red-500 text-sm mt-1" role="alert">
+                  {errors.email}
+                </p>
               )}
             </div>
 
             <div className="relative">
+              <label htmlFor="message" className="sr-only">
+                {t('message')}
+              </label>
               <textarea
                 id="message"
                 placeholder="Μήνυμα"
@@ -284,9 +305,15 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
                 className={`w-full px-4 py-4 bg-white border rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/20 transition-all resize-none ${
                   errors.message ? 'border-red-400' : 'border-gray-200'
                 }`}
+                aria-label={t('message')}
+                aria-required="true"
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? 'message-error' : undefined}
               />
               {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                <p id="message-error" className="text-red-500 text-sm mt-1" role="alert">
+                  {errors.message}
+                </p>
               )}
             </div>
 
@@ -329,7 +356,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             </button>
           </form>
         ) : (
-          <div className="text-center py-12">
+          <div className="text-center py-12" aria-live="polite">
             <div className="w-20 h-20 rounded-full bg-green-50 border border-green-200 flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-green-500" />
             </div>

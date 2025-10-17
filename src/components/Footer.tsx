@@ -40,12 +40,12 @@ const Footer: React.FC = () => {
               <img src="/logocorrectversion.svg" alt={t('logoAlt')} className="h-24" />
             </div>
             <div className="flex space-x-4">
-              <a href="#" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+              <button className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Visit Intracosta on Facebook">
                 <Facebook className="w-5 h-5 text-yellow-500" />
-              </a>
-              <a href="#" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
+              </button>
+              <button className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Visit Intracosta on LinkedIn">
                 <Linkedin className="w-5 h-5 text-yellow-500" />
-              </a>
+              </button>
               <a href="https://www.instagram.com/intracosta/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="Visit Intracosta on Instagram">
                 <Instagram className="w-5 h-5 text-yellow-500" />
               </a>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <nav aria-label="Quick links">
             <h3 className="text-lg font-semibold mb-6">{t('quickLinks')}</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -71,10 +71,10 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
-          <div>
+          <nav aria-label="Our services">
             <h3 className="text-lg font-semibold mb-6">{t('ourServices')}</h3>
             <ul className="space-y-3">
               {services.map((service) => (
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact Info */}
           <div>

@@ -191,8 +191,11 @@ const FAQ: React.FC = () => {
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                aria-label={`Toggle FAQ: ${faq.question[language]}`}
               >
-                <h3 className="font-semibold text-gray-900 pr-4">
+                <h3 id={`faq-question-${index}`} className="font-semibold text-gray-900 pr-4">
                   {faq.question[language]}
                 </h3>
                 {openIndex === index ? (
@@ -203,7 +206,7 @@ const FAQ: React.FC = () => {
               </button>
               
               {openIndex === index && (
-                <div className="px-6 pb-4">
+                <div id={`faq-answer-${index}`} className="px-6 pb-4" role="region" aria-labelledby={`faq-question-${index}`}>
                   <p className="text-gray-600 leading-relaxed">
                     {faq.answer[language]}
                   </p>

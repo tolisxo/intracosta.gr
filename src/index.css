@@ -3,6 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens for accessibility */
+:root {
+  --color-brand-primary: #eab308; /* yellow-500 */
+  --color-brand-dark: #ca8a04; /* yellow-600 - better contrast */
+  --color-text-primary: #111827; /* gray-900 */
+  --color-text-secondary: #4b5563; /* gray-600 */
+  --color-text-muted: #6b7280; /* gray-500 */
+  --color-focus: #eab308; /* yellow-500 */
+  --color-error: #dc2626; /* red-600 */
+  --color-success: #16a34a; /* green-600 */
+  --color-warning: #d97706; /* amber-600 */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -137,13 +150,43 @@ html {
 .animate-stagger-4 { animation-delay: 0.4s; }
 .animate-stagger-5 { animation-delay: 0.5s; }
 
-/* Focus styles for accessibility */
+/* Enhanced focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid #3b82f6;
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 /* Custom gradient backgrounds */
@@ -382,12 +425,15 @@ select:focus-visible {
   object-position: center 30%;
 }
 
-/* Reduced motion support */
+/* Enhanced reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
   html {
@@ -401,5 +447,18 @@ select:focus-visible {
   .scroll-reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .magnetic:hover {
+    transform: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hover-glow::before {
+    opacity: 0;
   }
 }

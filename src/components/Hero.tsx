@@ -1,22 +1,23 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import ScrollAnimation from './ui/ScrollAnimation';
 import LazyImage from './ui/LazyImage';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
 
   // Simplified parallax - reduced calculations for better performance
   const { scrollY } = useScroll();
   const isMobile = window.innerWidth <= 768;
-  const y = useTransform(scrollY, [0, 300], [0, isMobile ? -50 : -100]);
-  const opacity = useTransform(scrollY, [0, 200], [1, isMobile ? 0.8 : 0.5]);
+  const y = useTransform(scrollY, [0, 300], [0, shouldReduceMotion ? 0 : (isMobile ? -50 : -100)]);
+  const opacity = useTransform(scrollY, [0, 200], [1, shouldReduceMotion ? 1 : (isMobile ? 0.8 : 0.5)]);
 
   const scrollToQuote = () => {
     const element = document.querySelector('#quote');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth' });
     }
   };
 
@@ -47,9 +48,9 @@ const Hero: React.FC = () => {
           </ScrollAnimation>
           
           <ScrollAnimation animation="fadeInUp" delay={0.4}>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
+            <h1 className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
               Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
-            </p>
+            </h1>
           </ScrollAnimation>
           
           <ScrollAnimation animation="slideInUp" delay={0.6}>
