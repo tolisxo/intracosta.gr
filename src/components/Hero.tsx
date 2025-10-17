@@ -42,7 +42,8 @@ const Hero: React.FC = () => {
             <LazyImage
               src="/intracosta-logo.svg"
               alt={t('logoAlt')}
-              className="w-64 sm:w-80 md:w-[500px] lg:w-[600px] h-auto mb-6 sm:mb-8 mx-auto magnetic hover-glow"
+              className="w-[400px] h-auto mb-6 sm:mb-8 mx-auto magnetic hover-glow"
+              style={{ maxWidth: '400px', minWidth: '400px' }}
             />
           </ScrollAnimation>
           
