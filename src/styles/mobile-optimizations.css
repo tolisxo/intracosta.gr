@@ -156,15 +156,6 @@
     opacity: 1;
   }
   
-  /* Reduced motion for users who prefer it */
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-  
   /* Better image loading */
   img[loading="lazy"] {
     opacity: 0;
@@ -173,5 +164,58 @@
   
   img[loading="lazy"].loaded {
     opacity: 1;
+  }
+}
+
+/* Performance-based optimizations */
+.slow-connection * {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+.slow-connection .parallax,
+.slow-connection .magnetic,
+.slow-connection .hover-glow {
+  transform: none !important;
+  filter: none !important;
+}
+
+.reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.reduced-motion .parallax,
+.reduced-motion .magnetic,
+.reduced-motion .hover-glow {
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Critical resource hints */
+.preload-critical {
+  font-display: swap;
+}
+
+/* Optimize for mobile performance */
+@media (max-width: 768px) {
+  /* Reduce paint complexity */
+  .complex-gradient {
+    background: #f3f4f6 !important;
+  }
+  
+  /* Simplify shadows */
+  .complex-shadow {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Optimize transforms */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
   }
 }

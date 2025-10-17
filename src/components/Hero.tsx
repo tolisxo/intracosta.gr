@@ -3,6 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollAnimation from './ui/ScrollAnimation';
 import ParallaxSection from './ui/ParallaxSection';
+import LazyImage from './ui/LazyImage';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -39,7 +40,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <ScrollAnimation animation="stagger" className="flex flex-col items-center justify-center min-h-screen">
           <ScrollAnimation animation="scaleIn" delay={0.2}>
-            <img
+            <LazyImage
               src="/intracosta χωρις το επε.svg"
               alt={t('logoAlt')}
               className="w-64 sm:w-80 md:w-[500px] lg:w-[600px] h-auto mb-6 sm:mb-8 mx-auto magnetic hover-glow"
