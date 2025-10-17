@@ -232,10 +232,10 @@ const About: React.FC = () => {
             <p className="text-gray-600">{t('teamSubtitle')}</p>
           </div>
 
-          {/* Team Cards Grid - Optimized for Performance */}
+          {/* Team Cards Grid - Mobile Optimized */}
           <div className="relative">
             <div 
-              className="overflow-x-auto pb-8 scrollbar-hide" 
+              className="overflow-x-auto pb-8 scrollbar-hide team-scroll-container" 
               style={{ 
                 scrollbarWidth: 'none', 
                 msOverflowStyle: 'none',
@@ -245,7 +245,7 @@ const About: React.FC = () => {
               }}
             >
               <div 
-                className="flex gap-6 px-4" 
+                className="flex gap-4 sm:gap-6 px-4 sm:px-6" 
                 style={{ 
                   width: 'max-content',
                   willChange: 'transform',
@@ -257,30 +257,30 @@ const About: React.FC = () => {
                     key={index}
                     className="relative flex-shrink-0"
                     style={{ 
-                      width: '220px', 
-                      height: '320px',
+                      width: '180px', 
+                      height: '280px',
                       scrollSnapAlign: 'start',
                       willChange: 'transform',
                       transform: 'translateZ(0)'
                     }}
                   >
                     <div 
-                      className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer group h-full flex flex-col"
+                      className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer group h-full flex flex-col team-card"
                       style={{ 
-                        width: '220px', 
-                        height: '320px',
-                        padding: '16px',
+                        width: '180px', 
+                        height: '280px',
+                        padding: '12px',
                         willChange: 'transform',
                         transform: 'translateZ(0)'
                       }}
                     >
                       <div className="relative mb-4 flex-shrink-0 flex justify-center">
-                        {/* Circular Image - Fixed 120px diameter */}
+                        {/* Circular Image - Mobile optimized */}
                         <div 
-                          className="bg-gradient-to-br from-yellow-100 to-orange-100 border-4 border-white shadow-sm rounded-full overflow-hidden"
+                          className="bg-gradient-to-br from-yellow-100 to-orange-100 border-3 sm:border-4 border-white shadow-sm rounded-full overflow-hidden"
                           style={{ 
-                            width: '120px', 
-                            height: '120px',
+                            width: '100px', 
+                            height: '100px',
                             willChange: 'transform',
                             transform: 'translateZ(0)'
                           }}
@@ -330,7 +330,10 @@ const About: React.FC = () => {
             
             {/* Scroll Indicator */}
             <div className="text-center mt-4">
-              <p className="text-sm text-gray-500">← Σύρετε για να δείτε περισσότερα / Scroll to see more →</p>
+              <p className="text-xs sm:text-sm text-gray-500 px-4">
+                <span className="hidden sm:inline">← Σύρετε για να δείτε περισσότερα / Scroll to see more →</span>
+                <span className="sm:hidden">Σύρετε αριστερά/δεξιά για περισσότερα</span>
+              </p>
             </div>
           </div>
         </div>
