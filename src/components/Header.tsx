@@ -209,7 +209,7 @@ const Header: React.FC = () => {
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 group relative overflow-hidden ${
                           isActive(item.key)
                             ? 'text-yellow-600'
-                            : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
+                            : 'text-gray-700 hover:text-yellow-600'
                         }`}
                         aria-expanded={isCoverageOpen}
                         aria-haspopup="true"
@@ -220,6 +220,12 @@ const Header: React.FC = () => {
                         <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
                           isCoverageOpen ? 'rotate-180' : ''
                         } group-hover:scale-110`} />
+                        {/* Custom hover underline */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg"></div>
+                        {/* Active underline */}
+                        {isActive(item.key) && (
+                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
+                        )}
                       </button>
 
                       {/* Coverage Mega Menu */}
@@ -285,12 +291,18 @@ const Header: React.FC = () => {
                         className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                           isActive(item.key)
                             ? 'text-yellow-600'
-                            : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
+                            : 'text-gray-700 hover:text-yellow-600'
                         }`}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                         {item.icon && <item.icon className="w-4 h-4" />}
                         <span className="relative z-10">{t(item.key)}</span>
+                        {/* Custom hover underline */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg"></div>
+                        {/* Active underline */}
+                        {isActive(item.key) && (
+                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
+                        )}
                       </a>
                     </div>
                   ) : (
@@ -304,12 +316,15 @@ const Header: React.FC = () => {
                       className={`flex items-center space-x-2 px-5 py-3 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden group ${
                         isActive(item.key)
                           ? 'text-yellow-600'
-                          : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
+                          : 'text-gray-700 hover:text-yellow-600'
                       }`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                       {item.icon && <item.icon className="w-4 h-4" />}
                       <span className="relative z-10">{t(item.key)}</span>
+                      {/* Custom hover underline */}
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg"></div>
+                      {/* Active underline */}
                       {isActive(item.key) && (
                         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
                       )}
@@ -357,9 +372,6 @@ const Header: React.FC = () => {
                           <div className="font-medium">{lang.fullName}</div>
                           <div className="text-xs text-gray-500">{lang.name}</div>
                         </div>
-                        {language === lang.code && (
-                          <div className="ml-auto w-2 h-2 bg-yellow-500 rounded-full"></div>
-                        )}
                       </button>
                     ))}
                   </div>
