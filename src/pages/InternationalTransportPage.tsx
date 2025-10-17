@@ -12,14 +12,16 @@ const InternationalTransportPage: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4 scroll-mt-20">
-      <Breadcrumbs items={crumbs} className="mb-4" />
-      <h1 className="text-3xl font-bold mb-4">
-        {t('internationalTransportTitle')}
-      </h1>
-      <p className="text-gray-700">
-        {t('internationalTransportDesc')}
-      </p>
+    <div className="min-h-screen pt-20">
+      <div className="container mx-auto py-8 px-4">
+        <Breadcrumbs items={crumbs} className="mb-4" />
+        <h1 className="text-3xl font-bold mb-4">
+          {t('internationalTransportTitle')}
+        </h1>
+        <p className="text-gray-700">
+          {t('internationalTransportDesc')}
+        </p>
+      </div>
     </div>
   );
 };
