@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
                 e.preventDefault();
                 scrollToQuote();
               }}
-              className="inline-flex items-center border-2 border-yellow-500 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white hover:bg-white hover:text-yellow-500 px-6 sm:px-8 py-4 sm:py-5 rounded-xl text-lg sm:text-xl font-semibold transition-all duration-300 shadow-2xl magnetic hover-glow min-h-[56px] touch-manipulation"
+              className="inline-flex items-center border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-white hover:text-yellow-500 px-6 sm:px-8 py-4 sm:py-5 rounded-xl text-lg sm:text-xl font-semibold transition-all duration-300 shadow-2xl magnetic hover-glow min-h-[56px] touch-manipulation"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

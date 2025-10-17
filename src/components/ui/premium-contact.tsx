@@ -314,7 +314,7 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-4 px-6 rounded-xl transition-all disabled:opacity-50 shadow-lg hover:shadow-xl"
             >
               <span className="flex items-center justify-center gap-2">
                 {isSubmitting ? (
