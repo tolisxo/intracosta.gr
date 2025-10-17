@@ -67,7 +67,6 @@ const AppContent: React.FC = () => {
                     <Coverage />
                     <QuoteForm />
                     <About />
-                    <InteractiveMap />
                     <FAQ />
                     <Contact />
                   </>
