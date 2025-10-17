@@ -218,4 +218,25 @@
   .will-change-opacity {
     will-change: opacity;
   }
+  
+  /* Team section mobile optimizations */
+  .team-scroll-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  .team-card {
+    min-width: 180px;
+    max-width: 180px;
+  }
+  
+  /* Better touch scrolling for team cards */
+  .team-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .team-scroll-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 }
