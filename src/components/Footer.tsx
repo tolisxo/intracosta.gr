@@ -108,15 +108,15 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-400 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-700 mb-4 md:mb-0">
+        <div className="border-t border-gray-400 mt-12 pt-6 sm:pt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+            <div className="text-gray-700 text-center lg:text-left">
               <span itemScope itemType="https://schema.org/Organization">
                 © 2024 <span itemProp="name">Intracosta</span>. All rights reserved.
               </span>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex space-x-6">
+            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
                 <Link
                   to="/privacy-policy"
                   className="inline-block relative text-gray-700 hover:text-yellow-500 transition-all duration-300 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-yellow-500 before:transition-all before:duration-300 hover:before:w-full text-sm"
@@ -132,16 +132,16 @@ const Footer: React.FC = () => {
               </div>
               
               {/* EU Funding Stickers */}
-              <div className="flex items-center space-x-2 ml-4">
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 sm:ml-4 mt-4 sm:mt-0">
                 <img 
                   src="/e-bannerseuerdf730x90-1.jpg" 
                   alt="European Union Regional Development Fund" 
-                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-6 sm:h-8 w-auto opacity-80 hover:opacity-100 transition-opacity max-w-[120px] sm:max-w-none"
                 />
                 <img 
                   src="/sticker-website_etpa_gr_highres-1.jpg" 
                   alt="ΕΣΠΑ 2014-2020" 
-                  className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-6 sm:h-8 w-auto opacity-80 hover:opacity-100 transition-opacity max-w-[120px] sm:max-w-none"
                 />
               </div>
             </div>
