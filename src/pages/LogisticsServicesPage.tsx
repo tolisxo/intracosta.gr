@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -6,6 +6,11 @@ import { Warehouse, CheckCircle, ArrowRight, Box, Package, Truck } from 'lucide-
 
 const LogisticsServicesPage: React.FC = () => {
   const { t } = useLanguage();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const crumbs = [
     { label: t('home'), href: '/#home' },
@@ -56,7 +61,7 @@ const LogisticsServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white scroll-mt-20">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-20">
       {/* Header Section */}
       <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -154,6 +154,25 @@ const AppContent: React.FC = () => {
                   </>
                 } 
               />
+              {/* Catch-all route for any unmatched paths */}
+              <Route 
+                path="*" 
+                element={
+                  <>
+                    <LocalSEOHead page="home" title="Intracosta - Transport Services" />
+                    <LocalBusinessSchema page="home" />
+                    <Hero />
+                    <TrustSection />
+                    <Services />
+                    <Coverage />
+                    <QuoteForm />
+                    <About />
+                    <InteractiveMap />
+                    <FAQ />
+                    <Contact />
+                  </>
+                } 
+              />
             </Routes>
           </main>
           <Footer />

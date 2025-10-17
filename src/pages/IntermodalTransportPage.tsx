@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -6,6 +6,11 @@ import { Ship, CheckCircle, ArrowRight, Anchor, Plane } from 'lucide-react';
 
 const IntermodalTransportPage: React.FC = () => {
   const { t } = useLanguage();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const crumbs = [
     { label: t('home'), href: '/#home' },
