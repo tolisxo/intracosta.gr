@@ -6,6 +6,7 @@ interface LazyImageProps {
   className?: string;
   placeholder?: string;
   onLoad?: () => void;
+  style?: React.CSSProperties;
 }
 
 const LazyImage: React.FC<LazyImageProps> = ({ 
@@ -13,7 +14,8 @@ const LazyImage: React.FC<LazyImageProps> = ({
   alt, 
   className = '', 
   placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PC9zdmc+',
-  onLoad 
+  onLoad,
+  style
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -43,12 +45,12 @@ const LazyImage: React.FC<LazyImageProps> = ({
   };
 
   return (
-    <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
+    <div ref={imgRef} className={`relative overflow-hidden ${className}`} style={style}>
       {!isLoaded && (
         <img
           src={placeholder}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover blur-sm"
+          className="absolute inset-0 w-full h-full object-contain blur-sm"
         />
       )}
       {isInView && (
@@ -56,7 +58,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
           src={src}
           alt={alt}
           onLoad={handleLoad}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-contain transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           loading="lazy"
