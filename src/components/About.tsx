@@ -6,6 +6,12 @@ import { Users, Target, Truck, Warehouse, ShieldCheck } from 'lucide-react';
 const About: React.FC = () => {
   const { t } = useLanguage();
 
+  // Safe image fallback function for better Windows/Android compatibility
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    // Fallback to company logo if team image fails to load
+    e.currentTarget.src = '/intracosta001.png';
+  };
+
   const teamMembers = [
     {
       name: 'Κώστας Φίλιππος',
@@ -314,6 +320,7 @@ const About: React.FC = () => {
                             alt={member.name}
                             className="w-full h-full object-cover object-center"
                             loading="lazy"
+                            onError={handleImageError}
                             style={{
                               willChange: 'transform',
                               transform: 'translateZ(0)'
