@@ -138,10 +138,12 @@ export function PremiumContact({ onSubmit, contactInfo }: PremiumContactProps) {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            <span className="text-gray-900">Ας</span>
+            <span className="text-gray-900">
+              {t('letsCooperate').split(' ')[0]}
+            </span>
             <br />
             <span className="text-yellow-600">
-              Συνεργαστούμε
+              {t('letsCooperate').split(' ').slice(1).join(' ')}
             </span>
           </h2>
           
