@@ -90,6 +90,13 @@
     height: auto;
   }
   
+  /* Hero logo mobile optimization */
+  .hero-logo {
+    max-width: 90vw !important;
+    min-width: 200px !important;
+    height: auto !important;
+  }
+  
   /* Improved scroll behavior */
   html {
     scroll-behavior: smooth;
