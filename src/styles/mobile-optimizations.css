@@ -90,6 +90,15 @@
     height: auto;
   }
   
+  /* Team image optimization for mobile */
+  img[src*="team/"] {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    background: #f3f4f6; /* Fallback background */
+    border-radius: 0.5rem;
+  }
+  
   /* Hero logo mobile optimization */
   .hero-logo {
     max-width: 90vw !important;
