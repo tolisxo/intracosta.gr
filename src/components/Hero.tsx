@@ -2,7 +2,6 @@ import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollAnimation from './ui/ScrollAnimation';
-import ParallaxSection from './ui/ParallaxSection';
 import LazyImage from './ui/LazyImage';
 
 const Hero: React.FC = () => {
