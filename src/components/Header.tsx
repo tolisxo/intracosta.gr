@@ -189,10 +189,10 @@ const Header: React.FC = () => {
                     alt="Intracosta Logo"
                     className="object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl"
                     style={{
-                      height: isCompact ? '56px' : '64px',
-                      width: isCompact ? '112px' : '128px',
-                      minWidth: isCompact ? '112px' : '128px',
-                      maxWidth: isCompact ? '112px' : '128px'
+                      height: isCompact ? '64px' : '72px',
+                      width: isCompact ? '128px' : '144px',
+                      minWidth: isCompact ? '128px' : '144px',
+                      maxWidth: isCompact ? '128px' : '144px'
                     }}
                     itemProp="logo"
                   />
