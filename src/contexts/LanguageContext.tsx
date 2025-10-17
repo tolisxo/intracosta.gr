@@ -1138,11 +1138,6 @@ const translations: Translations = {
     el: 'ΤΚ',
     en: 'PC',
     de: 'PLZ'
-  },
-  warehousesLabel: {
-    el: 'Αποθήκες',
-    en: 'Warehouses',
-    de: 'Lagerhäuser'
   }
 };
 
