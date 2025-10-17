@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const WarehousingPage: React.FC = () => {
   const { t } = useLanguage();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const crumbs = [
     { label: t('home'), href: '#home' },
@@ -12,7 +17,8 @@ const WarehousingPage: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4 scroll-mt-20">
+    <div className="min-h-screen pt-20">
+      <div className="container mx-auto py-8 px-4">
       <Breadcrumbs items={crumbs} className="mb-4" />
       <h1 className="text-3xl font-bold mb-4">
         {t('warehousingTitle')}
@@ -20,6 +26,7 @@ const WarehousingPage: React.FC = () => {
       <p className="text-gray-700">
         {t('warehousingDesc')}
       </p>
+      </div>
     </div>
   );
 };

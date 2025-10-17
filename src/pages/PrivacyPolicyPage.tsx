@@ -15,7 +15,8 @@ const PrivacyPolicyPage: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="min-h-screen pt-20">
+      <div className="container mx-auto py-8 px-4">
       <Breadcrumbs items={crumbs} className="mb-4" />
       <h1 className="text-3xl font-bold mb-4">{t('privacyPolicyTitle')}</h1>
       <p className="text-sm text-gray-600 mb-6">
@@ -50,6 +51,7 @@ const PrivacyPolicyPage: React.FC = () => {
       <p>{t('contactTitleAddress')}: {t('addressText')}</p>
       <p>{t('contactTitleEmail')}: {t('emailLabel')} - export@intracosta.gr</p>
       <p>{t('contactTitlePhone')}: {t('phoneLabel')} - +30 23820 27112</p>
+      </div>
     </div>
   );
 };
