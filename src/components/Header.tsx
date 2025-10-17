@@ -422,20 +422,33 @@ const Header: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 />
                 
-                {/* Bottom Sheet */}
+                {/* Top Slide Menu */}
                 <motion.div
-                  className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl shadow-2xl lg:hidden"
-                  initial={{ y: "100%" }}
+                  className="fixed top-0 left-0 right-0 z-50 bg-white shadow-2xl lg:hidden"
+                  initial={{ y: "-100%" }}
                   animate={{ y: 0 }}
-                  exit={{ y: "100%" }}
+                  exit={{ y: "-100%" }}
                   transition={{ type: "spring", damping: 30, stiffness: 300 }}
                 >
-                  {/* Handle */}
-                  <div className="flex justify-center pt-3 pb-2">
-                    <div className="w-12 h-1 bg-gray-300 rounded-full"></div>
+                  {/* Header with close button */}
+                  <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                    <div className="flex items-center space-x-3">
+                      <img
+                        src="/intracosta001.png"
+                        alt="Intracosta Logo"
+                        className="h-8 w-auto"
+                      />
+                      <span className="font-semibold text-gray-900">Menu</span>
+                    </div>
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
                   </div>
                   
-                  <div className="px-6 pb-8 max-h-[80vh] overflow-y-auto">
+                  <div className="px-6 py-4 max-h-[calc(100vh-80px)] overflow-y-auto">
                     <nav className="flex flex-col space-y-1" role="navigation" aria-label="Mobile navigation">
                       {menuItems.map((item) => (
                         <div key={item.key}>
