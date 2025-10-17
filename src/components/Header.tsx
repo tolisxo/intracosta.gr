@@ -185,11 +185,15 @@ const Header: React.FC = () => {
               >
                 <div itemScope itemType="https://schema.org/Organization">
                   <img
-                    src="/intracosta001.png"
+                    src="/intracosta-logo.svg"
                     alt="Intracosta Logo"
-                    className={`object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl ${
-                      isCompact ? 'h-14 w-28 lg:h-20 lg:w-40' : 'h-16 w-32 lg:h-28 lg:w-56'
-                    }`}
+                    className="object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl"
+                    style={{
+                      height: isCompact ? '56px' : '64px',
+                      width: isCompact ? '112px' : '128px',
+                      minWidth: isCompact ? '112px' : '128px',
+                      maxWidth: isCompact ? '112px' : '128px'
+                    }}
                     itemProp="logo"
                   />
                   <meta itemProp="name" content="Intracosta" />
