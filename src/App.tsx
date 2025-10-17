@@ -10,6 +10,7 @@ import NavigationIndicator from './components/NavigationIndicator';
 import MobileBottomNav from './components/MobileBottomNav';
 import './styles/mobile-optimizations.css';
 import SmoothScroll from './components/ui/smooth-scroll';
+import PerformanceMonitor from './components/ui/PerformanceMonitor';
 import Header from './components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Hero from './components/Hero';
@@ -46,6 +47,7 @@ const AppContent: React.FC = () => {
       <GoogleBusinessIntegration />
       <ReviewSchema />
       <SitemapGenerator />
+      <PerformanceMonitor />
       <Router>
         <div className="min-h-screen">
           <Header />
