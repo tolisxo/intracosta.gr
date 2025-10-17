@@ -18,6 +18,46 @@ const FAQ: React.FC = () => {
     {
       question: t('faq3Question'),
       answer: t('faq3Answer')
+    },
+    {
+      question: t('faq4Question'),
+      answer: t('faq4Answer')
+    },
+    {
+      question: t('faq5Question'),
+      answer: t('faq5Answer')
+    },
+    {
+      question: t('faq6Question'),
+      answer: t('faq6Answer')
+    },
+    {
+      question: t('faq7Question'),
+      answer: t('faq7Answer')
+    },
+    {
+      question: t('faq8Question'),
+      answer: t('faq8Answer')
+    },
+    {
+      question: t('faq9Question'),
+      answer: t('faq9Answer')
+    },
+    {
+      question: t('faq10Question'),
+      answer: t('faq10Answer')
+    },
+    {
+      question: t('faq11Question'),
+      answer: t('faq11Answer')
+    },
+    {
+      question: t('faq12Question'),
+      answer: t('faq12Answer')
+    },
+    {
+      question: t('faq13Question'),
+      answer: t('faq13Answer')
     }
   ];
 
