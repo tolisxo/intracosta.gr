@@ -221,10 +221,10 @@ const Header: React.FC = () => {
                           isCoverageOpen ? 'rotate-180' : ''
                         } group-hover:scale-110`} />
                         {/* Custom hover underline */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
                         {/* Active underline */}
                         {isActive(item.key) && (
-                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
+                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
                         )}
                       </button>
 
@@ -298,10 +298,10 @@ const Header: React.FC = () => {
                         {item.icon && <item.icon className="w-4 h-4" />}
                         <span className="relative z-10">{t(item.key)}</span>
                         {/* Custom hover underline */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
                         {/* Active underline */}
                         {isActive(item.key) && (
-                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
+                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
                         )}
                       </a>
                     </div>
@@ -322,11 +322,11 @@ const Header: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                       {item.icon && <item.icon className="w-4 h-4" />}
                       <span className="relative z-10">{t(item.key)}</span>
-                      {/* Custom hover underline */}
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg"></div>
-                      {/* Active underline */}
+                      {/* Custom hover underline - centered on text */}
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 group-hover:w-12 group-hover:shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
+                      {/* Active underline - centered on text */}
                       {isActive(item.key) && (
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg" style={{ left: item.icon ? 'calc(50% + 8px)' : '50%' }}></div>
                       )}
                     </a>
                   )}
