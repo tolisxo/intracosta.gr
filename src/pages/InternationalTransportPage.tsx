@@ -12,7 +12,7 @@ const InternationalTransportPage: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-8 px-4 scroll-mt-20">
       <Breadcrumbs items={crumbs} className="mb-4" />
       <h1 className="text-3xl font-bold mb-4">
         {t('internationalTransportTitle')}
