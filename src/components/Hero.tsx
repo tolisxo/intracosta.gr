@@ -48,9 +48,9 @@ const Hero: React.FC = () => {
           </ScrollAnimation>
           
           <ScrollAnimation animation="fadeInUp" delay={0.4}>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
+            <h1 className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
               Αξιόπιστες διεθνείς μεταφορές σε όλη την Ευρώπη
-            </p>
+            </h1>
           </ScrollAnimation>
           
           <ScrollAnimation animation="slideInUp" delay={0.6}>
