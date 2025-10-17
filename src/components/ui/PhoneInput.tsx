@@ -117,6 +117,14 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
               <div 
                 className="fixed inset-0 z-10" 
                 onClick={() => setIsDropdownOpen(false)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') {
+                    setIsDropdownOpen(false);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label="Close country selector"
               />
               <div className="absolute top-full left-0 z-20 mt-1 w-64 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
                 {countries.map((country) => (

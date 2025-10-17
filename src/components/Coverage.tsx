@@ -216,6 +216,14 @@ const Coverage: React.FC = () => {
                     <div 
                       className="fixed inset-0 z-20" 
                       onClick={() => setSelectedCountry(null)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Escape') {
+                          setSelectedCountry(null);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Close coverage details"
                     />
                     
                     {/* Popover Card */}
@@ -372,6 +380,16 @@ const Coverage: React.FC = () => {
                   onClick={() => {
                     setExpandedCountry(expandedCountry === country.name ? null : country.name);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setExpandedCountry(expandedCountry === country.name ? null : country.name);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={expandedCountry === country.name}
+                  aria-label={`Toggle details for ${country.name}`}
                 >
                   <div className="flex flex-col items-center">
                     <MapPin className="w-8 h-8 text-gray-400 mb-3 group-hover:text-yellow-500 transition-colors" />
