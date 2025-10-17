@@ -9,7 +9,7 @@
     "build:production": "NODE_ENV=production vite build && node scripts/generate-sitemap.js",
     "deploy:prepare": "./deploy-to-cpanel.sh",
     "lint": "eslint .",
-    "lint:a11y": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:a11y": "eslint .",
     "typecheck": "tsc -p . --noEmit",
     "lhci": "lhci autorun",
     "preview": "vite preview",

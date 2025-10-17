@@ -8,6 +8,7 @@ import ReviewSchema from './components/SEO/ReviewSchema';
 import SitemapGenerator from './components/SEO/SitemapGenerator';
 import NavigationIndicator from './components/NavigationIndicator';
 import MobileBottomNav from './components/MobileBottomNav';
+import SkipLink from './components/a11y/SkipLink';
 import './styles/mobile-optimizations.css';
 import SmoothScroll from './components/ui/smooth-scroll';
 import PerformanceMonitor from './components/ui/PerformanceMonitor';
@@ -50,10 +51,11 @@ const AppContent: React.FC = () => {
       <PerformanceMonitor />
       <Router>
         <div className="min-h-screen">
+          <SkipLink />
           <Header />
           <NavigationIndicator />
           <MobileBottomNav />
-          <main id="main-content" role="main">
+          <main id="main-content" role="main" tabIndex={-1}>
             <Routes>
               <Route
                 path="/"
