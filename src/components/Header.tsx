@@ -257,7 +257,6 @@ const Header: React.FC = () => {
                                   <span className="text-xl group-hover:scale-110 transition-transform duration-300">{country.flag}</span>
                                   <div>
                                     <div className="font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">{t(country.name)}</div>
-                                    <div className="text-xs text-gray-500 group-hover:text-orange-600 transition-colors duration-300">{country.routes}</div>
                                   </div>
                                 </div>
                                 <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all duration-300 rotate-[-90deg]" />
