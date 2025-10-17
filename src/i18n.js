@@ -23,7 +23,7 @@ i18n
     resources,
     lng: 'el', // Default language
     fallbackLng: 'el',
-    debug: false, // Set to false for production
+    debug: true, // Enable debug to see translation issues
     interpolation: {
       escapeValue: false, // react already safes from xss
     },
