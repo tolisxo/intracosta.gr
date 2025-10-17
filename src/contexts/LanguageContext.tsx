@@ -1119,25 +1119,10 @@ const translations: Translations = {
     en: 'Warehouses',
     de: 'Lagerhäuser'
   },
-  postalCodesTitle: {
-    el: 'Ταχυδρομικοί Κωδικοί',
-    en: 'Postal Codes',
-    de: 'Postleitzahlen'
-  },
   centralWarehouse: {
     el: 'Κεντρική Αποθήκη',
     en: 'Central Warehouse',
     de: 'Zentrales Lager'
-  },
-  centralWarehouseShort: {
-    el: 'Κεντρική',
-    en: 'Central',
-    de: 'Zentral'
-  },
-  postalCodeLabel: {
-    el: 'ΤΚ',
-    en: 'PC',
-    de: 'PLZ'
   }
 };
 
