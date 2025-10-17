@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import NAP from './SEO/NAP';
 import { Menu, X, Globe, Truck, ChevronDown, Search, MapPin, Phone, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isCoverageOpen, setIsCoverageOpen] = useState(false);
+  const [isCountriesExpanded, setIsCountriesExpanded] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
@@ -168,7 +170,7 @@ const Header: React.FC = () => {
         }`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className={`flex justify-between items-center transition-all duration-300 ${
-              isCompact ? 'py-2 lg:py-3' : 'py-4 lg:py-6'
+              isCompact ? 'py-3 lg:py-4' : 'py-4 lg:py-6'
             }`}>
             {/* Logo */}
               <div className="flex items-center justify-start ml-8 lg:ml-12 mr-auto">
@@ -186,7 +188,7 @@ const Header: React.FC = () => {
                     src="/intracosta001.png"
                     alt="Intracosta Logo"
                     className={`object-contain transition-all duration-300 group-hover:brightness-110 drop-shadow-lg hover:drop-shadow-xl ${
-                      isCompact ? 'h-16 w-32 lg:h-20 lg:w-40' : 'h-20 w-40 lg:h-28 lg:w-56'
+                      isCompact ? 'h-14 w-28 lg:h-20 lg:w-40' : 'h-16 w-32 lg:h-28 lg:w-56'
                     }`}
                     itemProp="logo"
                   />
@@ -403,64 +405,126 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
-          <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
-            isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          }`}>
-            <div className="py-6 border-t border-gray-100 bg-gradient-to-b from-white to-gray-50">
-              <nav className="flex flex-col space-y-2" role="navigation" aria-label="Mobile navigation">
-                {menuItems.map((item) => (
-                  <div key={item.key}>
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(item.href);
-                      }}
-                      className={`w-full flex items-center space-x-4 px-6 py-4 text-left rounded-xl transition-all duration-300 mx-2 group ${
-                        isActive(item.key)
-                          ? 'text-yellow-600'
-                          : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
-                      }`}
-                    >
-                      {item.icon && <item.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />}
-                      <div>
-                        <div className="font-semibold text-lg">{t(item.key)}</div>
-                        <div className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-300">{item.description}</div>
-                      </div>
-                    </a>
-                    
-                    {/* Mobile Coverage Countries */}
-                    {item.key === 'coverage' && item.countries && (
-                      <div className="ml-12 mt-3 space-y-2">
-                        {item.countries.slice(0, 4).map((country) => (
-                          <div key={country.name} className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 rounded-lg hover:underline hover:decoration-yellow-500 hover:underline-offset-4 transition-colors duration-300">
-                            <span>{country.flag}</span>
-                            <span>{t(country.name)}</span>
-                          </div>
-                        ))}
-                        <div className="px-3 py-2 text-xs text-gray-500 font-medium">
-                          +{(item.countries.length - 4)} περισσότερες...
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
+          {/* Mobile Bottom Sheet Menu */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <>
+                {/* Backdrop */}
+                <motion.div 
+                  className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setIsMenuOpen(false)}
+                />
                 
-                {/* Mobile CTA */}
-                <a
-                  href="#quote"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('#quote');
-                  }}
-                  className="mx-6 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
+                {/* Bottom Sheet */}
+                <motion.div
+                  className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-3xl shadow-2xl lg:hidden"
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "100%" }}
+                  transition={{ type: "spring", damping: 30, stiffness: 300 }}
                 >
-                  {t('getQuote')}
-                </a>
-              </nav>
-            </div>
-          </div>
+                  {/* Handle */}
+                  <div className="flex justify-center pt-3 pb-2">
+                    <div className="w-12 h-1 bg-gray-300 rounded-full"></div>
+                  </div>
+                  
+                  <div className="px-6 pb-8 max-h-[80vh] overflow-y-auto">
+                    <nav className="flex flex-col space-y-1" role="navigation" aria-label="Mobile navigation">
+                      {menuItems.map((item) => (
+                        <div key={item.key}>
+                          <a
+                            href={item.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              scrollToSection(item.href);
+                              setIsMenuOpen(false);
+                            }}
+                            className={`w-full flex items-center space-x-3 px-4 py-3 text-left rounded-lg transition-all duration-200 group ${
+                              isActive(item.key)
+                                ? 'text-yellow-600 bg-yellow-50'
+                                : 'text-gray-700 hover:text-yellow-600 hover:bg-gray-50'
+                            }`}
+                          >
+                            {item.icon && <item.icon className="w-5 h-5 flex-shrink-0" />}
+                            <div className="flex-1">
+                              <div className="font-medium text-base">{t(item.key)}</div>
+                              <div className="text-sm text-gray-500">{item.description}</div>
+                            </div>
+                          </a>
+                          
+                          {/* Collapsible Countries Accordion */}
+                          {item.key === 'coverage' && item.countries && (
+                            <div className="ml-8 mt-1">
+                              <button
+                                onClick={() => setIsCountriesExpanded(!isCountriesExpanded)}
+                                className="flex items-center justify-between w-full px-3 py-2 text-sm text-gray-600 hover:text-yellow-600 transition-colors"
+                              >
+                                <span>Περιοχές ({item.countries.length})</span>
+                                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                                  isCountriesExpanded ? 'rotate-180' : ''
+                                }`} />
+                              </button>
+                              <motion.div
+                                initial={false}
+                                animate={{
+                                  height: isCountriesExpanded ? 'auto' : 0,
+                                  opacity: isCountriesExpanded ? 1 : 0
+                                }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="space-y-1 pt-1">
+                                  {item.countries.map((country) => (
+                                    <div key={country.name} className="flex items-center space-x-2 px-3 py-1.5 text-sm text-gray-600 rounded hover:bg-gray-50 transition-colors">
+                                      <span className="text-base">{country.flag}</span>
+                                      <span>{t(country.name)}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      
+                      {/* Divider */}
+                      <div className="border-t border-gray-200 my-4"></div>
+                      
+                      {/* Mobile CTA */}
+                      <a
+                        href="#quote"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection('#quote');
+                          setIsMenuOpen(false);
+                        }}
+                        className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
+                      >
+                        {t('getQuote')}
+                      </a>
+                      
+                      {/* EU Funding Logos */}
+                      <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-3 mt-6 pt-4 border-t border-gray-200">
+                        <img 
+                          src="/e-bannerseuerdf730x90-1.jpg" 
+                          alt="European Union Regional Development Fund" 
+                          className="h-5 sm:h-6 w-auto opacity-80 max-w-[100px] sm:max-w-none"
+                        />
+                        <img 
+                          src="/sticker-website_etpa_gr_highres-1.jpg" 
+                          alt="ΕΣΠΑ 2014-2020" 
+                          className="h-5 sm:h-6 w-auto opacity-80 max-w-[100px] sm:max-w-none"
+                        />
+                      </div>
+                    </nav>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       </div>
       </header>
