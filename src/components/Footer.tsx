@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <nav aria-label="Quick links">
             <h3 className="text-lg font-semibold mb-6">{t('quickLinks')}</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -71,10 +71,10 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
-          <div>
+          <nav aria-label="Our services">
             <h3 className="text-lg font-semibold mb-6">{t('ourServices')}</h3>
             <ul className="space-y-3">
               {services.map((service) => (
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact Info */}
           <div>
