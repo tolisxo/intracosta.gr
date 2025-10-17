@@ -407,8 +407,8 @@ const Header: React.FC = () => {
           <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
             isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}>
-            <div className="py-6 border-t border-gray-100 bg-gradient-to-b from-white to-gray-50">
-              <nav className="flex flex-col space-y-2" role="navigation" aria-label="Mobile navigation">
+            <div className="py-4 border-t border-gray-200 bg-white shadow-lg">
+              <nav className="flex flex-col space-y-1" role="navigation" aria-label="Mobile navigation">
                 {menuItems.map((item) => (
                   <div key={item.key}>
                     <a
@@ -417,10 +417,10 @@ const Header: React.FC = () => {
                         e.preventDefault();
                         scrollToSection(item.href);
                       }}
-                      className={`w-full flex items-center space-x-4 px-6 py-4 text-left rounded-xl transition-all duration-300 mx-2 group ${
+                      className={`w-full flex items-center space-x-4 px-6 py-3 text-left transition-all duration-300 group ${
                         isActive(item.key)
-                          ? 'text-yellow-600'
-                          : 'text-gray-700 hover:text-yellow-600 hover:underline hover:decoration-yellow-500 hover:underline-offset-4'
+                          ? 'text-yellow-600 bg-yellow-50 border-r-4 border-yellow-500'
+                          : 'text-gray-700 hover:text-yellow-600 hover:bg-yellow-50'
                       }`}
                     >
                       {item.icon && <item.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />}
@@ -432,33 +432,36 @@ const Header: React.FC = () => {
                     
                     {/* Mobile Coverage Countries */}
                     {item.key === 'coverage' && item.countries && (
-                      <div className="ml-12 mt-3 space-y-2">
-                        {item.countries.slice(0, 4).map((country) => (
-                          <div key={country.name} className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 rounded-lg hover:underline hover:decoration-yellow-500 hover:underline-offset-4 transition-colors duration-300">
-                            <span>{country.flag}</span>
-                            <span>{t(country.name)}</span>
-                            <span className="text-xs text-gray-400 ml-auto">({country.routes})</span>
+                      <div className="ml-6 mt-3 space-y-1">
+                        {item.countries.slice(0, 6).map((country) => (
+                          <div key={country.name} className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-yellow-50 transition-colors duration-300">
+                            <span className="text-lg">{country.flag}</span>
+                            <span className="font-medium">{t(country.name)}</span>
                           </div>
                         ))}
-                        <div className="px-3 py-2 text-xs text-gray-500 font-medium">
-                          +{(item.countries.length - 4)} περισσότερες...
-                        </div>
+                        {item.countries.length > 6 && (
+                          <div className="px-3 py-2 text-xs text-gray-500 font-medium">
+                            +{(item.countries.length - 6)} περισσότερες...
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
                 ))}
                 
                 {/* Mobile CTA */}
-                <a
-                  href="#quote"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('#quote');
-                  }}
-                  className="mx-6 mt-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
-                >
-                  {t('getQuote')}
-                </a>
+                <div className="px-6 mt-4 pt-4 border-t border-gray-200">
+                  <a
+                    href="#quote"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('#quote');
+                    }}
+                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap block"
+                  >
+                    {t('getQuote')}
+                  </a>
+                </div>
               </nav>
             </div>
           </div>
